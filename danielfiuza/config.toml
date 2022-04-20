@@ -1,4 +1,4 @@
-baseurl = "https://daniel-fd.github.io/danielfiuza"
+baseurl = "https://daniel-fd.github.io"
 title = "danielfiuza"
 theme = "hugo-coder"
 languageCode = "en"
