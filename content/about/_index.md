@@ -22,7 +22,10 @@ A passionate and adaptable data scientist and business intelligence analyst with
 - 🤓 I'm curious, and adaptable.
 - 💬 Ask me about anything!
 - 📫 How to reach me: dafiuzadosil@gmail.com
-- 👀 Also on LinkedIn
+- 👀 Also on [LinkedIn](https://www.linkedin.com/in/daniel-fiuza-dosil/)
+
+
+[CV Download](https://github.com/Daniel-FD/Daniel-FD.github.io/blob/main/static/cv/Daniel_Fiuza_R_sum_.pdf)
 
 {{< embed-pdf url="./static/cv/Daniel_Fiuza_R_sum_.pdf">}}
 
