@@ -1,0 +1,9 @@
+Personal website.
+Compile on local server using:
+- hugo server
+Create changes in the HTML and CSS by running:
+- hugo
+This creates the static page in /docs [check congig.toml for confitration]
+If changes are pushed to github, and the settings of the repository are configured to github pages, this should automatically deploy at https://daniel-fd.github.io/.
+- Select main/docs as the branch
+- Domain has been redirected to danielfiuza.com on Google Domains

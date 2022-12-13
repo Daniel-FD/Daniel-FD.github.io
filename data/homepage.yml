@@ -1,0 +1,111 @@
+---
+banner:
+  title: Hello! I’m Daniel Fiuza
+social:
+  twitter: ""
+  linkedin: daniel-fiuza-dosil
+  github: Daniel-FD
+  gitlab: ""
+  facebook: ""
+  instagram: ""
+  gmail: dafiuzadosil
+about:
+  enable: true
+  content: Data Scientist
+  button:
+    btnText: Find out more
+    URL: "/about"
+skill:
+  enable: false
+  item:
+    - title: Python
+      logo: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png
+      description: Details coming soon, 
+    - title: AWS
+      logo: https://res.cloudinary.com/samrobbins/image/upload/v1591793272/logos/logos_javascript_adj1dx.svg
+      description: Details coming soon, contact me if you want to know more
+    - title: Python
+      logo: https://res.cloudinary.com/samrobbins/image/upload/v1591793272/logos/logos_javascript_adj1dx.svg
+      description: Details coming soon, contact me if you want to know more
+    - title: Python
+      logo: https://res.cloudinary.com/samrobbins/image/upload/v1591793272/logos/logos_javascript_adj1dx.svg
+      description: Details coming soon, contact me if you want to know more
+experience:
+  enable: true
+  item:
+    - logo: images/about/raptor_logo.png
+      title: Lead Data Scientist
+      company: Raptor BioTech
+      duration: 2021-
+    - logo: https://www.bdia.org.uk/getattachment/1f4a4143-6f8e-4939-af11-c2badf777bc7/Bryant-Dental.aspx
+      title: Business Intelligence Analyst
+      company: Bryant Dental
+      duration: 2021-
+    - logo: https://images.easyfundraising.org.uk/retailer/cropped/logo-loveholidays.jpg
+      title: Data Scientist
+      company: LoveHolidays
+      duration: 2021-2021
+    - logo: https://www.gstudyabroad.com/wp-content/uploads/2018/07/8q3Dxlkb_400x400.jpg
+      title: Associate Lecturer
+      company: South Bank University
+      duration: 2019-2021
+    - logo: https://solarimpulse.com/files/companies/logo/2019-11-23-161200/logoFluidTech.jpg
+      title: Co-Founder & Head of Engineering
+      company: FluidTech
+      duration: 2016-2021
+    - logo: https://static.firsttutors.ws/theme/2/images/opengraph/1.png
+      title: Private Tutor
+      company: FirstTutors
+      duration: 2017-2021
+    - logo: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png
+      title: Graduate Teaching Assistant (GTA)
+      company: Imperial College London
+      duration: 2017-2020
+education:
+  enable: true
+  item:
+    - title: Fellow in Data Science
+      year: 2021 - 2021
+      academy: Faculty AI
+      image: https://mms.businesswire.com/media/20190206005798/en/704492/22/Logo_03_01_19_bow.jpg
+    - title: PhD Fluid Mechanics, Civil and Environmental Engineering
+      year: 2017 - 2021
+      academy: Imperial College London
+      image: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png
+    - title: MSc Energy Engineering (Thermal Energy and Process Engineering) 
+      year: 2014 - 2016
+      academy: Aalborg Engineering
+      image: https://upload.wikimedia.org/wikipedia/commons/b/b9/AAU_logo_2012.png
+    - title: MSc Mechanical and Aerospace Engineering
+      year: 2014 - 2016
+      academy: West Virginia University
+      image: https://sciencesprings.files.wordpress.com/2022/03/west-virginia-university-logo.png
+    - title: BSc Industrial Engineering (Energy Technologies)
+      year: 2011 - 2015
+      academy: Universidad Carlos III de Madrid
+      image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo_UC3M.svg/1200px-Logo_UC3M.svg.png
+hackathons:
+  enable: false
+  item:
+    - title: Hack Cambridge 2019
+      description: Climate change simulator
+      image: https://res.cloudinary.com/samrobbins/image/upload/f_auto,q_auto/v1591793405/stickers/Hack_Cambridge_101_ozoq5d.png
+      url: none
+certifications:
+  enable: false
+  item:
+    - title: Microsoft Azure Fundamentals
+      image: https://res.cloudinary.com/samrobbins/image/upload/v1592501459/microsoft-certified-fundamentals-badge_cpcgyn.svg
+      url: https://www.youracclaim.com/badges/b4cf7a86-eb83-478e-bfd0-9f427c3474a0/public_url
+
+leadership:
+  enable: false
+  item:
+    - logo: https://res.cloudinary.com/samrobbins/image/upload/f_auto,q_auto/v1591793280/logos/logos_yl_qozav6.webp
+      title: Young Leader
+      company: The Scout Association
+      duration: September 2014 - July 2018
+portfolio:
+  filter:
+    - label: Web Dev
+      value: web-dev

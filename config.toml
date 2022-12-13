@@ -1,0 +1,81 @@
+# Base information
+baseURL = "https://daniel-fd.github.io"
+languageCode = "en-gb"
+title = "Daniel Fiuza Dosil"
+# theme = "hugo-developer-portfolio"
+googleAnalytics = ""
+publishDir = "docs"
+
+# Remove this when using normally
+# themesDir = "../../" 
+# `
+[module]
+  [[module.imports]]
+    path = "hugo-developer-portfolio"
+
+# Plugins
+[params.plugins]
+
+  # CSS Plugins
+  [[params.plugins.css]]
+  URL = "https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css"
+
+  # JS Plugins
+  [[params.plugins.js]]
+  URL = "https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"
+  [[params.plugins.js]]
+  URL = "https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"
+
+
+# navigation
+[menu]
+
+  [[menu.main]]
+  name = "About"
+  URL = "about"
+  weight=1
+
+#  [[menu.main]]
+#  name = "Blog"
+#  URL = "blog"
+#  weight=2
+
+#  [[menu.main]]
+#  name = "Portfolio"
+#  URL = "portfolio"
+# weight=3
+
+  [[menu.main]]
+  name = "Contact"
+  URL = "contact"
+  weight=4
+
+
+[params]
+home = "Home"
+# Meta data
+description = "Daniel Fiuza's Personal Website"
+author = "Daniel Fiuza"
+
+
+  [params.contact]
+  enable = true
+  formAction = "https://formspree.io/f/xpznvego" #contact form works with formspree.io
+
+  [params.footer]
+  email = "dafiuzadosil@gmail.com"
+  address = "Spain"
+  googlemaps = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12544507.078988884!2d-12.695868389347872!3d39.86026301703484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc42e3783261bc8b%3A0xa6ec2c940768a3ec!2sSpain!5e0!3m2!1sen!2ses!4v1670928631917!5m2!1sen!2ses"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "rainbow_dash"
+    tabWidth = 4
+
