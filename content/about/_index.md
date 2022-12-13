@@ -25,5 +25,8 @@ A passionate and adaptable data scientist and business intelligence analyst with
 - 👀 Also on LinkedIn
 
 
+<!-- ![CV](cv/Daniel_Fiuza_R_sum_.pdf) -->
+{{< embed-pdf url="cv/Daniel_Fiuza_R_sum_.pdf">}}
+
 <!-- I have excellent analytical, coding, business acumen and problem-solving skills acquired during my educational, research and commercial period. I have developed great communication skills, and I can present complex topics in simple terms. I am very adaptable, creative and resilient. -->
 
