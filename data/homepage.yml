@@ -33,14 +33,18 @@ skill:
 experience:
   enable: true
   item:
+    - logo: https://cdn.prod.website-files.com/63f37eb972bfb11db3ead91a/65097a2200f80ba3b79a7ad3_hf-logo-blue.svg
+      title: Lead Data Scientist
+      company: HelpFirst AI
+      duration: 2023-
     - logo: images/about/raptor_logo.png
       title: Lead Data Scientist
       company: Raptor BioTech
-      duration: 2021-
-    - logo: https://www.bdia.org.uk/getattachment/1f4a4143-6f8e-4939-af11-c2badf777bc7/Bryant-Dental.aspx
+      duration: 2021-2024
+    - logo: https://media.licdn.com/dms/image/v2/C4E0BAQFfXY8iBq8RlA/company-logo_200_200/company-logo_200_200/0/1630617996888/bryant_dental_logo?e=2147483647&v=beta&t=81oXgYpqEoUb51ECwdOAcgBSi4dcg3CgFqEfEDHenfs
       title: Business Intelligence Analyst
       company: Bryant Dental
-      duration: 2021-
+      duration: 2021-2024
     - logo: https://images.easyfundraising.org.uk/retailer/cropped/logo-loveholidays.jpg
       title: Data Scientist
       company: LoveHolidays
