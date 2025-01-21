@@ -3,7 +3,7 @@
     <div class="uk-container uk-text-center">
         <h1>Hello! <span id="typed-title"></span></h1>
         <div class="title">{{ .Site.Data.homepage.banner.subtitle | safeHTML }}</div>
-        <a href="/about" class="cta">Find out more</a>
+        <a href="/about" class="cta">About me</a>
         <div class="section-links">
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
@@ -65,7 +65,7 @@
 </script>
 
 {{ if .Site.Data.homepage.about.enable }}
-<section class="uk-margin-large-top">
+<section class="uk-margin-medium-top">
     <div class="uk-container">
         <div class="uk-text-center">
             {{ with .Site.Data.homepage.about }}

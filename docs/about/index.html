@@ -31,7 +31,7 @@
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap ">
   
-  <link rel="stylesheet" href="http://192.168.1.122:1313/css/custom.css ">
+  <link rel="stylesheet" href="http://localhost:1313/css/custom.css ">
   
 
   <!-- Main Stylesheet -->
@@ -40,7 +40,7 @@
   
   <link rel="stylesheet" href="/css/syntax.min.css" integrity="" media="screen">
 
-  <link rel="alternate" type="application/rss+xml" href="http://192.168.1.122:1313/about/index.xml" title="Daniel Fiuza Dosil" />
+  <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/about/index.xml" title="Daniel Fiuza Dosil" />
 <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
 
   <!--Favicon-->
@@ -95,7 +95,7 @@
 
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             
-            <li><a style="font-size: 18px" href="http://192.168.1.122:1313/"> Home </a></li>
+            <li><a style="font-size: 18px" href="http://localhost:1313/"> Home </a></li>
 
             
             
@@ -141,7 +141,7 @@
   <div class="uk-container">
     <div class="uk-flex-center" uk-grid>
       <div class="uk-width-1-2 uk-width-1-3@s">
-        <img src="http://192.168.1.122:1313/images/about/photo_me.jpg" alt="author">
+        <img src="http://localhost:1313/images/about/photo_me.jpg" alt="author">
       </div>
       <div class="uk-width-expand@m">
         <!-- raw HTML omitted -->
@@ -219,7 +219,7 @@
 window.onload = function() {
 
 
-var url = "http:\/\/192.168.1.122:1313\/" + '(https:\/\/github.com\/Daniel-FD\/Daniel-FD.github.io\/blob\/main\/static\/cv\/CV_Daniel-Fiuza-Dosil.pdf';
+var url = "http:\/\/localhost:1313\/" + '(https:\/\/github.com\/Daniel-FD\/Daniel-FD.github.io\/blob\/main\/static\/cv\/CV_Daniel-Fiuza-Dosil.pdf';
 
 var hidePaginator = "" === "true";
 var hideLoader = "" === "true";
@@ -229,7 +229,7 @@ var selectedPageNum = parseInt("") || 1;
 var pdfjsLib = window['pdfjs-dist/build/pdf'];
 
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = "http:\/\/192.168.1.122:1313\/" + '/js/pdf-js/build/pdf.worker.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = "http:\/\/localhost:1313\/" + '/js/pdf-js/build/pdf.worker.js';
 
 
 var pdfDoc = null,
@@ -370,22 +370,12 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
     </div>
 <footer class="footer">
   <div class="uk-container">
-
     <div class="uk-grid-small uk-child-width-1-4@m uk-text-center uk-flex-center uk-margin-medium-bottom" uk-grid>
       <div class="uk-margin-small-bottom">
         <h5 class="uk-margin-small-bottom">Email</h5>
         <a href="mailto:dafiuzadosil@gmail.com">dafiuzadosil@gmail.com</a>
-
-      </div>
-      <div>
-        <h5 class="uk-margin-small-bottom">Address</h5>
-          <div uk-lightbox>
-            <a href="" data-caption=""
-               data-type="iframe"></a>
-          </div>
       </div>
     </div>
-
 
     <div class="footer-copyright uk-text-center" style="padding-bottom: 1rem">
       <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1.2em;
@@ -398,12 +388,10 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   </div>
 </footer>
 
-
 <!-- JS Plugins -->
 
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
-
-</body>
+ </body>
 </html>
