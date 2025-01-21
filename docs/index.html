@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=52580&amp;path=livereload" data-no-instant defer></script><style>
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><style>
     html {
         height: 100vh;
     }
@@ -31,7 +31,7 @@
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap ">
   
-  <link rel="stylesheet" href="http://localhost:52580/css/custom.css ">
+  <link rel="stylesheet" href="http://localhost:1313/css/custom.css ">
   
 
   <!-- Main Stylesheet -->
@@ -40,7 +40,7 @@
   
   <link rel="stylesheet" href="/css/syntax.min.css" integrity="" media="screen">
 
-  <link rel="alternate" type="application/rss+xml" href="http://localhost:52580/index.xml" title="Daniel Fiuza Dosil" />
+  <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Daniel Fiuza Dosil" />
 <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
 
   <!--Favicon-->
@@ -57,7 +57,7 @@
             <ul class="uk-navbar-nav uk-visible@s">
                 
                 <li class="uk-active "><a style="font-size: 18px; text-transform: none"
-                        href="http://localhost:52580/"> Home </a></li>
+                        href="http://localhost:1313/"> Home </a></li>
                 
                 
                 
@@ -93,7 +93,7 @@
 
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             
-            <li class="uk-active"><a style="font-size: 18px" href="http://localhost:52580/"> Home </a>
+            <li class="uk-active"><a style="font-size: 18px" href="http://localhost:1313/"> Home </a>
             </li>
             
             
@@ -125,8 +125,8 @@
 
 <section class="banner">
     <div class="uk-container uk-text-center">
-        <h1>Hello! I'm Daniel Fiuza</h1>
-        <div class="title">Data Scientist</div>
+        <h1>Hello! <span id="typed-title"></span></h1>
+        <div class="title">Data Scientist | ML Engineer</div>
         <a href="/about" class="cta">Find out more</a>
         <div class="section-links">
             <a href="#experience">Experience</a>
@@ -155,11 +155,45 @@
 </section>
 
 
+<style>
+    .typed-cursor {
+        font-weight: 100 !important;
+        opacity: 0 !important;
+        animation: blink 1s infinite !important;
+        width: 2px !important;
+        background-color: currentColor !important;
+        margin-left: 2px !important;
+        display: inline-block !important;
+        height: 1em !important;
+        vertical-align: text-top !important;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 0 !important; }
+        50% { opacity: 0.7 !important; }
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var typed = new Typed('#typed-title', {
+            strings: ["I'm Daniel Fiuza"],
+            typeSpeed: 100,
+            backSpeed: 0,
+            loop: false,
+            showCursor: true,
+            cursorChar: '|',
+            startDelay: 500
+        });
+    });
+</script>
+
+
 
 
 <section id="experience" class="uk-margin-large-bottom">
     <div class="uk-container">
-        <h1 class="uk-heading-line uk-heading-medium"><span>Experience</span></h1>
+        <h1 class="title uk-text-center">Experience</h1>
         
         <div class="experience-card">
             <img src="https://cdn.prod.website-files.com/63f37eb972bfb11db3ead91a/65097a2200f80ba3b79a7ad3_hf-logo-blue.svg" alt="HelpFirst AI">
@@ -231,7 +265,7 @@
 
 <section id="education" class="uk-margin-large-bottom">
     <div class="uk-container">
-        <h1 class="uk-heading-line uk-heading-medium"><span>Education</span></h1>
+        <h1 class="title uk-text-center">Education</h1>
         
         <div class="education-card">
             <img src="https://mms.businesswire.com/media/20190206005798/en/704492/22/Logo_03_01_19_bow.jpg" alt="Faculty AI">

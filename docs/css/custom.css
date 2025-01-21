@@ -366,3 +366,24 @@ a:hover {
 .banner .cta:hover {
     opacity: 0.7;
 }
+
+/* Page titles (About, Contact) */
+.uk-heading-large {
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    font-size: 2rem !important;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 2rem 0;
+    color: #1a1a1a;
+}
+
+/* Section titles */
+section h1.title {
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    font-size: 2rem;
+    color: #1a1a1a;
+    font-weight: 400;
+    margin: 2rem 0;
+    letter-spacing: -0.02em;
+    text-align: left;
+}

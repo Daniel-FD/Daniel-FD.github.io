@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="banner">
     <div class="uk-container uk-text-center">
-        <h1>{{ .Site.Data.homepage.banner.title | safeHTML }}</h1>
+        <h1>Hello! <span id="typed-title"></span></h1>
         <div class="title">{{ .Site.Data.homepage.banner.subtitle | safeHTML }}</div>
         <a href="/about" class="cta">Find out more</a>
         <div class="section-links">
@@ -30,6 +30,40 @@
     </div>
 </section>
 
+<!-- Add Typed.js library -->
+<style>
+    .typed-cursor {
+        font-weight: 100 !important;
+        opacity: 0 !important;
+        animation: blink 1s infinite !important;
+        width: 2px !important;
+        background-color: currentColor !important;
+        margin-left: 2px !important;
+        display: inline-block !important;
+        height: 1em !important;
+        vertical-align: text-top !important;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 0 !important; }
+        50% { opacity: 0.7 !important; }
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var typed = new Typed('#typed-title', {
+            strings: ["I'm Daniel Fiuza"],
+            typeSpeed: 100,
+            backSpeed: 0,
+            loop: false,
+            showCursor: true,
+            cursorChar: '|',
+            startDelay: 500
+        });
+    });
+</script>
+
 {{ if .Site.Data.homepage.about.enable }}
 <section class="uk-margin-large-top">
     <div class="uk-container">
@@ -48,7 +82,7 @@
 {{ if .Site.Data.homepage.experience.enable }}
 <section id="experience" class="uk-margin-large-bottom">
     <div class="uk-container">
-        <h1 class="uk-heading-line uk-heading-medium"><span>Experience</span></h1>
+        <h1 class="title uk-text-center">Experience</h1>
         {{ range .Site.Data.homepage.experience.item }}
         <div class="experience-card">
             <img src="{{.logo}}" alt="{{.company}}">
@@ -66,7 +100,7 @@
 {{ if .Site.Data.homepage.education.enable }}
 <section id="education" class="uk-margin-large-bottom">
     <div class="uk-container">
-        <h1 class="uk-heading-line uk-heading-medium"><span>Education</span></h1>
+        <h1 class="title uk-text-center">Education</h1>
         {{ range .Site.Data.homepage.education.item }}
         <div class="education-card">
             <img src="{{.image}}" alt="{{.academy}}">
