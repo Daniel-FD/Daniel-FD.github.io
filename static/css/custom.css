@@ -269,27 +269,28 @@ h2 {
     align-items: center;
     width: 48px;
     height: 48px;
-    min-width: 48px;  /* Prevent shrinking */
-    min-height: 48px; /* Prevent shrinking */
-    max-width: 48px;  /* Prevent expanding */
-    max-height: 48px; /* Prevent expanding */
+    min-width: 48px;
+    min-height: 48px;
+    max-width: 48px;
+    max-height: 48px;
     transition: transform 0.2s ease;
-    position: relative; /* For better size control */
+    position: relative;
+    overflow: hidden; /* Prevent SVG overflow */
 }
 
 .social-icons img {
-    width: 100%;
-    height: 100%;
+    width: 48px !important; /* Force width in Safari */
+    height: 48px !important; /* Force height in Safari */
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
     object-fit: contain;
-    max-width: 100%;
-    max-height: 100%;
-    -webkit-transform: scale(1); /* Fix for Safari */
+    -webkit-transform: translateZ(0); /* Safari fix */
+    -webkit-backface-visibility: hidden; /* Safari fix */
+    backface-visibility: hidden;
     transform: scale(1);
-    position: absolute; /* Force consistent sizing */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    display: block; /* Prevent inline spacing issues */
 }
 
 .social-icons a:hover {
@@ -513,6 +514,15 @@ section h1.title {
         max-height: 32px;
     }
 
+    .social-icons img {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+    }
+
     /* Container adjustments */
     .uk-container {
         padding: 0 1rem;
@@ -556,6 +566,15 @@ section h1.title {
         min-height: 28px;
         max-width: 28px;
         max-height: 28px;
+    }
+
+    .social-icons img {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+        max-width: 28px !important;
+        max-height: 28px !important;
     }
 
     .experience-card, .education-card {
