@@ -1,0 +1,83 @@
+{{ define "main" }}
+<section class="banner">
+    <div class="uk-container uk-text-center">
+        <h1>{{ .Site.Data.homepage.banner.title | safeHTML }}</h1>
+        <div class="title">{{ .Site.Data.homepage.banner.subtitle | safeHTML }}</div>
+        <a href="/about" class="cta">Find out more</a>
+        <div class="section-links">
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+        </div>
+        <div class="social-icons">
+            {{ with .Site.Data.homepage.social }}
+            {{ if .linkedin }}
+            <a href="https://www.linkedin.com/in/{{ .linkedin }}" target="_blank">
+                <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="LinkedIn" />
+            </a>
+            {{ end }}
+            {{ if .github }}
+            <a href="https://github.com/{{ .github }}" target="_blank">
+                <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="GitHub" />
+            </a>
+            {{ end }}
+            {{ if .gmail }}
+            <a href="mailto:{{ .gmail }}@gmail.com">
+                <img src="https://cdn.svgporn.com/logos/google-gmail.svg" alt="Gmail" />
+            </a>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+{{ if .Site.Data.homepage.about.enable }}
+<section class="uk-margin-large-top">
+    <div class="uk-container">
+        <div class="uk-text-center">
+            {{ with .Site.Data.homepage.about }}
+            <p class="uk-text-lead">{{.content | markdownify}}</p>
+            {{ with .button }}
+            <a class="uk-button uk-button-text" href="{{.URL| absURL}}">{{.btnText}}</a>
+            {{end}}
+            {{end}}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{ if .Site.Data.homepage.experience.enable }}
+<section id="experience" class="uk-margin-large-bottom">
+    <div class="uk-container">
+        <h1 class="uk-heading-line uk-heading-medium"><span>Experience</span></h1>
+        {{ range .Site.Data.homepage.experience.item }}
+        <div class="experience-card">
+            <img src="{{.logo}}" alt="{{.company}}">
+            <div class="content">
+                <div class="title">{{.title}}</div>
+                <div class="company">{{.company}}</div>
+                <div class="duration">{{.duration}}</div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+
+{{ if .Site.Data.homepage.education.enable }}
+<section id="education" class="uk-margin-large-bottom">
+    <div class="uk-container">
+        <h1 class="uk-heading-line uk-heading-medium"><span>Education</span></h1>
+        {{ range .Site.Data.homepage.education.item }}
+        <div class="education-card">
+            <img src="{{.image}}" alt="{{.academy}}">
+            <div class="content">
+                <div class="title">{{.title}}</div>
+                <div class="institution">{{.academy}}</div>
+                <div class="duration">{{.year}}</div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+{{ end }} 

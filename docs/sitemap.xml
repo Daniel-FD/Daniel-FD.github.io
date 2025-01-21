@@ -2,33 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://daniel-fd.github.io/categories/</loc>
+    <loc>http://localhost:52580/categories/</loc>
     <lastmod>2020-06-19T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/portfolio/hugo-portfolio-website/</loc>
+    <loc>http://localhost:52580/portfolio/hugo-portfolio-website/</loc>
     <lastmod>2020-06-19T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/categories/web-dev/</loc>
+    <loc>http://localhost:52580/categories/web-dev/</loc>
     <lastmod>2020-06-19T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/blog/first-blog/</loc>
+    <loc>http://localhost:52580/blog/first-blog/</loc>
     <lastmod>2019-12-31T12:14:34+06:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/about/</loc>
+    <loc>http://localhost:52580/about/</loc>
     <lastmod>2019-05-12T12:14:34+06:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/blog/</loc>
+    <loc>http://localhost:52580/blog/</loc>
     <lastmod>2019-05-12T12:14:34+06:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/contact/</loc>
+    <loc>http://localhost:52580/contact/</loc>
     <lastmod>2019-05-12T12:14:34+06:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/portfolio/</loc>
+    <loc>http://localhost:52580/portfolio/</loc>
     <lastmod>2019-05-12T12:14:34+06:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/</loc>
+    <loc>http://localhost:52580/</loc>
     <lastmod>2019-10-26T15:26:15+00:00</lastmod>
   </url><url>
-    <loc>https://daniel-fd.github.io/tags/</loc>
+    <loc>http://localhost:52580/tags/</loc>
   </url>
 </urlset>

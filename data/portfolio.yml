@@ -1,3 +1,34 @@
 filter:
   - label: Web Dev
     value: web-dev
+
+item:
+  - title: Prompt Optimiser Python Library
+    image: images/portfolio/llm.jpg
+    description: Development of a Python library for optimizing and evaluating LLM prompts, enabling systematic prompt engineering and evaluation.
+    link: https://www.helpfirst.ai/
+    tags: ["LLM", "Python", "AI"]
+    
+  - title: Customer Vulnerability Prediction
+    image: images/portfolio/nlp.jpg
+    description: Led the development of an award-winning LLM-powered AI solution for predicting customer vulnerability, resulting in £400k annual savings for Citizens Advice Scotland.
+    link: https://www.helpfirst.ai/
+    tags: ["LLM", "NLP", "Machine Learning"]
+    
+  - title: Automated Biometric Measurements
+    image: images/portfolio/cv.jpg
+    description: Developed patented AI solutions for automated face and posture measurements using computer vision and deep learning techniques.
+    link: https://bryant.dental/
+    tags: ["Computer Vision", "Deep Learning", "Healthcare"]
+    
+  - title: COVID-19 Breath Biomarker Analysis
+    image: images/portfolio/medical.jpg
+    description: Led the development of ML models for predicting COVID-19 infection from breath biomarkers, contributing to medical diagnostics innovation.
+    link: https://bryant.dental/
+    tags: ["Healthcare", "ML", "Diagnostics"]
+    
+  - title: Holiday Recommendation System
+    image: images/portfolio/recommender.jpg
+    description: Developed a recommendation system using gradient-boosted decision trees and clustering, leading to 2.8x increase in bookings and £17M projected revenue boost.
+    link: https://www.loveholidays.com/
+    tags: ["ML", "Recommender Systems", "Business Impact"]

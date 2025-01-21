@@ -1,0 +1,368 @@
+/* Custom minimalist styling */
+
+/* Typography */
+body {
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    line-height: 1.4;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    font-size: 15px;
+}
+
+/* Smooth transitions */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* Clean headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Refined cards */
+.uk-card {
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #f0f0f0;
+    background: #ffffff;
+}
+
+.uk-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+/* Experience timeline refinements */
+.experience-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.experience-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.experience-card img {
+    max-width: 60px;
+    min-width: 60px;
+    height: auto;
+}
+
+.experience-card .content {
+    flex: 1;
+}
+
+.experience-card .title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.experience-card .company {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.experience-card .duration {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.experience-card .description {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 0.75rem;
+}
+
+/* Education section */
+.education-section {
+    margin-top: 2rem;
+}
+
+.education-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.education-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.education-card img {
+    max-width: 60px;
+    min-width: 60px;
+    height: auto;
+}
+
+.education-card .content {
+    flex: 1;
+}
+
+.education-card .title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.education-card .institution {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.education-card .duration {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.education-card .description {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 0.75rem;
+}
+
+/* Portfolio styles (commented out but kept as reference) */
+/*
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+}
+
+.portfolio-item img {
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.02);
+}
+
+.portfolio-overlay {
+    background: rgba(255,255,255,0.98);
+    padding: 1.5rem;
+}
+*/
+
+/* Tags */
+.uk-label {
+    background: #f8f9fa;
+    color: #2d3436;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+}
+
+/* Buttons */
+.uk-button-primary {
+    background: #1a1a1a;
+    border-radius: 3px;
+    padding: 0.4rem 1rem;
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.uk-button-primary:hover {
+    background: #000;
+}
+
+/* Navigation */
+.uk-navbar-container {
+    background: rgba(255,255,255,0.98) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.5rem 0;
+}
+
+.uk-navbar-nav > li > a {
+    color: #1a1a1a;
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-height: 40px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.uk-navbar-nav > li > a:hover {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+/* Container width */
+.uk-container {
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+/* Footer */
+.footer {
+    background: #fafafa;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+}
+
+/* Social icons */
+.social-icons {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.social-icons img {
+    width: 48px;
+    height: 48px;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+.section-links {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-links a {
+    display: inline-block;
+    margin: 0 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+    transition: opacity 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.section-links a:hover {
+    opacity: 0.7;
+}
+
+/* Section spacing */
+section {
+    padding: 1rem 0;
+    position: relative;
+}
+
+section:first-of-type {
+    padding-top: 0;
+}
+
+section:not(:last-child)::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #f0f0f0;
+    margin: 2rem 0;
+}
+
+/* About section */
+.about-section {
+    margin: 2rem 0;
+}
+
+/* Text colors */
+.text-muted {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Links */
+a {
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #000;
+    border-bottom-color: #000;
+    text-decoration: none;
+}
+
+/* Banner section */
+.banner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.banner h1 {
+    font-size: 4.5rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.banner .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.banner .cta {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+    transition: opacity 0.2s ease;
+}
+
+.banner .cta:hover {
+    opacity: 0.7;
+}

@@ -1,6 +1,7 @@
 ---
 banner:
-  title: Hello! I’m Daniel Fiuza
+  title: Hello! I'm Daniel Fiuza
+  subtitle: Data Scientist
 social:
   twitter: ""
   linkedin: daniel-fiuza-dosil
@@ -10,40 +11,19 @@ social:
   instagram: ""
   gmail: dafiuzadosil
 about:
-  enable: true
-  content: Data Scientist
-  button:
-    btnText: Find out more
-    URL: "/about"
+  enable: false
 skill:
   enable: false
-  item:
-    - title: Python
-      logo: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png
-      description: Details coming soon, 
-    - title: AWS
-      logo: https://res.cloudinary.com/samrobbins/image/upload/v1591793272/logos/logos_javascript_adj1dx.svg
-      description: Details coming soon, contact me if you want to know more
-    - title: Python
-      logo: https://res.cloudinary.com/samrobbins/image/upload/v1591793272/logos/logos_javascript_adj1dx.svg
-      description: Details coming soon, contact me if you want to know more
-    - title: Python
-      logo: https://res.cloudinary.com/samrobbins/image/upload/v1591793272/logos/logos_javascript_adj1dx.svg
-      description: Details coming soon, contact me if you want to know more
 experience:
   enable: true
   item:
     - logo: https://cdn.prod.website-files.com/63f37eb972bfb11db3ead91a/65097a2200f80ba3b79a7ad3_hf-logo-blue.svg
-      title: Lead Data Scientist
+      title: Lead ML/LLM Engineer
       company: HelpFirst AI
-      duration: 2023-
-    - logo: images/about/raptor_logo.png
-      title: Lead Data Scientist
-      company: Raptor BioTech
-      duration: 2021-2024
+      duration: 2022-Present
     - logo: https://media.licdn.com/dms/image/v2/C4E0BAQFfXY8iBq8RlA/company-logo_200_200/company-logo_200_200/0/1630617996888/bryant_dental_logo?e=2147483647&v=beta&t=81oXgYpqEoUb51ECwdOAcgBSi4dcg3CgFqEfEDHenfs
-      title: Business Intelligence Analyst
-      company: Bryant Dental
+      title: Lead Data Scientist
+      company: Bryant Medical
       duration: 2021-2024
     - logo: https://images.easyfundraising.org.uk/retailer/cropped/logo-loveholidays.jpg
       title: Data Scientist
@@ -51,7 +31,7 @@ experience:
       duration: 2021-2021
     - logo: https://www.gstudyabroad.com/wp-content/uploads/2018/07/8q3Dxlkb_400x400.jpg
       title: Associate Lecturer
-      company: South Bank University
+      company: London South Bank University
       duration: 2019-2021
     - logo: https://solarimpulse.com/files/companies/logo/2019-11-23-161200/logoFluidTech.jpg
       title: Co-Founder & Head of Engineering
@@ -109,7 +89,10 @@ leadership:
       title: Young Leader
       company: The Scout Association
       duration: September 2014 - July 2018
+
+# Portfolio section (commented out but kept as placeholder)
 portfolio:
+  enable: false
   filter:
     - label: Web Dev
       value: web-dev
