@@ -1,19 +1,16 @@
 ---
+# Banner Section
 banner:
   title: Hello! I'm Daniel Fiuza
   subtitle: Data Scientist | ML Engineer
+
+# Social Links
 social:
-  twitter: ""
   linkedin: daniel-fiuza-dosil
   github: Daniel-FD
-  gitlab: ""
-  facebook: ""
-  instagram: ""
   gmail: dafiuzadosil
-about:
-  enable: false
-skill:
-  enable: false
+
+# Professional Experience
 experience:
   enable: true
   item:
@@ -21,30 +18,45 @@ experience:
       title: Lead ML/LLM Engineer
       company: HelpFirst AI
       duration: 2022-Present
-    - logo: https://media.licdn.com/dms/image/v2/C4E0BAQFfXY8iBq8RlA/company-logo_200_200/company-logo_200_200/0/1630617996888/bryant_dental_logo?e=2147483647&v=beta&t=81oXgYpqEoUb51ECwdOAcgBSi4dcg3CgFqEfEDHenfs
+      description: Leading the development of LLM-powered applications and AI solutions.
+
+    - logo: https://media.licdn.com/dms/image/v2/C4E0BAQFfXY8iBq8RlA/company-logo_200_200/company-logo_200_200/0/1630617996888/bryant_dental_logo
       title: Lead Data Scientist
       company: Bryant Medical
       duration: 2021-2024
+      description: Leading data science initiatives and ML implementations in healthcare.
+
     - logo: https://images.easyfundraising.org.uk/retailer/cropped/logo-loveholidays.jpg
       title: Data Scientist
       company: LoveHolidays
       duration: 2021-2021
+      description: Developed ML models for travel industry optimization.
+
     - logo: https://www.gstudyabroad.com/wp-content/uploads/2018/07/8q3Dxlkb_400x400.jpg
       title: Associate Lecturer
       company: London South Bank University
       duration: 2019-2021
+      description: Teaching and research in computer science and data science.
+
     - logo: https://solarimpulse.com/files/companies/logo/2019-11-23-161200/logoFluidTech.jpg
       title: Co-Founder & Head of Engineering
       company: FluidTech
       duration: 2016-2021
+      description: Led engineering team and developed innovative fluid dynamics solutions.
+
     - logo: https://static.firsttutors.ws/theme/2/images/opengraph/1.png
       title: Private Tutor
       company: FirstTutors
       duration: 2017-2021
-    - logo: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png
+      description: Tutoring in mathematics, physics, and programming.
+
+    - logo: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/256px-Logo_for_Imperial_College_London.svg.png
       title: Graduate Teaching Assistant (GTA)
       company: Imperial College London
       duration: 2017-2020
+      description: Teaching and research assistance in engineering department.
+
+# Education
 education:
   enable: true
   item:
@@ -52,22 +64,32 @@ education:
       year: 2021 - 2021
       academy: Faculty AI
       image: https://mms.businesswire.com/media/20190206005798/en/704492/22/Logo_03_01_19_bow.jpg
+      description: Advanced training in machine learning and data science.
+
     - title: PhD Fluid Mechanics, Civil and Environmental Engineering
       year: 2017 - 2021
       academy: Imperial College London
-      image: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png
-    - title: MSc Energy Engineering (Thermal Energy and Process Engineering) 
+      image: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/256px-Logo_for_Imperial_College_London.svg.png
+      description: Research in computational fluid dynamics and environmental flows.
+
+    - title: MSc Energy Engineering
       year: 2014 - 2016
       academy: Aalborg Engineering
       image: https://upload.wikimedia.org/wikipedia/commons/b/b9/AAU_logo_2012.png
+      description: Specialization in thermal energy and process engineering.
+
     - title: MSc Mechanical and Aerospace Engineering
       year: 2014 - 2016
       academy: West Virginia University
       image: https://sciencesprings.files.wordpress.com/2022/03/west-virginia-university-logo.png
-    - title: BSc Industrial Engineering (Energy Technologies)
+      description: Focus on mechanical systems and aerospace applications.
+
+    - title: BSc Industrial Engineering
       year: 2011 - 2015
       academy: Universidad Carlos III de Madrid
-      image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo_UC3M.svg/1200px-Logo_UC3M.svg.png
+      image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo_UC3M.svg/256px-Logo_UC3M.svg.png
+      description: Specialization in energy technologies and industrial processes.
+
 hackathons:
   enable: false
   item:
@@ -75,6 +97,7 @@ hackathons:
       description: Climate change simulator
       image: https://res.cloudinary.com/samrobbins/image/upload/f_auto,q_auto/v1591793405/stickers/Hack_Cambridge_101_ozoq5d.png
       url: none
+
 certifications:
   enable: false
   item:

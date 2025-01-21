@@ -1,83 +1,95 @@
-# Base information
+# Site Configuration
 baseURL = "https://daniel-fd.github.io"
 languageCode = "en-gb"
 title = "Daniel Fiuza Dosil"
-# theme = "hugo-developer-portfolio"
-googleAnalytics = ""
 publishDir = "docs"
+enableRobotsTXT = true
+enableGitInfo = true
+disableHugoGeneratorInject = true
 
-# Remove this when using normally
-# themesDir = "../../" 
-# `
 [module]
   [[module.imports]]
     path = "hugo-developer-portfolio"
 
-# Plugins
+# Asset Management
 [params.plugins]
-
   # CSS Plugins
   [[params.plugins.css]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css"
+  URL = "https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css"
   [[params.plugins.css]]
-  URL = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-  [[params.plugins.css]]
-  URL = "/css/custom.css"
+  URL = "/css/custom.css?v=2"
 
   # JS Plugins
   [[params.plugins.js]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"
-  [[params.plugins.js]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"
+  URL = "https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"
 
-
-# navigation
+# Navigation
 [menu]
-
   [[menu.main]]
   name = "About"
   URL = "about"
-  weight=1
-
-#  [[menu.main]]
-#  name = "Blog"
-#  URL = "blog"
-#  weight=2
-
-#  [[menu.main]]
-#  name = "Portfolio"
-#  URL = "portfolio"
-#  weight=3
+  weight = 1
 
   [[menu.main]]
   name = "Contact"
   URL = "contact"
-  weight=4
+  weight = 2
 
-
+# Site Parameters
 [params]
 home = "Home"
-# Meta data
-description = "Daniel Fiuza's Personal Website"
+description = "Daniel Fiuza - Data Scientist and ML Engineer specializing in AI solutions, with expertise in fluid mechanics and engineering."
 author = "Daniel Fiuza"
-
+image = "/logos/df_logo.png"
+keywords = ["data science", "machine learning", "AI", "engineering", "fluid mechanics"]
 
   [params.contact]
   enable = true
-  formAction = "https://formspree.io/f/xpznvego" #contact form works with formspree.io
+  formAction = "https://formspree.io/f/xpznvego"
 
   [params.footer]
   email = "dafiuzadosil@gmail.com"
+  copyright = "© 2024 Daniel Fiuza. All rights reserved."
 
+# Markdown Configuration
 [markup]
   [markup.highlight]
     codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
     lineNos = true
     lineNumbersInTable = true
     noClasses = true
     style = "rainbow_dash"
     tabWidth = 4
+
+# Performance and SEO
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+      keepEndTags = true
+      keepQuotes = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
 

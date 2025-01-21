@@ -1,32 +1,80 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ .Site.Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-  {{ "<!-- mobile responsive meta -->" | safeHTML }}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-  <meta name="image" property="og:image" content="/{{ with .Site.Params.image }}{{ . }}{{ else }}{{ with .Site.Params.image }}{{ . }}{{ end }}{{ end }}">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
   <meta name="author" content="{{ with .Site.Params.Author }}{{ . }}{{ else }}{{ with .Site.Params.author }}{{ . }}{{ end }}{{ end }}">
-  {{ hugo.Generator }}
+  <meta name="keywords" content="data science, machine learning, AI, engineering, {{ .Site.Title }}">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}{{ with .Site.Params.image }}{{ . }}{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ with .Site.Params.image }}{{ . }}{{ end }}">
+  <meta name="twitter:creator" content="@DanielFiuza">
 
-  {{ "<!-- plugins -->" | safeHTML }}
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" as="style" crossorigin="anonymous">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" crossorigin="anonymous">
   {{ range .Site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .URL | absURL }} ">
+  <link rel="stylesheet" href="{{ .URL | absURL }}">
   {{ end }}
 
-  {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $styles := resources.Get "css/style.css" | minify }}
-  <link rel="stylesheet" href="{{ $styles.Permalink | relURL}}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-  {{ $syntax := resources.Get "css/syntax.css" | minify }}
-  <link rel="stylesheet" href="{{ $syntax.Permalink | relURL}}" integrity="{{ $syntax.Data.Integrity }}" media="screen">
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js" defer crossorigin="anonymous"></script>
 
-  {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
-
-  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
-
-  {{ "<!--Favicon-->" | safeHTML }}
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/logos/df_logo.svg">
   <link rel="alternate icon" type="image/png" href="/logos/df_logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/logos/df_logo.png">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="msapplication-TileColor" content="#1a1a1a">
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=(),camera=(),microphone=(),geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data:;">
+
+  <!-- Performance Optimizations -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
+
+  <!-- Typed.js Cursor Style -->
+  <style>
+    .typed-cursor {
+      font-weight: 100;
+      opacity: 0;
+      animation: blink 1s infinite;
+      width: 2px;
+      background-color: currentColor;
+      margin-left: 2px;
+      display: inline-block;
+      height: 1em;
+      vertical-align: text-top;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 0.7; }
+    }
+    /* Optimize font loading */
+    @font-face {
+      font-display: swap;
+    }
+  </style>
 </head> 
