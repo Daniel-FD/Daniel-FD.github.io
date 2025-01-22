@@ -37,6 +37,7 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js" defer crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js" defer crossorigin="anonymous"></script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/logos/df_logo.svg">
@@ -59,7 +60,7 @@
   <style>
     .typed-cursor {
       font-weight: 100;
-      opacity: 0;
+      opacity: 1;
       animation: blink 1s infinite;
       width: 2px;
       background-color: currentColor;
@@ -69,8 +70,8 @@
       vertical-align: text-top;
     }
     @keyframes blink {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 0.7; }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
     /* Optimize font loading */
     @font-face {

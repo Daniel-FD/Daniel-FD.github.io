@@ -1,0 +1,59 @@
+{{ define "main" }}
+<section class="banner uk-margin-small-top uk-margin-medium-bottom">
+    <div class="uk-container">
+        <div class="uk-flex uk-flex-column uk-flex-middle">
+            <h1 class="uk-text-left"><span id="typed-contact-title"></span></h1>
+            <div id="scroll-arrow" class="uk-margin-small-top" style="opacity: 0; transition: opacity 0.5s ease;">
+                <span uk-icon="icon: chevron-down; ratio: 2" class="uk-animation-slide-top-small uk-animation-infinite"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+  <div class="uk-container">
+    <form class="uk-form-horizontal uk-margin-large" action="{{.Site.Params.contact.formAction}}" method="post">
+      <div class="uk-margin">
+        <label class="uk-form-label" for="name">Name</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" name="name" id="name" type="text" placeholder="John Doe">
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="email">Email</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" name="email" id="email" type="text" placeholder="email@example.com">
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="message">Message</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea" name="message" id="message" rows="5" placeholder="Your message here"></textarea>
+        </div>
+      </div>
+
+      <button class="uk-align-center uk-button uk-button-default">Submit</button>
+    </form>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    new Typed('#typed-contact-title', {
+        strings: ["Contact"],
+        typeSpeed: 100,
+        backSpeed: 0,
+        loop: false,
+        showCursor: false,
+        startDelay: 500,
+        onComplete: function() {
+            setTimeout(function() {
+                document.getElementById('scroll-arrow').style.opacity = '1';
+            }, 500);
+        }
+    });
+});
+</script>
+{{ end }} 

@@ -1,0 +1,43 @@
+{{ define "main" }}
+<section class="banner uk-margin-small-top uk-margin-medium-bottom">
+    <div class="uk-container">
+        <div class="uk-flex uk-flex-column uk-flex-middle">
+            <h1 class="uk-text-left"><span id="typed-about-title"></span></h1>
+            <div id="scroll-arrow" class="uk-margin-small-top" style="opacity: 0; transition: opacity 0.5s ease;">
+                <span uk-icon="icon: chevron-down; ratio: 2" class="uk-animation-slide-top-small uk-animation-infinite"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="uk-margin-medium-bottom">
+  <div class="uk-container">
+    <div class="uk-flex-center" uk-grid>
+      <div class="uk-width-1-2 uk-width-1-3@s">
+        <img src="{{.Params.AuthorImage | absURL }}" alt="author">
+      </div>
+      <div class="uk-width-expand@m">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    new Typed('#typed-about-title', {
+        strings: ["About"],
+        typeSpeed: 100,
+        backSpeed: 0,
+        loop: false,
+        showCursor: false,
+        startDelay: 500,
+        onComplete: function() {
+            setTimeout(function() {
+                document.getElementById('scroll-arrow').style.opacity = '1';
+            }, 500);
+        }
+    });
+});
+</script>
+{{ end }} 
