@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DeFi on Daniel Fiuza Dosil</title><link>https://danielfiuza.com/tags/defi/</link><description>Recent content in DeFi on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate><atom:link href="https://danielfiuza.com/tags/defi/index.xml" rel="self" type="application/rss+xml"/><item><title>ML for Blockchain Compliance: Real-World Challenges</title><link>https://danielfiuza.com/blog/blockchain-ml-compliance/</link><pubDate>Wed, 15 Jan 2025 10:00:00 +0000</pubDate><guid>https://danielfiuza.com/blog/blockchain-ml-compliance/</guid><description>&lt;p>Building ML systems for blockchain compliance presents unique challenges that traditional fintech doesn&amp;rsquo;t face. Here&amp;rsquo;s what I&amp;rsquo;ve learned monitoring $30B+ in assets at Range.org.&lt;/p>
-&lt;h2 id="the-blockchain-data-challenge">The Blockchain Data Challenge&lt;/h2>
-&lt;p>Unlike traditional financial data, blockchain transactions are:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Immutable&lt;/strong> but &lt;strong>pseudonymous&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>Real-time&lt;/strong> at massive scale&lt;/li>
-&lt;li>&lt;strong>Cross-chain&lt;/strong> across 21+ networks&lt;/li>
-&lt;li>&lt;strong>Complex&lt;/strong> with smart contract interactions&lt;/li>
-&lt;/ul>
-&lt;h2 id="key-use-cases-weve-solved">Key Use Cases We&amp;rsquo;ve Solved&lt;/h2>
-&lt;h3 id="1-stablecoin-compliance-monitoring">1. Stablecoin Compliance Monitoring&lt;/h3>
-&lt;p>&lt;strong>Challenge&lt;/strong>: Track USDC transfers across chains for KYT/AML compliance.&lt;/p>
-&lt;p>&lt;strong>Solution&lt;/strong>:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DeFi on Daniel Fiuza Dosil</title>
+    <link>http://localhost:1314/tags/defi/</link>
+    <description>Recent content in DeFi on Daniel Fiuza Dosil</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/defi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ML for Blockchain Compliance: Real-World Challenges</title>
+      <link>http://localhost:1314/blog/blockchain-ml-compliance/</link>
+      <pubDate>Wed, 15 Jan 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/blog/blockchain-ml-compliance/</guid>
+      <description>&lt;p&gt;Building ML systems for blockchain compliance presents unique challenges that traditional fintech doesn&amp;rsquo;t face. Here&amp;rsquo;s what I&amp;rsquo;ve learned monitoring $30B+ in assets at Range.org.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-blockchain-data-challenge&#34;&gt;The Blockchain Data Challenge&lt;/h2&gt;&#xA;&lt;p&gt;Unlike traditional financial data, blockchain transactions are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Immutable&lt;/strong&gt; but &lt;strong&gt;pseudonymous&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time&lt;/strong&gt; at massive scale&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cross-chain&lt;/strong&gt; across 21+ networks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Complex&lt;/strong&gt; with smart contract interactions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;key-use-cases-weve-solved&#34;&gt;Key Use Cases We&amp;rsquo;ve Solved&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-stablecoin-compliance-monitoring&#34;&gt;1. Stablecoin Compliance Monitoring&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Challenge&lt;/strong&gt;: Track USDC transfers across chains for KYT/AML compliance.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

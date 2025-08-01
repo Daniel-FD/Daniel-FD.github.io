@@ -3,14 +3,10 @@ baseURL = "https://danielfiuza.com"
 languageCode = "en-gb"
 title = "Daniel Fiuza Dosil"
 publishDir = "docs"
+theme = "hugo-developer-portfolio"
 enableRobotsTXT = true
 enableGitInfo = true
 disableHugoGeneratorInject = true
-
-# Comment out module imports since theme is missing
-# [module]
-#   [[module.imports]]
-#     path = "hugo-developer-portfolio"
 
 # Asset Management
 [params.plugins]
@@ -39,10 +35,9 @@ disableHugoGeneratorInject = true
 # Site Parameters
 [params]
 home = "Home"
-description = "Daniel Fiuza - Data Scientist and ML Engineer specializing in AI solutions, with expertise in fluid mechanics and engineering."
+description = "Data Scientist and ML Engineer specializing in AI-driven solutions"
 author = "Daniel Fiuza"
 image = "/logos/df_logo.png"
-keywords = ["data science", "machine learning", "AI", "engineering", "fluid mechanics"]
 
   [params.contact]
   enable = true
@@ -50,7 +45,7 @@ keywords = ["data science", "machine learning", "AI", "engineering", "fluid mech
 
   [params.footer]
   email = "dafiuzadosil@gmail.com"
-  copyright = "© 2024 Daniel Fiuza. All rights reserved."
+  copyright = "© 2025 Daniel Fiuza"
 
 # Markdown Configuration
 [markup]
@@ -62,15 +57,6 @@ keywords = ["data science", "machine learning", "AI", "engineering", "fluid mech
     style = "rainbow_dash"
     tabWidth = 4
 
-# Performance and SEO
-[minify]
-  minifyOutput = true
-  [minify.tdewolff]
-    [minify.tdewolff.html]
-      keepWhitespace = false
-      keepEndTags = true
-      keepQuotes = true
-
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
@@ -79,18 +65,3 @@ keywords = ["data science", "machine learning", "AI", "engineering", "fluid mech
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
-
-[privacy]
-  [privacy.disqus]
-    disable = true
-  [privacy.googleAnalytics]
-    disable = true
-  [privacy.instagram]
-    disable = true
-  [privacy.twitter]
-    disable = true
-  [privacy.vimeo]
-    disable = true
-  [privacy.youtube]
-    disable = true
-

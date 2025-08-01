@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM on Daniel Fiuza Dosil</title><link>https://danielfiuza.com/tags/llm/</link><description>Recent content in LLM on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate><atom:link href="https://danielfiuza.com/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Production LLM Systems: Key Lessons</title><link>https://danielfiuza.com/blog/building-production-llm-systems/</link><pubDate>Sun, 15 Dec 2024 10:00:00 +0000</pubDate><guid>https://danielfiuza.com/blog/building-production-llm-systems/</guid><description>&lt;p>Two years building production LLM systems taught me that &lt;strong>research prototypes ≠ production systems&lt;/strong>.&lt;/p>
-&lt;h2 id="the-reality-check">The Reality Check&lt;/h2>
-&lt;p>Our customer vulnerability prediction system started with GPT-4 for everything. Great demos, terrible production:&lt;/p>
-&lt;ul>
-&lt;li>Too slow (5+ seconds)&lt;/li>
-&lt;li>Too expensive (£100+ per 1000 requests)&lt;/li>
-&lt;li>Unreliable at scale&lt;/li>
-&lt;/ul>
-&lt;h2 id="what-actually-works">What Actually Works&lt;/h2>
-&lt;h3 id="1-hybrid-architecture">1. Hybrid Architecture&lt;/h3>
-&lt;pre tabindex="0">&lt;code>Input → Fast Classifier → [High Confidence] → Response
- ↓
- [Uncertain] → LLM → Human Review → Response
-&lt;/code>&lt;/pre>&lt;p>&lt;strong>Result&lt;/strong>: 80% handled by fast models, 10x cost reduction.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on Daniel Fiuza Dosil</title>
+    <link>http://localhost:1314/tags/llm/</link>
+    <description>Recent content in LLM on Daniel Fiuza Dosil</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Production LLM Systems: Key Lessons</title>
+      <link>http://localhost:1314/blog/building-production-llm-systems/</link>
+      <pubDate>Sun, 15 Dec 2024 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/blog/building-production-llm-systems/</guid>
+      <description>&lt;p&gt;Two years building production LLM systems taught me that &lt;strong&gt;research prototypes ≠ production systems&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-reality-check&#34;&gt;The Reality Check&lt;/h2&gt;&#xA;&lt;p&gt;Our customer vulnerability prediction system started with GPT-4 for everything. Great demos, terrible production:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Too slow (5+ seconds)&lt;/li&gt;&#xA;&lt;li&gt;Too expensive (£100+ per 1000 requests)&lt;/li&gt;&#xA;&lt;li&gt;Unreliable at scale&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-actually-works&#34;&gt;What Actually Works&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-hybrid-architecture&#34;&gt;1. Hybrid Architecture&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Input → Fast Classifier → [High Confidence] → Response&#xA;           ↓&#xA;      [Uncertain] → LLM → Human Review → Response&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: 80% handled by fast models, 10x cost reduction.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

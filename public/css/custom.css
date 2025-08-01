@@ -1,0 +1,1262 @@
+/* ==========================================================================
+   Custom Properties
+   ========================================================================== */
+:root {
+    /* Colors */
+    --color-text: #1a1a1a;
+    --color-text-muted: #666;
+    --color-text-light: #555;
+    --color-background: #ffffff;
+    --color-border: #f0f0f0;
+    --color-hover: #000;
+
+    /* Typography */
+    --font-family-mono: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+    --font-size-base: 15px;
+    --font-size-small: 0.85rem;
+    --font-size-smaller: 0.8rem;
+    --line-height-base: 1.4;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Icons */
+    --icon-size: 32px;
+}
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+body {
+    font-family: var(--font-family-mono);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-size: var(--font-size-base);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+}
+
+/* ==========================================================================
+   Container Layouts - Experience, Education, Blog
+   ========================================================================== */
+
+/* Experience Container */
+.experience-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Education Container - Match Experience Success */
+.education-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.education-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Blog Container - Match Experience Success */
+.blog-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   Social Icons - COMPLETE REWRITE WITH CONTAINERS
+   ========================================================================== */
+
+.social-icons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 1.5rem 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.social-icons-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+}
+
+.social-icon-link {
+    display: block !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    background: #f8f9fa !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.social-icon-link:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    border-color: #007bff !important;
+}
+
+.social-icon-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+}
+
+/* Social Icons - Complete Fix */
+.social-icons-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    flex-wrap: wrap !important;
+}
+
+.social-icon-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    background: rgba(0,0,0,0.05) !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.social-icon-link:hover {
+    background: rgba(0,0,0,0.1) !important;
+    transform: translateY(-2px) !important;
+    border: none !important;
+}
+
+.social-icon-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.social-icon-wrapper img,
+.social-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Force specific sizing for each social platform */
+.social-linkedin .social-icon,
+.social-github .social-icon,
+.social-gmail .social-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+}
+
+/* ==========================================================================
+   Mobile Responsiveness - MAJOR IMPROVEMENTS
+   ========================================================================== */
+
+/* Force proper mobile layout - override UIKit defaults */
+@media (max-width: 768px) {
+    /* GLOBAL MOBILE CONTAINER FIXES */
+    .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Override UIKit grid system completely for mobile */
+    .uk-grid,
+    .uk-grid-large {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .uk-grid > *,
+    .uk-grid-large > * {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* ALL SECTION CONTAINERS - Match Experience Success Pattern */
+    .experience-container,
+    .education-container,
+    .blog-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .experience-grid,
+    .education-grid,
+    .blog-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* SECTION WRAPPERS - Prevent Left Cropping */
+    #experience,
+    #education, 
+    #blog {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* CARDS - Uniform Design Across All Sections */
+    .experience-card,
+    .education-card,
+    #blog .uk-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 8px !important;
+        background: white !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        overflow: visible !important;
+    }
+    
+    /* CARD IMAGES - Consistent Sizing */
+    .experience-card .card-image,
+    .education-card .card-image {
+        width: 40px !important;
+        height: 40px !important;
+        object-fit: contain !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* CARD CONTENT - Full Width Text */
+    .experience-card .card-content,
+    .education-card .card-content,
+    #blog .uk-card-body {
+        flex: 1 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* ABOUT SECTION - Full Width Fix */
+    .uk-margin-medium-top .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    .uk-margin-medium-top .uk-text-center {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+    }
+    
+    .uk-text-lead {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        padding: 0 !important;
+        margin: 0 0 1rem 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* FOOTER EMAIL - Center Fix */
+    .footer {
+        padding: 2rem 0 !important;
+        text-align: center !important;
+    }
+    
+    .footer .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+    }
+    
+    .footer-email {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 1rem !important;
+        margin: 0 auto !important;
+        color: #007bff !important;
+        text-decoration: none !important;
+    }
+    
+    .footer-copyright {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    /* Social Icons Mobile Fix */
+    .social-icons-container {
+        gap: 0.5rem !important;
+        margin: 1rem 0 !important;
+        justify-content: center !important;
+    }
+    
+    .social-icon-link {
+        width: 44px !important;
+        height: 44px !important;
+        background: rgba(0,0,0,0.08) !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .social-icon-wrapper {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    .social-icon-wrapper img,
+    .social-icon {
+        width: 24px !important;
+        height: 24px !important;
+        max-width: 24px !important;
+        max-height: 24px !important;
+        min-width: 24px !important;
+        min-height: 24px !important;
+    }
+    
+    /* Social icons mobile specific */
+    .social-icons {
+        margin: 2rem 0 !important;
+        padding: 0 1rem !important;
+    }
+    
+    .social-icons-container {
+        gap: 0.75rem !important;
+        max-width: 250px !important;
+    }
+    
+    .social-icon-link {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .social-icon-wrapper {
+        padding: 6px !important;
+    }
+    
+    .social-icon-wrapper img,
+    .social-icon {
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+    }
+    
+    /* Reset UIKit container and grid behavior */
+    .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    .uk-grid > * {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin-bottom: 2rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure all sections use full width */
+    section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Base font size adjustments */
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Hero section mobile fixes */
+    .banner {
+        padding: 2rem 0 1.5rem 0;
+        text-align: center;
+    }
+    
+    .banner h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    
+    .banner .title {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+        padding: 0 1rem;
+    }
+    
+    /* About me button mobile */
+    .banner .cta {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        border-radius: 6px;
+        background: #007bff;
+        color: white !important;
+        text-decoration: none;
+        border: none;
+    }
+    
+    /* Section navigation links */
+    .section-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+    }
+    
+    .section-links a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #666;
+        text-decoration: none;
+    }
+    
+    /* Stack education and blog vertically on mobile - Fix cropping */
+    #education, #blog {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Mobile-specific education and blog cards */
+    .education-card, #blog .uk-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+    }
+    
+    /* Fix text cropping in cards */
+    .education-card .card-content,
+    #blog .uk-card-body {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    /* Mobile section headings */
+    h2 {
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Experience cards mobile */
+    .experience-card, .education-card {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        background: white;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .card-image {
+        width: 40px !important;
+        height: 40px !important;
+        object-fit: contain !important;
+        flex-shrink: 0;
+    }
+    
+    .card-content {
+        flex: 1;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    
+    .card-subtitle {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 0.25rem;
+    }
+    
+    .card-meta {
+        font-size: 0.8rem;
+        color: #888;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    /* Blog cards mobile optimization */
+    #blog .uk-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 0 1rem 0 !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+    }
+    
+    #blog .uk-card-title {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.5rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    #blog .uk-text-small {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0.75rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    #blog .uk-label {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-right: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+        display: inline-block !important;
+    }
+    
+    #blog .uk-button {
+        font-size: 0.85rem !important;
+        padding: 0.6rem 1rem !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    /* About section mobile */
+    .uk-text-lead {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* About section container */
+    .uk-margin-medium-top .uk-container {
+        padding: 0 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .uk-margin-medium-top .uk-text-center {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Margins and spacing */
+    .uk-margin-large-bottom {
+        margin-bottom: 2rem !important;
+    }
+    
+    .uk-margin-medium-bottom {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .uk-margin-medium-top {
+        margin-top: 1.5rem !important;
+    }
+    
+    /* Touch-friendly buttons */
+    .uk-button {
+        min-height: 44px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 6px !important;
+    }
+    
+    /* Navigation fixes */
+    .uk-navbar-container {
+        padding: 0 1rem !important;
+    }
+    
+    .uk-navbar-nav > li > a {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    /* Footer mobile fixes - Center email */
+    .footer {
+        padding: 2rem 1rem !important;
+        text-align: center !important;
+    }
+    
+    .footer .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .footer-email {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 1rem !important;
+        margin: 0 auto !important;
+    }
+    
+    .footer-copyright {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .banner .title {
+        font-size: 0.8rem;
+    }
+    
+    /* Bigger social icons for mobile */
+    .social-icons-container {
+        gap: 0.75rem !important;
+        max-width: 250px !important;
+    }
+    
+    .social-icon-link {
+        width: 44px !important;
+        height: 44px !important;
+    }
+    
+    .social-icon-wrapper {
+        padding: 6px !important;
+    }
+    
+    .social-icon-wrapper img,
+    .social-icon {
+        width: 28px !important;
+        height: 28px !important;
+        max-width: 28px !important;
+        max-height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+    }
+    
+    .section-links {
+        gap: 0.5rem;
+    }
+    
+    .section-links a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    /* Experience cards mobile - improved center alignment */
+    .experience-card, .education-card {
+        flex-direction: column;
+        text-align: center !important;
+        gap: 0.5rem;
+        padding: 1rem !important;
+        margin: 0.75rem 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Force center alignment for all card content */
+    .experience-card .card-content,
+    .education-card .card-content {
+        text-align: center !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .experience-card .card-title,
+    .experience-card .card-subtitle,
+    .experience-card .card-meta,
+    .experience-card .card-description,
+    .education-card .card-title,
+    .education-card .card-subtitle,
+    .education-card .card-meta,
+    .education-card .card-description {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    
+    .card-image {
+        align-self: center;
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 auto 0.75rem auto !important;
+        display: block !important;
+    }
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-top: var(--spacing-lg);
+    text-transform: uppercase;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Links and buttons */
+a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-hover);
+    border-bottom-color: var(--color-hover);
+}
+
+.uk-button-primary {
+    background: var(--color-text);
+    border-radius: 3px;
+    padding: calc(var(--spacing-xs) - 0.1rem) var(--spacing-sm);
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.uk-button-primary:hover {
+    background: var(--color-hover);
+}
+
+/* ==========================================================================
+   Layout components
+   ========================================================================== */
+.uk-container {
+    max-width: 800px;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Navigation */
+.uk-navbar-container {
+    background: rgba(255,255,255,0.98) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-xs) 0;
+}
+
+.uk-navbar-nav > li > a {
+    color: var(--color-text);
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-height: 40px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.uk-navbar-nav > li > a:hover {
+    color: var(--color-hover);
+    border-bottom-color: var(--color-hover);
+}
+
+/* Banner section */
+.banner {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.banner .title {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.banner .cta {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    margin-bottom: var(--spacing-lg);
+    transition: all 0.2s ease;
+}
+
+.banner .cta:hover {
+    background: var(--color-text);
+    color: var(--color-background);
+}
+
+/* Section links */
+.section-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.section-links a:hover {
+    color: var(--color-text);
+}
+
+/* Section styles */
+section {
+    padding: var(--spacing-sm) 0;
+    position: relative;
+}
+
+section:first-of-type {
+    padding-top: 0;
+}
+
+section:not(:last-child)::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Cards */
+.experience-card, .education-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.experience-card:last-child, .education-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.card-image {
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-title {
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-subtitle {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-meta {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+.card-description {
+    margin-top: var(--spacing-sm);
+    color: var(--color-text-light);
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.social-icon-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
+    transition: transform 0.2s ease;
+    border: none !important;
+}
+
+.social-icon-link:hover {
+    transform: translateY(-2px);
+    border: none !important;
+}
+
+.social-icon {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+/* Footer */
+.footer {
+    background: #fafafa;
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer h5 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+
+.footer-email {
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+}
+
+.footer-copyright {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+.license-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.license-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.license-icon:hover {
+    opacity: 1;
+}
+
+/* Container Structure */
+.experience-container,
+.education-container,
+.blog-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.experience-grid,
+.education-grid,
+.blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ==========================================================================
+   Responsive styles
+   ========================================================================== */
+@media (max-width: 768px) {
+    :root {
+        --icon-size: 28px;
+        --font-size-base: 14px;
+        --spacing-sm: 0.75rem;
+        --spacing-md: 1rem;
+    }
+
+    .banner h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .banner .title {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .section-links {
+        flex-wrap: wrap;
+    }
+
+    /* Make cards more mobile-friendly */
+    .experience-card, .education-card, .portfolio-card {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Reduce text on mobile */
+    .card-description {
+        font-size: var(--font-size-small);
+        line-height: 1.4;
+    }
+
+    /* Better spacing for mobile */
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --icon-size: 24px;
+        --font-size-base: 13px;
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 0.75rem;
+    }
+
+    .banner h1 {
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .banner .title {
+        font-size: 0.9rem;
+    }
+
+    .section-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .experience-card, .education-card, .portfolio-card {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Smaller text for very small screens */
+    .card-description {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    /* Compact headings */
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    /* Reduce button padding */
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+
+    /* Ensure touch targets are large enough */
+    a, button, .card {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Stack elements more efficiently on small screens */
+    .uk-grid > * {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Better spacing for small text */
+    p {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.4;
+    }
+}
+
+/* ==========================================================================
+   Blog Section Styles
+   ========================================================================== */
+#blog .uk-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-border);
+}
+
+#blog .uk-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#blog .uk-card-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#blog .uk-card-title a:hover {
+    color: var(--color-hover);
+}
+
+#blog .uk-text-meta {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+}
+
+#blog .uk-label {
+    font-size: var(--font-size-smaller);
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+    border: none;
+}
+
+#blog .uk-button-text {
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 0;
+}
+
+#blog .uk-button-text:hover {
+    color: var(--color-hover);
+}
+
+@media (max-width: 768px) {
+    #blog .uk-child-width-1-3\@l > * {
+        width: 100%;
+    }
+    
+    #blog .uk-card {
+        margin-bottom: var(--spacing-md);
+    }
+}

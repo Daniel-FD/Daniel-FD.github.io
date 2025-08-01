@@ -1,0 +1,354 @@
+% -- Encoding UTF-8 without BOM
+% -- XeLaTeX => PDF (BIBER)
+
+\documentclass[print]{cv-style}          % Add 'print' as an option into the square bracket to remove colours from this template for printing. 
+                                    % Add 'espanol' as an option into the square bracket to change the date format of the Last Updated Text
+\usepackage[bottom]{footmisc}
+\usepackage{fontawesome5}
+% \usepackage[extension=.otf,Path=./fonts/]{fontawesome5}
+
+\usepackage{setspace}
+\sethyphenation[variant=british]{english}{} % Add words between the {} to avoid them to be cut 
+
+\begin{document}
+
+\header{\, Daniel }{Fiuza Dosil}           % Your name
+%\lastupdated
+\newcommand{\ignore}[1]{}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION  -- In the aside, each new line forces a line break
+%----------------------------------------------------------------------------------------
+
+\begin{aside}
+\vspace{-1.4cm}
+\begin{flushright}
+\includegraphics[width=3cm]{qr_code.png}
+\end{flushright}
+\section{Website \href{https://danielfiuza.com/}{\faGlobe}}:
+\href{https://danielfiuza.com/}{danielfiuza.com}
+%
+\section{Mobile \href{tel:+447532735600}{\faMobile}}:
+\href{tel:+447532735600}{+44 7532 735600}
+%
+\section{Email \href{mailto:dafiuzadosil@gmail.com}{\faEnvelope}}:
+\href{mailto:dafiuzadosil@gmail.com}{dafiuzadosil@gmail.com}
+%
+\section{LinkedIn \href{https://www.linkedin.com/in/daniel-fiuza-dosil}{\faLinkedin}}:
+\href{https://www.linkedin.com/in/daniel-fiuza-dosil}{\faLinkedin\hspace{0.2em}linkedin.com/in/daniel-fiuza-dosil}
+%
+\section{GitHub \href{https://github.com/Daniel-FD}{\faGithub}}:
+\href{https://github.com/Daniel-FD}{\faGithub\hspace{0.2em}github.com/Daniel-FD}
+
+\vspace{1cm}
+\hrule
+\vspace{0.5cm}
+%
+\section{Programming:}
+Python, MATLAB, Bash, SQL, C, \LaTeX
+
+\section{Data Science \& ML:}
+NumPy, Pandas, Matplotlib, SciPy, Scikit-learn, PyTorch, Keras, TensorFlow, MLflow, Optuna, Prompt Engineering, RAG, Fine-tuning, Data Labelling
+
+\section{Cloud \& DevOps:}
+AWS (S3, RDS, EC2, Lambda, SageMaker, IoT), Azure, Docker, Git, CI/CD, Airflow
+
+\section{Development:}
+Flask, Streamlit, Gradio, REST APIs, HTML, CSS, PyTest, UnitTest, PostgreSQL, MySQL, Tableau, DBeaver, Zapier
+
+\section{Soft Skills:}
+Problem-solving, Leadership, Communication, Adaptability, Collaboration, Agile
+
+\end{aside}
+
+\vspace{-0.4cm} % Reduce vertical space before Profile section
+%\section{Profile}
+%\vspace{-0.2cm}
+Data Scientist and Machine Learning Engineer with a Ph.D. specializing in blockchain security and compliance solutions. Currently leading ML initiatives at Range.org, monitoring $30B+ in blockchain assets across 21 integrated chains. Previously developed patented healthcare AI systems and award-winning LLM applications. Expert in real-time data processing, anomaly detection, and regulatory compliance systems.
+\vspace{0.3cm}
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-0.4cm}
+\section{Experience}
+\vspace{-0.2cm}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+  {2024 - }
+  {\href{https://range.org/}{Range.org}}
+  {Remote}
+  {\jobtitle{Lead Data Scientist}
+  \\
+  Leading ML initiatives for blockchain security and stablecoin compliance solutions, monitoring over \$30B in assets across 21 chains. Developing advanced risk analytics and cross-chain monitoring systems for USDC compliance. Building ML models for real-time threat detection and regulatory compliance in DeFi protocols.
+  }
+%------------------------------------------------
+\entry
+  {2022 - 2024}
+  {\href{https://www.helpfirst.ai/}{HelpFirst AI}}
+  {London, UK}
+  {\jobtitle{Lead ML/LLM Engineer}
+  \\
+  Led the development of an award-winning LLM-powered AI solution, resulting in annual savings of £400k for Citizens Advice Scotland. Enhanced LLM performance through advanced prompt engineering, systematic evaluation, and fine-tuning. Established robust frameworks for model assessment and ethical AI practices, ensuring responsible deployment in sensitive environments.
+  }
+%------------------------------------------------
+\entry
+  {2021 - 2024}
+  {\href{https://bryant.dental/}{Bryant Medical}}
+  {London, UK}
+  {\jobtitle{Lead Data Scientist}
+  \\
+  Led the development of patented AI solutions for disease diagnosis and biometric measurements. Managed ML, data engineering, and cloud deployment. Improved team performance through strategic hiring and training. Contributed significantly to product design and engineering oversight.}
+%------------------------------------------------
+\entry
+  {2021 - 2021}
+  {\href{https://www.loveholidays.com/}{LoveHolidays}}
+  {London, UK}
+  {\jobtitle{Data Scientist (Fixed-Term Contract)}
+  \\
+  Developed a holiday recommendation system using gradient-boosted decision trees and user clustering techniques. This initiative significantly increased booking probabilities and user engagement, leading to an expected 2.8x rise in bookings and an annual revenue boost of approximately £17 million and over 10,000 new bookings.
+  }
+%------------------------------------------------
+\vspace{-0.3cm} % Decrease space between entries
+\entry
+  {2019 - 2021}
+  {\href{https://www.lsbu.ac.uk/}{London South Bank University}}
+  {London, UK}
+  {\jobtitle{Associate Lecturer}
+  \\
+  % Add description if needed
+  }
+%------------------------------------------------
+% \vspace{-0.3cm} % Decrease space between entries
+% \entry
+%   {2016 - 2021}
+%   {FluidTech}
+%   {Aalborg, Denmark}
+%   {\jobtitle{Co-Founder \& Head of Engineering}
+%   \\
+%   % Add description if needed
+%   }
+%------------------------------------------------
+\vspace{-0.3cm} % Decrease space between entries
+\entry
+  {2017 - 2021}
+  {\href{https://www.firsttutors.com/uk/}{First Tutors}}
+  {London, UK}
+  {\jobtitle{Private Tutor}
+  \\
+  % Add description if needed
+  }
+%------------------------------------------------
+\vspace{-0.3cm} % Decrease space between entries
+\entry
+  {2017 - 2020}
+  {\href{https://www.imperial.ac.uk/}{Imperial College London}}
+  {London, UK}
+  {\jobtitle{Graduate Teaching Assistant (GTA)}
+  \\
+  % Add description if needed
+  }
+%------------------------------------------------
+\end{entrylist}
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-0.4cm}
+\section{Education}
+\begin{entrylist}
+\vspace{-0.4cm}
+%------------------------------------------------
+\entry
+{2021 - 2021}
+{Fellow in Data Science}
+{\href{https://faculty.ai/}{Faculty AI}, London, UK}
+{\jobtitle{}}
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2017 - 2021}
+{PhD in Fluid Mechanics, Civil and Environmental Engineering}
+{\href{https://www.imperial.ac.uk/}{Imperial College London}, London, UK}
+{\jobtitle{}}
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2014 - 2016}
+{MSc in Energy Engineering}
+{\href{https://www.en.aau.dk/}{Aalborg University}, Aalborg, Denmark}
+{\jobtitle{}}
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2015 - 2016}
+{MSc in Mechanical and Aerospace Engineering}
+{\href{https://www.wvu.edu/}{West Virginia University}, USA}
+{\jobtitle{}}
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2011 - 2015}
+{BSc in Industrial Engineering (Energy Technologies)}
+{\href{https://www.uc3m.es/}{Universidad Carlos III de Madrid}, Spain}
+{\jobtitle{}}
+%------------------------------------------------
+\end{entrylist}
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-0.4cm}
+\section{Projects}
+\begin{entrylist}
+\vspace{-0.4cm}
+%------------------------------------------------
+\entry
+{2023 - }
+{Prompt Optimiser Python Library}
+{\href{https://www.helpfirst.ai/}{HelpFirst}}
+{\jobtitle{}}
+
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2022 - }
+{Predicting Customer Vulnerability using NLP and LLMs}
+{\href{https://www.helpfirst.ai/}{HelpFirst}}
+{\jobtitle{}}
+
+
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2022 - 2024}
+{Automated Biometric Measurements for Face and Posture}
+{\href{https://bryant.dental/}{Bryant Dental}}
+{\jobtitle{}}
+
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2021 - 2023}
+{Predicting COVID-19 Infection from Breath Biomarkers}
+{\href{https://bryant.dental/}{Bryant Medical}}
+{\jobtitle{}}
+
+%------------------------------------------------
+% \vspace{-0.3cm}
+% \entry
+% {2020 - 2021}
+% {Structural Damage Detection using LSTM Neural Networks}
+% {Freelance}
+% {\jobtitle{}}
+
+%------------------------------------------------
+\vspace{-0.3cm}
+\entry
+{2020 - 2020}
+{Holiday Recommendation System}
+{\href{https://www.loveholidays.com/}{LoveHolidays}}
+{\jobtitle{}}
+
+%------------------------------------------------
+
+\end{entrylist}
+
+
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+
+
+% %----------------------------------------------------------------------------------------
+% %	Achievement  SECTION
+% %----------------------------------------------------------------------------------------
+
+% \section{Achievements}
+
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% { Android App Developer}
+% {Dharmsinh Desai University}
+% {Develop File-Manager app in Android using Eclipse Studio and Register on Google Play Store}
+
+% %------------------------------------------------
+% \end{entrylist}
+% \begin{entrylist}
+% \entry
+% {}
+% { Start online selling on Different E-commerce Website }
+% {Dharmsinh Desai University}
+% {Start firm which sells Fashion wear item on different E-commerce platform like Amazon, Flipkart, Snapdeal ,PayTm etc.}
+
+% %------------------------------------------------
+% \end{entrylist}
+
+
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% {Find New Way to send G-Mail}
+% {VB Polytechnic}
+% {Find a new Way to send Mail through SMTP protocol without authentication of Google API.}
+
+% \end{entrylist}
+
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% {Develop E-commerce Website }
+% {Dharmsinh Desai University}
+% {Develop E-Commerce Website for Sweetheart Fashion Pvt Ltd Surat}
+
+% \end{entrylist}
+
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% {Start Development In IOS }
+% {Dharmsinh Desai University}
+% {Register Developer on Freelancer Website (Freelancer.com)}
+
+% \end{entrylist}\\\\\
+
+% %----------------------------------------------------------------------------------------
+% %	INTERESTS SECTION
+% %----------------------------------------------------------------------------------------
+
+% \section{Interests}
+%   \vspace{-0.3cm}
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% { Developing in JAVA and ASP.Net application:}
+% {}
+% {Develop creative application in JAVA as well ASP.net}
+
+% \end{entrylist}\
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% { CMS Handling}
+% {}
+% {Good Knowledge in open-source E-commerce management system like "Odoo"(www.odoo.com) and Orange HRMS live(www.orangehrms.com).}
+% \end{entrylist}\
+% \begin{entrylist}
+% %------------------------------------------------
+% \entry
+% {}
+% {E-commerce Live Problem Solver :}
+% {}
+% {Find out Existence problems arise in E-commerce website and give proper solution without any conflict in minimum duration.
+% }
+
+% \end{entrylist}\
+% %----------------------------------------------------------------------------------------
+% %	SKILLS SECTION
+% %---------------------------------------------------------------------------------------
+\end{document}

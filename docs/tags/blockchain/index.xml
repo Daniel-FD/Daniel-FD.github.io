@@ -1,64 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blockchain on Daniel Fiuza Dosil</title><link>https://danielfiuza.com/tags/blockchain/</link><description>Recent content in Blockchain on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate><atom:link href="https://danielfiuza.com/tags/blockchain/index.xml" rel="self" type="application/rss+xml"/><item><title>ML for Blockchain Compliance: Real-World Challenges</title><link>https://danielfiuza.com/blog/blockchain-compliance-ml/</link><pubDate>Tue, 01 Jul 2025 10:00:00 +0000</pubDate><guid>https://danielfiuza.com/blog/blockchain-compliance-ml/</guid><description>&lt;p>Building ML systems for blockchain compliance is vastly different from traditional fintech—here&amp;rsquo;s what I&amp;rsquo;ve learned processing $30B+ in transactions at Range.org.&lt;/p>
-&lt;h2 id="the-blockchain-data-challenge">The Blockchain Data Challenge&lt;/h2>
-&lt;p>Traditional ML models expect clean, structured data. Blockchain gives you:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Unstructured transaction graphs&lt;/strong> with complex relationships&lt;/li>
-&lt;li>&lt;strong>Real-time streaming data&lt;/strong> requiring sub-second processing&lt;/li>
-&lt;li>&lt;strong>Cross-chain complexity&lt;/strong> with different protocols and standards&lt;/li>
-&lt;li>&lt;strong>Pseudonymous actors&lt;/strong> making identity resolution challenging&lt;/li>
-&lt;/ul>
-&lt;h2 id="key-technical-challenges">Key Technical Challenges&lt;/h2>
-&lt;h3 id="1-transaction-graph-analysis">1. Transaction Graph Analysis&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0080ff;font-style:italic"># Simplified example: detecting suspicious patterns&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#2c5dcd;font-weight:bold">def&lt;/span> &lt;span style="color:#ff8000;font-weight:bold">analyze_transaction_cluster&lt;/span>(addresses, transactions):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0080ff;font-style:italic"># Build transaction graph&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> graph &lt;span style="color:#2c5dcd">=&lt;/span> build_transaction_graph(transactions)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0080ff;font-style:italic"># Apply ML clustering for risk scoring&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> risk_scores &lt;span style="color:#2c5dcd">=&lt;/span> ml_model&lt;span style="color:#2c5dcd">.&lt;/span>predict_risk(graph_features)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0080ff;font-style:italic"># Flag anomalous patterns&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#2c5dcd;font-weight:bold">return&lt;/span> flag_high_risk_clusters(risk_scores)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="2-real-time-compliance-monitoring">2. Real-Time Compliance Monitoring&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>USDC CCTP monitoring&lt;/strong>: Track cross-chain transfers across 21+ chains&lt;/li>
-&lt;li>&lt;strong>KYT/AML screening&lt;/strong>: Real-time risk scoring for incoming transactions&lt;/li>
-&lt;li>&lt;strong>Regulatory reporting&lt;/strong>: Automated compliance documentation&lt;/li>
-&lt;/ul>
-&lt;h3 id="3-cross-chain-intelligence">3. Cross-Chain Intelligence&lt;/h3>
-&lt;p>The biggest challenge? Each blockchain has different:&lt;/p></description></item><item><title>ML for Blockchain Compliance: Real-World Challenges</title><link>https://danielfiuza.com/blog/blockchain-ml-compliance/</link><pubDate>Wed, 15 Jan 2025 10:00:00 +0000</pubDate><guid>https://danielfiuza.com/blog/blockchain-ml-compliance/</guid><description>&lt;p>Building ML systems for blockchain compliance presents unique challenges that traditional fintech doesn&amp;rsquo;t face. Here&amp;rsquo;s what I&amp;rsquo;ve learned monitoring $30B+ in assets at Range.org.&lt;/p>
-&lt;h2 id="the-blockchain-data-challenge">The Blockchain Data Challenge&lt;/h2>
-&lt;p>Unlike traditional financial data, blockchain transactions are:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Immutable&lt;/strong> but &lt;strong>pseudonymous&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>Real-time&lt;/strong> at massive scale&lt;/li>
-&lt;li>&lt;strong>Cross-chain&lt;/strong> across 21+ networks&lt;/li>
-&lt;li>&lt;strong>Complex&lt;/strong> with smart contract interactions&lt;/li>
-&lt;/ul>
-&lt;h2 id="key-use-cases-weve-solved">Key Use Cases We&amp;rsquo;ve Solved&lt;/h2>
-&lt;h3 id="1-stablecoin-compliance-monitoring">1. Stablecoin Compliance Monitoring&lt;/h3>
-&lt;p>&lt;strong>Challenge&lt;/strong>: Track USDC transfers across chains for KYT/AML compliance.&lt;/p>
-&lt;p>&lt;strong>Solution&lt;/strong>:&lt;/p></description></item><item><title>Building Blockchain Security at Scale</title><link>https://danielfiuza.com/blog/first-blog/</link><pubDate>Thu, 01 Aug 2024 12:14:34 +0600</pubDate><guid>https://danielfiuza.com/blog/first-blog/</guid><description>&lt;p>After years building AI systems for healthcare and LLMs, I&amp;rsquo;ve found my most challenging and impactful work yet: &lt;strong>blockchain security and compliance at Range.org&lt;/strong>.&lt;/p>
-&lt;h2 id="the-transition-to-blockchain">The Transition to Blockchain&lt;/h2>
-&lt;p>Moving from traditional ML to blockchain required learning entirely new paradigms:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Healthcare AI&lt;/strong>: Structured data, regulated environments, batch processing&lt;/li>
-&lt;li>&lt;strong>Blockchain ML&lt;/strong>: Graph data, pseudonymous actors, real-time requirements&lt;/li>
-&lt;/ul>
-&lt;p>The shift wasn&amp;rsquo;t just technical—it was philosophical. In blockchain, &lt;strong>trust is code&lt;/strong>, and every system must be designed for adversarial environments.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blockchain on Daniel Fiuza Dosil</title>
+    <link>http://localhost:1314/tags/blockchain/</link>
+    <description>Recent content in Blockchain on Daniel Fiuza Dosil</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ML for Blockchain Compliance: Real-World Challenges</title>
+      <link>http://localhost:1314/blog/blockchain-compliance-ml/</link>
+      <pubDate>Tue, 01 Jul 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/blog/blockchain-compliance-ml/</guid>
+      <description>&lt;p&gt;Building ML systems for blockchain compliance is vastly different from traditional fintech—here&amp;rsquo;s what I&amp;rsquo;ve learned processing $30B+ in transactions at Range.org.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-blockchain-data-challenge&#34;&gt;The Blockchain Data Challenge&lt;/h2&gt;&#xA;&lt;p&gt;Traditional ML models expect clean, structured data. Blockchain gives you:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Unstructured transaction graphs&lt;/strong&gt; with complex relationships&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time streaming data&lt;/strong&gt; requiring sub-second processing&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cross-chain complexity&lt;/strong&gt; with different protocols and standards&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Pseudonymous actors&lt;/strong&gt; making identity resolution challenging&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;key-technical-challenges&#34;&gt;Key Technical Challenges&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-transaction-graph-analysis&#34;&gt;1. Transaction Graph Analysis&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#0080ff;font-style:italic&#34;&gt;# Simplified example: detecting suspicious patterns&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#2c5dcd;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#ff8000;font-weight:bold&#34;&gt;analyze_transaction_cluster&lt;/span&gt;(addresses, transactions):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#0080ff;font-style:italic&#34;&gt;# Build transaction graph&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    graph &lt;span style=&#34;color:#2c5dcd&#34;&gt;=&lt;/span&gt; build_transaction_graph(transactions)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#0080ff;font-style:italic&#34;&gt;# Apply ML clustering for risk scoring&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    risk_scores &lt;span style=&#34;color:#2c5dcd&#34;&gt;=&lt;/span&gt; ml_model&lt;span style=&#34;color:#2c5dcd&#34;&gt;.&lt;/span&gt;predict_risk(graph_features)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#0080ff;font-style:italic&#34;&gt;# Flag anomalous patterns&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#2c5dcd;font-weight:bold&#34;&gt;return&lt;/span&gt; flag_high_risk_clusters(risk_scores)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;h3 id=&#34;2-real-time-compliance-monitoring&#34;&gt;2. Real-Time Compliance Monitoring&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;USDC CCTP monitoring&lt;/strong&gt;: Track cross-chain transfers across 21+ chains&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;KYT/AML screening&lt;/strong&gt;: Real-time risk scoring for incoming transactions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Regulatory reporting&lt;/strong&gt;: Automated compliance documentation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-cross-chain-intelligence&#34;&gt;3. Cross-Chain Intelligence&lt;/h3&gt;&#xA;&lt;p&gt;The biggest challenge? Each blockchain has different:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ML for Blockchain Compliance: Real-World Challenges</title>
+      <link>http://localhost:1314/blog/blockchain-ml-compliance/</link>
+      <pubDate>Wed, 15 Jan 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/blog/blockchain-ml-compliance/</guid>
+      <description>&lt;p&gt;Building ML systems for blockchain compliance presents unique challenges that traditional fintech doesn&amp;rsquo;t face. Here&amp;rsquo;s what I&amp;rsquo;ve learned monitoring $30B+ in assets at Range.org.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-blockchain-data-challenge&#34;&gt;The Blockchain Data Challenge&lt;/h2&gt;&#xA;&lt;p&gt;Unlike traditional financial data, blockchain transactions are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Immutable&lt;/strong&gt; but &lt;strong&gt;pseudonymous&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time&lt;/strong&gt; at massive scale&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cross-chain&lt;/strong&gt; across 21+ networks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Complex&lt;/strong&gt; with smart contract interactions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;key-use-cases-weve-solved&#34;&gt;Key Use Cases We&amp;rsquo;ve Solved&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-stablecoin-compliance-monitoring&#34;&gt;1. Stablecoin Compliance Monitoring&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Challenge&lt;/strong&gt;: Track USDC transfers across chains for KYT/AML compliance.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Blockchain Security at Scale</title>
+      <link>http://localhost:1314/blog/first-blog/</link>
+      <pubDate>Thu, 01 Aug 2024 12:14:34 +0600</pubDate>
+      <guid>http://localhost:1314/blog/first-blog/</guid>
+      <description>&lt;p&gt;After years building AI systems for healthcare and LLMs, I&amp;rsquo;ve found my most challenging and impactful work yet: &lt;strong&gt;blockchain security and compliance at Range.org&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-transition-to-blockchain&#34;&gt;The Transition to Blockchain&lt;/h2&gt;&#xA;&lt;p&gt;Moving from traditional ML to blockchain required learning entirely new paradigms:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Healthcare AI&lt;/strong&gt;: Structured data, regulated environments, batch processing&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Blockchain ML&lt;/strong&gt;: Graph data, pseudonymous actors, real-time requirements&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The shift wasn&amp;rsquo;t just technical—it was philosophical. In blockchain, &lt;strong&gt;trust is code&lt;/strong&gt;, and every system must be designed for adversarial environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

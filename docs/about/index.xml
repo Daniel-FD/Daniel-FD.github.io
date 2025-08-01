@@ -1,21 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>About on Daniel Fiuza Dosil</title><link>https://danielfiuza.com/about/</link><description>Recent content in About on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate><atom:link href="https://danielfiuza.com/about/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://danielfiuza.com/about/_index_new/</link><pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate><guid>https://danielfiuza.com/about/_index_new/</guid><description>&lt;h2 id="daniel-fiuza">Daniel Fiuza&lt;/h2>
-&lt;p>&lt;strong>Lead Data Scientist&lt;/strong> at Range.org with a &lt;strong>PhD from Imperial College London&lt;/strong>. I build ML systems for blockchain security and compliance—protecting $30B+ in monitored assets across 21 integrated chains.&lt;/p>
-&lt;h3 id="what-i-do">What I Do&lt;/h3>
-&lt;ul>
-&lt;li>🔗 &lt;strong>Blockchain ML&lt;/strong>: Anomaly detection and risk analytics for DeFi protocols and cross-chain bridges&lt;/li>
-&lt;li>💰 &lt;strong>Stablecoin Compliance&lt;/strong>: USDC monitoring via CCTP, KYT/AML systems, and transaction risk scoring&lt;/li>
-&lt;li>🛡️ &lt;strong>Security Intelligence&lt;/strong>: Real-time threat detection and incident response for blockchain networks&lt;/li>
-&lt;li>🔬 &lt;strong>Research&lt;/strong>: ML for biomarker discovery at Imperial College London (part-time)&lt;/li>
-&lt;/ul>
-&lt;h3 id="current-focus">Current Focus&lt;/h3>
-&lt;p>&lt;strong>Lead Data Scientist at Range.org&lt;/strong> — building the blockchain security and intelligence platform trusted by leading protocols. Our ML-powered suite monitors $30B+ in assets, processes 730M+ transactions, and provides real-time compliance solutions for stablecoins and DeFi.&lt;/p></description></item><item><title>About</title><link>https://danielfiuza.com/about/_index_old/</link><pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate><guid>https://danielfiuza.com/about/_index_old/</guid><description>&lt;h2 id="daniel-fiuza">Daniel Fiuza&lt;/h2>
-&lt;p>&lt;strong>Lead Data Scientist&lt;/strong> at Range.org with a &lt;strong>PhD from Imperial College London&lt;/strong>. I build ML systems for blockchain security and compliance—protecting $30B+ in monitored assets across 21 integrated chains.&lt;/p>
-&lt;h3 id="what-i-do">What I Do&lt;/h3>
-&lt;ul>
-&lt;li>🔗 &lt;strong>Blockchain ML&lt;/strong>: Risk detection and anomaly analysis for DeFi protocols&lt;/li>
-&lt;li>💰 &lt;strong>Stablecoin Compliance&lt;/strong>: USDC cross-chain monitoring and KYT/AML systems&lt;/li>
-&lt;li>�️ &lt;strong>Security Analytics&lt;/strong>: Real-time threat detection for blockchain networks&lt;/li>
-&lt;li>🔬 &lt;strong>Research&lt;/strong>: ML for biomarker discovery at Imperial College London&lt;/li>
-&lt;/ul>
-&lt;h3 id="current-focus">Current Focus&lt;/h3>
-&lt;p>&lt;strong>Lead Data Scientist at Range.org&lt;/strong> — building ML-powered compliance and security solutions for blockchain infrastructure. Monitoring $30B+ in assets across cross-chain transactions, USDC bridges, and DeFi protocols. Also serving as Research Associate at Imperial College London, applying ML for biomarker discovery in clinical immunology trials.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Daniel Fiuza Dosil</title>
+    <link>http://localhost:1314/about/</link>
+    <description>Recent content in About on Daniel Fiuza Dosil</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 01 Aug 2025 11:10:38 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1314/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1314/about/_index_new/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      <guid>http://localhost:1314/about/_index_new/</guid>
+      <description>&lt;h2 id=&#34;daniel-fiuza&#34;&gt;Daniel Fiuza&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lead Data Scientist&lt;/strong&gt; at Range.org with a &lt;strong&gt;PhD from Imperial College London&lt;/strong&gt;. I build ML systems for blockchain security and compliance—protecting $30B+ in monitored assets across 21 integrated chains.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-i-do&#34;&gt;What I Do&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔗 &lt;strong&gt;Blockchain ML&lt;/strong&gt;: Anomaly detection and risk analytics for DeFi protocols and cross-chain bridges&lt;/li&gt;&#xA;&lt;li&gt;💰 &lt;strong&gt;Stablecoin Compliance&lt;/strong&gt;: USDC monitoring via CCTP, KYT/AML systems, and transaction risk scoring&lt;/li&gt;&#xA;&lt;li&gt;🛡️ &lt;strong&gt;Security Intelligence&lt;/strong&gt;: Real-time threat detection and incident response for blockchain networks&lt;/li&gt;&#xA;&lt;li&gt;🔬 &lt;strong&gt;Research&lt;/strong&gt;: ML for biomarker discovery at Imperial College London (part-time)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;current-focus&#34;&gt;Current Focus&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lead Data Scientist at Range.org&lt;/strong&gt; — building the blockchain security and intelligence platform trusted by leading protocols. Our ML-powered suite monitors $30B+ in assets, processes 730M+ transactions, and provides real-time compliance solutions for stablecoins and DeFi.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1314/about/_index_old/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      <guid>http://localhost:1314/about/_index_old/</guid>
+      <description>&lt;h2 id=&#34;daniel-fiuza&#34;&gt;Daniel Fiuza&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lead Data Scientist&lt;/strong&gt; at Range.org with a &lt;strong&gt;PhD from Imperial College London&lt;/strong&gt;. I build ML systems for blockchain security and compliance—protecting $30B+ in monitored assets across 21 integrated chains.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-i-do&#34;&gt;What I Do&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔗 &lt;strong&gt;Blockchain ML&lt;/strong&gt;: Risk detection and anomaly analysis for DeFi protocols&lt;/li&gt;&#xA;&lt;li&gt;💰 &lt;strong&gt;Stablecoin Compliance&lt;/strong&gt;: USDC cross-chain monitoring and KYT/AML systems&lt;/li&gt;&#xA;&lt;li&gt;�️ &lt;strong&gt;Security Analytics&lt;/strong&gt;: Real-time threat detection for blockchain networks&lt;/li&gt;&#xA;&lt;li&gt;🔬 &lt;strong&gt;Research&lt;/strong&gt;: ML for biomarker discovery at Imperial College London&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;current-focus&#34;&gt;Current Focus&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lead Data Scientist at Range.org&lt;/strong&gt; — building ML-powered compliance and security solutions for blockchain infrastructure. Monitoring $30B+ in assets across cross-chain transactions, USDC bridges, and DeFi protocols. Also serving as Research Associate at Imperial College London, applying ML for biomarker discovery in clinical immunology trials.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
