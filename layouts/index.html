@@ -10,45 +10,50 @@
             <a href="#blog">Blog</a>
         </div>
         <div class="social-icons">
-            {{ with .Site.Data.homepage.social }}
-            {{ if .linkedin }}
-            <a href="https://www.linkedin.com/in/{{ .linkedin }}" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="social-icon-link" 
-               aria-label="LinkedIn Profile">
-                <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" 
-                     alt="LinkedIn" 
-                     class="social-icon"
-                     style="width: 24px !important; height: 24px !important; max-width: 24px !important; max-height: 24px !important;"
-                     loading="lazy" />
-            </a>
-            {{ end }}
-            {{ if .github }}
-            <a href="https://github.com/{{ .github }}" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="social-icon-link" 
-               aria-label="GitHub Profile">
-                <img src="https://cdn.svgporn.com/logos/github-icon.svg" 
-                     alt="GitHub" 
-                     class="social-icon"
-                     style="width: 24px !important; height: 24px !important; max-width: 24px !important; max-height: 24px !important;"
-                     loading="lazy" />
-            </a>
-            {{ end }}
-            {{ if .gmail }}
-            <a href="mailto:{{ .gmail }}@gmail.com" 
-               class="social-icon-link" 
-               aria-label="Send Email">
-                <img src="https://cdn.svgporn.com/logos/google-gmail.svg" 
-                     alt="Gmail" 
-                     class="social-icon"
-                     style="width: 24px !important; height: 24px !important; max-width: 24px !important; max-height: 24px !important;"
-                     loading="lazy" />
-            </a>
-            {{ end }}
-            {{ end }}
+            <div class="social-icons-container">
+                {{ with .Site.Data.homepage.social }}
+                {{ if .linkedin }}
+                <a href="https://www.linkedin.com/in/{{ .linkedin }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="social-icon-link social-linkedin" 
+                   aria-label="LinkedIn Profile">
+                    <div class="social-icon-wrapper">
+                        <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" 
+                             alt="LinkedIn" 
+                             class="social-icon"
+                             loading="lazy" />
+                    </div>
+                </a>
+                {{ end }}
+                {{ if .github }}
+                <a href="https://github.com/{{ .github }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="social-icon-link social-github" 
+                   aria-label="GitHub Profile">
+                    <div class="social-icon-wrapper">
+                        <img src="https://cdn.svgporn.com/logos/github-icon.svg" 
+                             alt="GitHub" 
+                             class="social-icon"
+                             loading="lazy" />
+                    </div>
+                </a>
+                {{ end }}
+                {{ if .gmail }}
+                <a href="mailto:{{ .gmail }}@gmail.com" 
+                   class="social-icon-link social-gmail" 
+                   aria-label="Send Email">
+                    <div class="social-icon-wrapper">
+                        <img src="https://cdn.svgporn.com/logos/google-gmail.svg" 
+                             alt="Gmail" 
+                             class="social-icon"
+                             loading="lazy" />
+                    </div>
+                </a>
+                {{ end }}
+                {{ end }}
+            </div>
         </div>
     </div>
 </section>
@@ -71,23 +76,27 @@
 {{ if .Site.Data.homepage.experience.enable }}
 <section id="experience" class="uk-margin-large-bottom">
     <div class="uk-container">
-        <h2 class="uk-text-center">Experience</h2>
-        {{ range .Site.Data.homepage.experience.item }}
-        <div class="experience-card">
-            <img src="{{.logo}}" 
-                 alt="{{.company}} logo" 
-                 class="card-image"
-                 loading="lazy" />
-            <div class="card-content">
-                <div class="card-title">{{.title}}</div>
-                <div class="card-subtitle">{{.company}}</div>
-                <div class="card-meta">{{.duration}}</div>
-                {{ if .description }}
-                <div class="card-description">{{.description | markdownify}}</div>
+        <div class="experience-container">
+            <h2 class="uk-text-center">Experience</h2>
+            <div class="experience-grid">
+                {{ range .Site.Data.homepage.experience.item }}
+                <div class="experience-card">
+                    <img src="{{.logo}}" 
+                         alt="{{.company}} logo" 
+                         class="card-image"
+                         loading="lazy" />
+                    <div class="card-content">
+                        <div class="card-title">{{.title}}</div>
+                        <div class="card-subtitle">{{.company}}</div>
+                        <div class="card-meta">{{.duration}}</div>
+                        {{ if .description }}
+                        <div class="card-description">{{.description | markdownify}}</div>
+                        {{ end }}
+                    </div>
+                </div>
                 {{ end }}
             </div>
         </div>
-        {{ end }}
     </div>
 </section>
 {{ end }}
@@ -100,64 +109,72 @@
             <!-- Education Section (Left Side) -->
             {{ if .Site.Data.homepage.education.enable }}
             <div id="education">
-                <h2 class="uk-text-center uk-text-left@l">Education</h2>
-                {{ range .Site.Data.homepage.education.item }}
-                <div class="education-card">
-                    <img src="{{.image}}" 
-                         alt="{{.academy}} logo" 
-                         class="card-image"
-                         loading="lazy" />
-                    <div class="card-content">
-                        <div class="card-title">{{.title}}</div>
-                        <div class="card-subtitle">{{.academy}}</div>
-                        <div class="card-meta">{{.year}}</div>
-                        {{ if .description }}
-                        <div class="card-description">{{.description | markdownify}}</div>
+                <div class="education-container">
+                    <h2 class="uk-text-center uk-text-left@l">Education</h2>
+                    <div class="education-grid">
+                        {{ range .Site.Data.homepage.education.item }}
+                        <div class="education-card">
+                            <img src="{{.image}}" 
+                                 alt="{{.academy}} logo" 
+                                 class="card-image"
+                                 loading="lazy" />
+                            <div class="card-content">
+                                <div class="card-title">{{.title}}</div>
+                                <div class="card-subtitle">{{.academy}}</div>
+                                <div class="card-meta">{{.year}}</div>
+                                {{ if .description }}
+                                <div class="card-description">{{.description | markdownify}}</div>
+                                {{ end }}
+                            </div>
+                        </div>
                         {{ end }}
                     </div>
                 </div>
-                {{ end }}
             </div>
             {{ end }}
             
             <!-- Blog Section (Right Side) -->
             {{ if .Site.Data.homepage.blog.enable }}
             <div id="blog">
-                {{ with .Site.Data.homepage.blog }}
-                <h2 class="uk-text-center uk-text-left@l">{{ .title }}</h2>
-                {{ if .subtitle }}
-                <p class="uk-text-center uk-text-left@l uk-text-lead uk-margin-medium-bottom">{{ .subtitle }}</p>
-                {{ end }}
-                {{ end }}
-                
-                <div class="uk-child-width-1-1" uk-grid>
-                    {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-card-small">
-                            <h4 class="uk-card-title uk-margin-small-bottom">
-                                <a href="{{ .Permalink }}" class="uk-link-reset">{{ .Title }}</a>
-                            </h4>
-                            <p class="uk-text-meta uk-margin-remove-top">
-                                <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
-                            </p>
-                            {{ if .Params.description }}
-                            <p class="uk-text-small">{{ .Params.description | truncate 100 }}</p>
-                            {{ else }}
-                            <p class="uk-text-small">{{ .Summary | truncate 100 }}</p>
-                            {{ end }}
-                            <div class="uk-margin-small-top">
-                                {{ range first 2 .Params.tags }}
-                                <span class="uk-label uk-label-default uk-label-small uk-margin-small-right">{{ . }}</span>
-                                {{ end }}
+                <div class="blog-container">
+                    {{ with .Site.Data.homepage.blog }}
+                    <h2 class="uk-text-center uk-text-left@l">{{ .title }}</h2>
+                    {{ if .subtitle }}
+                    <p class="uk-text-center uk-text-left@l uk-text-lead uk-margin-medium-bottom">{{ .subtitle }}</p>
+                    {{ end }}
+                    {{ end }}
+                    
+                    <div class="blog-grid">
+                        <div class="uk-child-width-1-1" uk-grid>
+                            {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+                            <div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-card-small">
+                                    <h4 class="uk-card-title uk-margin-small-bottom">
+                                        <a href="{{ .Permalink }}" class="uk-link-reset">{{ .Title }}</a>
+                                    </h4>
+                                    <p class="uk-text-meta uk-margin-remove-top">
+                                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                                    </p>
+                                    {{ if .Params.description }}
+                                    <p class="uk-text-small">{{ .Params.description | truncate 100 }}</p>
+                                    {{ else }}
+                                    <p class="uk-text-small">{{ .Summary | truncate 100 }}</p>
+                                    {{ end }}
+                                    <div class="uk-margin-small-top">
+                                        {{ range first 2 .Params.tags }}
+                                        <span class="uk-label uk-label-default uk-label-small uk-margin-small-right">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                    <a href="{{ .Permalink }}" class="uk-button uk-button-text uk-button-small uk-margin-small-top">Read More →</a>
+                                </div>
                             </div>
-                            <a href="{{ .Permalink }}" class="uk-button uk-button-text uk-button-small uk-margin-small-top">Read More →</a>
+                            {{ end }}
+                        </div>
+                        
+                        <div class="uk-text-center uk-text-left@l uk-margin-top">
+                            <a href="{{ "blog" | absURL }}" class="uk-button uk-button-default uk-button-small">View All Posts</a>
                         </div>
                     </div>
-                    {{ end }}
-                </div>
-                
-                <div class="uk-text-center uk-text-left@l uk-margin-top">
-                    <a href="{{ "blog" | absURL }}" class="uk-button uk-button-default uk-button-small">View All Posts</a>
                 </div>
             </div>
             {{ end }}

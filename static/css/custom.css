@@ -50,40 +50,167 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Education & Blog Side-by-Side Layout
+   Container Layouts - Experience, Education, Blog
    ========================================================================== */
-   
-/* Ensure equal height columns */
-#education, #blog {
+
+/* Experience Container */
+.experience-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.experience-grid {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-/* Blog cards in side panel - more compact */
-#blog .uk-card-small {
-    padding: 1rem;
+/* Education Container - Match Experience Success */
+.education-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-#blog .uk-card-title {
-    font-size: 0.9rem;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
+.education-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-#blog .uk-text-small {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
+/* Blog Container - Match Experience Success */
+.blog-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-#blog .uk-label-small {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
+.blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-#blog .uk-button-small {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+/* ==========================================================================
+   Social Icons - COMPLETE REWRITE WITH CONTAINERS
+   ========================================================================== */
+
+.social-icons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 1.5rem 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.social-icons-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+}
+
+.social-icon-link {
+    display: block !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    background: #f8f9fa !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.social-icon-link:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    border-color: #007bff !important;
+}
+
+.social-icon-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+}
+
+/* Social Icons - Complete Fix */
+.social-icons-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    flex-wrap: wrap !important;
+}
+
+.social-icon-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    background: rgba(0,0,0,0.05) !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.social-icon-link:hover {
+    background: rgba(0,0,0,0.1) !important;
+    transform: translateY(-2px) !important;
+    border: none !important;
+}
+
+.social-icon-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.social-icon-wrapper img,
+.social-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Force specific sizing for each social platform */
+.social-linkedin .social-icon,
+.social-github .social-icon,
+.social-gmail .social-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
 }
 
 /* ==========================================================================
@@ -92,15 +219,181 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Force proper mobile layout - override UIKit defaults */
 @media (max-width: 768px) {
+    /* Override UIKit grid system completely for mobile */
+    .uk-grid-large {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    
+    .uk-grid-large > * {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Container fixes - match Experience success */
+    .experience-container,
+    .education-container,
+    .blog-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .experience-grid,
+    .education-grid,
+    .blog-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Education and Blog cards - match Experience styling */
+    .education-card, 
+    #blog .uk-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        border: 1px solid #f0f0f0 !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+    
+    /* Fix UIKit grid left padding that causes cropping */
+    #education, #blog {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Override ALL UIKit grid margins/padding on mobile */
+    .uk-grid > *,
+    .uk-grid-large > * {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+    
+    /* About section mobile - fix text container */
+    .uk-margin-medium-top .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .uk-margin-medium-top .uk-text-center {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Fix About section text specifically */
+    .uk-text-lead {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        padding: 0 !important;
+        margin: 0 0 1rem 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Social Icons Mobile Fix */
+    .social-icons-container {
+        gap: 0.5rem !important;
+        margin: 1rem 0 !important;
+        justify-content: center !important;
+    }
+    
+    .social-icon-link {
+        width: 44px !important;
+        height: 44px !important;
+        background: rgba(0,0,0,0.08) !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .social-icon-wrapper {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    .social-icon-wrapper img,
+    .social-icon {
+        width: 24px !important;
+        height: 24px !important;
+        max-width: 24px !important;
+        max-height: 24px !important;
+        min-width: 24px !important;
+        min-height: 24px !important;
+    }
+    
+    /* Social icons mobile specific */
+    .social-icons {
+        margin: 2rem 0 !important;
+        padding: 0 1rem !important;
+    }
+    
+    .social-icons-container {
+        gap: 0.75rem !important;
+        max-width: 250px !important;
+    }
+    
+    .social-icon-link {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .social-icon-wrapper {
+        padding: 6px !important;
+    }
+    
+    .social-icon-wrapper img,
+    .social-icon {
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+    }
+    
     /* Reset UIKit container and grid behavior */
     .uk-container {
-        padding: 0 1rem !important;
+        width: 100% !important;
         max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
     }
     
     .uk-grid > * {
         width: 100% !important;
-        padding-left: 0 !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin-bottom: 2rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure all sections use full width */
+    section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
     }
     
     /* Base font size adjustments */
@@ -159,58 +452,33 @@ h1, h2, h3, h4, h5, h6 {
         text-decoration: none;
     }
     
-    /* SOCIAL ICONS - FIX THE MAJOR ISSUE */
-    .social-icons {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 1rem !important;
-        margin-top: 1.5rem !important;
-        flex-wrap: wrap !important;
-        align-items: center !important;
-    }
-    
-    .social-icon-link {
-        display: block !important;
-        width: 40px !important;
-        height: 40px !important;
-        padding: 8px !important;
-        border-radius: 8px !important;
-        background: #f8f9fa !important;
-        border: 1px solid #e9ecef !important;
-        flex-shrink: 0 !important;
-    }
-    
-/* Social Icons - Ultra Aggressive Mobile Sizing */
-.social-icon,
-.social-icons img,
-.social-icon-link img,
-img.social-icon {
-    width: 24px !important;
-    height: 24px !important;
-    max-width: 24px !important;
-    max-height: 24px !important;
-    min-width: 24px !important;
-    min-height: 24px !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    object-fit: contain !important;
-}
-
-/* Alternative approach - container restriction */
-.social-icons {
-    font-size: 0 !important;
-}
-
-.social-icon-link {
-    display: inline-block !important;
-    width: 32px !important;
-    height: 32px !important;
-    padding: 4px !important;
-    margin: 0 4px !important;
-}    /* Stack education and blog vertically on mobile */
+    /* Stack education and blog vertically on mobile - Fix cropping */
     #education, #blog {
-        margin-bottom: 2rem;
         width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Mobile-specific education and blog cards */
+    .education-card, #blog .uk-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+    }
+    
+    /* Fix text cropping in cards */
+    .education-card .card-content,
+    #blog .uk-card-body {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
     }
     
     /* Mobile section headings */
@@ -268,22 +536,30 @@ img.social-icon {
     
     /* Blog cards mobile optimization */
     #blog .uk-card {
+        width: 100% !important;
+        max-width: 100% !important;
         padding: 1rem !important;
-        margin-bottom: 1rem !important;
+        margin: 0 0 1rem 0 !important;
         border: 1px solid #e9ecef !important;
         border-radius: 8px !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
     }
     
     #blog .uk-card-title {
         font-size: 1rem !important;
         line-height: 1.3 !important;
         margin-bottom: 0.5rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
     }
     
     #blog .uk-text-small {
         font-size: 0.85rem !important;
         line-height: 1.4 !important;
         margin-bottom: 0.75rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
     }
     
     #blog .uk-label {
@@ -302,10 +578,29 @@ img.social-icon {
     
     /* About section mobile */
     .uk-text-lead {
-        font-size: 1rem !important;
-        line-height: 1.5 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
         padding: 0 1rem !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
         text-align: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* About section container */
+    .uk-margin-medium-top .uk-container {
+        padding: 0 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .uk-margin-medium-top .uk-text-center {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     /* Margins and spacing */
@@ -324,11 +619,9 @@ img.social-icon {
     /* Touch-friendly buttons */
     .uk-button {
         min-height: 44px !important;
-        padding: 0.75rem 1rem !important;
+        padding: 0.75rem 1.5rem !important;
         font-size: 0.9rem !important;
         border-radius: 6px !important;
-        display: inline-block !important;
-        text-align: center !important;
     }
     
     /* Navigation fixes */
@@ -338,7 +631,33 @@ img.social-icon {
     
     .uk-navbar-nav > li > a {
         font-size: 0.9rem !important;
-        padding: 0.5rem 0.8rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    /* Footer mobile fixes - Center email */
+    .footer {
+        padding: 2rem 1rem !important;
+        text-align: center !important;
+    }
+    
+    .footer .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .footer-email {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 1rem !important;
+        margin: 0 auto !important;
+    }
+    
+    .footer-copyright {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
     }
 }
 
@@ -352,19 +671,28 @@ img.social-icon {
         font-size: 0.8rem;
     }
     
-    .social-icons {
-        gap: 0.8rem !important;
+    .social-icons-container {
+        gap: 0.5rem !important;
+        max-width: 200px !important;
     }
     
     .social-icon-link {
-        width: 36px !important;
-        height: 36px !important;
-        padding: 6px !important;
+        width: 32px !important;
+        height: 32px !important;
     }
     
+    .social-icon-wrapper {
+        padding: 4px !important;
+    }
+    
+    .social-icon-wrapper img,
     .social-icon {
-        width: 20px !important;
-        height: 20px !important;
+        width: 18px !important;
+        height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
     }
     
     .section-links {
@@ -642,6 +970,22 @@ section:not(:last-child)::after {
 
 .license-icon:hover {
     opacity: 1;
+}
+
+/* Container Structure */
+.experience-container,
+.education-container,
+.blog-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.experience-grid,
+.education-grid,
+.blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 /* ==========================================================================
