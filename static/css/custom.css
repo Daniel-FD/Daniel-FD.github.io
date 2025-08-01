@@ -86,24 +86,285 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.4rem 0.8rem;
 }
 
-/* Mobile responsiveness */
+/* ==========================================================================
+   Mobile Responsiveness - MAJOR IMPROVEMENTS
+   ========================================================================== */
+
+/* Force proper mobile layout - override UIKit defaults */
 @media (max-width: 768px) {
+    /* Reset UIKit container and grid behavior */
+    .uk-container {
+        padding: 0 1rem !important;
+        max-width: 100% !important;
+    }
+    
+    .uk-grid > * {
+        width: 100% !important;
+        padding-left: 0 !important;
+    }
+    
+    /* Base font size adjustments */
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Hero section mobile fixes */
+    .banner {
+        padding: 2rem 0 1.5rem 0;
+        text-align: center;
+    }
+    
+    .banner h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    
+    .banner .title {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+        padding: 0 1rem;
+    }
+    
+    /* About me button mobile */
+    .banner .cta {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        border-radius: 6px;
+        background: #007bff;
+        color: white !important;
+        text-decoration: none;
+        border: none;
+    }
+    
+    /* Section navigation links */
+    .section-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+    }
+    
+    .section-links a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #666;
+        text-decoration: none;
+    }
+    
+    /* SOCIAL ICONS - FIX THE MAJOR ISSUE */
+    .social-icons {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+        margin-top: 1.5rem !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+    }
+    
+    .social-icon-link {
+        display: block !important;
+        width: 40px !important;
+        height: 40px !important;
+        padding: 8px !important;
+        border-radius: 8px !important;
+        background: #f8f9fa !important;
+        border: 1px solid #e9ecef !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .social-icon {
+        width: 24px !important;
+        height: 24px !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+    
     /* Stack education and blog vertically on mobile */
     #education, #blog {
         margin-bottom: 2rem;
+        width: 100% !important;
     }
     
-    /* Restore full-width blog cards on mobile */
+    /* Mobile section headings */
+    h2 {
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Experience cards mobile */
+    .experience-card, .education-card {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        background: white;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .card-image {
+        width: 40px !important;
+        height: 40px !important;
+        object-fit: contain !important;
+        flex-shrink: 0;
+    }
+    
+    .card-content {
+        flex: 1;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    
+    .card-subtitle {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 0.25rem;
+    }
+    
+    .card-meta {
+        font-size: 0.8rem;
+        color: #888;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    /* Blog cards mobile optimization */
     #blog .uk-card {
-        padding: 1.5rem;
+        padding: 1rem !important;
+        margin-bottom: 1rem !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 8px !important;
     }
     
     #blog .uk-card-title {
-        font-size: 1.1rem;
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.5rem !important;
     }
     
     #blog .uk-text-small {
-        font-size: 0.9rem;
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    #blog .uk-label {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-right: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+        display: inline-block !important;
+    }
+    
+    #blog .uk-button {
+        font-size: 0.85rem !important;
+        padding: 0.6rem 1rem !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    /* About section mobile */
+    .uk-text-lead {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        padding: 0 1rem !important;
+        text-align: center !important;
+    }
+    
+    /* Margins and spacing */
+    .uk-margin-large-bottom {
+        margin-bottom: 2rem !important;
+    }
+    
+    .uk-margin-medium-bottom {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .uk-margin-medium-top {
+        margin-top: 1.5rem !important;
+    }
+    
+    /* Touch-friendly buttons */
+    .uk-button {
+        min-height: 44px !important;
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 6px !important;
+        display: inline-block !important;
+        text-align: center !important;
+    }
+    
+    /* Navigation fixes */
+    .uk-navbar-container {
+        padding: 0 1rem !important;
+    }
+    
+    .uk-navbar-nav > li > a {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 0.8rem !important;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .banner .title {
+        font-size: 0.8rem;
+    }
+    
+    .social-icons {
+        gap: 0.8rem !important;
+    }
+    
+    .social-icon-link {
+        width: 36px !important;
+        height: 36px !important;
+        padding: 6px !important;
+    }
+    
+    .social-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    .section-links {
+        gap: 0.5rem;
+    }
+    
+    .section-links a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .experience-card, .education-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .card-image {
+        align-self: center;
     }
 }
 
