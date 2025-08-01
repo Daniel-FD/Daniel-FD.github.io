@@ -219,25 +219,38 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Force proper mobile layout - override UIKit defaults */
 @media (max-width: 768px) {
+    /* GLOBAL MOBILE CONTAINER FIXES */
+    .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    
     /* Override UIKit grid system completely for mobile */
+    .uk-grid,
     .uk-grid-large {
         margin-left: 0 !important;
         padding-left: 0 !important;
+        width: 100% !important;
     }
     
+    .uk-grid > *,
     .uk-grid-large > * {
         padding-left: 0 !important;
         margin-left: 0 !important;
         width: 100% !important;
+        max-width: 100% !important;
     }
     
-    /* Container fixes - match Experience success */
+    /* ALL SECTION CONTAINERS - Match Experience Success Pattern */
     .experience-container,
     .education-container,
     .blog-container {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 1rem !important;
+        padding: 0 !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -253,52 +266,73 @@ h1, h2, h3, h4, h5, h6 {
         margin: 0 !important;
     }
     
-    /* Education and Blog cards - match Experience styling */
-    .education-card, 
+    /* SECTION WRAPPERS - Prevent Left Cropping */
+    #experience,
+    #education, 
+    #blog {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* CARDS - Uniform Design Across All Sections */
+    .experience-card,
+    .education-card,
     #blog .uk-card {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 0 1rem 0 !important;
         padding: 1rem !important;
         box-sizing: border-box !important;
-        border: 1px solid #f0f0f0 !important;
+        border: 1px solid #e9ecef !important;
         border-radius: 8px !important;
+        background: white !important;
         display: flex !important;
         align-items: flex-start !important;
         gap: 1rem !important;
+        overflow: visible !important;
     }
     
-    /* Fix UIKit grid left padding that causes cropping */
-    #education, #blog {
-        padding-left: 0 !important;
-        margin-left: 0 !important;
+    /* CARD IMAGES - Consistent Sizing */
+    .experience-card .card-image,
+    .education-card .card-image {
+        width: 40px !important;
+        height: 40px !important;
+        object-fit: contain !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* CARD CONTENT - Full Width Text */
+    .experience-card .card-content,
+    .education-card .card-content,
+    #blog .uk-card-body {
+        flex: 1 !important;
         width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
     }
     
-    /* Override ALL UIKit grid margins/padding on mobile */
-    .uk-grid > *,
-    .uk-grid-large > * {
-        padding-left: 0 !important;
-        margin-left: 0 !important;
-    }
-    
-    /* About section mobile - fix text container */
+    /* ABOUT SECTION - Full Width Fix */
     .uk-margin-medium-top .uk-container {
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 1rem !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         box-sizing: border-box !important;
     }
     
     .uk-margin-medium-top .uk-text-center {
         width: 100% !important;
-        text-align: center !important;
         padding: 0 !important;
         margin: 0 !important;
+        text-align: center !important;
     }
     
-    /* Fix About section text specifically */
     .uk-text-lead {
         font-size: 1.1rem !important;
         line-height: 1.6 !important;
@@ -309,6 +343,35 @@ h1, h2, h3, h4, h5, h6 {
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         box-sizing: border-box !important;
+    }
+    
+    /* FOOTER EMAIL - Center Fix */
+    .footer {
+        padding: 2rem 0 !important;
+        text-align: center !important;
+    }
+    
+    .footer .uk-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+    }
+    
+    .footer-email {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 1rem !important;
+        margin: 0 auto !important;
+        color: #007bff !important;
+        text-decoration: none !important;
+    }
+    
+    .footer-copyright {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
     }
     
     /* Social Icons Mobile Fix */
@@ -671,28 +734,29 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.8rem;
     }
     
+    /* Bigger social icons for mobile */
     .social-icons-container {
-        gap: 0.5rem !important;
-        max-width: 200px !important;
+        gap: 0.75rem !important;
+        max-width: 250px !important;
     }
     
     .social-icon-link {
-        width: 32px !important;
-        height: 32px !important;
+        width: 44px !important;
+        height: 44px !important;
     }
     
     .social-icon-wrapper {
-        padding: 4px !important;
+        padding: 6px !important;
     }
     
     .social-icon-wrapper img,
     .social-icon {
-        width: 18px !important;
-        height: 18px !important;
-        max-width: 18px !important;
-        max-height: 18px !important;
-        min-width: 18px !important;
-        min-height: 18px !important;
+        width: 28px !important;
+        height: 28px !important;
+        max-width: 28px !important;
+        max-height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
     }
     
     .section-links {
@@ -704,14 +768,49 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0.4rem 0.6rem;
     }
     
+    /* Experience cards mobile - improved center alignment */
     .experience-card, .education-card {
         flex-direction: column;
-        text-align: center;
+        text-align: center !important;
         gap: 0.5rem;
+        padding: 1rem !important;
+        margin: 0.75rem 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Force center alignment for all card content */
+    .experience-card .card-content,
+    .education-card .card-content {
+        text-align: center !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .experience-card .card-title,
+    .experience-card .card-subtitle,
+    .experience-card .card-meta,
+    .experience-card .card-description,
+    .education-card .card-title,
+    .education-card .card-subtitle,
+    .education-card .card-meta,
+    .education-card .card-description {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        display: block !important;
     }
     
     .card-image {
         align-self: center;
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 auto 0.75rem auto !important;
+        display: block !important;
     }
 }
 

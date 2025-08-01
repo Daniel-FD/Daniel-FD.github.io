@@ -101,87 +101,78 @@
 </section>
 {{ end }}
 
-<!-- Education and Blog Side by Side Section -->
-<section class="uk-margin-large-bottom">
+<!-- Education Section -->
+{{ if .Site.Data.homepage.education.enable }}
+<section id="education" class="uk-margin-large-bottom">
     <div class="uk-container">
-        <div class="uk-grid-large uk-child-width-1-1 uk-child-width-1-2@l" uk-grid>
-            
-            <!-- Education Section (Left Side) -->
-            {{ if .Site.Data.homepage.education.enable }}
-            <div id="education">
-                <div class="education-container">
-                    <h2 class="uk-text-center uk-text-left@l">Education</h2>
-                    <div class="education-grid">
-                        {{ range .Site.Data.homepage.education.item }}
-                        <div class="education-card">
-                            <img src="{{.image}}" 
-                                 alt="{{.academy}} logo" 
-                                 class="card-image"
-                                 loading="lazy" />
-                            <div class="card-content">
-                                <div class="card-title">{{.title}}</div>
-                                <div class="card-subtitle">{{.academy}}</div>
-                                <div class="card-meta">{{.year}}</div>
-                                {{ if .description }}
-                                <div class="card-description">{{.description | markdownify}}</div>
-                                {{ end }}
-                            </div>
-                        </div>
-                        {{ end }}
-                    </div>
+        <h2 class="uk-text-center">Education</h2>
+        <div class="education-grid">
+            {{ range .Site.Data.homepage.education.item }}
+            <div class="education-card">
+                <img src="{{.image}}" 
+                     alt="{{.academy}} logo" 
+                     class="card-image"
+                     loading="lazy" />
+                <div class="card-content">
+                    <div class="card-title">{{.title}}</div>
+                    <div class="card-subtitle">{{.academy}}</div>
+                    <div class="card-meta">{{.year}}</div>
+                    {{ if .description }}
+                    <div class="card-description">{{.description | markdownify}}</div>
+                    {{ end }}
                 </div>
             </div>
             {{ end }}
-            
-            <!-- Blog Section (Right Side) -->
-            {{ if .Site.Data.homepage.blog.enable }}
-            <div id="blog">
-                <div class="blog-container">
-                    {{ with .Site.Data.homepage.blog }}
-                    <h2 class="uk-text-center uk-text-left@l">{{ .title }}</h2>
-                    {{ if .subtitle }}
-                    <p class="uk-text-center uk-text-left@l uk-text-lead uk-margin-medium-bottom">{{ .subtitle }}</p>
-                    {{ end }}
-                    {{ end }}
-                    
-                    <div class="blog-grid">
-                        <div class="uk-child-width-1-1" uk-grid>
-                            {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-                            <div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-card-small">
-                                    <h4 class="uk-card-title uk-margin-small-bottom">
-                                        <a href="{{ .Permalink }}" class="uk-link-reset">{{ .Title }}</a>
-                                    </h4>
-                                    <p class="uk-text-meta uk-margin-remove-top">
-                                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
-                                    </p>
-                                    {{ if .Params.description }}
-                                    <p class="uk-text-small">{{ .Params.description | truncate 100 }}</p>
-                                    {{ else }}
-                                    <p class="uk-text-small">{{ .Summary | truncate 100 }}</p>
-                                    {{ end }}
-                                    <div class="uk-margin-small-top">
-                                        {{ range first 2 .Params.tags }}
-                                        <span class="uk-label uk-label-default uk-label-small uk-margin-small-right">{{ . }}</span>
-                                        {{ end }}
-                                    </div>
-                                    <a href="{{ .Permalink }}" class="uk-button uk-button-text uk-button-small uk-margin-small-top">Read More →</a>
-                                </div>
-                            </div>
-                            {{ end }}
-                        </div>
-                        
-                        <div class="uk-text-center uk-text-left@l uk-margin-top">
-                            <a href="{{ "blog" | absURL }}" class="uk-button uk-button-default uk-button-small">View All Posts</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-            
         </div>
     </div>
 </section>
+{{ end }}
+
+<!-- Blog Section -->
+{{ if .Site.Data.homepage.blog.enable }}
+<section id="blog" class="uk-margin-large-bottom">
+    <div class="uk-container">
+        {{ with .Site.Data.homepage.blog }}
+        <h2 class="uk-text-center">{{ .title }}</h2>
+        {{ if .subtitle }}
+        <p class="uk-text-center uk-text-lead uk-margin-medium-bottom">{{ .subtitle }}</p>
+        {{ end }}
+        {{ end }}
+        
+        <div class="blog-grid">
+            <div class="uk-child-width-1-1" uk-grid>
+                {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+                <div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-card-small">
+                        <h4 class="uk-card-title uk-margin-small-bottom">
+                            <a href="{{ .Permalink }}" class="uk-link-reset">{{ .Title }}</a>
+                        </h4>
+                        <p class="uk-text-meta uk-margin-remove-top">
+                            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                        </p>
+                        {{ if .Params.description }}
+                        <p class="uk-text-small">{{ .Params.description | truncate 100 }}</p>
+                        {{ else }}
+                        <p class="uk-text-small">{{ .Summary | truncate 100 }}</p>
+                        {{ end }}
+                        <div class="uk-margin-small-top">
+                            {{ range first 2 .Params.tags }}
+                            <span class="uk-label uk-label-default uk-label-small uk-margin-small-right">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        <a href="{{ .Permalink }}" class="uk-button uk-button-text uk-button-small uk-margin-small-top">Read More →</a>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            
+            <div class="uk-text-center uk-margin-top">
+                <a href="{{ "blog" | absURL }}" class="uk-button uk-button-default uk-button-small">View All Posts</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
