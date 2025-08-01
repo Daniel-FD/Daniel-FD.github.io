@@ -180,15 +180,34 @@ h1, h2, h3, h4, h5, h6 {
         flex-shrink: 0 !important;
     }
     
-    .social-icon {
-        width: 24px !important;
-        height: 24px !important;
-        object-fit: contain !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-    
-    /* Stack education and blog vertically on mobile */
+/* Social Icons - Ultra Aggressive Mobile Sizing */
+.social-icon,
+.social-icons img,
+.social-icon-link img,
+img.social-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    object-fit: contain !important;
+}
+
+/* Alternative approach - container restriction */
+.social-icons {
+    font-size: 0 !important;
+}
+
+.social-icon-link {
+    display: inline-block !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 4px !important;
+    margin: 0 4px !important;
+}    /* Stack education and blog vertically on mobile */
     #education, #blog {
         margin-bottom: 2rem;
         width: 100% !important;
