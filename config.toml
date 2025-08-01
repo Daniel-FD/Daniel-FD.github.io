@@ -7,9 +7,10 @@ enableRobotsTXT = true
 enableGitInfo = true
 disableHugoGeneratorInject = true
 
-[module]
-  [[module.imports]]
-    path = "hugo-developer-portfolio"
+# Comment out module imports since theme is missing
+# [module]
+#   [[module.imports]]
+#     path = "hugo-developer-portfolio"
 
 # Asset Management
 [params.plugins]
