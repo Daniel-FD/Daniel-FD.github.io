@@ -1,0 +1,81 @@
+{{ define "main" }}
+<section class="banner uk-margin-small-top uk-margin-medium-bottom">
+    <div class="uk-container">
+        <div class="uk-flex uk-flex-column uk-flex-middle">
+            <h1 class="uk-text-left"><span id="typed-portfolio-title"></span></h1>
+            <div id="scroll-arrow" class="uk-margin-small-top" style="opacity: 0; transition: opacity 0.5s ease;">
+                <span uk-icon="icon: chevron-down; ratio: 2" class="uk-animation-slide-top-small uk-animation-infinite"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="uk-container uk-margin-xlarge-bottom">
+        {{ if .Site.Data.portfolio.filter }}
+        <div uk-filter="target: .js-filter">
+            <ul class="uk-subnav uk-subnav-pill uk-subnav-divider uk-flex-center">
+                <li uk-filter-control><a href="#">All</a></li>
+                {{ range .Site.Data.portfolio.filter }}
+                <li uk-filter-control="[data-tags*='{{.value}}']">
+                    <a href="#">{{.label}}</a>
+                </li>
+                {{end}}
+            </ul>
+            {{ end }}
+
+            <div class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-small uk-flex-center" uk-grid uk-height-match="target: .uk-card">
+                {{ range .Site.Data.portfolio.item }}
+                <div data-tags="{{delimit .tags ' '}}">
+                    <div class="uk-card uk-card-default uk-card-hover">
+                        {{ if .image }}
+                        <div class="uk-card-media-top">
+                            <img src="{{.image | absURL}}" alt="{{.title}}" loading="lazy" />
+                        </div>
+                        {{ end }}
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">{{.title}}</h3>
+                            <p>{{.description}}</p>
+                            {{ if .tags }}
+                            <div class="uk-margin-small-top">
+                                {{ range .tags }}
+                                <span class="uk-label uk-label-muted uk-margin-small-right">{{.}}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ if .link }}
+                        <div class="uk-card-footer">
+                            <a href="{{.link}}" class="uk-button uk-button-text" target="_blank" rel="noopener noreferrer">
+                                View Project
+                            </a>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        {{ if .Site.Data.portfolio.filter }}
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    new Typed('#typed-portfolio-title', {
+        strings: ["Portfolio"],
+        typeSpeed: 100,
+        backSpeed: 0,
+        loop: false,
+        showCursor: false,
+        startDelay: 500,
+        onComplete: function() {
+            setTimeout(function() {
+                document.getElementById('scroll-arrow').style.opacity = '1';
+            }, 500);
+        }
+    });
+});
+</script>
+{{ end }}

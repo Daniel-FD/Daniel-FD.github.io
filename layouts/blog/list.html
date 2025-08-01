@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+<section class="uk-margin-large-bottom">
+    <div class="uk-container">
+        <div class="uk-grid-small uk-child-width-1-3@s uk-text-center" uk-grid uk-height-match="target: > div > div > .card-body">
+            {{ range .Data.Pages.ByPublishDate.Reverse }}
+
+            <div>
+                <div class="uk-card uk-card-default uk-width-1@m">
+                    {{ if .Params.image }}
+                    <div class="uk-card-media-top">
+                        <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" style="height: 200px; object-fit: cover; width: 100%;" />
+                    </div>
+                    {{ end }}
+                    <div class="card-body">
+                    <div class="uk-card-header">
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+                            <div class="uk-width-expand">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">{{.Title}}</h3>
+                                <p class="uk-text-meta uk-margin-remove-top"><time
+                                        datetime="{{.Date}}">{{.Date.Format "Jan 2, 2006"}}</time></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-card-body">
+                        <p>{{.Params.description}}</p>
+                        {{ if .Params.tags }}
+                        <div class="uk-margin-small-top">
+                            {{ range .Params.tags }}
+                            <span class="uk-label uk-label-primary uk-margin-small-right">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                    <div class="uk-card-footer">
+                        <a href="{{.Permalink | relURL}}" class="uk-button uk-button-text">Read more</a>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+
+        </div>
+
+    </div>
+</section>
+
+{{ end }}

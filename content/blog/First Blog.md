@@ -1,30 +1,83 @@
 ---
-title: "Making a new Website"
-date: 2019-12-31T12:14:34+06:00
-description: "My first blog, introducing my new website"
+title: "Building Blockchain Security at Scale"
+date: 2024-08-01T12:14:34+06:00
+description: "From healthcare AI to blockchain compliance—my journey to Range.org and the challenges of securing $30B+ in digital assets"
 author: "Daniel Fiuza"
 type: "post"
+image: "/images/blog/blockchain-security.jpg"
+tags: ["Blockchain", "Career", "Machine Learning"]
 ---
 
-For a long time this website has had a couple of links to contact me, but those days are over.
+After years building AI systems for healthcare and LLMs, I've found my most challenging and impactful work yet: **blockchain security and compliance at Range.org**.
 
-Now I have a brand new Hugo website with a custom written theme complete with
+## The Transition to Blockchain
 
-- A homepage with more social links, and description of my skills
-- An about page with description of who I am
-- A portfolio page to showcase all my projects
-- A blog
+Moving from traditional ML to blockchain required learning entirely new paradigms:
 
-### Why Hugo?
+- **Healthcare AI**: Structured data, regulated environments, batch processing
+- **Blockchain ML**: Graph data, pseudonymous actors, real-time requirements
 
-The first question is why a _site builder_? I'm competent at web development, why not just write it all myself? The markdown processing makes it much easier to just write words, not having to think about the formatting, and if I'm going to blog often, then I'll need that.
+The shift wasn't just technical—it was philosophical. In blockchain, **trust is code**, and every system must be designed for adversarial environments.
 
-Next it gets to why Hugo? why not Jekyll or any of the other vast array of site builders? The answer to that is sadly rather boring, it had a theme I liked the look of, in particular [this theme](https://github.com/themefisher/kross-hugo), and it had an MIT license, so I could publish and tweak it as much as I wanted to.
+## What Makes Blockchain ML Different?
 
-### Why start blogging?
+### 1. Data Complexity
+Traditional datasets have rows and columns. Blockchain has **transaction graphs** where:
+- Nodes represent addresses (often pseudonymous)
+- Edges are value transfers with complex metadata
+- Patterns evolve as attackers adapt
 
-A very good question. For one it would allow me to showcase my skills more than just a portfolio would, not everything fits under the umbrella of a portfolio, but I can blog about whatever I want. Secondly is to act as a reminder of how I do things, if I blog my process when I do technical things, I'll always be able to look back and see how I did it if I ever have to do it again.
+### 2. Real-Time Requirements
+Healthcare AI can process overnight. Compliance can't wait:
+- **Sub-second detection** for suspicious transactions
+- **Real-time blocking** of high-risk transfers
+- **Continuous monitoring** across 21+ blockchains
 
-### So what can I expect to see in the blog?
+### 3. Adversarial Environment
+Unlike clinical data, blockchain actors actively try to evade detection:
+- **Obfuscation techniques** like mixing services
+- **Smart contract exploits** requiring protocol-specific knowledge
+- **Cross-chain complexity** to hide transaction trails
 
-The current plan is for the vast majority of posts to be technical guides on how to do things, but there might be some variety if I want to blog about events.
+## Building at Range.org
+
+At Range, we've built ML systems that monitor **$30B+ in assets** across **730M+ transactions**. Key challenges:
+
+### Cross-Chain Intelligence
+Each blockchain speaks a different language:
+- **Ethereum**: Complex smart contracts
+- **Cosmos**: IBC cross-chain transfers  
+- **Solana**: High-speed, low-cost transactions
+
+Our ML models must understand all of them.
+
+### Stablecoin Compliance
+USDC transfers via CCTP require specialized monitoring:
+- **Cross-chain tracking** of the same asset
+- **KYT/AML compliance** across jurisdictions
+- **Real-time risk scoring** for regulatory reporting
+
+### DeFi Protocol Security
+Each DeFi protocol creates new attack vectors:
+- **Flash loan exploits**
+- **Oracle manipulation**
+- **Governance attacks**
+
+Our models continuously learn new patterns.
+
+## The Impact
+
+Building blockchain security isn't just about technology—it's about **enabling trust** in decentralized systems. When we prevent a hack or detect money laundering, we're protecting not just individual users but the entire ecosystem.
+
+## What's Next?
+
+The blockchain space evolves daily. We're pushing the boundaries with:
+- **Multi-modal AI** combining on-chain and off-chain data
+- **Graph neural networks** for complex relationship analysis
+- **LLM integration** for natural language compliance reporting
+
+Every day brings new challenges, but that's what makes this work so rewarding.
+
+---
+
+*Building the future of blockchain security at Range.org. Connect with me on [LinkedIn](https://www.linkedin.com/in/daniel-fiuza-dosil/) to discuss blockchain ML challenges.*

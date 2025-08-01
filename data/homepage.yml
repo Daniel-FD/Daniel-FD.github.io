@@ -1,8 +1,15 @@
----
 # Banner Section
 banner:
-  title: Hello! I'm Daniel Fiuza
-  subtitle: Data Scientist | ML Engineer
+  title: Daniel Fiuza
+  subtitle: Lead Data Scientist • Blockchain ML & Compliance
+
+# About Section  
+about:
+  enable: true
+  content: "Building ML systems for blockchain security and compliance. From stablecoin monitoring to DeFi risk analytics — turning blockchain data into actionable intelligence."
+  button:
+    btnText: "View Projects"
+    URL: "/portfolio"
 
 # Social Links
 social:
@@ -14,47 +21,67 @@ social:
 experience:
   enable: true
   item:
+    - logo: /images/logos/range.png
+      title: Lead Data Scientist
+      company: Range.org
+      duration: Apr 2025-Present
+      description: Blockchain ML & stablecoin compliance • $30B+ monitored assets • Cross-chain security
+
+    - logo: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/256px-Logo_for_Imperial_College_London.svg.png
+      title: Research Associate
+      company: Imperial College London
+      duration: Mar 2025-Present
+      description: ML for biomarker discovery • Allergy & immunology trials
+
     - logo: https://cdn.prod.website-files.com/63f37eb972bfb11db3ead91a/65097a2200f80ba3b79a7ad3_hf-logo-blue.svg
       title: Lead ML/LLM Engineer
       company: HelpFirst AI
       duration: 2022-Present
-      description: Leading the development of LLM-powered applications and AI solutions.
+      description: Award-winning LLM solutions • £400k annual savings • 92% accuracy
 
-    - logo: https://media.licdn.com/dms/image/v2/C4E0BAQFfXY8iBq8RlA/company-logo_200_200/company-logo_200_200/0/1630617996888/bryant_dental_logo
+    - logo: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9A0otDiBx7FRl-4C2Garqovk7V8cKKgkp0A&s
       title: Lead Data Scientist
       company: Bryant Medical
       duration: 2021-2024
-      description: Leading data science initiatives and ML implementations in healthcare.
+      description: Patented AI diagnostics • Computer vision • 60% faster diagnosis
 
     - logo: https://images.easyfundraising.org.uk/retailer/cropped/logo-loveholidays.jpg
       title: Data Scientist
       company: LoveHolidays
       duration: 2021-2021
-      description: Developed ML models for travel industry optimization.
+      description: ML recommendation engine • 2.8x booking increase • £17M revenue
 
     - logo: https://www.gstudyabroad.com/wp-content/uploads/2018/07/8q3Dxlkb_400x400.jpg
       title: Associate Lecturer
       company: London South Bank University
       duration: 2019-2021
-      description: Teaching and research in computer science and data science.
-
-    - logo: https://solarimpulse.com/files/companies/logo/2019-11-23-161200/logoFluidTech.jpg
-      title: Co-Founder & Head of Engineering
-      company: FluidTech
-      duration: 2016-2021
-      description: Led engineering team and developed innovative fluid dynamics solutions.
-
-    - logo: https://static.firsttutors.ws/theme/2/images/opengraph/1.png
-      title: Private Tutor
-      company: FirstTutors
-      duration: 2017-2021
-      description: Tutoring in mathematics, physics, and programming.
+      description: Computer Science & Data Science teaching
 
     - logo: https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/256px-Logo_for_Imperial_College_London.svg.png
-      title: Graduate Teaching Assistant (GTA)
+      title: Graduate Teaching Assistant
       company: Imperial College London
       duration: 2017-2020
-      description: Teaching and research assistance in engineering department.
+      description: Fluid Mechanics teaching • Lab demonstrations • Exam invigilation
+
+# Skills
+skill:
+  enable: true
+  item:
+    - title: Blockchain ML
+      logo: /logos/python.svg
+      description: Transaction analysis, risk detection • Anomaly detection for DeFi protocols
+      
+    - title: Compliance & Security  
+      logo: /logos/sql.svg
+      description: KYT/AML systems • Stablecoin monitoring • Cross-chain surveillance
+      
+    - title: Data Engineering
+      logo: /logos/mongodb.svg
+      description: Blockchain data pipelines • Real-time monitoring • $30B+ assets tracked
+      
+    - title: Cloud & DevOps
+      logo: /logos/nodejs.svg  
+      description: AWS, Docker, CI/CD • Scalable blockchain infrastructure
 
 # Education
 education:
@@ -90,6 +117,12 @@ education:
       image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo_UC3M.svg/256px-Logo_UC3M.svg.png
       description: Specialization in energy technologies and industrial processes.
 
+# Blog section
+blog:
+  enable: true
+  title: "Latest Blog Posts"
+  subtitle: "Insights on blockchain ML, compliance, and production systems"
+
 hackathons:
   enable: false
   item:
@@ -113,9 +146,15 @@ leadership:
       company: The Scout Association
       duration: September 2014 - July 2018
 
-# Portfolio section (commented out but kept as placeholder)
+# Portfolio section
 portfolio:
-  enable: false
+  enable: true
   filter:
-    - label: Web Dev
-      value: web-dev
+    - label: All
+      value: all
+    - label: Healthcare
+      value: healthcare
+    - label: LLM
+      value: llm
+    - label: Machine Learning
+      value: ml

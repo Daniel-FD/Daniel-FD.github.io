@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Images Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .code { background: #f4f4f4; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .highlight { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .success { background: #d4edda; padding: 15px; border-radius: 5px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <h1>🎨 Adding Images to Your Hugo Portfolio</h1>
+
+    <div class="success">
+        <strong>✅ CONFIRMED:</strong> Your blog section IS working and appears on the homepage! 
+        Scroll down to see "Latest Blog Posts" section with 3 blog post cards.
+    </div>
+
+    <h2>📝 Blog Post Images</h2>
+
+    <h3>Method 1: Featured Image in Frontmatter</h3>
+    <p>Add an <code>image</code> field to your blog post's frontmatter:</p>
+    <div class="code">
+---<br>
+title: "Your Blog Post Title"<br>
+date: 2024-12-15T10:00:00+06:00<br>
+description: "Your post description"<br>
+<strong>image: "/images/blog/your-image.jpg"</strong><br>
+tags: ["Tag1", "Tag2"]<br>
+---
+    </div>
+
+    <h3>Method 2: Images in Content</h3>
+    <p>Add images directly in your markdown content:</p>
+    <div class="code">
+![Alt text for your image](/images/blog/content-image.jpg)
+    </div>
+
+    <h2>🎯 Portfolio Project Images</h2>
+
+    <p>Edit <code>data/portfolio.yml</code> and add the <code>image</code> field:</p>
+    <div class="code">
+item:<br>
+&nbsp;&nbsp;- title: Your Project Name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>image: /images/portfolio/project-screenshot.jpg</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;description: "Your project description"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;link: https://your-project.com<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tags: ["Technology", "Framework"]
+    </div>
+
+    <h2>📂 File Organization</h2>
+
+    <div class="highlight">
+        <strong>Store your images in:</strong><br>
+        • <code>/static/images/blog/</code> - for blog post images<br>
+        • <code>/static/images/portfolio/</code> - for portfolio project images<br><br>
+        <strong>Note:</strong> The static folder content is served directly by Hugo at the root URL.
+    </div>
+
+    <h2>🖼️ Example Files Created</h2>
+
+    <p>I've created placeholder files to show the structure:</p>
+    <ul>
+        <li><code>/static/images/blog/blockchain-security.jpg</code></li>
+        <li><code>/static/images/blog/hugo-images.jpg</code></li>
+        <li><code>/static/images/portfolio/range-platform.jpg</code></li>
+        <li><code>/static/images/portfolio/usdc-monitor.jpg</code></li>
+        <li><code>/static/images/portfolio/blockchain-explorer.jpg</code></li>
+        <li>... and more</li>
+    </ul>
+
+    <h2>✨ Best Practices</h2>
+
+    <ol>
+        <li><strong>Image Optimization:</strong> Use optimized images (WebP, proper sizing)</li>
+        <li><strong>Alt Text:</strong> Always include descriptive alt text</li>
+        <li><strong>Consistent Naming:</strong> Use clear, consistent file naming</li>
+        <li><strong>Responsive Images:</strong> Hugo handles responsive images automatically</li>
+        <li><strong>File Size:</strong> Keep images under 1MB for web performance</li>
+    </ol>
+
+    <h2>🔍 Current Status</h2>
+
+    <div class="success">
+        <h3>✅ What's Working:</h3>
+        <ul>
+            <li>Blog section is enabled and rendering on homepage</li>
+            <li>Blog posts are showing in 3-column grid layout</li>
+            <li>Portfolio projects support images via portfolio.yml</li>
+            <li>Image directory structure is set up</li>
+            <li>Example blog posts with images are created</li>
+        </ul>
+    </div>
+
+    <div class="highlight">
+        <h3>📝 To Use Real Images:</h3>
+        <ol>
+            <li>Replace the placeholder .jpg files with actual image files</li>
+            <li>Upload your real project screenshots to <code>/static/images/portfolio/</code></li>
+            <li>Add featured images to <code>/static/images/blog/</code></li>
+            <li>Use formats like .jpg, .png, .webp for best compatibility</li>
+        </ol>
+    </div>
+
+    <p><strong>Visit your site at:</strong> <a href="http://localhost:1313">http://localhost:1313</a></p>
+    <p><strong>Blog section at:</strong> <a href="http://localhost:1313/blog">http://localhost:1313/blog</a></p>
+
+</body>
+</html>

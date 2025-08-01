@@ -1,34 +1,68 @@
 filter:
-  - label: Web Dev
-    value: web-dev
+  - label: All
+    value: all
+  - label: Blockchain
+    value: blockchain
+  - label: Machine Learning
+    value: ml
+  - label: Healthcare
+    value: healthcare
+  - label: LLM
+    value: llm
+  - label: Compliance
+    value: compliance
 
 item:
-  - title: Prompt Optimiser Python Library
-    image: images/portfolio/llm.jpg
-    description: Development of a Python library for optimizing and evaluating LLM prompts, enabling systematic prompt engineering and evaluation.
+  - title: Range Blockchain Security Platform
+    image: /images/portfolio/range-platform.jpg
+    description: "🔗 ML-powered blockchain monitoring • $30B+ assets • 21 integrated chains • Real-time threat detection"
+    link: https://www.range.org/
+    tags: ["Blockchain", "Machine Learning", "Security"]
+    
+  - title: USDC Cross-Chain Compliance
+    image: /images/portfolio/usdc-monitor.jpg
+    description: "💰 CCTP bridge monitoring • KYT/AML compliance • $25B+ transaction volume analyzed"
+    link: https://usdc.range.org/
+    tags: ["Blockchain", "Compliance", "Stablecoins"]
+
+  - title: Cross-Chain Transaction Explorer
+    image: /images/portfolio/blockchain-explorer.jpg
+    description: "🌐 Real-time transaction risk scoring • Cross-chain analytics • IBC flow monitoring"
+    link: https://explorer.range.org/
+    tags: ["Blockchain", "Analytics", "Security"]
+
+  - title: DeFi Risk Analytics Suite
+    image: /images/portfolio/defi-analytics.jpg
+    description: "📊 ML-powered risk detection • Protocol monitoring • Incident response automation"
+    link: https://www.range.org/
+    tags: ["Blockchain", "Machine Learning", "DeFi"]
+
+  - title: Customer Vulnerability AI
+    image: /images/portfolio/customer-ai.jpg
+    description: "🏆 Award-winning LLM solution • £400k annual savings • 92% accuracy"
     link: https://www.helpfirst.ai/
-    tags: ["LLM", "Python", "AI"]
+    tags: ["LLM", "NLP", "Social Impact"]
     
-  - title: Customer Vulnerability Prediction
-    image: images/portfolio/nlp.jpg
-    description: Led the development of an award-winning LLM-powered AI solution for predicting customer vulnerability, resulting in £400k annual savings for Citizens Advice Scotland.
-    link: https://www.helpfirst.ai/
-    tags: ["LLM", "NLP", "Machine Learning"]
-    
-  - title: Automated Biometric Measurements
-    image: images/portfolio/cv.jpg
-    description: Developed patented AI solutions for automated face and posture measurements using computer vision and deep learning techniques.
+  - title: Medical Diagnostics AI
+    image: /images/portfolio/medical-ai.jpg
+    description: "🔬 Patented computer vision system • 60% faster diagnosis • Clinical deployment"
     link: https://bryant.dental/
-    tags: ["Computer Vision", "Deep Learning", "Healthcare"]
+    tags: ["Computer Vision", "Healthcare", "Patents"]
     
-  - title: COVID-19 Breath Biomarker Analysis
-    image: images/portfolio/medical.jpg
-    description: Led the development of ML models for predicting COVID-19 infection from breath biomarkers, contributing to medical diagnostics innovation.
-    link: https://bryant.dental/
-    tags: ["Healthcare", "ML", "Diagnostics"]
-    
-  - title: Holiday Recommendation System
-    image: images/portfolio/recommender.jpg
-    description: Developed a recommendation system using gradient-boosted decision trees and clustering, leading to 2.8x increase in bookings and £17M projected revenue boost.
+  - title: Holiday Recommendation ML
+    image: https://via.placeholder.com/400x250/7c3aed/ffffff?text=ML+Revenue+Impact
+    description: "💰 2.8x booking increase • £17M projected revenue • Real-time personalization"
     link: https://www.loveholidays.com/
-    tags: ["ML", "Recommender Systems", "Business Impact"]
+    tags: ["Machine Learning", "Revenue Impact"]
+
+  - title: Prompt Optimization Library
+    image: https://via.placeholder.com/400x250/2563eb/ffffff?text=LLM+Tools
+    description: "⚡ Open-source Python library • Automated prompt A/B testing • Performance metrics"
+    link: https://github.com/Daniel-FD/prompt-optimizer
+    tags: ["LLM", "Open Source", "Tools"]
+
+  - title: COVID-19 Breath Detection
+    image: https://via.placeholder.com/400x250/7c2d12/ffffff?text=Medical+Research
+    description: "🧬 Non-invasive COVID detection • ML biomarker analysis • Published research"
+    link: https://bryant.dental/
+    tags: ["Healthcare", "Research"]

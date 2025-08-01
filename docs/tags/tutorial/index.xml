@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on Daniel Fiuza Dosil</title><link>http://localhost:1313/tags/tutorial/</link><description>Recent content in Tutorial on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Sun, 15 Dec 2024 10:00:00 +0600</lastBuildDate><atom:link href="http://localhost:1313/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Adding Images to Your Hugo Portfolio</title><link>http://localhost:1313/blog/adding-images-hugo/</link><pubDate>Sun, 15 Dec 2024 10:00:00 +0600</pubDate><guid>http://localhost:1313/blog/adding-images-hugo/</guid><description>&lt;h1 id="adding-images-to-your-hugo-portfolio">Adding Images to Your Hugo Portfolio&lt;/h1>
+&lt;p>Images make your portfolio and blog posts much more engaging and professional. Here&amp;rsquo;s how you can add them to both your blog posts and portfolio projects.&lt;/p>
+&lt;h2 id="blog-post-images">Blog Post Images&lt;/h2>
+&lt;h3 id="method-1-featured-image-in-frontmatter">Method 1: Featured Image in Frontmatter&lt;/h3>
+&lt;p>Add an &lt;code>image&lt;/code> field to your blog post&amp;rsquo;s frontmatter:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>---&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cbcbcb">&lt;/span>&lt;span style="color:#2c5dcd;font-weight:bold">title&lt;/span>:&lt;span style="color:#cbcbcb"> &lt;/span>&lt;span style="color:#0c6">&amp;#34;Your Blog Post Title&amp;#34;&lt;/span>&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cbcbcb">&lt;/span>&lt;span style="color:#2c5dcd;font-weight:bold">image&lt;/span>:&lt;span style="color:#cbcbcb"> &lt;/span>&lt;span style="color:#0c6">&amp;#34;/images/blog/your-image.jpg&amp;#34;&lt;/span>&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cbcbcb">&lt;/span>---&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="method-2-images-in-content">Method 2: Images in Content&lt;/h3>
+&lt;p>You can also add images directly in your markdown content:&lt;/p></description></item></channel></rss>

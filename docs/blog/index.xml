@@ -1,10 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on Daniel Fiuza Dosil</title><link>http://localhost:1313/blog/</link><description>Recent content in Blog on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Tue, 13 Dec 2022 12:44:57 +0100</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Making a new Website</title><link>http://localhost:1313/blog/first-blog/</link><pubDate>Tue, 31 Dec 2019 12:14:34 +0600</pubDate><guid>http://localhost:1313/blog/first-blog/</guid><description>&lt;p>For a long time this website has had a couple of links to contact me, but those days are over.&lt;/p>
-&lt;p>Now I have a brand new Hugo website with a custom written theme complete with&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on Daniel Fiuza Dosil</title><link>http://localhost:1313/blog/</link><description>Recent content in Blog on Daniel Fiuza Dosil</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Tue, 01 Jul 2025 10:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ML for Blockchain Compliance: Real-World Challenges</title><link>http://localhost:1313/blog/blockchain-compliance-ml/</link><pubDate>Tue, 01 Jul 2025 10:00:00 +0000</pubDate><guid>http://localhost:1313/blog/blockchain-compliance-ml/</guid><description>&lt;p>Building ML systems for blockchain compliance is vastly different from traditional fintech—here&amp;rsquo;s what I&amp;rsquo;ve learned processing $30B+ in transactions at Range.org.&lt;/p>
+&lt;h2 id="the-blockchain-data-challenge">The Blockchain Data Challenge&lt;/h2>
+&lt;p>Traditional ML models expect clean, structured data. Blockchain gives you:&lt;/p>
 &lt;ul>
-&lt;li>A homepage with more social links, and description of my skills&lt;/li>
-&lt;li>An about page with description of who I am&lt;/li>
-&lt;li>A portfolio page to showcase all my projects&lt;/li>
-&lt;li>A blog&lt;/li>
+&lt;li>&lt;strong>Unstructured transaction graphs&lt;/strong> with complex relationships&lt;/li>
+&lt;li>&lt;strong>Real-time streaming data&lt;/strong> requiring sub-second processing&lt;/li>
+&lt;li>&lt;strong>Cross-chain complexity&lt;/strong> with different protocols and standards&lt;/li>
+&lt;li>&lt;strong>Pseudonymous actors&lt;/strong> making identity resolution challenging&lt;/li>
 &lt;/ul>
-&lt;h3 id="why-hugo">Why Hugo?&lt;/h3>
-&lt;p>The first question is why a &lt;em>site builder&lt;/em>? I&amp;rsquo;m competent at web development, why not just write it all myself? The markdown processing makes it much easier to just write words, not having to think about the formatting, and if I&amp;rsquo;m going to blog often, then I&amp;rsquo;ll need that.&lt;/p></description></item></channel></rss>
+&lt;h2 id="key-technical-challenges">Key Technical Challenges&lt;/h2>
+&lt;h3 id="1-transaction-graph-analysis">1. Transaction Graph Analysis&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0080ff;font-style:italic"># Simplified example: detecting suspicious patterns&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#2c5dcd;font-weight:bold">def&lt;/span> &lt;span style="color:#ff8000;font-weight:bold">analyze_transaction_cluster&lt;/span>(addresses, transactions):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0080ff;font-style:italic"># Build transaction graph&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> graph &lt;span style="color:#2c5dcd">=&lt;/span> build_transaction_graph(transactions)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0080ff;font-style:italic"># Apply ML clustering for risk scoring&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> risk_scores &lt;span style="color:#2c5dcd">=&lt;/span> ml_model&lt;span style="color:#2c5dcd">.&lt;/span>predict_risk(graph_features)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0080ff;font-style:italic"># Flag anomalous patterns&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#2c5dcd;font-weight:bold">return&lt;/span> flag_high_risk_clusters(risk_scores)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="2-real-time-compliance-monitoring">2. Real-Time Compliance Monitoring&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>USDC CCTP monitoring&lt;/strong>: Track cross-chain transfers across 21+ chains&lt;/li>
+&lt;li>&lt;strong>KYT/AML screening&lt;/strong>: Real-time risk scoring for incoming transactions&lt;/li>
+&lt;li>&lt;strong>Regulatory reporting&lt;/strong>: Automated compliance documentation&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-cross-chain-intelligence">3. Cross-Chain Intelligence&lt;/h3>
+&lt;p>The biggest challenge? Each blockchain has different:&lt;/p></description></item><item><title>ML for Blockchain Compliance: Real-World Challenges</title><link>http://localhost:1313/blog/blockchain-ml-compliance/</link><pubDate>Wed, 15 Jan 2025 10:00:00 +0000</pubDate><guid>http://localhost:1313/blog/blockchain-ml-compliance/</guid><description>&lt;p>Building ML systems for blockchain compliance presents unique challenges that traditional fintech doesn&amp;rsquo;t face. Here&amp;rsquo;s what I&amp;rsquo;ve learned monitoring $30B+ in assets at Range.org.&lt;/p>
+&lt;h2 id="the-blockchain-data-challenge">The Blockchain Data Challenge&lt;/h2>
+&lt;p>Unlike traditional financial data, blockchain transactions are:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Immutable&lt;/strong> but &lt;strong>pseudonymous&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Real-time&lt;/strong> at massive scale&lt;/li>
+&lt;li>&lt;strong>Cross-chain&lt;/strong> across 21+ networks&lt;/li>
+&lt;li>&lt;strong>Complex&lt;/strong> with smart contract interactions&lt;/li>
+&lt;/ul>
+&lt;h2 id="key-use-cases-weve-solved">Key Use Cases We&amp;rsquo;ve Solved&lt;/h2>
+&lt;h3 id="1-stablecoin-compliance-monitoring">1. Stablecoin Compliance Monitoring&lt;/h3>
+&lt;p>&lt;strong>Challenge&lt;/strong>: Track USDC transfers across chains for KYT/AML compliance.&lt;/p>
+&lt;p>&lt;strong>Solution&lt;/strong>:&lt;/p></description></item><item><title>Production LLM Systems: Key Lessons</title><link>http://localhost:1313/blog/building-production-llm-systems/</link><pubDate>Sun, 15 Dec 2024 10:00:00 +0000</pubDate><guid>http://localhost:1313/blog/building-production-llm-systems/</guid><description>&lt;p>Two years building production LLM systems taught me that &lt;strong>research prototypes ≠ production systems&lt;/strong>.&lt;/p>
+&lt;h2 id="the-reality-check">The Reality Check&lt;/h2>
+&lt;p>Our customer vulnerability prediction system started with GPT-4 for everything. Great demos, terrible production:&lt;/p>
+&lt;ul>
+&lt;li>Too slow (5+ seconds)&lt;/li>
+&lt;li>Too expensive (£100+ per 1000 requests)&lt;/li>
+&lt;li>Unreliable at scale&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-actually-works">What Actually Works&lt;/h2>
+&lt;h3 id="1-hybrid-architecture">1. Hybrid Architecture&lt;/h3>
+&lt;pre tabindex="0">&lt;code>Input → Fast Classifier → [High Confidence] → Response
+ ↓
+ [Uncertain] → LLM → Human Review → Response
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>Result&lt;/strong>: 80% handled by fast models, 10x cost reduction.&lt;/p></description></item><item><title>Adding Images to Your Hugo Portfolio</title><link>http://localhost:1313/blog/adding-images-hugo/</link><pubDate>Sun, 15 Dec 2024 10:00:00 +0600</pubDate><guid>http://localhost:1313/blog/adding-images-hugo/</guid><description>&lt;h1 id="adding-images-to-your-hugo-portfolio">Adding Images to Your Hugo Portfolio&lt;/h1>
+&lt;p>Images make your portfolio and blog posts much more engaging and professional. Here&amp;rsquo;s how you can add them to both your blog posts and portfolio projects.&lt;/p>
+&lt;h2 id="blog-post-images">Blog Post Images&lt;/h2>
+&lt;h3 id="method-1-featured-image-in-frontmatter">Method 1: Featured Image in Frontmatter&lt;/h3>
+&lt;p>Add an &lt;code>image&lt;/code> field to your blog post&amp;rsquo;s frontmatter:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>---&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cbcbcb">&lt;/span>&lt;span style="color:#2c5dcd;font-weight:bold">title&lt;/span>:&lt;span style="color:#cbcbcb"> &lt;/span>&lt;span style="color:#0c6">&amp;#34;Your Blog Post Title&amp;#34;&lt;/span>&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cbcbcb">&lt;/span>&lt;span style="color:#2c5dcd;font-weight:bold">image&lt;/span>:&lt;span style="color:#cbcbcb"> &lt;/span>&lt;span style="color:#0c6">&amp;#34;/images/blog/your-image.jpg&amp;#34;&lt;/span>&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cbcbcb">&lt;/span>---&lt;span style="color:#cbcbcb">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="method-2-images-in-content">Method 2: Images in Content&lt;/h3>
+&lt;p>You can also add images directly in your markdown content:&lt;/p></description></item><item><title>Building Blockchain Security at Scale</title><link>http://localhost:1313/blog/first-blog/</link><pubDate>Thu, 01 Aug 2024 12:14:34 +0600</pubDate><guid>http://localhost:1313/blog/first-blog/</guid><description>&lt;p>After years building AI systems for healthcare and LLMs, I&amp;rsquo;ve found my most challenging and impactful work yet: &lt;strong>blockchain security and compliance at Range.org&lt;/strong>.&lt;/p>
+&lt;h2 id="the-transition-to-blockchain">The Transition to Blockchain&lt;/h2>
+&lt;p>Moving from traditional ML to blockchain required learning entirely new paradigms:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Healthcare AI&lt;/strong>: Structured data, regulated environments, batch processing&lt;/li>
+&lt;li>&lt;strong>Blockchain ML&lt;/strong>: Graph data, pseudonymous actors, real-time requirements&lt;/li>
+&lt;/ul>
+&lt;p>The shift wasn&amp;rsquo;t just technical—it was philosophical. In blockchain, &lt;strong>trust is code&lt;/strong>, and every system must be designed for adversarial environments.&lt;/p></description></item></channel></rss>

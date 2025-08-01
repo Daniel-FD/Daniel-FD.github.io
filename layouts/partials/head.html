@@ -25,19 +25,19 @@
 
   <!-- Preload Critical Resources -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" as="script" crossorigin="anonymous">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js" as="script" crossorigin="anonymous">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" as="style" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" as="style" crossorigin="anonymous">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" crossorigin="anonymous">
   {{ range .Site.Params.plugins.css }}
   <link rel="stylesheet" href="{{ .URL | absURL }}">
   {{ end }}
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js" defer crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js" defer crossorigin="anonymous"></script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/logos/df_logo.svg">
@@ -50,7 +50,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="Permissions-Policy" content="interest-cohort=(),camera=(),microphone=(),geolocation=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data: *; font-src 'self' https: data:;">
 
   <!-- Performance Optimizations -->
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">

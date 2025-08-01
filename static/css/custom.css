@@ -25,9 +25,7 @@
     --spacing-xl: 3rem;
 
     /* Icons */
-    --icon-size-desktop: 28px;
-    --icon-size-tablet: 24px;
-    --icon-size-mobile: 22px;
+    --icon-size: 32px;
 }
 
 /* ==========================================================================
@@ -49,6 +47,64 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text);
     margin-bottom: var(--spacing-sm);
     position: relative;
+}
+
+/* ==========================================================================
+   Education & Blog Side-by-Side Layout
+   ========================================================================== */
+   
+/* Ensure equal height columns */
+#education, #blog {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Blog cards in side panel - more compact */
+#blog .uk-card-small {
+    padding: 1rem;
+}
+
+#blog .uk-card-title {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+#blog .uk-text-small {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+#blog .uk-label-small {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+}
+
+#blog .uk-button-small {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Stack education and blog vertically on mobile */
+    #education, #blog {
+        margin-bottom: 2rem;
+    }
+    
+    /* Restore full-width blog cards on mobile */
+    #blog .uk-card {
+        padding: 1.5rem;
+    }
+    
+    #blog .uk-card-title {
+        font-size: 1.1rem;
+    }
+    
+    #blog .uk-text-small {
+        font-size: 0.9rem;
+    }
 }
 
 h2 {
@@ -122,36 +178,51 @@ a:hover {
 
 /* Banner section */
 .banner {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
 }
 
 .banner h1 {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
-    text-align: center;
 }
 
 .banner .title {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
 }
 
 .banner .cta {
-    font-size: 1.2rem;
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
     margin-bottom: var(--spacing-lg);
-    text-align: center;
-    border-bottom: 1px solid var(--color-text);
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .banner .cta:hover {
-    opacity: 0.7;
+    background: var(--color-text);
+    color: var(--color-background);
+}
+
+/* Section links */
+.section-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.section-links a:hover {
+    color: var(--color-text);
 }
 
 /* Section styles */
@@ -174,12 +245,12 @@ section:not(:last-child)::after {
 
 /* Cards */
 .experience-card, .education-card {
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    border-bottom: 1px solid var(--color-border);
     display: flex;
     align-items: flex-start;
     gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .experience-card:last-child, .education-card:last-child {
@@ -188,95 +259,64 @@ section:not(:last-child)::after {
 }
 
 .card-image {
-    width: var(--icon-size-desktop) !important;
-    height: var(--icon-size-desktop) !important;
-    min-width: var(--icon-size-desktop) !important;
-    min-height: var(--icon-size-desktop) !important;
-    max-width: var(--icon-size-desktop) !important;
-    max-height: var(--icon-size-desktop) !important;
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
     object-fit: contain;
-    -webkit-transform: scale(1) !important;
-    transform: scale(1) !important;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     flex-shrink: 0;
-    display: block;
 }
 
 .card-content {
     flex: 1;
-    min-width: 0;
 }
 
 .card-title {
     font-weight: 500;
     margin-bottom: var(--spacing-xs);
-    font-size: 1rem;
-    line-height: var(--line-height-base);
-    word-wrap: break-word;
 }
 
 .card-subtitle {
     color: var(--color-text-light);
     margin-bottom: var(--spacing-xs);
-    font-size: 0.95rem;
-    line-height: var(--line-height-base);
 }
 
 .card-meta {
     font-size: var(--font-size-small);
     color: var(--color-text-muted);
-    line-height: var(--line-height-base);
 }
 
 .card-description {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    line-height: 1.5;
     margin-top: var(--spacing-sm);
+    color: var(--color-text-light);
 }
 
 /* Social icons */
 .social-icons {
-    margin-top: var(--spacing-lg);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var(--spacing-md);
-    padding: 0;
-    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
 }
 
 .social-icon-link {
-    display: inline-flex !important;
-    justify-content: center;
+    display: flex !important;
     align-items: center;
-    width: var(--icon-size-desktop) !important;
-    height: var(--icon-size-desktop) !important;
-    min-width: var(--icon-size-desktop) !important;
-    min-height: var(--icon-size-desktop) !important;
-    max-width: var(--icon-size-desktop) !important;
-    max-height: var(--icon-size-desktop) !important;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-    border-bottom: none;
+    justify-content: center;
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
+    transition: transform 0.2s ease;
+    border: none !important;
 }
 
 .social-icon-link:hover {
     transform: translateY(-2px);
-    border-bottom: none;
+    border: none !important;
 }
 
 .social-icon {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain;
-    -webkit-transform: scale(1) !important;
-    transform: scale(1) !important;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    display: block;
 }
 
 /* Footer */
@@ -327,61 +367,173 @@ section:not(:last-child)::after {
 /* ==========================================================================
    Responsive styles
    ========================================================================== */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     :root {
-        --icon-size-desktop: var(--icon-size-tablet);
-    }
-
-    .banner {
-        min-height: calc(100vh - 60px);
-        padding: var(--spacing-sm);
-    }
-
-    .banner h1 {
-        font-size: 2.5rem;
-        line-height: 1.2;
-    }
-
-    .banner .title {
-        font-size: 1.5rem;
-        line-height: 1.3;
-    }
-
-    .banner .cta {
-        font-size: 1rem;
-        padding: var(--spacing-xs) 0;
-    }
-
-    .uk-navbar-nav > li > a {
-        font-size: var(--font-size-smaller);
-        padding: 0 var(--spacing-xs);
-    }
-
-    .experience-card, .education-card {
-        padding: var(--spacing-sm);
-        gap: var(--spacing-sm);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    :root {
-        --icon-size-desktop: var(--icon-size-mobile);
+        --icon-size: 28px;
+        --font-size-base: 14px;
+        --spacing-sm: 0.75rem;
+        --spacing-md: 1rem;
     }
 
     .banner h1 {
         font-size: 2rem;
+        line-height: 1.2;
     }
 
     .banner .title {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .section-links {
+        flex-wrap: wrap;
+    }
+
+    /* Make cards more mobile-friendly */
+    .experience-card, .education-card, .portfolio-card {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Reduce text on mobile */
+    .card-description {
+        font-size: var(--font-size-small);
+        line-height: 1.4;
+    }
+
+    /* Better spacing for mobile */
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --icon-size: 24px;
+        --font-size-base: 13px;
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 0.75rem;
+    }
+
+    .banner h1 {
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .banner .title {
+        font-size: 0.9rem;
     }
 
     .section-links {
         flex-direction: column;
-        gap: var(--spacing-sm);
+        align-items: center;
     }
 
-    .social-icons {
-        gap: var(--spacing-sm);
+    .experience-card, .education-card, .portfolio-card {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Smaller text for very small screens */
+    .card-description {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    /* Compact headings */
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    /* Reduce button padding */
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+
+    /* Ensure touch targets are large enough */
+    a, button, .card {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Stack elements more efficiently on small screens */
+    .uk-grid > * {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Better spacing for small text */
+    p {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.4;
+    }
+}
+
+/* ==========================================================================
+   Blog Section Styles
+   ========================================================================== */
+#blog .uk-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-border);
+}
+
+#blog .uk-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#blog .uk-card-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#blog .uk-card-title a:hover {
+    color: var(--color-hover);
+}
+
+#blog .uk-text-meta {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+}
+
+#blog .uk-label {
+    font-size: var(--font-size-smaller);
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+    border: none;
+}
+
+#blog .uk-button-text {
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 0;
+}
+
+#blog .uk-button-text:hover {
+    color: var(--color-hover);
+}
+
+@media (max-width: 768px) {
+    #blog .uk-child-width-1-3\@l > * {
+        width: 100%;
+    }
+    
+    #blog .uk-card {
+        margin-bottom: var(--spacing-md);
     }
 }
