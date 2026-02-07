@@ -10,15 +10,9 @@ disableHugoGeneratorInject = true
 
 # Asset Management
 [params.plugins]
-  # CSS Plugins
+  # CSS Plugins (UIKit loaded directly in head.html at v3.17.11)
   [[params.plugins.css]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css"
-  [[params.plugins.css]]
-  URL = "/css/custom.css?v=2"
-
-  # JS Plugins
-  [[params.plugins.js]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"
+  URL = "/css/custom.css?v=3"
 
 # Navigation
 [menu]
