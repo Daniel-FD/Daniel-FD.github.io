@@ -83,6 +83,24 @@ a:hover {
     background: var(--color-hover);
 }
 
+/* Typed.js cursor */
+.typed-cursor {
+    font-weight: 100;
+    opacity: 1;
+    animation: typed-blink 1s infinite;
+    width: 2px;
+    background-color: currentColor;
+    margin-left: 2px;
+    display: inline-block;
+    height: 1em;
+    vertical-align: text-top;
+}
+
+@keyframes typed-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 /* ==========================================================================
    Layout Components
    ========================================================================== */
@@ -352,6 +370,65 @@ section:not(:last-child)::after {
 
 #blog .uk-button-text:hover {
     color: var(--color-hover);
+}
+
+/* ==========================================================================
+   UIKit Cards (Blog list, Portfolio)
+   ========================================================================== */
+.uk-card {
+    font-family: var(--font-family-mono);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.uk-card-default {
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+.uk-card-hover:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.uk-card-title {
+    font-family: var(--font-family-mono);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.uk-card-body {
+    font-size: var(--font-size-base);
+}
+
+/* Portfolio filter pills */
+.uk-subnav-pill > * > :first-child {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-radius: 4px;
+}
+
+/* Labels / tags */
+.uk-label {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-smaller);
+    border-radius: 3px;
+}
+
+/* Forms */
+.uk-input,
+.uk-textarea {
+    font-family: var(--font-family-mono);
+    border-radius: 4px;
+}
+
+.uk-form-label {
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: var(--font-size-small);
+    letter-spacing: 0.03em;
 }
 
 /* ==========================================================================
@@ -695,6 +772,24 @@ section:not(:last-child)::after {
 
     .uk-margin-medium-top {
         margin-top: 1.5rem !important;
+    }
+
+    /* Portfolio/Blog list cards */
+    .uk-card-media-top img {
+        width: 100% !important;
+        height: 150px !important;
+        object-fit: cover !important;
+    }
+
+    /* Forms */
+    .uk-form-horizontal .uk-form-label {
+        width: 100% !important;
+        text-align: left !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .uk-form-horizontal .uk-form-controls {
+        margin-left: 0 !important;
     }
 
     /* Footer */

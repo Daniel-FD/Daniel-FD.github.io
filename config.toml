@@ -22,9 +22,19 @@ disableHugoGeneratorInject = true
   weight = 1
 
   [[menu.main]]
+  name = "Blog"
+  URL = "blog"
+  weight = 2
+
+  [[menu.main]]
+  name = "Portfolio"
+  URL = "portfolio"
+  weight = 3
+
+  [[menu.main]]
   name = "Contact"
   URL = "contact"
-  weight = 2
+  weight = 4
 
 # Site Parameters
 [params]
@@ -39,7 +49,7 @@ image = "/logos/df_logo.png"
 
   [params.footer]
   email = "dafiuzadosil@gmail.com"
-  copyright = "© 2025 Daniel Fiuza"
+  copyright = "Daniel Fiuza"
 
 # Markdown Configuration
 [markup]
