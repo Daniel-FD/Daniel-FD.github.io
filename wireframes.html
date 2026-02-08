@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>danielfiuza.com /v2/ — Wireframes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0b;
+    --bg-card: #141417;
+    --bg-card-hover: #1a1a1f;
+    --border: #222228;
+    --border-hover: #333340;
+    --text: #e4e4e7;
+    --text-muted: #71717a;
+    --text-dim: #52525b;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --radius: 16px;
+    --gap: 16px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── Wireframe Navigation ─── */
+  .wireframe-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wireframe-nav h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .wireframe-nav .sections {
+    display: flex;
+    gap: 8px;
+  }
+  .wireframe-nav .sections a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .wireframe-nav .sections a:hover {
+    color: var(--text);
+    border-color: var(--border);
+    background: var(--bg-card);
+  }
+
+  /* ─── Section Labels ─── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 24px;
+    padding: 6px 12px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .wireframe-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    background: rgba(99,102,241,0.08);
+    border: 1px dashed rgba(99,102,241,0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 5;
+  }
+
+  /* ─── Page Sections ─── */
+  .page-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 32px 80px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .page-section:first-of-type { padding-top: 100px; }
+
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 1: HERO / LANDING
+     ═══════════════════════════════════════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 32px;
+  }
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1px 1px at 10% 20%, rgba(99,102,241,0.4), transparent),
+      radial-gradient(1px 1px at 30% 60%, rgba(99,102,241,0.3), transparent),
+      radial-gradient(1px 1px at 50% 40%, rgba(99,102,241,0.2), transparent),
+      radial-gradient(1px 1px at 70% 80%, rgba(99,102,241,0.3), transparent),
+      radial-gradient(1px 1px at 90% 30%, rgba(99,102,241,0.4), transparent),
+      radial-gradient(2px 2px at 20% 70%, rgba(34,197,94,0.2), transparent),
+      radial-gradient(2px 2px at 80% 50%, rgba(245,158,11,0.15), transparent),
+      radial-gradient(1.5px 1.5px at 15% 45%, rgba(99,102,241,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 60% 25%, rgba(99,102,241,0.25), transparent),
+      radial-gradient(1px 1px at 85% 70%, rgba(99,102,241,0.35), transparent),
+      radial-gradient(1px 1px at 40% 90%, rgba(99,102,241,0.2), transparent),
+      radial-gradient(1.5px 1.5px at 55% 55%, rgba(34,197,94,0.15), transparent);
+    animation: drift 20s ease-in-out infinite alternate;
+    opacity: 0.7;
+  }
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-20px, -10px) scale(1.05); }
+  }
+  .hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-greeting {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-tagline {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: #5558e6;
+    border-color: #5558e6;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 2: BENTO GRID
+     ═══════════════════════════════════════════ */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: var(--gap);
+  }
+  .bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bento-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .bento-card.span-2 { grid-column: span 2; }
+  .bento-card.span-3 { grid-column: span 3; }
+  .bento-card.span-full { grid-column: span 4; }
+  .bento-card.row-2 { grid-row: span 2; }
+
+  .bento-card h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .bento-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .bento-card .stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .bento-card .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .bento-card .icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(99,102,241,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  /* Glassmorphism featured card */
+  .bento-card.glass {
+    background: rgba(99, 102, 241, 0.05);
+    border-color: rgba(99, 102, 241, 0.15);
+    backdrop-filter: blur(10px);
+  }
+  .bento-card.glass:hover {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.25);
+  }
+
+  /* Mini chart placeholder */
+  .mini-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 48px;
+    margin-top: 12px;
+  }
+  .mini-chart .bar {
+    width: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .bento-card:hover .mini-chart .bar { opacity: 1; }
+
+  /* Social row inside bento */
+  .social-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .social-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .social-pill:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+  }
+
+  /* Tech tags */
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 3: CASE STUDIES / WORK
+     ═══════════════════════════════════════════ */
+  .case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .case-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 320px;
+    position: relative;
+  }
+  .case-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .case-card:nth-child(even) { direction: rtl; }
+  .case-card:nth-child(even) > * { direction: ltr; }
+
+  .case-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .case-content .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .case-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .case-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .case-metrics {
+    display: flex;
+    gap: 24px;
+  }
+  .case-metric {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .case-metric .value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .case-metric .label {
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .case-visual {
+    background: linear-gradient(135deg, var(--bg-card-hover), var(--bg));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-visual .placeholder-viz {
+    width: 80%;
+    height: 60%;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .placeholder-viz .viz-icon { font-size: 32px; opacity: 0.3; }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 4: EXPERIENCE TIMELINE
+     ═══════════════════════════════════════════ */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 24px;
+    margin-bottom: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all 0.3s;
+  }
+  .timeline-item:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 32px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .timeline-item.current::before {
+    background: var(--green);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .timeline-title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .timeline-company {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+  }
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 5: CRAFT / EXPERIMENTS
+     ═══════════════════════════════════════════ */
+  .craft-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+  }
+  .craft-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .craft-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+  .craft-preview {
+    height: 200px;
+    background: linear-gradient(135deg, var(--bg-card-hover), var(--bg));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    opacity: 0.15;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .craft-preview .anim-dots {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(2px 2px at 20% 30%, var(--accent), transparent),
+      radial-gradient(2px 2px at 60% 70%, var(--green), transparent),
+      radial-gradient(2px 2px at 80% 20%, var(--amber), transparent),
+      radial-gradient(2px 2px at 40% 80%, var(--accent), transparent);
+    animation: drift 8s ease-in-out infinite alternate;
+    opacity: 0.6;
+  }
+  .craft-info {
+    padding: 20px;
+  }
+  .craft-info h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .craft-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 6: WRITING / BLOG
+     ═══════════════════════════════════════════ */
+  .writing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .writing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .writing-item:hover {
+    background: var(--bg-card);
+  }
+  .writing-item h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .writing-item .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .writing-item .arrow {
+    font-size: 18px;
+    color: var(--text-dim);
+    transition: all 0.2s;
+  }
+  .writing-item:hover .arrow {
+    color: var(--text);
+    transform: translateX(4px);
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 7: STACK / TOOLS
+     ═══════════════════════════════════════════ */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--gap);
+  }
+  .stack-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.2s;
+  }
+  .stack-card:hover {
+    border-color: var(--border-hover);
+  }
+  .stack-card .category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .stack-card ul {
+    list-style: none;
+  }
+  .stack-card li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .stack-card li:last-child { border: none; }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME 8: FOOTER
+     ═══════════════════════════════════════════ */
+  .footer-section {
+    border-top: 1px solid var(--border);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .footer-section p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* ─── CMD+K Palette Preview ─── */
+  .cmdk-preview {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    z-index: 200;
+    display: none;
+    overflow: hidden;
+  }
+  .cmdk-preview.show { display: block; }
+  .cmdk-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    outline: none;
+  }
+  .cmdk-input::placeholder { color: var(--text-dim); }
+  .cmdk-list { padding: 8px; }
+  .cmdk-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .cmdk-item:hover, .cmdk-item.active {
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+  }
+  .cmdk-item .shortcut {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.04);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .cmdk-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 199;
+    display: none;
+  }
+  .cmdk-overlay.show { display: block; }
+
+  /* ─── Annotation callouts ─── */
+  .annotation {
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 32px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .annotation strong {
+    color: var(--amber);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ─── Mobile preview frame ─── */
+  .mobile-frame {
+    width: 375px;
+    height: 720px;
+    border: 2px solid var(--border);
+    border-radius: 40px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    background: var(--bg);
+  }
+  .mobile-frame .notch {
+    width: 160px;
+    height: 28px;
+    background: var(--bg);
+    border-radius: 0 0 20px 20px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    border: 2px solid var(--border);
+    border-top: none;
+  }
+  .mobile-content {
+    padding: 16px;
+    height: calc(100% - 28px);
+    overflow-y: auto;
+  }
+  .mobile-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .mobile-bento .bento-card {
+    min-height: 100px;
+    padding: 16px;
+  }
+  .mobile-bento .bento-card h3 { font-size: 12px; }
+  .mobile-bento .bento-card p { font-size: 11px; }
+  .mobile-bento .bento-card .stat { font-size: 24px; }
+  .mobile-bento .bento-card.span-2 { grid-column: span 2; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .bento-card.span-2 { grid-column: span 2; }
+    .bento-card.span-3, .bento-card.span-full { grid-column: span 2; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-card:nth-child(even) { direction: ltr; }
+    .case-visual { min-height: 200px; }
+    .craft-grid { grid-template-columns: 1fr; }
+    .wireframe-nav .sections { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="wireframe-nav">
+  <h1>danielfiuza.com/v2/</h1>
+  <div class="sections">
+    <a href="#hero">Hero</a>
+    <a href="#bento">Bento Grid</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Timeline</a>
+    <a href="#craft">Craft</a>
+    <a href="#writing">Writing</a>
+    <a href="#stack">Stack</a>
+    <a href="#mobile">Mobile</a>
+    <a href="javascript:void(0)" onclick="toggleCmdk()" style="color:var(--accent)">⌘K</a>
+  </div>
+</nav>
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-particles"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="section-label">01 — Hero Section</div>
+    <p class="hero-greeting">// hello, world</p>
+    <h1>I'm <span class="highlight">Daniel Fiuza</span></h1>
+    <p class="hero-tagline">I build AI products that solve real problems — from blockchain compliance systems monitoring $30B+ in assets to patented medical diagnostics.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#">View My Work</a>
+      <a class="btn" href="#">Get In Touch</a>
+    </div>
+  </div>
+  <p class="hero-scroll">↓ scroll to explore</p>
+
+  <div class="annotation" style="position:absolute; bottom:100px; left:32px; right:32px; text-align:left;">
+    <strong>Design notes</strong><br>
+    Subtle WebGL particle background (Three.js) reacts to mouse — progressive enhancement, skipped on mobile/low-power.
+    Gradient text on name. Typed.js optional here or replaced with a more refined reveal animation.
+    Two CTAs: primary action (work) + secondary (contact).
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: BENTO GRID ═══ -->
+<section class="page-section" id="bento">
+  <div class="section-label">02 — Bento Grid Homepage</div>
+  <h2 class="section-title">At a Glance</h2>
+  <p class="section-subtitle">Everything important in one view — the bento grid replaces the linear scroll.</p>
+
+  <div class="bento-grid">
+    <!-- Featured: Current Role -->
+    <div class="bento-card span-2 glass" style="min-height:200px;">
+      <div class="wireframe-label">Featured Role</div>
+      <div>
+        <div class="icon-placeholder">🔗</div>
+        <h3>Lead Data Scientist @ Range.org</h3>
+        <p>Blockchain ML & stablecoin compliance — building systems that monitor $30B+ in assets across chains</p>
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">Blockchain</span>
+        <span class="tech-tag">Compliance</span>
+      </div>
+    </div>
+
+    <!-- Stat: Assets Monitored -->
+    <div class="bento-card">
+      <div class="wireframe-label">Impact Stat</div>
+      <div>
+        <div class="stat" style="color:var(--green);">$30B+</div>
+        <div class="stat-label">Assets Monitored</div>
+      </div>
+      <div class="mini-chart">
+        <div class="bar" style="height:20%"></div>
+        <div class="bar" style="height:35%"></div>
+        <div class="bar" style="height:25%"></div>
+        <div class="bar" style="height:50%"></div>
+        <div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:65%"></div>
+        <div class="bar" style="height:55%"></div>
+        <div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:100%"></div>
+      </div>
+    </div>
+
+    <!-- Stat: Revenue Impact -->
+    <div class="bento-card">
+      <div class="wireframe-label">Impact Stat</div>
+      <div>
+        <div class="stat" style="color:var(--amber);">£17M</div>
+        <div class="stat-label">Revenue Generated</div>
+      </div>
+      <div class="mini-chart">
+        <div class="bar" style="height:30%;background:var(--amber)"></div>
+        <div class="bar" style="height:45%;background:var(--amber)"></div>
+        <div class="bar" style="height:60%;background:var(--amber)"></div>
+        <div class="bar" style="height:50%;background:var(--amber)"></div>
+        <div class="bar" style="height:75%;background:var(--amber)"></div>
+        <div class="bar" style="height:85%;background:var(--amber)"></div>
+        <div class="bar" style="height:70%;background:var(--amber)"></div>
+        <div class="bar" style="height:95%;background:var(--amber)"></div>
+        <div class="bar" style="height:80%;background:var(--amber)"></div>
+        <div class="bar" style="height:100%;background:var(--amber)"></div>
+      </div>
+    </div>
+
+    <!-- About blurb -->
+    <div class="bento-card span-2">
+      <div class="wireframe-label">Bio</div>
+      <div>
+        <h3>About</h3>
+        <p>Data Scientist and ML Engineer with a PhD from Imperial College London. I care deeply about product — building AI that's not just accurate, but useful, ethical, and delightful.</p>
+      </div>
+      <div class="social-row">
+        <a class="social-pill" href="#">LinkedIn ↗</a>
+        <a class="social-pill" href="#">GitHub ↗</a>
+        <a class="social-pill" href="#">Email ↗</a>
+        <a class="social-pill" href="#">CV ↓</a>
+      </div>
+    </div>
+
+    <!-- Education highlight -->
+    <div class="bento-card">
+      <div class="wireframe-label">Education</div>
+      <div class="icon-placeholder">🎓</div>
+      <h3>PhD, Imperial College</h3>
+      <p>Fluid Mechanics → ML/AI</p>
+      <p style="margin-top:4px;font-size:11px;color:var(--text-dim);">+ 2× MSc, 1× BSc across 4 countries</p>
+    </div>
+
+    <!-- Patent / Award -->
+    <div class="bento-card">
+      <div class="wireframe-label">Highlight</div>
+      <div class="icon-placeholder">🏆</div>
+      <h3>Patented AI</h3>
+      <p>Medical diagnostics patent — 60% faster diagnosis with computer vision</p>
+    </div>
+
+    <!-- Latest Writing -->
+    <div class="bento-card span-2">
+      <div class="wireframe-label">Latest Writing</div>
+      <div>
+        <h3>📝 Latest Post</h3>
+        <p style="font-size:15px;color:var(--text);margin:8px 0;">"Why Blockchain Compliance Needs ML, Not Rules"</p>
+        <p>Traditional rule-based systems miss 60% of novel exploit patterns. Here's how we built an ML-first approach at Range...</p>
+      </div>
+      <p style="font-family:'JetBrains Mono';font-size:11px;color:var(--text-dim);margin-top:8px;">5 min read · Jan 2026</p>
+    </div>
+
+    <!-- Years of Experience -->
+    <div class="bento-card">
+      <div class="wireframe-label">Stat</div>
+      <div>
+        <div class="stat">7+</div>
+        <div class="stat-label">Years Building AI Products</div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="bento-card">
+      <div class="wireframe-label">Navigation</div>
+      <h3>Explore</h3>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+        <span style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-muted);cursor:pointer;">→ Featured Work</span>
+        <span style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-muted);cursor:pointer;">→ Experience</span>
+        <span style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-muted);cursor:pointer;">→ Craft & Experiments</span>
+        <span style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-muted);cursor:pointer;">→ Writing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    Bento layout: asymmetric grid with varying block sizes. Large blocks for featured content, small blocks for stats and links.
+    Each card has subtle hover lift + glow. The "glass" card (featured role) uses glassmorphism with backdrop-filter blur.
+    Mini bar charts are CSS-only, animated on hover. This entire grid is a single viewport on desktop — everything at a glance.
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: FEATURED WORK (CASE STUDIES) ═══ -->
+<section class="page-section" id="work">
+  <div class="section-label">03 — Featured Work (Case Studies)</div>
+  <h2 class="section-title">Selected Work</h2>
+  <p class="section-subtitle">Deep dives into problems I've solved — not just what I built, but why and how.</p>
+
+  <div class="case-studies">
+    <!-- Case 1: Range -->
+    <div class="case-card">
+      <div class="case-content">
+        <div class="wireframe-label">Case Study Card</div>
+        <div class="tag">Blockchain · ML · Compliance</div>
+        <h3>Cross-Chain Stablecoin Compliance</h3>
+        <p>Built ML models to detect suspicious stablecoin flows across 12+ chains in real-time, replacing rule-based systems that missed 60% of novel patterns.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="value">$30B+</div>
+            <div class="label">Monitored</div>
+          </div>
+          <div class="case-metric">
+            <div class="value">12+</div>
+            <div class="label">Chains</div>
+          </div>
+          <div class="case-metric">
+            <div class="value">94%</div>
+            <div class="label">Precision</div>
+          </div>
+        </div>
+        <div class="tech-tags" style="margin-top:16px">
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">GNNs</span>
+          <span class="tech-tag">Kafka</span>
+          <span class="tech-tag">AWS</span>
+        </div>
+      </div>
+      <div class="case-visual">
+        <div class="placeholder-viz">
+          <span class="viz-icon">🌐</span>
+          Interactive graph visualization<br>of cross-chain flows
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2: HelpFirst -->
+    <div class="case-card">
+      <div class="case-content">
+        <div class="tag">LLM · Product · Enterprise</div>
+        <h3>Award-Winning Customer Vulnerability Detection</h3>
+        <p>Designed and shipped an LLM system that identifies vulnerable customers in real-time from support conversations — saving £400K/year while protecting people in crisis.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="value">92%</div>
+            <div class="label">Accuracy</div>
+          </div>
+          <div class="case-metric">
+            <div class="value">£400K</div>
+            <div class="label">Annual Savings</div>
+          </div>
+        </div>
+        <div class="tech-tags" style="margin-top:16px">
+          <span class="tech-tag">LLMs</span>
+          <span class="tech-tag">NLP</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Product</span>
+        </div>
+      </div>
+      <div class="case-visual">
+        <div class="placeholder-viz">
+          <span class="viz-icon">💬</span>
+          Live demo: paste a support<br>conversation, see detection
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3: Bryant Medical -->
+    <div class="case-card">
+      <div class="case-content">
+        <div class="tag">Healthcare · Computer Vision · Patent</div>
+        <h3>Patented AI Medical Diagnostics</h3>
+        <p>Built a computer vision system for diagnostic imaging that earned a patent and achieved 60% faster diagnosis time — now used in clinical settings.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="value">60%</div>
+            <div class="label">Faster Diagnosis</div>
+          </div>
+          <div class="case-metric">
+            <div class="value">Patent</div>
+            <div class="label">Granted</div>
+          </div>
+        </div>
+        <div class="tech-tags" style="margin-top:16px">
+          <span class="tech-tag">Computer Vision</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Medical Imaging</span>
+        </div>
+      </div>
+      <div class="case-visual">
+        <div class="placeholder-viz">
+          <span class="viz-icon">🔬</span>
+          Before/after comparison<br>of diagnostic workflow
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    Case studies alternate layout direction (image left/right). Each has quantified metrics in green.
+    The visual side would contain actual interactive elements: a D3.js graph visualization, a live LLM demo,
+    or a before/after slider. These are the "proof of skill" — not just claiming impact, but showing it.
+    Clicking opens a full case study page with deep narrative.
+  </div>
+</section>
+
+<!-- ═══ SECTION 4: EXPERIENCE TIMELINE ═══ -->
+<section class="page-section" id="experience">
+  <div class="section-label">04 — Experience Timeline</div>
+  <h2 class="section-title">Journey</h2>
+  <p class="section-subtitle">From PhD in Fluid Mechanics to Lead Data Scientist in Blockchain ML.</p>
+
+  <div class="timeline">
+    <div class="timeline-item current">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-company">Range.org</div>
+          <div class="timeline-title">Lead Data Scientist</div>
+        </div>
+        <div class="timeline-date">Apr 2025 — Present</div>
+      </div>
+      <div class="timeline-desc">Blockchain ML & stablecoin compliance • $30B+ monitored assets</div>
+    </div>
+
+    <div class="timeline-item current">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-company">Imperial College London</div>
+          <div class="timeline-title">Research Associate</div>
+        </div>
+        <div class="timeline-date">Mar 2025 — Present</div>
+      </div>
+      <div class="timeline-desc">ML for biomarker discovery • Allergy & immunology trials</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-company">HelpFirst AI</div>
+          <div class="timeline-title">Lead AI Engineer</div>
+        </div>
+        <div class="timeline-date">2022 — Mar 2025</div>
+      </div>
+      <div class="timeline-desc">Award-winning LLM solutions • £400K annual savings • 92% accuracy</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-company">Bryant Medical</div>
+          <div class="timeline-title">Lead Data Scientist</div>
+        </div>
+        <div class="timeline-date">2021 — 2024</div>
+      </div>
+      <div class="timeline-desc">Patented AI diagnostics • Computer vision • 60% faster diagnosis</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-company">LoveHolidays</div>
+          <div class="timeline-title">Data Scientist</div>
+        </div>
+        <div class="timeline-date">2021</div>
+      </div>
+      <div class="timeline-desc">ML recommendation engine • 2.8× booking increase • £17M revenue</div>
+    </div>
+
+    <div class="timeline-item" style="opacity:0.5;">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-company" style="color:var(--text-dim);">Earlier</div>
+          <div class="timeline-title" style="font-size:14px;">Teaching @ LSBU & Imperial + PhD</div>
+        </div>
+        <div class="timeline-date">2017 — 2021</div>
+      </div>
+      <div class="timeline-desc">PhD Fluid Mechanics, Teaching CS & Data Science</div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    Vertical timeline with dot indicators — green glow for current roles, purple for past.
+    Earlier/teaching roles are faded to keep focus on impactful work.
+    On mobile, the timeline collapses into a simpler card stack.
+    GSAP ScrollTrigger animates each item as it enters viewport.
+  </div>
+</section>
+
+<!-- ═══ SECTION 5: CRAFT & EXPERIMENTS ═══ -->
+<section class="page-section" id="craft">
+  <div class="section-label">05 — Craft & Experiments</div>
+  <h2 class="section-title">Craft</h2>
+  <p class="section-subtitle">Interactive demos, visualizations, and experiments. The stuff that doesn't fit in a case study.</p>
+
+  <div class="craft-grid">
+    <div class="craft-card">
+      <div class="craft-preview">
+        <div class="anim-dots"></div>
+      </div>
+      <div class="craft-info">
+        <div class="wireframe-label" style="position:static;margin-bottom:8px;">Interactive Demo</div>
+        <h4>Blockchain Transaction Visualizer</h4>
+        <p>Explore cross-chain flows in real-time with a force-directed graph</p>
+      </div>
+    </div>
+
+    <div class="craft-card">
+      <div class="craft-preview" style="background:linear-gradient(135deg, rgba(34,197,94,0.1), var(--bg));">
+        <div class="anim-dots"></div>
+      </div>
+      <div class="craft-info">
+        <div class="wireframe-label" style="position:static;margin-bottom:8px;">ML Playground</div>
+        <h4>Anomaly Detection Explorer</h4>
+        <p>Train a model on synthetic blockchain data and see it detect anomalies</p>
+      </div>
+    </div>
+
+    <div class="craft-card">
+      <div class="craft-preview" style="background:linear-gradient(135deg, rgba(245,158,11,0.1), var(--bg));">
+        <div class="anim-dots"></div>
+      </div>
+      <div class="craft-info">
+        <div class="wireframe-label" style="position:static;margin-bottom:8px;">Data Viz</div>
+        <h4>DeFi Risk Dashboard</h4>
+        <p>D3.js visualization of protocol risk metrics across the DeFi ecosystem</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    The "proof of taste" section. Each card opens an interactive page.
+    These would be Astro islands — React/Three.js components loaded only on demand.
+    Could include: a live model you can query, a D3 visualization, a shader experiment, a UI prototype.
+    This is what makes the portfolio extraordinary — not just claiming skills, but demonstrating them.
+  </div>
+</section>
+
+<!-- ═══ SECTION 6: WRITING ═══ -->
+<section class="page-section" id="writing">
+  <div class="section-label">06 — Writing</div>
+  <h2 class="section-title">Writing</h2>
+  <p class="section-subtitle">How I think about AI, product, and building things that matter.</p>
+
+  <div class="writing-list">
+    <div class="writing-item">
+      <div>
+        <h4>Why Blockchain Compliance Needs ML, Not Rules</h4>
+        <div class="meta">Jan 2026 · 5 min · Blockchain, ML</div>
+      </div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="writing-item">
+      <div>
+        <h4>Shipping LLMs in Production: Lessons from HelpFirst</h4>
+        <div class="meta">Nov 2025 · 8 min · LLM, Product</div>
+      </div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="writing-item">
+      <div>
+        <h4>From PhD to Product: Why Academic ML Isn't Enough</h4>
+        <div class="meta">Sep 2025 · 6 min · Career, Product</div>
+      </div>
+      <span class="arrow">→</span>
+    </div>
+    <div class="writing-item">
+      <div>
+        <h4>The Case for Smaller Models in Enterprise AI</h4>
+        <div class="meta">Jul 2025 · 4 min · ML, Engineering</div>
+      </div>
+      <span class="arrow">→</span>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    Clean list layout — minimal, no thumbnails, just titles and metadata.
+    Hover reveals a subtle arrow slide. Each post would be MDX with embedded interactive code examples and visualizations (Josh Comeau style).
+    Writing signals thought leadership — the thing that separates "I built stuff" from "I think deeply about building stuff."
+  </div>
+</section>
+
+<!-- ═══ SECTION 7: STACK ═══ -->
+<section class="page-section" id="stack">
+  <div class="section-label">07 — Stack & Tools</div>
+  <h2 class="section-title">/stack</h2>
+  <p class="section-subtitle">What I use and why — inspired by leerob.com/stack</p>
+
+  <div class="stack-grid">
+    <div class="stack-card">
+      <div class="category">ML & AI</div>
+      <ul>
+        <li>PyTorch</li>
+        <li>TensorFlow</li>
+        <li>scikit-learn</li>
+        <li>HuggingFace</li>
+        <li>LangChain</li>
+      </ul>
+    </div>
+    <div class="stack-card">
+      <div class="category">Data</div>
+      <ul>
+        <li>Python (Pandas, NumPy)</li>
+        <li>SQL / PostgreSQL</li>
+        <li>Spark</li>
+        <li>D3.js / Observable</li>
+        <li>Jupyter</li>
+      </ul>
+    </div>
+    <div class="stack-card">
+      <div class="category">Infrastructure</div>
+      <ul>
+        <li>AWS (SageMaker, Lambda)</li>
+        <li>Docker</li>
+        <li>Kafka</li>
+        <li>CI/CD (GitHub Actions)</li>
+        <li>Terraform</li>
+      </ul>
+    </div>
+    <div class="stack-card">
+      <div class="category">Blockchain</div>
+      <ul>
+        <li>Web3.py / Ethers</li>
+        <li>Graph Neural Networks</li>
+        <li>Cross-chain indexers</li>
+        <li>DeFi protocols</li>
+      </ul>
+    </div>
+    <div class="stack-card">
+      <div class="category">Product & Design</div>
+      <ul>
+        <li>Figma</li>
+        <li>React / Next.js</li>
+        <li>Tailwind CSS</li>
+        <li>Astro</li>
+      </ul>
+    </div>
+    <div class="stack-card">
+      <div class="category">This Site</div>
+      <ul>
+        <li>Astro</li>
+        <li>Tailwind CSS</li>
+        <li>GSAP</li>
+        <li>Three.js (hero)</li>
+        <li>GitHub Pages</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    Lee Robinson's /stack pattern — shows what you use AND signals breadth.
+    Each category could expand to show "why I chose this" on click.
+    The "This Site" card is a nice meta-touch — shows you built it yourself.
+  </div>
+</section>
+
+<!-- ═══ SECTION 8: MOBILE PREVIEW ═══ -->
+<section class="page-section" id="mobile">
+  <div class="section-label">08 — Mobile Layout</div>
+  <h2 class="section-title">Mobile (375px)</h2>
+  <p class="section-subtitle">How the bento grid reflows on phone — the QR code scanning experience.</p>
+
+  <div style="display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
+    <!-- Phone 1: Hero -->
+    <div>
+      <p style="font-family:'JetBrains Mono';font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:12px;">Screen 1: Hero</p>
+      <div class="mobile-frame">
+        <div class="notch"></div>
+        <div class="mobile-content" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+          <p style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent);margin-bottom:12px;">// hello, world</p>
+          <h2 style="font-size:28px;font-weight:700;margin-bottom:12px;letter-spacing:-0.02em;">I'm <span style="background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Daniel Fiuza</span></h2>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;padding:0 16px;">I build AI products that solve real problems.</p>
+          <div style="display:flex;gap:8px;">
+            <span class="btn btn-primary" style="font-size:12px;padding:10px 16px;">My Work</span>
+            <span class="btn" style="font-size:12px;padding:10px 16px;">Contact</span>
+          </div>
+          <p style="font-family:'JetBrains Mono';font-size:10px;color:var(--text-dim);margin-top:40px;">↓ scroll</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone 2: Bento -->
+    <div>
+      <p style="font-family:'JetBrains Mono';font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:12px;">Screen 2: Bento Grid</p>
+      <div class="mobile-frame">
+        <div class="notch"></div>
+        <div class="mobile-content">
+          <div class="mobile-bento">
+            <div class="bento-card span-2" style="min-height:80px;padding:14px;">
+              <h3 style="font-size:11px;">Lead DS @ Range.org</h3>
+              <p style="font-size:10px;">Blockchain ML & Compliance</p>
+            </div>
+            <div class="bento-card" style="min-height:80px;padding:14px;">
+              <div class="stat" style="font-size:22px;color:var(--green);">$30B+</div>
+              <div class="stat-label" style="font-size:9px;">Monitored</div>
+            </div>
+            <div class="bento-card" style="min-height:80px;padding:14px;">
+              <div class="stat" style="font-size:22px;color:var(--amber);">£17M</div>
+              <div class="stat-label" style="font-size:9px;">Revenue</div>
+            </div>
+            <div class="bento-card span-2" style="min-height:80px;padding:14px;">
+              <h3 style="font-size:11px;">About</h3>
+              <p style="font-size:10px;">PhD from Imperial. Building AI that's useful, ethical, and delightful.</p>
+              <div class="social-row" style="margin-top:8px;">
+                <a class="social-pill" href="#" style="font-size:9px;padding:4px 8px;">LinkedIn ↗</a>
+                <a class="social-pill" href="#" style="font-size:9px;padding:4px 8px;">GitHub ↗</a>
+                <a class="social-pill" href="#" style="font-size:9px;padding:4px 8px;">CV ↓</a>
+              </div>
+            </div>
+            <div class="bento-card" style="min-height:80px;padding:14px;">
+              <h3 style="font-size:11px;">🎓 PhD</h3>
+              <p style="font-size:10px;">Imperial College</p>
+            </div>
+            <div class="bento-card" style="min-height:80px;padding:14px;">
+              <h3 style="font-size:11px;">🏆 Patent</h3>
+              <p style="font-size:10px;">AI Diagnostics</p>
+            </div>
+            <div class="bento-card span-2" style="min-height:80px;padding:14px;">
+              <h3 style="font-size:11px;">📝 Latest Post</h3>
+              <p style="font-size:10px;">Why Blockchain Compliance Needs ML, Not Rules</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone 3: Case Study -->
+    <div>
+      <p style="font-family:'JetBrains Mono';font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:12px;">Screen 3: Case Study</p>
+      <div class="mobile-frame">
+        <div class="notch"></div>
+        <div class="mobile-content">
+          <div style="background:linear-gradient(135deg, var(--bg-card-hover), var(--bg));height:180px;border-radius:12px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);margin-bottom:16px;">
+            <span style="font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono';">Interactive visualization</span>
+          </div>
+          <div style="font-family:'JetBrains Mono';font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Blockchain · ML</div>
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">Cross-Chain Stablecoin Compliance</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Built ML models to detect suspicious stablecoin flows across 12+ chains.</p>
+          <div style="display:flex;gap:16px;">
+            <div>
+              <div style="font-family:'JetBrains Mono';font-size:18px;font-weight:700;color:var(--green);">$30B+</div>
+              <div style="font-family:'JetBrains Mono';font-size:9px;color:var(--text-dim);text-transform:uppercase;">Monitored</div>
+            </div>
+            <div>
+              <div style="font-family:'JetBrains Mono';font-size:18px;font-weight:700;color:var(--green);">94%</div>
+              <div style="font-family:'JetBrains Mono';font-size:9px;color:var(--text-dim);text-transform:uppercase;">Precision</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <strong>Design notes</strong><br>
+    The bento grid reflows to 2 columns on mobile. Cards stack naturally.
+    The hero is concise — name, one line, two buttons. No wasted space.
+    Case studies go full-width with the visualization on top.
+    Touch targets are 44px+ throughout. All animations respect prefers-reduced-motion.
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<section class="footer-section">
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+    <a href="#">Email</a>
+  </div>
+  <p>© 2026 Daniel Fiuza · Built with Astro</p>
+  <p style="margin-top:8px;font-size:11px;">Press <span style="background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:4px;border:1px solid var(--border);">⌘K</span> to navigate</p>
+</section>
+
+<!-- ═══ CMD+K PALETTE ═══ -->
+<div class="cmdk-overlay" id="cmdk-overlay" onclick="toggleCmdk()"></div>
+<div class="cmdk-preview" id="cmdk">
+  <input class="cmdk-input" placeholder="Search or jump to..." readonly>
+  <div class="cmdk-list">
+    <div class="cmdk-item active">
+      <span>🏠</span> Home
+      <span class="shortcut">↵</span>
+    </div>
+    <div class="cmdk-item">
+      <span>💼</span> Work — Case Studies
+    </div>
+    <div class="cmdk-item">
+      <span>⏱</span> Experience — Timeline
+    </div>
+    <div class="cmdk-item">
+      <span>🧪</span> Craft — Experiments
+    </div>
+    <div class="cmdk-item">
+      <span>📝</span> Writing — Blog
+    </div>
+    <div class="cmdk-item">
+      <span>🛠</span> Stack — Tools
+    </div>
+    <div class="cmdk-item">
+      <span>📄</span> Download CV
+      <span class="shortcut">⌘D</span>
+    </div>
+    <div class="cmdk-item">
+      <span>🔗</span> LinkedIn
+      <span class="shortcut">⌘L</span>
+    </div>
+    <div class="cmdk-item">
+      <span>💻</span> GitHub
+      <span class="shortcut">⌘G</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleCmdk() {
+  document.getElementById('cmdk').classList.toggle('show');
+  document.getElementById('cmdk-overlay').classList.toggle('show');
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+    e.preventDefault();
+    toggleCmdk();
+  }
+  if (e.key === 'Escape') {
+    document.getElementById('cmdk').classList.remove('show');
+    document.getElementById('cmdk-overlay').classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>
