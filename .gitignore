@@ -9,6 +9,10 @@ resources/_gen/
 # Node
 node_modules/
 
+# Astro v2 build output
+v2/dist/
+v2/.astro/
+
 # LaTeX build artifacts
 *.fdb_latexmk
 *.fls

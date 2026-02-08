@@ -1,0 +1,100 @@
+---
+const items = [
+  { icon: '🏠', label: 'Home', href: '#hero' },
+  { icon: '💼', label: 'Work — Case Studies', href: '#work' },
+  { icon: '⏱', label: 'Experience — Timeline', href: '#experience' },
+  { icon: '🧪', label: 'Craft — Experiments', href: '#craft' },
+  { icon: '📝', label: 'Writing — Blog', href: '#writing' },
+  { icon: '🛠', label: 'Stack — Tools', href: '#stack' },
+  { icon: '📄', label: 'Download CV', href: 'https://github.com/Daniel-FD/CV_Daniel/raw/main/main.pdf', external: true },
+  { icon: '🔗', label: 'LinkedIn', href: 'https://linkedin.com/in/daniel-fiuza-dosil', external: true },
+  { icon: '💻', label: 'GitHub', href: 'https://github.com/Daniel-FD', external: true },
+];
+---
+
+<!-- Overlay -->
+<div id="cmdk-overlay" class="fixed inset-0 bg-black/50 z-[199] hidden" aria-hidden="true"></div>
+
+<!-- Palette -->
+<div id="cmdk-palette" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[560px] bg-bg-card border border-border rounded-2xl z-[200] hidden overflow-hidden" style="box-shadow: 0 24px 80px rgba(0,0,0,0.6);" role="dialog" aria-label="Command palette">
+  <!-- Input -->
+  <div class="border-b border-border">
+    <input
+      id="cmdk-input"
+      type="text"
+      placeholder="Search or jump to..."
+      class="w-full bg-transparent px-5 py-4 text-[15px] text-text outline-none placeholder:text-text-dim font-sans"
+      autocomplete="off"
+    />
+  </div>
+
+  <!-- Items -->
+  <div id="cmdk-list" class="p-2 max-h-80 overflow-y-auto">
+    {items.map((item, i) => (
+      <a
+        href={item.href}
+        target={item.external ? '_blank' : undefined}
+        rel={item.external ? 'noopener' : undefined}
+        class={`cmdk-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-text-muted hover:bg-white/[0.04] hover:text-text transition-all cursor-pointer ${i === 0 ? 'bg-white/[0.04] text-text' : ''}`}
+        data-label={item.label.toLowerCase()}
+      >
+        <span>{item.icon}</span>
+        <span>{item.label}</span>
+        {item.external && <span class="ml-auto text-[10px] text-text-dim">↗</span>}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const palette = document.getElementById('cmdk-palette');
+  const overlay = document.getElementById('cmdk-overlay');
+  const input = document.getElementById('cmdk-input') as HTMLInputElement;
+  const items = document.querySelectorAll('.cmdk-item');
+
+  function open() {
+    palette?.classList.remove('hidden');
+    overlay?.classList.remove('hidden');
+    input?.focus();
+    input!.value = '';
+    filterItems('');
+  }
+
+  function close() {
+    palette?.classList.add('hidden');
+    overlay?.classList.add('hidden');
+  }
+
+  function filterItems(query: string) {
+    const q = query.toLowerCase();
+    items.forEach(item => {
+      const label = item.getAttribute('data-label') || '';
+      (item as HTMLElement).style.display = label.includes(q) ? 'flex' : 'none';
+    });
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault();
+      palette?.classList.contains('hidden') ? open() : close();
+    }
+    if (e.key === 'Escape') close();
+  });
+
+  // Close on overlay click
+  overlay?.addEventListener('click', close);
+
+  // Filter on input
+  input?.addEventListener('input', () => filterItems(input.value));
+
+  // Close on item click (for anchor links)
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      if (!item.getAttribute('target')) close();
+    });
+  });
+
+  // Connect nav trigger
+  document.getElementById('cmdk-trigger')?.addEventListener('click', open);
+</script>

@@ -1,0 +1,60 @@
+---
+const experiments = [
+  {
+    title: 'Blockchain Transaction Visualizer',
+    description: 'Explore cross-chain flows in real-time with a force-directed graph',
+    color: 'accent',
+    label: 'Interactive Demo',
+  },
+  {
+    title: 'Anomaly Detection Explorer',
+    description: 'Train a model on synthetic blockchain data and watch it detect anomalies',
+    color: 'green-500',
+    label: 'ML Playground',
+  },
+  {
+    title: 'DeFi Risk Dashboard',
+    description: 'D3.js visualization of protocol risk metrics across the DeFi ecosystem',
+    color: 'amber-500',
+    label: 'Data Viz',
+  },
+];
+---
+
+<section class="max-w-6xl mx-auto px-6 py-24" id="craft">
+  <p class="font-mono text-[11px] uppercase tracking-[2px] text-accent mb-2 inline-block px-3 py-1.5 rounded-md border border-accent/20 bg-accent/10">
+    Craft
+  </p>
+  <h2 class="text-3xl font-bold tracking-tight mb-2">Experiments</h2>
+  <p class="text-base text-text-muted mb-12 max-w-xl">Interactive demos, visualizations, and experiments. The stuff that doesn't fit in a case study.</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 stagger-children">
+    {experiments.map(exp => (
+      <div class="bg-bg-card border border-border rounded-card overflow-hidden card-hover cursor-pointer group">
+        <!-- Preview area -->
+        <div class="h-48 relative overflow-hidden border-b border-border"
+             style="background: linear-gradient(135deg, #1a1a1f, #0a0a0b);">
+          <!-- Animated dots -->
+          <div class="absolute inset-0 animate-drift opacity-40"
+               style="background:
+                 radial-gradient(2px 2px at 20% 30%, rgba(99,102,241,0.6), transparent),
+                 radial-gradient(2px 2px at 60% 70%, rgba(34,197,94,0.5), transparent),
+                 radial-gradient(2px 2px at 80% 20%, rgba(245,158,11,0.4), transparent),
+                 radial-gradient(2px 2px at 40% 80%, rgba(99,102,241,0.5), transparent);">
+          </div>
+          <!-- "Coming Soon" overlay -->
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-bg/60 backdrop-blur-sm">
+            <span class="font-mono text-sm text-accent">Coming Soon</span>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="p-5">
+          <p class="font-mono text-[10px] uppercase tracking-wider text-accent mb-2">{exp.label}</p>
+          <h4 class="font-mono text-sm font-semibold mb-1">{exp.title}</h4>
+          <p class="text-sm text-text-muted">{exp.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

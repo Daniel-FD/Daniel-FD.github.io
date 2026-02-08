@@ -1,0 +1,40 @@
+---
+const posts = [
+  {
+    title: 'Why Blockchain Compliance Needs ML, Not Rules',
+    meta: 'Coming Soon · 5 min · Blockchain, ML',
+  },
+  {
+    title: 'Shipping LLMs in Production: Lessons from HelpFirst',
+    meta: 'Coming Soon · 8 min · LLM, Product',
+  },
+  {
+    title: 'From PhD to Product: Why Academic ML Isn\'t Enough',
+    meta: 'Coming Soon · 6 min · Career, Product',
+  },
+  {
+    title: 'The Case for Smaller Models in Enterprise AI',
+    meta: 'Coming Soon · 4 min · ML, Engineering',
+  },
+];
+---
+
+<section class="max-w-6xl mx-auto px-6 py-24" id="writing">
+  <p class="font-mono text-[11px] uppercase tracking-[2px] text-accent mb-2 inline-block px-3 py-1.5 rounded-md border border-accent/20 bg-accent/10">
+    Writing
+  </p>
+  <h2 class="text-3xl font-bold tracking-tight mb-2">Thoughts</h2>
+  <p class="text-base text-text-muted mb-12 max-w-xl">How I think about AI, product, and building things that matter.</p>
+
+  <div class="flex flex-col gap-0.5">
+    {posts.map(post => (
+      <div class="flex items-center justify-between px-6 py-5 rounded-card hover:bg-bg-card transition-all cursor-pointer group">
+        <div>
+          <h4 class="text-base font-medium mb-1 group-hover:text-white transition-colors">{post.title}</h4>
+          <p class="font-mono text-xs text-text-dim">{post.meta}</p>
+        </div>
+        <span class="text-lg text-text-dim group-hover:text-text group-hover:translate-x-1 transition-all shrink-0 ml-4">→</span>
+      </div>
+    ))}
+  </div>
+</section>
