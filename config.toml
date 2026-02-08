@@ -12,7 +12,7 @@ disableHugoGeneratorInject = true
 [params.plugins]
   # CSS Plugins (UIKit loaded directly in head.html at v3.17.11)
   [[params.plugins.css]]
-  URL = "/css/custom.css?v=3"
+  URL = "/css/custom.css?v=4"
 
 # Navigation
 [menu]
