@@ -3,13 +3,13 @@ banner:
   title: Daniel Fiuza
   subtitle: Lead Data Scientist • Blockchain ML & Compliance
 
-# About Section  
+# About Section
 about:
-  enable: true
+  enable: false
   content: "Building ML systems for blockchain security and compliance. From stablecoin monitoring to DeFi risk analytics — turning blockchain data into actionable intelligence."
-  button:
-    btnText: "View Projects"
-    URL: "/portfolio"
+  # button:
+  #   btnText: "View Projects"
+  #   URL: "/portfolio"
 
 # Social Links
 social:
@@ -65,22 +65,18 @@ experience:
 
 # Skills
 skill:
-  enable: true
+  enable: false
   item:
     - title: Blockchain ML
-      logo: /logos/python.svg
       description: Transaction analysis, risk detection • Anomaly detection for DeFi protocols
-      
-    - title: Compliance & Security  
-      logo: /logos/sql.svg
+
+    - title: Compliance & Security
       description: KYT/AML systems • Stablecoin monitoring • Cross-chain surveillance
-      
+
     - title: Data Engineering
-      logo: /logos/mongodb.svg
       description: Blockchain data pipelines • Real-time monitoring • $30B+ assets tracked
-      
+
     - title: Cloud & DevOps
-      logo: /logos/nodejs.svg  
       description: AWS, Docker, CI/CD • Scalable blockchain infrastructure
 
 # Education
@@ -119,7 +115,7 @@ education:
 
 # Blog section
 blog:
-  enable: true
+  enable: false
   title: "Latest Blog Posts"
   subtitle: "Insights on blockchain ML, compliance, and production systems"
 
