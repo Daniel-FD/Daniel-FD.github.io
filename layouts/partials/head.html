@@ -6,37 +6,35 @@
   <!-- SEO Meta Tags -->
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
   <meta name="author" content="{{ with .Site.Params.Author }}{{ . }}{{ else }}{{ with .Site.Params.author }}{{ . }}{{ end }}{{ end }}">
-  <meta name="keywords" content="data science, machine learning, AI, engineering, {{ .Site.Title }}">
-  
-  <!-- Open Graph / Social Media Meta Tags -->
+  <meta name="keywords" content="data science, machine learning, AI, blockchain, {{ .Site.Title }}">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ with .Site.Params.image }}{{ . }}{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
-  
-  <!-- Twitter Card Meta Tags -->
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
   <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ with .Site.Params.image }}{{ . }}{{ end }}">
-  <meta name="twitter:creator" content="@DanielFiuza">
 
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" as="script" crossorigin="anonymous">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js" as="script" crossorigin="anonymous">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" as="style" crossorigin="anonymous">
-  
+  <!-- Preconnect to CDN -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" crossorigin="anonymous">
   {{ range .Site.Params.plugins.css }}
   <link rel="stylesheet" href="{{ .URL | absURL }}">
   {{ end }}
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js" crossorigin="anonymous"></script>
+  <!-- Scripts (deferred for performance) -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js" defer crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js" defer crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer crossorigin="anonymous"></script>
 
   <!-- Favicons -->
@@ -44,38 +42,9 @@
   <link rel="alternate icon" type="image/png" href="/logos/df_logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/logos/df_logo.png">
   <meta name="theme-color" content="#1a1a1a">
-  <meta name="msapplication-TileColor" content="#1a1a1a">
 
-  <!-- Security Headers -->
+  <!-- Security -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="Permissions-Policy" content="interest-cohort=(),camera=(),microphone=(),geolocation=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data: *; font-src 'self' https: data:;">
-
-  <!-- Performance Optimizations -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
-
-  <!-- Typed.js Cursor Style -->
-  <style>
-    .typed-cursor {
-      font-weight: 100;
-      opacity: 1;
-      animation: blink 1s infinite;
-      width: 2px;
-      background-color: currentColor;
-      margin-left: 2px;
-      display: inline-block;
-      height: 1em;
-      vertical-align: text-top;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    /* Optimize font loading */
-    @font-face {
-      font-display: swap;
-    }
-  </style>
-</head> 
+</head>

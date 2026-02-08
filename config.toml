@@ -10,15 +10,9 @@ disableHugoGeneratorInject = true
 
 # Asset Management
 [params.plugins]
-  # CSS Plugins
+  # CSS Plugins (UIKit loaded directly in head.html at v3.17.11)
   [[params.plugins.css]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css"
-  [[params.plugins.css]]
-  URL = "/css/custom.css?v=2"
-
-  # JS Plugins
-  [[params.plugins.js]]
-  URL = "https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"
+  URL = "/css/custom.css?v=3"
 
 # Navigation
 [menu]
@@ -27,10 +21,20 @@ disableHugoGeneratorInject = true
   URL = "about"
   weight = 1
 
+  # [[menu.main]]
+  # name = "Blog"
+  # URL = "blog"
+  # weight = 2
+
+  # [[menu.main]]
+  # name = "Portfolio"
+  # URL = "portfolio"
+  # weight = 3
+
   [[menu.main]]
   name = "Contact"
   URL = "contact"
-  weight = 2
+  weight = 4
 
 # Site Parameters
 [params]
@@ -45,7 +49,7 @@ image = "/logos/df_logo.png"
 
   [params.footer]
   email = "dafiuzadosil@gmail.com"
-  copyright = "© 2025 Daniel Fiuza"
+  copyright = "Daniel Fiuza"
 
 # Markdown Configuration
 [markup]

@@ -1,0 +1,23 @@
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Hugo
+.hugo_build.lock
+resources/_gen/
+
+# Node
+node_modules/
+
+# LaTeX build artifacts
+*.fdb_latexmk
+*.fls
+*.aux
+*.synctex.gz
+
+# Logs
+*.log
+
+# Editor
+.vscode/
+.idea/
