@@ -98,11 +98,8 @@ a:hover {
     font-weight: 100;
     opacity: 1;
     animation: typed-blink 1s infinite;
-    width: 2px;
-    background-color: currentColor;
-    margin-left: 2px;
-    display: inline-block;
-    height: 1em;
+    margin-left: 1px;
+}
     vertical-align: text-top;
 }
 
