@@ -1,0 +1,77 @@
+---
+const roles = [
+  {
+    company: 'Range.org',
+    title: 'Lead Data Scientist',
+    date: 'Apr 2025 — Present',
+    description: 'Blockchain ML & stablecoin compliance • $30B+ monitored assets • Cross-chain security',
+    current: true,
+  },
+  {
+    company: 'Imperial College London',
+    title: 'Research Associate',
+    date: 'Mar 2025 — Present',
+    description: 'ML for biomarker discovery • Allergy & immunology trials',
+    current: true,
+  },
+  {
+    company: 'HelpFirst AI',
+    title: 'Lead AI Engineer',
+    date: '2022 — Mar 2025',
+    description: 'Award-winning LLM solutions • £400k annual savings • 92% accuracy',
+    current: false,
+  },
+  {
+    company: 'Bryant Medical',
+    title: 'Lead Data Scientist',
+    date: '2021 — 2024',
+    description: 'Patented AI diagnostics • Computer vision • 60% faster diagnosis',
+    current: false,
+  },
+  {
+    company: 'LoveHolidays',
+    title: 'Data Scientist',
+    date: '2021',
+    description: 'ML recommendation engine • 2.8× booking increase • £17M revenue',
+    current: false,
+  },
+  {
+    company: 'Earlier',
+    title: 'Teaching @ LSBU & Imperial + PhD',
+    date: '2017 — 2021',
+    description: 'PhD Fluid Mechanics, Teaching CS & Data Science',
+    current: false,
+    faded: true,
+  },
+];
+---
+
+<section class="max-w-6xl mx-auto px-6 py-24" id="experience">
+  <p class="font-mono text-[11px] uppercase tracking-[2px] text-accent mb-2 inline-block px-3 py-1.5 rounded-md border border-accent/20 bg-accent/10">
+    Journey
+  </p>
+  <h2 class="text-3xl font-bold tracking-tight mb-2">Experience</h2>
+  <p class="text-base text-text-muted mb-12 max-w-xl">From PhD in Fluid Mechanics to Lead Data Scientist in Blockchain ML.</p>
+
+  <div class="relative pl-10 md:pl-12">
+    <!-- Timeline line -->
+    <div class="absolute left-[15px] md:left-[17px] top-0 bottom-0 w-px bg-border"></div>
+
+    {roles.map(role => (
+      <div class={`relative mb-4 p-6 bg-bg-card border border-border rounded-card card-hover ${role.faded ? 'opacity-50' : ''}`}>
+        <!-- Timeline dot -->
+        <div class={`absolute -left-[33px] md:-left-[35px] top-8 w-2.5 h-2.5 rounded-full border-2 border-bg
+          ${role.current ? 'bg-green-500 glow-green' : 'bg-accent'}`}></div>
+
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-2">
+          <div>
+            <p class={`font-mono text-sm ${role.faded ? 'text-text-dim' : 'text-accent'}`}>{role.company}</p>
+            <p class="font-semibold">{role.title}</p>
+          </div>
+          <p class="font-mono text-xs text-text-dim shrink-0">{role.date}</p>
+        </div>
+        <p class="text-sm text-text-muted">{role.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

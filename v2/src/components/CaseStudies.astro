@@ -1,0 +1,86 @@
+---
+const cases = [
+  {
+    tag: 'Blockchain · ML · Compliance',
+    title: 'Cross-Chain Stablecoin Compliance',
+    description: 'Built ML models to detect suspicious stablecoin flows across 12+ chains in real-time, replacing rule-based systems that missed 60% of novel patterns.',
+    metrics: [
+      { value: '$30B+', label: 'Monitored' },
+      { value: '12+', label: 'Chains' },
+      { value: '94%', label: 'Precision' },
+    ],
+    tags: ['PyTorch', 'GNNs', 'Kafka', 'AWS'],
+    vizIcon: '🌐',
+    vizLabel: 'Interactive graph visualization of cross-chain flows',
+  },
+  {
+    tag: 'LLM · Product · Enterprise',
+    title: 'Award-Winning Vulnerability Detection',
+    description: 'Designed and shipped an LLM system that identifies vulnerable customers in real-time from support conversations — saving £400K/year while protecting people in crisis.',
+    metrics: [
+      { value: '92%', label: 'Accuracy' },
+      { value: '£400K', label: 'Annual Savings' },
+    ],
+    tags: ['LLMs', 'NLP', 'Python', 'Product'],
+    vizIcon: '💬',
+    vizLabel: 'Live demo: paste a conversation, see detection',
+  },
+  {
+    tag: 'Healthcare · Computer Vision · Patent',
+    title: 'Patented AI Medical Diagnostics',
+    description: 'Built a computer vision system for diagnostic imaging that earned a patent and achieved 60% faster diagnosis time — now used in clinical settings.',
+    metrics: [
+      { value: '60%', label: 'Faster Diagnosis' },
+      { value: 'Patent', label: 'Granted' },
+    ],
+    tags: ['Computer Vision', 'PyTorch', 'Medical Imaging'],
+    vizIcon: '🔬',
+    vizLabel: 'Before/after comparison of diagnostic workflow',
+  },
+];
+---
+
+<section class="max-w-6xl mx-auto px-6 py-24" id="work">
+  <p class="font-mono text-[11px] uppercase tracking-[2px] text-accent mb-2 inline-block px-3 py-1.5 rounded-md border border-accent/20 bg-accent/10">
+    Selected Work
+  </p>
+  <h2 class="text-3xl font-bold tracking-tight mb-2">Featured Projects</h2>
+  <p class="text-base text-text-muted mb-12 max-w-xl">Deep dives into problems I've solved — not just what I built, but why and how.</p>
+
+  <div class="flex flex-col gap-6">
+    {cases.map((c, i) => (
+      <div class={`bg-bg-card border border-border rounded-card overflow-hidden card-hover grid grid-cols-1 md:grid-cols-2 min-h-[320px] ${i % 2 === 1 ? 'md:direction-rtl' : ''}`}>
+        <!-- Content side -->
+        <div class={`p-8 md:p-10 flex flex-col justify-center ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+          <p class="font-mono text-[11px] text-accent uppercase tracking-wider mb-3">{c.tag}</p>
+          <h3 class="text-xl md:text-2xl font-bold tracking-tight mb-3">{c.title}</h3>
+          <p class="text-sm text-text-muted leading-relaxed mb-5">{c.description}</p>
+
+          <div class="flex gap-6 mb-4">
+            {c.metrics.map(m => (
+              <div class="font-mono">
+                <p class="text-xl font-bold text-green-500">{m.value}</p>
+                <p class="text-[10px] text-text-dim uppercase tracking-wider">{m.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="flex flex-wrap gap-1.5">
+            {c.tags.map(tag => (
+              <span class="font-mono text-[10px] px-2 py-1 rounded-md bg-white/[0.04] border border-border text-text-muted">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Visual side -->
+        <div class={`hidden md:flex items-center justify-center ${i % 2 === 1 ? 'md:order-1' : ''}`}
+             style="background: linear-gradient(135deg, #1a1a1f, #0a0a0b);">
+          <div class="w-4/5 h-3/5 border border-dashed border-border rounded-xl flex flex-col items-center justify-center gap-2 font-mono text-xs text-text-dim">
+            <span class="text-3xl opacity-30">{c.vizIcon}</span>
+            <span class="text-center px-4">{c.vizLabel}</span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

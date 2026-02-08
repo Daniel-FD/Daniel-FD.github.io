@@ -1,0 +1,76 @@
+---
+const links = [
+  { label: 'Work', href: '#work' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Craft', href: '#craft' },
+  { label: 'Writing', href: '#writing' },
+  { label: 'Stack', href: '#stack' },
+];
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 border-b border-border"
+  style="background: rgba(10, 10, 11, 0.8); backdrop-filter: blur(20px);"
+  id="nav"
+>
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="#" class="font-mono text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+      df.
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-1">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class="font-mono text-xs text-text-muted hover:text-text px-3 py-1.5 rounded-lg border border-transparent hover:border-border hover:bg-bg-card transition-all"
+        >
+          {link.label}
+        </a>
+      ))}
+      <button
+        id="cmdk-trigger"
+        class="font-mono text-xs text-text-dim px-3 py-1.5 rounded-lg border border-border hover:border-border-hover hover:text-text-muted transition-all ml-2 flex items-center gap-2"
+      >
+        <span class="text-[10px] bg-bg-card px-1.5 py-0.5 rounded border border-border">⌘K</span>
+      </button>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="mobile-menu-btn" class="md:hidden text-text-muted hover:text-text p-2">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg/95 backdrop-blur-xl">
+    <div class="px-6 py-4 flex flex-col gap-2">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class="mobile-link font-mono text-sm text-text-muted hover:text-text py-2 transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => menu?.classList.add('hidden'));
+  });
+
+  // Cmd+K trigger
+  document.getElementById('cmdk-trigger')?.addEventListener('click', () => {
+    document.getElementById('cmdk-palette')?.classList.remove('hidden');
+  });
+</script>
