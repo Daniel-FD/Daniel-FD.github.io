@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniel Fiuza Dosil</title>
+<meta name="description" content="Daniel Fiuza Dosil — Lead Data Scientist at Range: blockchain analytics, AI engineering and applied machine learning, written up as a short paper.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-500-roman.woff2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<style>
+  @font-face { font-family: "CMU Serif"; font-weight: 400; font-style: normal; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-500-roman.woff2) format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-weight: 400; font-style: italic; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-500-italic.woff2) format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-weight: 700; font-style: normal; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-700-roman.woff2) format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-weight: 700; font-style: italic; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-700-italic.woff2) format("woff2"); }
+
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #6b6b6b;
+    --rule: #dcdcdc;
+    --faint: #f5f5f4;
+    --accent: #b8322a;
+    --bar: #9a9a9a;
+    --text: 640px;     /* \textwidth */
+    --gap: 44px;       /* \marginparsep */
+    --margin: 250px;   /* \marginparwidth */
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 19px/1.5 "CMU Serif", "Latin Modern Roman", Georgia, serif; -webkit-font-smoothing: antialiased; font-kerning: normal; }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 2px; }
+  .mono, code, pre, kbd, .url { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .url { font-size: .78em; letter-spacing: -.01em; overflow-wrap: anywhere; }
+  .katex { font-size: 1.05em; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- page geometry (text block + Tufte margin) ---------- */
+  .page { max-width: calc(var(--text) + 48px); margin: 0 auto; padding: 0 24px; }
+
+  .runhead {
+    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0 16px;
+    font-style: italic; font-size: 14.5px; padding: 26px 0 5px; border-bottom: .8px solid var(--ink);
+  }
+
+  /* ---------- \maketitle ---------- */
+  .titleblock { text-align: center; padding: 64px 0 8px; }
+  .titleblock h1 { font-weight: 400; font-size: 38px; line-height: 1.22; margin: 0 0 30px; letter-spacing: -.003em; }
+  .subtitle { font-size: 19px; font-style: italic; margin: -16px 0 30px; color: #333; }
+  .author { font-size: 22px; margin: 0; }
+  .author sup, .affil sup { font-size: .6em; }
+  .affil { font-size: 16px; font-style: italic; margin: 10px 0 0; line-height: 1.45; }
+  .affil span { display: inline-block; margin: 0 .55em; }
+  .email { margin: 8px 0 0; font-size: 14px; }
+  .date { font-size: 18px; margin: 18px 0 0; }
+
+  /* ---------- abstract ---------- */
+  .abstract { margin: 48px auto 0; padding: 0 2.6em; font-size: 17px; line-height: 1.48; }
+  .abstract h2 { text-align: center; font-size: 15px; font-weight: 700; margin: 0 0 6px; }
+  .abstract p { margin: 0; }
+  .keywords { margin: 14px 0 0; text-indent: 0 !important; }
+  .keywords i { margin-right: .4em; }
+
+  /* ---------- body ---------- */
+  main p, .abstract p, figcaption, .tbl-cap { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  section { margin: 0; }
+  h2.sec { font-size: 24px; font-weight: 700; line-height: 1.25; margin: 56px 0 16px; }
+  h2.sec .n { display: inline-block; margin-right: .85em; }
+  .prose p { margin: 0; }
+  .prose p + p { text-indent: 1.5em; }
+  em, i { font-style: italic; }
+
+  .eq { margin: 16px 0; overflow-x: auto; overflow-y: hidden; text-align: center; position: relative; }
+  .eq .fb { display: inline-block; padding: 4px 0; }
+  .eq .fb-n { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+  .eq .katex-display { margin: .4em 0; }
+
+  .cite { text-decoration: none; }
+  .ref-x { text-decoration: none; }
+
+  /* ---------- sidenotes ---------- */
+  .sn-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+  .sn-ref { cursor: default; }
+  .sn-ref sup, .sidenote sup { font-size: .62em; line-height: 0; vertical-align: .55em; font-variant-numeric: tabular-nums; }
+  .sidenote {
+    display: none; text-indent: 0; text-align: left; hyphens: manual;
+    font-size: 14.5px; line-height: 1.42;
+  }
+  .sidenote sup { margin-right: .3em; vertical-align: .45em; }
+
+  @media (min-width: 1100px) {
+    .page { max-width: calc(var(--text) + var(--gap) + var(--margin) + 48px); padding-right: calc(24px + var(--gap) + var(--margin)); }
+    .runhead { margin-right: calc(-1 * (var(--gap) + var(--margin))); }
+    .sidenote {
+      display: block; float: right; clear: right; position: relative;
+      width: var(--margin); margin: .28em calc(-1 * (var(--gap) + var(--margin))) .9em 0;
+    }
+    .sn-toggle { display: none; }
+  }
+  @media (max-width: 1099.98px) {
+    .sn-ref { cursor: pointer; color: var(--accent); padding: 0 .12em; }
+    .sn-toggle:focus-visible + .sn-ref { outline: 1.5px solid var(--accent); outline-offset: 1px; }
+    .sn-toggle:checked + .sn-ref + .sidenote {
+      display: block; margin: .5em 0 .7em 1.5em; padding-left: .8em; border-left: 1px solid var(--rule); color: #333;
+    }
+  }
+
+  /* ---------- Figure 1 ---------- */
+  figure { margin: 0; }
+  .fig { position: relative; margin: 40px 0 0; }
+  .plot { width: 100%; }
+  .plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .plot text { font-family: "CMU Serif", Georgia, serif; fill: var(--ink); }
+  .plot .tl { font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  .plot .lab { font-size: 13.5px; }
+  .plot .var { font-style: italic; font-size: 14.5px; }
+  .plot .halo { paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+  .plot .frame { fill: none; stroke: var(--ink); stroke-width: 1; }
+  .plot .tick { stroke: var(--ink); stroke-width: 1; }
+  .plot .grid { stroke: #cfcfcf; stroke-width: 1; stroke-dasharray: 1 3; }
+  .plot .nowline { stroke: #bdbdbd; stroke-width: 1; stroke-dasharray: 3 3; }
+  .plot .bar { stroke: var(--bar); stroke-width: 1.3; fill: none; }
+  .plot .arrow { fill: var(--bar); }
+  .plot .curve { fill: none; stroke: var(--ink); stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round; }
+  .plot .mk { stroke: var(--ink); stroke-width: 1.1; fill: var(--bg); }
+  .plot .mk.main { fill: var(--ink); }
+  .plot .on.bar { stroke: var(--accent); stroke-width: 2.2; }
+  .plot .on.arrow { fill: var(--accent); }
+  .plot .on.mk { stroke: var(--accent); fill: var(--accent); }
+  .plot .guide { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 3; opacity: .75; }
+  .plot .rug { stroke: var(--accent); stroke-width: 2.5; }
+  .plot .hit { fill: transparent; stroke: none; cursor: pointer; }
+  .plot .pt { outline: none; }
+  .plot .pt:focus-visible .hit { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 2; }
+  .plot .legend rect { fill: var(--bg); stroke: var(--ink); stroke-width: .8; }
+  .plot .legend text { font-size: 12.5px; }
+  /* first-view drawing of the curve */
+  .plot.pre .curve { stroke-dashoffset: var(--len); stroke-dasharray: var(--len); }
+  .plot.pre .mk, .plot.pre .bar, .plot.pre .arrow { opacity: 0; }
+  .plot.go .curve { transition: stroke-dashoffset 1.9s cubic-bezier(.45,.05,.2,1); stroke-dashoffset: 0; }
+  .plot.go .mk, .plot.go .bar, .plot.go .arrow { transition: opacity .6s ease 1.2s; opacity: 1; }
+
+  .readout { font-size: 15px; line-height: 1.42; margin: 14px 0 0; padding: 9px 0 10px; border-top: .8px solid var(--ink); border-bottom: .8px solid var(--ink); }
+  .readout .ro-body { min-height: 6.9em; }
+  .readout .ro-k { display: block; font-style: italic; color: var(--muted); font-size: 13.5px; margin-bottom: 3px; }
+  .readout .when { display: block; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .readout b { display: block; font-weight: 700; }
+  .readout .org { display: block; font-style: italic; }
+  .readout .note { display: block; margin-top: 4px; }
+  .ro-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; font: 11.5px "JetBrains Mono", ui-monospace, monospace; color: var(--muted); }
+  .btn {
+    font: 11.5px "JetBrains Mono", ui-monospace, monospace; color: var(--ink); background: var(--bg);
+    border: 1px solid var(--rule); border-radius: 2px; padding: 4px 9px; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  @media (min-width: 1100px) {
+    .readout { position: absolute; top: 0; left: calc(100% + var(--gap)); width: var(--margin); margin: 0; }
+  }
+  figcaption { font-size: 16.5px; line-height: 1.45; margin: 14px 0 0; }
+  .glyph { width: .62em; height: .62em; vertical-align: .02em; }
+  @media (min-width: 1100px) { .readout .ro-body { min-height: 10.4em; } }
+  .tbl-cap { font-size: 16.5px; line-height: 1.45; margin: 0 0 8px; }
+
+  /* ---------- booktabs ---------- */
+  .tbl { margin: 26px 0 0; }
+  h2.sec + .fig { margin-top: 6px; }
+  .fig + .tbl { margin-top: 40px; }
+  table { width: 100%; border-collapse: collapse; font-size: 16.5px; line-height: 1.4; }
+  thead th { border-top: 1.5px solid var(--ink); border-bottom: .8px solid var(--ink); }
+  tbody tr:last-child td { border-bottom: 1.5px solid var(--ink); }
+  th { font-weight: 700; text-align: left; padding: 7px 14px 6px 0; }
+  td { padding: 6px 14px 6px 0; vertical-align: top; }
+  th:last-child, td:last-child { padding-right: 0; }
+  tbody tr:first-child td { padding-top: 10px; }
+  tbody tr:last-child td { padding-bottom: 10px; }
+  td.yr { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.org { white-space: nowrap; }
+  td.org i { display: block; color: var(--muted); font-size: 15px; }
+
+  /* ---------- lists ---------- */
+  ol.work { margin: 14px 0 0; padding: 0; list-style: none; counter-reset: w; }
+  ol.work li { counter-increment: w; position: relative; padding-left: 2em; margin: 0 0 8px; text-align: left; }
+  ol.work li::before { content: counter(w) "."; position: absolute; left: 0; width: 1.4em; text-align: right; font-variant-numeric: tabular-nums; }
+  ol.work .src { font-style: italic; }
+
+  .edu { display: grid; grid-template-columns: max-content 1fr; gap: 5px 22px; margin: 14px 0 0; }
+  .edu .yr { font-variant-numeric: tabular-nums; }
+  .edu i { color: var(--muted); }
+
+  h2.unnum { font-size: 19px; margin: 48px 0 10px; }
+  h3.sub { font-size: 19.5px; font-weight: 700; margin: 28px 0 10px; }
+  h3.sub .n { display: inline-block; margin-right: .85em; }
+  h2.sec + h3.sub { margin-top: 0; }
+  ol.items { margin: 12px 0 14px; padding: 0; list-style: none; counter-reset: it; }
+  ol.items li { counter-increment: it; position: relative; padding-left: 2em; margin: 0 0 10px; text-align: left; hyphens: manual; }
+  ol.items li::before { content: "(" counter(it, lower-roman) ")"; position: absolute; left: 0; width: 1.6em; text-align: right; font-style: normal; }
+  .src { font-style: italic; }
+  .prose p.after { text-indent: 0; }
+  .prose p.stackline { margin-top: 14px; font-size: 15px; text-align: left; hyphens: manual; }
+  .stackline .mono { font-size: 12.5px; color: #333; line-height: 1.7; }
+  ol.work li a.ref-x { text-decoration: none; }
+  ol.refs.small { font-size: 15.5px; }
+  .colophon { margin: 34px 0 0; font-size: 14.5px; color: var(--muted); text-align: left !important; }
+  ol.refs { list-style: none; padding: 0; margin: 0; font-size: 16.5px; line-height: 1.45; }
+  ol.refs li { display: grid; grid-template-columns: 2.2em 1fr; margin: 0 0 6px; }
+  ol.refs .lbl { font-variant-numeric: tabular-nums; }
+
+  .bib { margin: 22px 0 0; }
+  .bib-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 15px; font-style: italic; color: var(--muted); margin: 0 0 6px; }
+  pre { margin: 0; padding: 10px 0 10px 14px; border-left: 2px solid var(--rule); font-size: 12.5px; line-height: 1.6; overflow-x: auto; color: #333; }
+
+  footer.page { padding-top: 64px; padding-bottom: 40px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+  footer hr { width: 30%; margin: 0 0 8px; border: 0; border-top: .8px solid var(--muted); }
+  footer a[aria-current] { font-weight: 700; color: var(--ink); text-decoration: none; }
+
+  /* hyperref-style arrival: the target blinks once */
+  :target, .flash { scroll-margin-top: 28px; }
+  @keyframes flash { 0%, 30% { background-color: rgba(184, 50, 42, .1); } 100% { background-color: transparent; } }
+  .flash { animation: flash 1.8s ease-out; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .flash { animation: none; }
+    .plot.go .curve, .plot.go .mk, .plot.go .bar, .plot.go .arrow { transition: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  /* ---------- small screens ---------- */
+  @media (max-width: 700px) {
+    body { font-size: 17.5px; line-height: 1.5; }
+    .page { padding: 0 16px; }
+    .runhead { font-size: 12.5px; padding-top: 16px; }
+    .titleblock { padding-top: 44px; }
+    .titleblock h1 { font-size: 28px; margin-bottom: 22px; }
+    .titleblock h1 br { display: none; }
+    .author { font-size: 19px; }
+    .affil { font-size: 15px; }
+    .affil span { display: block; }
+    .date { font-size: 16px; }
+    .subtitle { font-size: 16.5px; margin: -10px 0 22px; }
+    h3.sub { font-size: 18px; }
+    .abstract { padding: 0 .9em; font-size: 16px; margin-top: 36px; }
+    main p, .abstract p, figcaption, .tbl-cap { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+    h2.sec { font-size: 21px; margin-top: 46px; }
+    h2.sec .n { margin-right: .6em; }
+    .eq .katex-display > .katex { font-size: 1em; }
+    figcaption, .tbl-cap { font-size: 15.5px; }
+    .readout { font-size: 14.5px; }
+    .btn { padding: 8px 12px; }
+    table, tbody, tr, td { display: block; }
+    thead { display: none; }
+    table { font-size: 16px; border-top: 1.5px solid var(--ink); }
+    tr { border-bottom: .8px solid var(--rule); padding: 9px 0; }
+    td { padding: 1px 0; }
+    tbody tr:first-child td, tbody tr:last-child td { padding: 1px 0; }
+    tbody tr:last-child { border-bottom: 1.5px solid var(--ink); }
+    tbody tr:last-child td { border: 0; }
+    td.yr { color: var(--muted); font-size: 14.5px; }
+    td.org { white-space: normal; }
+    td.org i { display: inline; }
+    td.org i::before { content: ", "; font-style: normal; }
+    .edu { grid-template-columns: 1fr; gap: 0; }
+    .edu .yr { margin-top: 10px; color: var(--muted); font-size: 14.5px; }
+    ol.refs { font-size: 15.5px; }
+    pre { font-size: 11.5px; }
+  }
+
+  @media print {
+    body { font-size: 10.5pt; }
+    .page { max-width: none; padding: 0; }
+    .sn-ref { color: inherit; }
+    .sidenote { display: block; float: none; width: auto; margin: .3em 0 .3em 1.5em; font-size: 8.5pt; }
+    .readout, .bib .btn, footer { display: none; }
+    a { text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="runhead">
+    <span>Preprint · October 2026</span>
+    <span>Fiuza Dosil — Curriculum Vitae</span>
+  </header>
+
+  <div class="titleblock">
+    <h1>Following Money and Signal<br> Through Data</h1>
+    <p class="subtitle">Blockchain analytics, AI engineering and applied machine learning</p>
+    <p class="author">Daniel Fiuza Dosil<sup>1,2</sup></p>
+    <p class="affil"><span><sup>1</sup>Range, London</span><span><sup>2</sup>Imperial College London</span></p>
+    <p class="email"><a class="mono" href="mailto:dafiuzadosil@gmail.com">dafiuzadosil@gmail.com</a></p>
+    <p class="date">16 October 2026</p>
+  </div>
+
+  <div class="abstract" role="region" aria-labelledby="abs-h">
+    <h2 id="abs-h">Abstract</h2>
+    <p>
+      I am a data scientist and AI engineer in London. As Lead Data Scientist at Range, I build data pipelines,
+      machine-learning models and AI features for blockchain security and stablecoin compliance; Range monitors
+      more than $30B in assets across 21 integrated chains. Before that I was Lead AI Engineer at HelpFirst AI, building award-winning
+      LLM applications, including one that saved Citizens Advice Scotland £400k a year. I have also shipped data
+      science in healthcare (patented computer-vision diagnostics) and travel (a recommender system), and I work
+      part-time as a research associate at Imperial College London, using machine learning for biomarker discovery.
+      My training is in engineering, up to a PhD at Imperial. This document covers current work (§1), selected
+      projects (§2), positions (§3), education (§4) and publications (§5).
+    </p>
+    <p class="keywords"><i>Keywords:</i> blockchain analytics · machine learning · LLM applications · stablecoin compliance · data science</p>
+  </div>
+
+  <main>
+    <section id="now" class="prose" aria-labelledby="s1">
+      <h2 class="sec" id="s1"><span class="n">1</span>Current work</h2>
+
+      <h3 class="sub" id="s1-1"><span class="n">1.1</span>Blockchain analytics at Range</h3>
+      <p>
+        At Range [<a class="cite" href="#ref-4">4</a>] I lead machine-learning initiatives for blockchain security and
+        stablecoin<input type="checkbox" id="sn-1" class="sn-toggle" aria-label="Show note 1"><label for="sn-1" class="sn-ref"><sup>1</sup></label><span class="sidenote"><sup>1</sup>A token designed to hold a steady value, usually one US dollar.</span>
+        compliance. Range monitors more than $30B in assets across 21 integrated chains. The work, at the level of
+        skills:
+      </p>
+      <ol class="items">
+        <li id="w-pipelines"><b>Multi-chain data pipelines on ClickHouse</b>: real-time blockchain data pipelines
+          feeding machine-learning models and APIs.</li>
+        <li id="w-risk"><b>ML risk scoring for addresses and transactions</b>: real-time threat detection, anomaly
+          detection and transaction risk scoring (KYT/AML) in DeFi.</li>
+        <li><b>Sanctions and stablecoin compliance monitoring</b>: risk analytics and cross-chain monitoring for
+          stablecoin (USDC) compliance.</li>
+        <li><b>LLM agents and AI features in production</b> for compliance and security workflows.</li>
+      </ol>
+      <p class="after">
+        Compliance, at its simplest, is bookkeeping on a transaction graph. Ignoring fees, mints and burns, the
+        balance <span data-tex="b_i">b<sub>i</sub></span> held at address <span data-tex="i">i</span> changes only by
+        what flows in minus what flows out,
+      </p>
+      <div class="eq" id="eq-1" data-tex-display="\frac{\mathrm{d}b_i}{\mathrm{d}t} \;=\; \sum_{j} f_{j\to i} \;-\; \sum_{j} f_{i\to j}, \tag{1}"><span class="fb">db<sub>i</sub>/dt = Σ<sub>j</sub> f<sub>j→i</sub> − Σ<sub>j</sub> f<sub>i→j</sub>,</span><span class="fb-n">(1)</span></div>
+      <p>
+        where <span data-tex="f_{j\to i}">f<sub>j→i</sub></span> is the rate at which value moves from
+        <span data-tex="j">j</span> to <span data-tex="i">i</span>. Much of the job is tracing the terms on the
+        right-hand side of Eq.&nbsp;(<a class="ref-x" href="#eq-1">1</a>) back to where they came from.
+      </p>
+
+      <h3 class="sub" id="s1-2"><span class="n">1.2</span>AI engineering</h3>
+      <p>
+        At Range I also build AI and LLM-powered features (§1.1). Before that, from 2022 to March 2025, I was Lead AI
+        Engineer at HelpFirst AI:
+      </p>
+      <ol class="items">
+        <li id="w-cas"><b>AI system for Citizens Advice Scotland.</b> An award-winning solution: callers reach their
+          local bureau in under a minute instead of waiting up to 24 hours for a callback. It saves £400k a year and
+          won the 2023 ScotlandIS Tech for Good Award.</li>
+        <li><b>Prompt engineering, systematic evaluation and fine-tuning</b> to improve LLM performance, with
+          frameworks for model assessment and for ethical, responsible AI in sensitive settings.</li>
+        <li><b>Predicting customer vulnerability</b> with NLP and large language models.</li>
+        <li id="w-optimiser"><b>AI-Prompt-Optimiser</b> [<a class="cite" href="#ref-5">5</a>] <span class="src">(open source)</span>. A
+          framework for optimising LLM prompts through automatic iterative refinement.</li>
+      </ol>
+
+      <h3 class="sub" id="s1-3"><span class="n">1.3</span>Data science in industry and academia</h3>
+      <p>
+        In industry, I also led data science at Bryant Medical: patented AI for disease diagnosis and biometric
+        measurement using computer vision, with diagnosis 60% faster. I led the ML, data engineering and cloud
+        deployment, and handled hiring and training. At loveholidays I built a recommendation system with
+        gradient-boosted trees and user clustering: an expected 2.8× in bookings, about £17M a year in revenue and
+        over 10,000 new bookings. In academia, I am a part-time research associate at Imperial College London,
+        applying machine learning to biomarker discovery in allergy and immunology trials. The full trajectory is in
+        <a class="ref-x" href="#fig-1">Figure&nbsp;1</a> and <a class="ref-x" href="#tab-1">Table&nbsp;1</a>; the
+        CV is [<a class="cite" href="#ref-3">3</a>] and code is at [<a class="cite" href="#ref-1">1</a>].
+      </p>
+      <p class="after stackline"><i>Tools.</i> <span class="mono">Python, TypeScript, SQL · ClickHouse, PostgreSQL · NumPy, pandas, scikit-learn, XGBoost, PyTorch, MLflow, Optuna · LLMs: prompt engineering, RAG, fine-tuning, evaluation · FastAPI, Flask, Streamlit, React · Docker, Kubernetes, AWS, GCP, Azure, Airflow</span></p>
+    </section>
+
+    <section id="work" class="prose" aria-labelledby="s2">
+      <h2 class="sec" id="s2"><span class="n">2</span>Selected work</h2>
+      <p>The work I would point to first:</p>
+      <ol class="work">
+        <li><a class="ref-x" href="#w-pipelines"><b>Multi-chain blockchain data pipelines</b></a> on ClickHouse, feeding ML models and APIs. <span class="src">Range, 2025–.</span></li>
+        <li><a class="ref-x" href="#w-risk"><b>ML risk scoring</b></a> for addresses and transactions (KYT/AML). <span class="src">Range, 2025–.</span></li>
+        <li><a class="ref-x" href="#w-cas"><b>AI system for Citizens Advice Scotland</b></a>: £400k a year saved; 2023 ScotlandIS Tech for Good Award. <span class="src">HelpFirst.</span></li>
+        <li><a class="ref-x" href="#w-optimiser"><b>AI-Prompt-Optimiser</b></a>, open source [<a class="cite" href="#ref-5">5</a>]. <span class="src">HelpFirst, 2023.</span></li>
+        <li><b>Patented computer-vision diagnostics</b>, with diagnosis 60% faster. <span class="src">Bryant Medical, 2021–24.</span></li>
+      </ol>
+      <p class="after">Earlier projects, as listed in the CV [<a class="cite" href="#ref-3">3</a>]:</p>
+      <ol class="work" start="6" style="counter-reset: w 5">
+        <li><b>Predicting customer vulnerability</b> with NLP and large language models. <span class="src">HelpFirst, 2022.</span></li>
+        <li><b>Automated biometric measurements</b> for face and posture. <span class="src">Bryant Dental, 2022–24.</span></li>
+        <li><b>Predicting COVID-19 infection</b> from breath biomarkers. <span class="src">Bryant Medical, 2021–23.</span></li>
+        <li><b>Holiday recommendation system.</b> <span class="src">loveholidays, 2020–21.</span></li>
+      </ol>
+    </section>
+
+    <section id="experience" aria-labelledby="s3">
+      <h2 class="sec" id="s3"><span class="n">3</span>Experience</h2>
+
+      <figure class="fig" id="fig-1" aria-labelledby="fig1-cap">
+        <div class="plot" id="fig1-plot">
+          <svg id="fig1-svg" role="group" aria-labelledby="fig1-title fig1-desc">
+            <title id="fig1-title">Figure 1: career trajectory, 2011 to 2026</title>
+            <desc id="fig1-desc">A curve rising through six domains over time: engineering and energy (2011), fluid mechanics (2017), data science, healthcare AI and language models (2021 to 2022), and blockchain and compliance (2025 to now). Each role is a focusable point; the same information is in Table 1 and Section 4.</desc>
+          </svg>
+          <noscript><p>This figure is drawn with JavaScript. Table 1 and §4 contain the same information.</p></noscript>
+        </div>
+        <div class="readout" id="fig1-readout">
+          <div class="ro-body" id="fig1-ro" aria-live="polite">
+            <span class="ro-k">Figure 1 · readout</span>
+            Hover, tap or tab through the points in Figure 1; the role, organisation and period appear here.
+          </div>
+          <div class="ro-nav">
+            <button type="button" class="btn" data-step="-1" aria-label="Previous role">‹ prev</button>
+            <span id="fig1-count">– / 12</span>
+            <button type="button" class="btn" data-step="1" aria-label="Next role">next ›</button>
+          </div>
+        </div>
+        <figcaption id="fig1-cap">
+          <b>Figure 1:</b> Career trajectory, 2011–2026. The solid curve follows the main role over time, interpolated
+          with a monotone cubic so that it never overshoots; thin bars mark the time spent in each role
+          (<svg class="glyph" viewBox="0 0 10 10" role="img" aria-label="filled circle"><circle cx="5" cy="5" r="3.4" fill="currentColor"/></svg>&nbsp;main role,
+          <svg class="glyph" viewBox="0 0 10 10" role="img" aria-label="open circle"><circle cx="5" cy="5" r="3" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>&nbsp;concurrent role,
+          <svg class="glyph" viewBox="0 0 10 10" role="img" aria-label="arrowhead"><path d="M8.5 5 1.5 1.4v7.2z" fill="#9a9a9a"/></svg>&nbsp;ongoing).
+          Where only years are known, dates are placed at mid-year.<input type="checkbox" id="sn-2" class="sn-toggle" aria-label="Show note 2"><label for="sn-2" class="sn-ref"><sup>2</sup></label><span class="sidenote"><sup>2</sup>The vertical axis is categorical, so the distances between domains mean nothing. Please do not fit a regression to it. The near-vertical stretch is 2021, which was a busy year.</span>
+        </figcaption>
+      </figure>
+
+      <div class="tbl" id="tab-1">
+        <p class="tbl-cap"><b>Table 1:</b> Positions held, most recent first.<input type="checkbox" id="sn-3" class="sn-toggle" aria-label="Show note 3"><label for="sn-3" class="sn-ref"><sup>3</sup></label><span class="sidenote"><sup>3</sup>Figures are as reported in the CV [<a class="cite" href="#ref-3">3</a>].</span></p>
+        <table>
+          <thead><tr><th scope="col">Period</th><th scope="col">Organisation &amp; role</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td class="yr">2025–</td><td class="org">Range<i>Lead Data Scientist</i></td><td>ML for blockchain security and stablecoin compliance: risk scoring, anomaly detection, cross-chain monitoring, real-time ClickHouse pipelines and AI features. $30B+ in monitored assets across 21 integrated chains.</td></tr>
+            <tr><td class="yr">2025–</td><td class="org">Imperial College London<i>Research Associate (part-time)</i></td><td>Machine learning for biomarker discovery in allergy and immunology trials.</td></tr>
+            <tr><td class="yr">2022–25</td><td class="org">HelpFirst AI<i>Lead AI Engineer</i></td><td>Award-winning AI system for Citizens Advice Scotland: £400k a year saved (2023 ScotlandIS Tech for Good Award). Prompt engineering, evaluation and fine-tuning.</td></tr>
+            <tr><td class="yr">2021–24</td><td class="org">Bryant Medical<i>Lead Data Scientist</i></td><td>Patented AI for disease diagnosis and biometric measurement with computer vision; 60% faster diagnosis.</td></tr>
+            <tr><td class="yr">2021</td><td class="org">loveholidays<i>Data Scientist</i></td><td>Recommendation engine (gradient-boosted trees and user clustering); an expected 2.8× in bookings, about £17M a year in revenue and over 10,000 new bookings.</td></tr>
+            <tr><td class="yr">2019–21</td><td class="org">London South Bank Univ.<i>Associate Lecturer</i></td><td>Taught computer science and data science.</td></tr>
+            <tr><td class="yr">2017–20</td><td class="org">Imperial College London<i>Graduate Teaching Assistant</i></td><td>Taught fluid mechanics.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="education" class="prose" aria-labelledby="s4">
+      <h2 class="sec" id="s4"><span class="n">4</span>Education</h2>
+      <p>
+        I trained as an engineer in Spain, Denmark and the United States, then moved to London for a PhD and a
+        fellowship in data science.<input type="checkbox" id="sn-4" class="sn-toggle" aria-label="Show note 4"><label for="sn-4" class="sn-ref"><sup>4</sup></label><span class="sidenote"><sup>4</sup>Originally from Galicia, in north-west Spain. Fiuza is a Galician surname.</span>
+      </p>
+      <div class="edu">
+        <span class="yr">2021</span><span>Fellowship in Data Science. <i>Faculty AI, London.</i></span>
+        <span class="yr">2017–21</span><span>PhD, Civil &amp; Environmental Engineering (fluid mechanics) [<a class="cite" href="#pub-1">P1</a>]. <i>Imperial College London.</i></span>
+        <span class="yr">2015–16</span><span>MSc Mechanical &amp; Aerospace Engineering. <i>West Virginia University, USA.</i></span>
+        <span class="yr">2014–16</span><span>MSc Energy Engineering. <i>Aalborg University, Denmark.</i></span>
+        <span class="yr">2011–15</span><span>BSc Industrial Engineering (Energy Technologies). <i>Universidad Carlos III de Madrid.</i></span>
+      </div>
+    </section>
+
+    <section id="publications" aria-labelledby="s5">
+      <h2 class="sec" id="s5"><span class="n">5</span>Publications</h2>
+      <ol class="refs small">
+        <li id="pub-1"><span class="lbl">[P1]</span><span>D. Fiuza Dosil. <i>Improved models for natural displacement ventilation</i>. PhD thesis, Department of Civil and Environmental Engineering, Imperial College London, 2021. Supervised by H.&nbsp;C. Burridge and G.&nbsp;O. Hughes. Open access. <a class="url" href="https://doi.org/10.25560/110687">doi:10.25560/110687</a></span></li>
+        <li id="pub-2"><span class="lbl">[P2]</span><span>H. C. Burridge, G. Sehmbi, D. Fiuza Dosil and G. O. Hughes. Determining the venting efficiency of simple chimneys for buoyant plumes. In <i>Proc. 38th AIVC Conference</i>, Nottingham, UK, 13–14 September 2017, 7&nbsp;pp. Presenting author; saline plumes in fresh water as a laboratory analogue of cooking-fire smoke.<input type="checkbox" id="sn-5" class="sn-toggle" aria-label="Show note 5"><label for="sn-5" class="sn-ref"><sup>5</sup></label><span class="sidenote"><sup>5</sup>Salt water is denser than fresh water, so the analogue plume sinks instead of rising: smoke, upside down.</span> <a class="url" href="https://www.aivc.org/sites/default/files/160.pdf">aivc.org/<wbr>sites/<wbr>default/<wbr>files/<wbr>160.pdf</a></span></li>
+      </ol>
+    </section>
+
+    <section id="ack" class="prose" aria-labelledby="s-ack">
+      <h2 class="sec unnum" id="s-ack">Acknowledgements</h2>
+      <p>
+        To the colleagues, students and teachers I have worked with in Madrid, Aalborg, West Virginia and London:
+        thank you. Any remaining errors are my own.
+      </p>
+    </section>
+
+    <section id="references" aria-labelledby="s-ref">
+      <h2 class="sec unnum" id="s-ref">References</h2>
+      <ol class="refs">
+        <li id="ref-1"><span class="lbl">[1]</span><span>D. Fiuza Dosil. <i>Code repositories</i>. GitHub. <a class="url" href="https://github.com/Daniel-FD">github.com/Daniel-FD</a></span></li>
+        <li id="ref-2"><span class="lbl">[2]</span><span>D. Fiuza Dosil. <i>Professional profile</i>. LinkedIn. <a class="url" href="https://www.linkedin.com/in/daniel-fiuza-dosil/">linkedin.com/<wbr>in/<wbr>daniel-fiuza-dosil</a></span></li>
+        <li id="ref-3"><span class="lbl">[3]</span><span>D. Fiuza Dosil. <i>Curriculum vitae</i>. PDF. <a class="url" href="/cv/CV_Daniel-Fiuza-Dosil.pdf">/cv/<wbr>CV_Daniel-Fiuza-Dosil.pdf</a></span></li>
+        <li id="ref-4"><span class="lbl">[4]</span><span>Range. <a class="url" href="https://www.range.org">range.org</a></span></li>
+        <li id="ref-5"><span class="lbl">[5]</span><span>HelpFirst. <i>AI-Prompt-Optimiser: a framework for optimising LLM prompts through automatic iterative refinement</i>. Open source, GitHub. <a class="url" href="https://github.com/HelpFirst/AI-Prompt-Optimiser">github.com/<wbr>HelpFirst/<wbr>AI-Prompt-Optimiser</a></span></li>
+      </ol>
+
+      <div class="bib">
+        <div class="bib-head"><span>To cite this document:</span><button type="button" class="btn" id="copy-bib">copy BibTeX</button></div>
+<pre id="bibtex"><code>@misc{fiuzadosil2026,
+  author = {Fiuza Dosil, Daniel},
+  title  = {Following Money and Signal Through Data},
+  year   = {2026},
+  month  = oct,
+  note   = {Curriculum vitae, version C},
+  url    = {https://danielfiuza.com/c/}
+}</code></pre>
+      </div>
+
+      <p class="colophon">
+        <i>Colophon.</i> Set in Computer Modern, with mathematics by KaTeX. The PhD was in fluid mechanics; the
+        flowing curve of Figure&nbsp;1 is a nod to it.
+      </p>
+    </section>
+  </main>
+</div>
+
+<footer class="page">
+  <hr>
+  Versions: <a href="/">A (current site)</a> · <a href="/b/">B (flow)</a> · <a href="/c/" aria-current="page">C (paper)</a> · <a href="/d/">D (notebook)</a>.<br>
+  Version C — a prototype.
+</footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script>
+  // typeset math once KaTeX arrives; the unicode text stays as a fallback
+  addEventListener('load', () => {
+    if (!window.katex) return;
+    const go = (el, tex, display) => {
+      try { katex.render(tex, el, { displayMode: display, throwOnError: true }); } catch (e) { /* keep fallback */ }
+    };
+    document.querySelectorAll('[data-tex]').forEach(el => go(el, el.dataset.tex, false));
+    document.querySelectorAll('[data-tex-display]').forEach(el => go(el, el.dataset.texDisplay, true));
+  });
+
+  // hyperref-style cross-references: the target blinks once on arrival
+  (() => {
+    const blink = id => {
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    };
+    addEventListener('hashchange', () => blink(location.hash.slice(1)));
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]');
+      if (a && a.getAttribute('href') === location.hash) blink(location.hash.slice(1));
+    });
+  })();
+
+  // copy BibTeX
+  document.getElementById('copy-bib').addEventListener('click', async e => {
+    const btn = e.currentTarget, txt = document.getElementById('bibtex').textContent;
+    try { await navigator.clipboard.writeText(txt); btn.textContent = 'copied'; }
+    catch (_) {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById('bibtex'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'selected';
+    }
+    setTimeout(() => { btn.textContent = 'copy BibTeX'; }, 1600);
+  });
+</script>
+<script>
+/* ---------- Figure 1: career trajectory, drawn like pgfplots ---------- */
+(() => {
+  const NOW = 2026 + 9.5 / 12;               // mid-October 2026
+  const ROWS = ['Engineering & energy', 'Fluid mechanics', 'Data science', 'Healthcare AI', 'Language models', 'Blockchain & compliance'];
+  // s, e: decimal years. Where only years are known, dates sit at mid-year; single-year roles span the middle of it.
+  const ROLES = [
+    { row: 0, lane: 0,  main: true, s: 2011.5,  e: 2015.5, when: '2011 – 2015', title: 'BSc Industrial Engineering (Energy Technologies)', org: 'Universidad Carlos III de Madrid', note: 'Where it started: energy technologies, in Madrid.' },
+    { row: 0, lane: 1,  s: 2014.5,  e: 2016.5, when: '2014 – 2016', title: 'MSc Energy Engineering', org: 'Aalborg University, Denmark', note: 'Energy engineering, in Denmark.' },
+    { row: 0, lane: -1, s: 2015.5,  e: 2016.5, when: '2015 – 2016', title: 'MSc Mechanical & Aerospace Engineering', org: 'West Virginia University, USA', note: 'Mechanical and aerospace engineering, in the United States.' },
+    { row: 1, lane: 0,  main: true, s: 2017.5,  e: 2021.5, when: '2017 – 2021', title: 'PhD Fluid Mechanics', org: 'Imperial College London · Civil & Environmental Engineering', note: 'Thesis [P1]: improved models for natural displacement ventilation. Supervised by H. C. Burridge and G. O. Hughes; awarded Nov 2021.' },
+    { row: 1, lane: 1,  s: 2017.5,  e: 2020.5, when: '2017 – 2020', title: 'Graduate Teaching Assistant', org: 'Imperial College London', note: 'Teaching fluid mechanics.' },
+    { row: 2, lane: 1,  s: 2019.5,  e: 2021.5, when: '2019 – 2021', title: 'Associate Lecturer', org: 'London South Bank University', note: 'Teaching computer science and data science.' },
+    { row: 2, lane: 0,  main: true, s: 2021.2,  e: 2021.8, when: '2021', title: 'Fellowship in Data Science', org: 'Faculty AI, London', note: 'From simulating flows to modelling data.' },
+    { row: 2, lane: -1, s: 2021.2,  e: 2021.8, when: '2021', title: 'Data Scientist', org: 'loveholidays', note: 'Recommendation engine (gradient-boosted trees and user clustering): an expected 2.8× in bookings and about £17M a year in revenue.' },
+    { row: 3, lane: 0,  main: true, s: 2021.5,  e: 2024.5, when: '2021 – 2024', title: 'Lead Data Scientist', org: 'Bryant Medical', note: 'Patented AI for disease diagnosis and biometric measurement with computer vision; 60% faster diagnosis.' },
+    { row: 4, lane: 0,  main: true, s: 2022.5,  e: 2025 + 2 / 12, when: '2022 – Mar 2025', title: 'Lead AI Engineer', org: 'HelpFirst AI', note: 'Award-winning AI system for Citizens Advice Scotland: £400k a year saved; 2023 ScotlandIS Tech for Good Award.' },
+    { row: 3, lane: 0,  s: 2025 + 2 / 12, e: NOW, ongoing: true, when: 'Mar 2025 – present', title: 'Research Associate (part-time)', org: 'Imperial College London', note: 'Machine learning for biomarker discovery in allergy and immunology trials.' },
+    { row: 5, lane: 0,  main: true, s: 2025.25, e: NOW, ongoing: true, when: 'Apr 2025 – present', title: 'Lead Data Scientist', org: 'Range', note: 'ML for blockchain security and stablecoin compliance: $30B+ in monitored assets across 21 integrated chains.' }
+  ];
+  // knots of the main-role curve: plateaus while in a domain, rises at each move
+  const KNOTS = [[2011.5, 0], [2016.6, 0], [2017.5, 1], [2020.9, 1], [2021.2, 2], [2021.5, 3], [2022.1, 3], [2022.5, 4], [2024.85, 4], [2025.25, 5], [NOW, 5]];
+
+  const X0 = 2010.6, X1 = 2027.0;
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const box = document.getElementById('fig1-plot');
+  const svg = document.getElementById('fig1-svg');
+  const ro = document.getElementById('fig1-ro');
+  const count = document.getElementById('fig1-count');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const meas = document.createElement('canvas').getContext('2d');
+  const keep = [...svg.children];             // <title>, <desc>
+  let sel = -1, pinned = -1, revealed = reduce, lastW = 0;
+
+  // Fritsch–Carlson monotone cubic: tangents that never overshoot the data
+  function monotoneTangents(P) {
+    const n = P.length, d = [], m = new Array(n);
+    for (let k = 0; k < n - 1; k++) d[k] = (P[k + 1][1] - P[k][1]) / (P[k + 1][0] - P[k][0]);
+    m[0] = d[0]; m[n - 1] = d[n - 2];
+    for (let k = 1; k < n - 1; k++) m[k] = d[k - 1] * d[k] <= 0 ? 0 : (d[k - 1] + d[k]) / 2;
+    for (let k = 0; k < n - 1; k++) {
+      if (d[k] === 0) { m[k] = 0; m[k + 1] = 0; continue; }
+      const a = m[k] / d[k], b = m[k + 1] / d[k], s = a * a + b * b;
+      if (s > 9) { const t = 3 / Math.sqrt(s); m[k] = t * a * d[k]; m[k + 1] = t * b * d[k]; }
+    }
+    return m;
+  }
+
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  function el(tag, attrs, parent, text) {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    (parent || svg).appendChild(e);
+    return e;
+  }
+
+  function render() {
+    const W = Math.round(box.clientWidth);
+    if (!W) return;
+    lastW = W;
+    const compact = W < 560;
+    const fs = compact ? 12.5 : 13.5;
+    meas.font = `${fs}px "CMU Serif", Georgia, serif`;
+    const labW = compact ? 0 : Math.max(...ROWS.map(r => meas.measureText(r).width));
+    const M = compact ? { l: 6, r: 8, t: 6, b: 50 } : { l: Math.ceil(labW) + 36, r: 6, t: 6, b: 52 };
+    const rowH = compact ? 62 : 50, LANE = compact ? 11 : 9;
+    const PW = W - M.l - M.r, PH = rowH * ROWS.length, H = M.t + PH + M.b;
+    const x = v => M.l + (v - X0) / (X1 - X0) * PW;
+    const yr = r => M.t + PH - (r + (compact ? .4 : .5)) * rowH;
+    const y = (r, lane) => yr(r) - lane * LANE;
+    const bottom = M.t + PH;
+
+    svg.replaceChildren(...keep);
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+
+    // axes: full box, inward ticks mirrored on all four sides (pgfplots default)
+    const gAx = el('g', { 'aria-hidden': 'true' });
+    ROWS.forEach((_, r) => el('line', { class: 'grid', x1: M.l, x2: M.l + PW, y1: yr(r), y2: yr(r) }, gAx));
+    el('line', { class: 'nowline', x1: x(NOW), x2: x(NOW), y1: M.t, y2: bottom }, gAx);
+    el('text', { class: 'var halo', x: x(NOW) - 5, y: M.t + 15, 'text-anchor': 'end', 'font-size': compact ? 12.5 : 13.5 }, gAx, 'now');
+    el('rect', { class: 'frame', x: M.l, y: M.t, width: PW, height: PH }, gAx);
+    const major = compact ? [2012, 2016, 2020, 2024] : [2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026];
+    for (let v = 2011; v <= 2026; v++) {
+      const L = major.includes(v) ? 5 : 2.5, xv = x(v);
+      el('line', { class: 'tick', x1: xv, x2: xv, y1: bottom, y2: bottom - L }, gAx);
+      el('line', { class: 'tick', x1: xv, x2: xv, y1: M.t, y2: M.t + L }, gAx);
+      if (major.includes(v)) el('text', { class: 'tl', x: xv, y: bottom + 18, 'text-anchor': 'middle', 'font-size': fs }, gAx, v);
+    }
+    el('text', { class: 'var', x: M.l + PW / 2, y: bottom + 40, 'text-anchor': 'middle' }, gAx, 'year');
+    ROWS.forEach((name, r) => {
+      el('line', { class: 'tick', x1: M.l, x2: M.l + 5, y1: yr(r), y2: yr(r) }, gAx);
+      el('line', { class: 'tick', x1: M.l + PW, x2: M.l + PW - 5, y1: yr(r), y2: yr(r) }, gAx);
+      if (compact) el('text', { class: 'lab halo', x: M.l + 8, y: yr(r) - LANE - 10, 'font-size': fs }, gAx, name);
+      else el('text', { class: 'lab', x: M.l - 9, y: yr(r) + 4.5, 'text-anchor': 'end', 'font-size': fs }, gAx, name);
+    });
+    if (!compact) el('text', { class: 'var', transform: `translate(14 ${M.t + PH / 2}) rotate(-90)`, 'text-anchor': 'middle' }, gAx, 'domain');
+
+    // legend, top-left (empty corner: nothing happened in the top rows before 2021)
+    if (!compact) {
+      const lg = el('g', { class: 'legend', 'aria-hidden': 'true', transform: `translate(${M.l + 10} ${M.t + 9})` });
+      const rect = el('rect', { x: 0, y: 0, width: 10, height: 44 }, lg);
+      el('line', { class: 'curve', x1: 8, x2: 32, y1: 14, y2: 14, style: 'stroke-dasharray:none' }, lg);
+      el('circle', { class: 'mk main', cx: 20, cy: 14, r: 3.3 }, lg);
+      el('text', { x: 40, y: 18 }, lg, 'main role');
+      el('line', { class: 'bar', x1: 10, x2: 30, y1: 31, y2: 31 }, lg);
+      el('line', { class: 'bar', x1: 30, x2: 30, y1: 27.5, y2: 34.5 }, lg);
+      el('circle', { class: 'mk', cx: 10, cy: 31, r: 3 }, lg);
+      el('text', { x: 40, y: 35 }, lg, 'time in role');
+      meas.font = '12.5px "CMU Serif", Georgia, serif';
+      rect.setAttribute('width', 40 + meas.measureText('time in role').width + 10);
+    }
+
+    // bars (time in role)
+    const gBars = el('g', { 'aria-hidden': 'true' });
+    ROLES.forEach((R, i) => {
+      const yy = y(R.row, R.lane), x1 = x(R.s), x2 = x(R.e);
+      el('line', { class: 'bar', 'data-i': i, x1, x2: R.ongoing ? x2 - 4 : x2, y1: yy, y2: yy }, gBars);
+      if (R.ongoing) el('path', { class: 'arrow', 'data-i': i, d: `M${x2 + 1},${yy} l-7,-3.6 v7.2 z` }, gBars);
+      else el('line', { class: 'bar', 'data-i': i, x1: x2, x2, y1: yy - 3.5, y2: yy + 3.5 }, gBars);
+    });
+
+    // main-role curve
+    const P = KNOTS.map(([a, b]) => [a, b]);
+    const m = monotoneTangents(P);
+    const yv = v => M.t + PH - (v + (compact ? .4 : .5)) * rowH;
+    let d = `M${x(P[0][0]).toFixed(2)},${yv(P[0][1]).toFixed(2)}`;
+    for (let k = 0; k < P.length - 1; k++) {
+      const h = P[k + 1][0] - P[k][0];
+      const c1 = [P[k][0] + h / 3, P[k][1] + m[k] * h / 3], c2 = [P[k + 1][0] - h / 3, P[k + 1][1] - m[k + 1] * h / 3];
+      d += ` C${x(c1[0]).toFixed(2)},${yv(c1[1]).toFixed(2)} ${x(c2[0]).toFixed(2)},${yv(c2[1]).toFixed(2)} ${x(P[k + 1][0]).toFixed(2)},${yv(P[k + 1][1]).toFixed(2)}`;
+    }
+    const curve = el('path', { class: 'curve', d, 'aria-hidden': 'true' });
+    box.style.setProperty('--len', Math.ceil(curve.getTotalLength()) + 1);
+
+    // highlight layer (drawn under markers)
+    const gHi = el('g', { 'aria-hidden': 'true', id: 'fig1-hi' });
+
+    // markers
+    const gMk = el('g', { 'aria-hidden': 'true' });
+    ROLES.forEach((R, i) => el('circle', { class: 'mk' + (R.main ? ' main' : ''), 'data-i': i, cx: x(R.s), cy: y(R.row, R.lane), r: R.main ? 3.6 : 3.2 }, gMk));
+
+    // focusable hit targets
+    const gHit = el('g', {});
+    const lanesInRow = r => ROLES.filter(R => R.row === r).some(R => R.lane !== 0);
+    ROLES.forEach((R, i) => {
+      const g = el('g', { class: 'pt', tabindex: 0, role: 'button', 'data-i': i,
+        'aria-label': `${R.when}: ${R.title}, ${R.org}. ${R.note}` }, gHit);
+      const tall = lanesInRow(R.row) ? LANE : 22;
+      const x1 = x(R.s) - 8, x2 = Math.max(x(R.e) + 6, x(R.s) + 14);
+      el('rect', { class: 'hit', x: x1, y: y(R.row, R.lane) - tall / 2, width: x2 - x1, height: tall, rx: 2 }, g);
+    });
+
+    geom = { x, y, bottom, top: M.t };
+    paint();
+    if (!revealed) box.classList.add('pre');
+  }
+
+  let geom = null;
+  function paint() {
+    svg.querySelectorAll('.on').forEach(e => e.classList.remove('on'));
+    const hi = svg.querySelector('#fig1-hi');
+    if (hi) hi.replaceChildren();
+    if (sel < 0) {
+      count.textContent = `– / ${ROLES.length}`;
+      return;
+    }
+    svg.querySelectorAll(`.bar[data-i="${sel}"], .arrow[data-i="${sel}"], .mk[data-i="${sel}"]`).forEach(e => e.classList.add('on'));
+    const R = ROLES[sel], { x, y, bottom } = geom, yy = y(R.row, R.lane);
+    if (hi) {
+      el('line', { class: 'guide', x1: x(R.s), x2: x(R.s), y1: yy, y2: bottom }, hi);
+      el('line', { class: 'guide', x1: x(R.e), x2: x(R.e), y1: yy, y2: bottom }, hi);
+      el('line', { class: 'rug', x1: x(R.s), x2: x(R.e), y1: bottom, y2: bottom }, hi);
+    }
+    count.textContent = `${sel + 1} / ${ROLES.length}`;
+  }
+
+  function show(i) {
+    sel = i;
+    if (i < 0) {
+      ro.innerHTML = '<span class="ro-k">Figure 1 · readout</span>Hover, tap or tab through the points in Figure 1; the role, organisation and period appear here.';
+    } else {
+      const R = ROLES[i];
+      ro.innerHTML = `<span class="ro-k">Figure 1 · ${ROWS[R.row].replace('&', '&amp;')}</span>` +
+        `<span class="when">${R.when}</span><b>${esc(R.title)}</b><span class="org">${esc(R.org)}</span><span class="note">${esc(R.note)}</span>`;
+    }
+    paint();
+  }
+
+  // interaction
+  svg.addEventListener('pointerover', e => {
+    const g = e.target.closest('.pt');
+    if (g && e.pointerType === 'mouse') show(+g.dataset.i);
+  });
+  svg.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') show(pinned); });
+  svg.addEventListener('click', e => {
+    const g = e.target.closest('.pt');
+    if (g) { pinned = +g.dataset.i; show(pinned); }
+  });
+  svg.addEventListener('focusin', e => {
+    const g = e.target.closest('.pt');
+    if (g) { pinned = +g.dataset.i; show(pinned); }
+  });
+  svg.addEventListener('keydown', e => {
+    const g = e.target.closest('.pt');
+    if (!g) return;
+    const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pinned = +g.dataset.i; show(pinned); return; }
+    if (!dir) return;
+    e.preventDefault();
+    const n = (+g.dataset.i + dir + ROLES.length) % ROLES.length;
+    svg.querySelector(`.pt[data-i="${n}"]`).focus();
+  });
+  document.querySelectorAll('#fig1-readout [data-step]').forEach(b => b.addEventListener('click', () => {
+    const step = +b.dataset.step;
+    pinned = pinned < 0 ? (step > 0 ? 0 : ROLES.length - 1) : (pinned + step + ROLES.length) % ROLES.length;
+    show(pinned);
+  }));
+
+  // draw once on first view
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting) return;
+      io.disconnect();
+      requestAnimationFrame(() => {
+        box.classList.add('go');
+        setTimeout(() => { revealed = true; box.classList.remove('pre', 'go'); }, 2000);
+      });
+    }, { threshold: .35 });
+    io.observe(box);
+  } else revealed = true;
+
+  render();
+  if (document.fonts) document.fonts.ready.then(render);
+  new ResizeObserver(() => { if (Math.round(box.clientWidth) !== lastW) render(); }).observe(box);
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Daniel Fiuza Dosil</title>
-<meta name="description" content="Daniel Fiuza Dosil — data scientist and AI engineer in London, written up as a notebook. Lead Data Scientist at Range: blockchain ML, stablecoin compliance and cross-chain risk.">
+<meta name="description" content="Daniel Fiuza Dosil — data scientist and AI engineer in London, written up as a notebook. Lead Data Scientist at Range, building data pipelines, machine-learning models and AI features for blockchain security and stablecoin compliance.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -143,6 +143,13 @@
   dl.rich dt:first-child { margin-top: 0; }
   dl.rich dt span { font: 400 12px var(--mono); color: var(--muted); margin-left: 10px; letter-spacing: -.01em; }
   dl.rich dd { margin: 0; }
+  dl.rich ul { margin: 2px 0 0; padding: 0 0 0 1.1em; }
+  dl.rich li { margin: 0 0 5px; }
+  dl.rich li::marker { color: var(--muted); }
+  table.df .nan { font: 12.5px var(--mono); color: var(--com); }
+  table.df .stk { font: 12.5px/1.75 var(--mono); color: var(--muted); }
+  table.pr { min-width: 720px; }
+  table.pr td:nth-child(2) { min-width: 300px; }
 
   /* DataFrame-ish tables */
   .scroll { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
@@ -259,13 +266,13 @@
     footer .in { margin-left: 0; }
     dl.rich dt span { display: block; margin: 0; }
     /* DataFrames become stacked records on a phone: one row per block, no sideways scrolling */
-    table.df.xp, table.df.ed, table.df.pub { min-width: 0; width: 100%; border-top: 1.2px solid var(--ink); }
-    table.df.xp thead, table.df.ed thead, table.df.pub thead { display: none; }
-    table.df.xp :is(tbody, tr, td), table.df.ed :is(tbody, tr, td), table.df.pub :is(tbody, tr, td) { display: block; }
-    table.df.xp tr, table.df.ed tr, table.df.pub tr { position: relative; padding: 9px 0 9px 2.1em; border-bottom: 1px solid var(--edge); }
-    table.df.xp tr:last-child, table.df.ed tr:last-child, table.df.pub tr:last-child { border-bottom: 1.2px solid var(--ink); }
-    table.df.xp tr > *, table.df.ed tr > *, table.df.pub tr > * { padding: 0 !important; border: 0 !important; min-width: 0 !important; }
-    table.df.xp th, table.df.ed th, table.df.pub th { position: absolute; left: 0; top: 9px; }
+    table.df.xp, table.df.ed, table.df.pub, table.df.pr { min-width: 0; width: 100%; border-top: 1.2px solid var(--ink); }
+    table.df.xp thead, table.df.ed thead, table.df.pub thead, table.df.pr thead { display: none; }
+    table.df.xp :is(tbody, tr, td), table.df.ed :is(tbody, tr, td), table.df.pub :is(tbody, tr, td), table.df.pr :is(tbody, tr, td) { display: block; }
+    table.df.xp tr, table.df.ed tr, table.df.pub tr, table.df.pr tr { position: relative; padding: 9px 0 9px 2.1em; border-bottom: 1px solid var(--edge); }
+    table.df.xp tr:last-child, table.df.ed tr:last-child, table.df.pub tr:last-child, table.df.pr tr:last-child { border-bottom: 1.2px solid var(--ink); }
+    table.df.xp tr > *, table.df.ed tr > *, table.df.pub tr > *, table.df.pr tr > * { padding: 0 !important; border: 0 !important; min-width: 0 !important; }
+    table.df.xp th, table.df.ed th, table.df.pub th, table.df.pr th { position: absolute; left: 0; top: 9px; }
     table.df.xp td.d, table.df.pub td.d { display: inline; color: var(--muted); }
     table.df.xp td.d + td.d::before { content: " – "; }
     table.df.ed td.d { color: var(--muted); }
@@ -273,8 +280,11 @@
     table.df.pub td.d + td { display: inline; color: var(--muted); font-family: var(--mono); font-size: 12.5px; }
     table.df.xp td.org { font-weight: 700; margin-top: 1px; }
     table.df.xp td.nw { font-style: italic; }
+    table.df.pr td:first-of-type { font-weight: 700; }
+    table.df.pr td.nw { color: var(--muted); font-size: 15px; }
+    table.df.pr td.nan { display: none; }
     table.df.ed td:last-child, table.df.pub td:last-child { color: var(--muted); font-size: 15px; }
-    table.df.xp tbody tr:hover, table.df.ed tbody tr:hover, table.df.pub tbody tr:hover { background: none; }
+    table.df.xp tbody tr:hover, table.df.ed tbody tr:hover, table.df.pub tbody tr:hover, table.df.pr tbody tr:hover { background: none; }
   }
 </style>
 </head>
@@ -313,11 +323,12 @@
       <div class="body">
         <h1>Daniel Fiuza Dosil</h1>
         <p>
-          I'm a data scientist and AI engineer in London, working where blockchain analytics meets AI.
-          I lead data science at <a href="https://www.range.org">Range</a>: machine learning for stablecoin compliance and cross-chain risk,
-          with $30B+ in monitored assets across 21 chains. Before that I was Lead AI Engineer at HelpFirst AI, building award-winning
-          LLM systems; one of those projects saves Citizens Advice Scotland £400k a year. Part-time, I'm a research associate at Imperial College London,
-          using machine learning to find biomarkers in allergy and immunology trials. My training is in engineering, with a PhD from Imperial.
+          I'm a data scientist and AI engineer in London. As Lead Data Scientist at <a href="https://www.range.org">Range</a>,
+          I build data pipelines, machine-learning models and AI features for blockchain security and stablecoin compliance,
+          with $30B+ in monitored assets across 21 integrated chains.
+          Before that I was Lead AI Engineer at HelpFirst AI, where I led development of an award-winning AI solution for Citizens Advice Scotland:
+          £400k a year saved and the 2023 ScotlandIS Tech for Good Award. Part-time, I'm a research associate at Imperial College London, using machine learning
+          for biomarker discovery. My training is in engineering, with a PhD from Imperial.
         </p>
         <p class="lede">This page is a notebook, and it has just run itself. Select any cell and press <kbd>shift</kbd> + <kbd>enter</kbd> (or tap the small triangle by its prompt) to run it again.</p>
       </div>
@@ -325,7 +336,7 @@
   </section>
 
   <!-- whoami -->
-  <section class="cell code" tabindex="0" data-fn="whoami" data-ms="200" aria-label="Code cell: whoami">
+  <section class="cell code" tabindex="0" data-fn="whoami" data-ms="150" aria-label="Code cell: whoami">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">1</span>]:</span></div>
       <div class="input"><pre><code class="py">import daniel as df   # yes, df. it was always going to be df.
@@ -338,7 +349,7 @@ df.whoami()</code></pre></div>
   </section>
 
   <!-- now -->
-  <section class="cell code" tabindex="0" data-fn="now" data-ms="220" aria-label="Code cell: now">
+  <section class="cell code" tabindex="0" data-fn="now" data-ms="160" aria-label="Code cell: now">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">2</span>]:</span></div>
       <div class="input"><pre><code class="py">df.now()   # what the day job looks like</code></pre></div>
@@ -348,9 +359,17 @@ df.whoami()</code></pre></div>
       <div class="output">
         <dl class="rich">
           <dt>Range <span>Lead Data Scientist · since Apr 2025</span></dt>
-          <dd>Blockchain ML for stablecoin compliance and cross-chain risk: $30B+ in monitored assets across 21 chains, with real-time pipelines and ClickHouse underneath.</dd>
-          <dt>AI engineering <span>LLM applications, end to end</span></dt>
-          <dd>Fine-tuning, evaluation and prompt optimisation (I wrote a Python library for the last one). At HelpFirst AI: award-winning AI systems, including one that saves Citizens Advice Scotland £400k a year.</dd>
+          <dd>
+            <ul>
+              <li><b>ML for blockchain security and stablecoin compliance</b>, with $30B+ in monitored assets across 21 integrated chains.</li>
+              <li><b>Risk analytics and cross-chain monitoring</b> for stablecoin (USDC) compliance.</li>
+              <li><b>Real-time threat detection</b>: anomaly detection and transaction risk scoring (KYT/AML) in DeFi.</li>
+              <li><b>Real-time blockchain data pipelines</b> on ClickHouse, feeding models and APIs.</li>
+              <li><b>LLM agents and AI features in production</b> for compliance and security workflows.</li>
+            </ul>
+          </dd>
+          <dt>AI engineering <span>HelpFirst AI · 2022–Mar 2025</span></dt>
+          <dd>Led development of an award-winning AI solution for Citizens Advice Scotland: £400k a year saved, 2023 ScotlandIS Tech for Good Award; callers reach their local bureau in under a minute instead of waiting up to 24 hours for a callback. Improved LLM performance through prompt engineering, systematic evaluation and fine-tuning, and built frameworks for model assessment and responsible AI in sensitive settings. Also <a href="https://github.com/HelpFirst/AI-Prompt-Optimiser">AI-Prompt-Optimiser</a>, an open-source framework that refines LLM prompts automatically.</dd>
           <dt>Research <span>Imperial College London · part-time</span></dt>
           <dd>Machine learning for biomarker discovery in allergy and immunology trials.</dd>
         </dl>
@@ -378,19 +397,19 @@ df.whoami()</code></pre></div>
   </section>
 
   <!-- skills -->
-  <section class="cell code" tabindex="0" data-fn="skills" data-ms="160" aria-label="Code cell: skills">
+  <section class="cell code" tabindex="0" data-fn="skills" data-ms="120" aria-label="Code cell: skills">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">3</span>]:</span></div>
       <div class="input"><pre><code class="py">df.skills()</code></pre></div>
     </div>
     <div class="row out">
       <div class="prompt"><span>Out[<span class="n">3</span>]:</span></div>
-      <div class="output"><pre class="repr"><span class="l">{'languages': ['Python', 'SQL', 'MATLAB', 'Bash', 'C'],</span><span class="l"> 'data': ['ClickHouse', 'real-time pipelines', 'Airflow'],</span><span class="l"> 'ml': ['NumPy', 'Pandas', 'SciPy', 'scikit-learn', 'PyTorch', 'Keras',</span><span class="l">        'TensorFlow', 'MLflow', 'Optuna'],</span><span class="l"> 'llm': ['RAG', 'fine-tuning', 'evaluation', 'prompt optimisation'],</span><span class="l"> 'infra': ['AWS', 'Azure', 'Docker', 'CI/CD']}</span></pre></div>
+      <div class="output"><pre class="repr"><span class="l">{'languages': ['Python', 'TypeScript', 'SQL'],</span><span class="l"> 'data': ['ClickHouse', 'PostgreSQL', 'Airflow'],</span><span class="l"> 'ml': ['NumPy', 'pandas', 'scikit-learn', 'XGBoost', 'PyTorch',</span><span class="l">        'MLflow', 'Optuna'],</span><span class="l"> 'llm': ['prompt engineering', 'RAG', 'fine-tuning', 'evaluation'],</span><span class="l"> 'services': ['FastAPI', 'Flask', 'Streamlit', 'React'],</span><span class="l"> 'infra': ['Docker', 'Kubernetes', 'AWS', 'GCP', 'Azure']}</span></pre></div>
     </div>
   </section>
 
   <!-- experience -->
-  <section class="cell code" data-fn="experience" id="experience" tabindex="0" data-ms="260" aria-label="Code cell: experience">
+  <section class="cell code" data-fn="experience" id="experience" tabindex="0" data-ms="200" aria-label="Code cell: experience">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">4</span>]:</span></div>
       <div class="input"><pre><code class="py">df.experience().sort_values("start", ascending=False)</code></pre></div>
@@ -402,11 +421,11 @@ df.whoami()</code></pre></div>
           <table class="df xp">
             <thead><tr><th></th><th>start</th><th>end</th><th>organisation</th><th>role</th><th>highlights</th></tr></thead>
             <tbody>
-              <tr><th>6</th><td class="d">2025-04</td><td class="d">present</td><td class="org"><a href="https://www.range.org">Range</a></td><td class="nw">Lead Data Scientist</td><td>Blockchain ML and stablecoin compliance; $30B+ monitored assets, 21 integrated chains, cross-chain security</td></tr>
+              <tr><th>6</th><td class="d">2025-04</td><td class="d">present</td><td class="org"><a href="https://www.range.org">Range</a></td><td class="nw">Lead Data Scientist</td><td>ML for blockchain security and stablecoin compliance; $30B+ monitored assets across 21 integrated chains; real-time data pipelines (ClickHouse) and AI features</td></tr>
               <tr><th>5</th><td class="d">2025-03</td><td class="d">present</td><td class="org">Imperial College London</td><td class="nw">Research Associate (part-time)</td><td>ML for biomarker discovery in allergy and immunology trials</td></tr>
-              <tr><th>4</th><td class="d">2022</td><td class="d">2025-03</td><td class="org">HelpFirst AI</td><td class="nw">Lead AI Engineer</td><td>Award-winning LLM solutions (2023 ScotlandIS Tech for Good Award); £400k annual savings for Citizens Advice Scotland, 92% accuracy</td></tr>
-              <tr><th>3</th><td class="d">2021</td><td class="d">2024</td><td class="org">Bryant Medical</td><td class="nw">Lead Data Scientist</td><td>Patented AI diagnostics with computer vision; 60% faster diagnosis</td></tr>
-              <tr><th>2</th><td class="d">2021</td><td class="d">2021</td><td class="org">loveholidays</td><td class="nw">Data Scientist</td><td>ML recommendation engine (gradient-boosted trees + user clustering); expected 2.8× bookings and about £17M revenue</td></tr>
+              <tr><th>4</th><td class="d">2022</td><td class="d">2025-03</td><td class="org">HelpFirst AI</td><td class="nw">Lead AI Engineer</td><td>Award-winning AI solution for Citizens Advice Scotland: £400k a year saved; 2023 ScotlandIS Tech for Good Award</td></tr>
+              <tr><th>3</th><td class="d">2021</td><td class="d">2024</td><td class="org">Bryant Medical</td><td class="nw">Lead Data Scientist</td><td>Patented AI for disease diagnosis and biometric measurement (computer vision); 60% faster diagnosis</td></tr>
+              <tr><th>2</th><td class="d">2021</td><td class="d">2021</td><td class="org">loveholidays</td><td class="nw">Data Scientist</td><td>ML recommendation engine (gradient-boosted trees + user clustering); an expected 2.8× in bookings, about £17M a year in revenue and over 10,000 new bookings</td></tr>
               <tr><th>1</th><td class="d">2019</td><td class="d">2021</td><td class="org">London South Bank University</td><td class="nw">Associate Lecturer</td><td>Computer science and data science teaching</td></tr>
               <tr><th>0</th><td class="d">2017</td><td class="d">2020</td><td class="org">Imperial College London</td><td class="nw">Graduate Teaching Assistant</td><td>Fluid mechanics teaching</td></tr>
             </tbody>
@@ -417,20 +436,33 @@ df.whoami()</code></pre></div>
   </section>
 
   <!-- projects -->
-  <section class="cell code" data-fn="projects" tabindex="0" data-ms="180" aria-label="Code cell: projects">
+  <section class="cell code" data-fn="projects" tabindex="0" data-ms="150" aria-label="Code cell: projects">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">5</span>]:</span></div>
-      <div class="input"><pre><code class="py">for p in df.projects():
-    print(f"{p.years:&lt;9}{p.title} ({p.org})")</code></pre></div>
+      <div class="input"><pre><code class="py">df.projects()[["project", "where", "stack"]]   # public ones; Range work is in df.now()</code></pre></div>
     </div>
     <div class="row out">
-      <div class="prompt blank"></div>
-      <div class="output"><pre class="stream"><span class="l">2023     Prompt Optimiser, a Python library (HelpFirst AI)</span><span class="l">2022     Predicting customer vulnerability with NLP and LLMs (HelpFirst AI)</span><span class="l">2022–24  Automated biometric measurements for face and posture (Bryant Dental)</span><span class="l">2021–23  Predicting COVID-19 infection from breath biomarkers (Bryant Medical)</span><span class="l">2020–21  Holiday recommendation system (loveholidays)</span></pre></div>
+      <div class="prompt"><span>Out[<span class="n">5</span>]:</span></div>
+      <div class="output">
+        <div class="scroll" role="region" aria-label="Projects table" tabindex="0">
+          <table class="df pr">
+            <thead><tr><th></th><th>project</th><th>where</th><th>stack</th></tr></thead>
+            <tbody>
+              <tr><th>0</th><td><a href="https://github.com/HelpFirst/AI-Prompt-Optimiser">AI-Prompt-Optimiser</a> (open source)</td><td class="nw">HelpFirst AI</td><td class="stk">Python, LLMs, automatic iterative prompt refinement</td></tr>
+              <tr><th>1</th><td>Award-winning AI solution for Citizens Advice Scotland</td><td class="nw">HelpFirst AI</td><td class="nan">NaN</td></tr>
+              <tr><th>2</th><td>Predicting customer vulnerability with NLP and LLMs</td><td class="nw">HelpFirst AI</td><td class="stk">NLP, LLMs</td></tr>
+              <tr><th>3</th><td>Automated biometric measurements for face and posture</td><td class="nw">Bryant Medical</td><td class="stk">computer vision</td></tr>
+              <tr><th>4</th><td>Predicting COVID-19 infection from breath biomarkers</td><td class="nw">Bryant Medical</td><td class="nan">NaN</td></tr>
+              <tr><th>5</th><td>Holiday recommendation system</td><td class="nw">loveholidays</td><td class="stk">gradient-boosted trees, user clustering</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- trajectory -->
-  <section class="cell code" data-fn="trajectory" tabindex="0" data-ms="380" data-chart aria-label="Code cell: trajectory plot">
+  <section class="cell code" data-fn="trajectory" tabindex="0" data-ms="280" data-chart aria-label="Code cell: trajectory plot">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">6</span>]:</span></div>
       <div class="input"><pre><code class="py">df.trajectory().plot(drawstyle="steps-post")   # one step at a time</code></pre></div>
@@ -459,7 +491,7 @@ df.whoami()</code></pre></div>
   </section>
 
   <!-- education -->
-  <section class="cell code" data-fn="education" tabindex="0" data-ms="160" aria-label="Code cell: education">
+  <section class="cell code" data-fn="education" tabindex="0" data-ms="120" aria-label="Code cell: education">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">7</span>]:</span></div>
       <div class="input"><pre><code class="py">df.education()</code></pre></div>
@@ -484,7 +516,7 @@ df.whoami()</code></pre></div>
   </section>
 
   <!-- publications -->
-  <section class="cell code" data-fn="publications" id="publications" tabindex="0" data-ms="160" aria-label="Code cell: publications">
+  <section class="cell code" data-fn="publications" id="publications" tabindex="0" data-ms="120" aria-label="Code cell: publications">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">8</span>]:</span></div>
       <div class="input"><pre><code class="py">df.publications()</code></pre></div>
@@ -506,7 +538,7 @@ df.whoami()</code></pre></div>
   </section>
 
   <!-- contact -->
-  <section class="cell code" data-fn="contact" id="contact" tabindex="0" data-ms="150" aria-label="Code cell: contact">
+  <section class="cell code" data-fn="contact" id="contact" tabindex="0" data-ms="110" aria-label="Code cell: contact">
     <div class="row in">
       <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">9</span>]:</span></div>
       <div class="input"><pre><code class="py">df.contact()</code></pre></div>
@@ -593,9 +625,9 @@ df.whoami()</code></pre></div>
     { x: 2014, c: 0, when: '2014–16', what: 'MSc Energy Engineering, Aalborg University; MSc Mechanical & Aerospace Engineering, West Virginia University' },
     { x: 2017, c: 1, when: '2017–21', what: 'PhD on natural displacement ventilation at Imperial College London, while teaching fluid mechanics' },
     { x: 2021, c: 2, when: '2021–24', what: 'Faculty AI fellowship; recommendations at loveholidays; AI diagnostics at Bryant Medical' },
-    { x: 2022, c: 3, when: '2022–25', what: 'Lead AI Engineer at HelpFirst AI: LLM solutions, 2023 ScotlandIS Tech for Good Award' },
+    { x: 2022, c: 3, when: '2022–25', what: 'Lead AI Engineer at HelpFirst AI: an award-winning AI solution for Citizens Advice Scotland' },
     { x: 2025.25, c: 4, when: 'Apr 2025', what: 'joined Range as Lead Data Scientist' },
-    { x: NOW, c: 4, when: 'now', what: 'blockchain ML and stablecoin compliance across 21 chains', cur: true }
+    { x: NOW, c: 4, when: 'now', what: 'data pipelines, ML models and AI features for blockchain security and stablecoin compliance', cur: true }
   ];
   const fig = $('#traj'), tip = $('#tip');
   const measure = document.createElement('canvas').getContext('2d');
@@ -802,6 +834,7 @@ df.whoami()</code></pre></div>
   const outputOf = fn => $(`.cell[data-fn="${fn}"] .output`);
   const KNOWN = {
     'df.whoami()': 'whoami', 'df.now()': 'now', 'df.skills()': 'skills',
+    'df.projects()': 'projects', 'df.projects()[["project","where","stack"]]': 'projects',
     'df.experience()': 'experience', 'df.experience().sort_values("start",ascending=False)': 'experience',
     "df.experience().sort_values('start',ascending=False)": 'experience',
     'df.trajectory().plot()': 'trajectory', 'df.trajectory().plot(drawstyle="steps-post")': 'trajectory',
@@ -825,9 +858,6 @@ df.whoami()</code></pre></div>
     if (key === 'help(df)' || key === 'help(daniel)' || key === 'df?' || key === '?df') {
       return out.append(pre('stream', HELP));
     }
-    if (key === 'df.projects()' || /^forpindf\.projects\(\):/.test(key)) {
-      return out.append(outputOf('projects').firstElementChild.cloneNode(true));
-    }
     if (key in KNOWN) {
       const idx = KNOWN[key];
       if (idx === 'trajectory') {
@@ -841,6 +871,8 @@ df.whoami()</code></pre></div>
       clone.removeAttribute('id');
       const frag = document.createDocumentFragment();
       [...clone.children].forEach(c => frag.append(c));
+      // printed output (no Out[] prompt) stays printed output
+      if ($(`.cell[data-fn="${idx}"] .out .prompt`).classList.contains('blank')) return out.append(frag);
       return value(frag);
     }
     if (key === 'df.hire()') {

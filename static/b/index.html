@@ -126,6 +126,13 @@
   pre .ln::before { content: counter(ln); display: inline-block; width: 2.2em; color: var(--muted); opacity: .6; }
   pre .c { color: var(--muted); }
 
+  ol.work { margin: 14px 0 0; padding-left: 1.4em; }
+  ol.work li { margin: 0 0 14px; padding-left: .2em; text-align: justify; hyphens: auto; }
+  ol.work .stack { display: block; font: 11.5px/1.6 "JetBrains Mono", monospace; color: var(--muted); margin-top: 3px; text-align: left; }
+  .note-small { font-size: 15.5px; color: var(--muted); margin-top: 14px; }
+  .figcap-aside { color: var(--muted); }
+  .appendix { margin-top: 96px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .appendix p, .appendix figcaption { font-size: 17px; }
   .links { display: flex; flex-wrap: wrap; gap: 8px 28px; }
   footer { max-width: 700px; margin: 0 auto; padding: 0 24px 40px; font-size: 14px; color: var(--muted); }
   footer hr { width: 30%; margin: 0 0 8px; border: 0; border-top: 1px solid var(--muted); }
@@ -165,8 +172,8 @@
   <div class="bar">
     <div class="who">Daniel Fiuza Dosil<small>draft B</small></div>
     <nav>
+      <a href="#work" class="opt">Work</a>
       <a href="#experience" class="opt">Experience</a>
-      <a href="#methods" class="opt">Methods</a>
       <a href="#contact">Contact</a>
       <a href="/cv/CV_Daniel-Fiuza-Dosil.pdf">CV</a>
     </nav>
@@ -180,9 +187,9 @@
 
   <div class="figcap">
     <p>
-      <b>Figure 1:</b> Smoke streaklines past <i>D. Fiuza Dosil</i>, from a live solution of
-      <span data-tex="\partial_t \mathbf{u} + (\mathbf{u}\cdot\nabla)\mathbf{u} = -\nabla p + \nu\nabla^2\mathbf{u},\ \nabla\cdot\mathbf{u}=0">∂u/∂t + (u·∇)u = −∇p + ν∇²u, ∇·u = 0</span>
-      at <span data-tex="\mathrm{Re}\approx 10^3">Re ≈ 10³</span>. Drag to stir the flow<span class="kbd-hint">; <kbd>↑</kbd><kbd>↓</kbd> change <span data-tex="U_\infty">U∞</span></span>.
+      <b>Figure 1:</b> <i>Daniel Fiuza Dosil</i>, data scientist and AI engineer in London.
+      Lead Data Scientist at <a href="https://www.range.org">Range</a>, building data pipelines, ML models and AI features for blockchain security and stablecoin compliance.
+      <span class="figcap-aside">Background: a live fluid simulation; drag to stir it (Appendix A).</span>
     </p>
     <div class="readout mono" aria-hidden="true">
       Re <span id="re">1000</span> · U∞ <span id="u">1.00</span> · t <span id="t">0.0</span> s · <span id="fps">60</span> fps<br>
@@ -203,7 +210,7 @@
       <dt><kbd>G</kbd></dt><dd>letters: smoked / clear / flat</dd>
       <dt><kbd>T</kbd></dt><dd>day / night</dd>
     </dl>
-    <p>See §3 for how Figure 1 is computed.</p>
+    <p>Appendix A explains how Figure 1 is computed.</p>
   </div>
 </header>
 
@@ -211,62 +218,84 @@
   <div class="abstract">
     <h2>Abstract</h2>
     <p>
-      I'm a data scientist in London. I lead data science at <a href="https://www.range.org">Range</a>,
-      following stablecoins across 21 chains and building the risk models behind $30B+ in monitored assets.
-      Part-time, I'm a research associate at Imperial, using machine learning to find biomarkers in allergy trials.
-      Before all that I spent four years at Imperial studying how fluids move around things, which is what Figure 1 is about.
-      The thread, if there is one: fluids, then data, then money. Everything flows somewhere.
+      I'm a data scientist and AI engineer. At <a href="https://www.range.org">Range</a> I lead data science for blockchain risk and stablecoin compliance:
+      data pipelines, machine-learning models that score risk, and AI features in the product, from raw on-chain data to production.
+      Before that I built award-winning AI systems at HelpFirst AI, and patented computer-vision diagnostics in healthcare.
+      Part-time, I'm a research associate at Imperial College London, applying machine learning to clinical trial data.
+      My PhD, also at Imperial, turned lab photographs into calibrated measurements and fitted simplified physical models to them; I have worked with data ever since.
     </p>
   </div>
 
+  <section id="work">
+    <h2 class="sec"><span>1</span>Current work</h2>
+    <p>
+      At <a href="https://www.range.org">Range</a> I lead machine-learning work for blockchain security and stablecoin compliance,
+      across $30B+ in monitored assets and 21 integrated chains. The work runs end to end, from raw on-chain data to models in production:
+    </p>
+    <ol class="work">
+      <li><b>Multi-chain data pipelines.</b> Real-time and batch pipelines that turn raw blockchain data into clean, queryable transfer history for analytics and models.
+        <span class="stack">Python · SQL · ClickHouse</span></li>
+      <li><b>Risk scoring and anomaly detection.</b> Machine-learning models that score addresses and transactions for risk (KYT/AML) and flag unusual behaviour in DeFi, in real time.
+        <span class="stack">Python · scikit-learn · XGBoost</span></li>
+      <li><b>Stablecoin compliance and cross-chain monitoring.</b> Risk analytics and monitoring for stablecoin compliance, including sanctions screening and cross-chain flows.
+        <span class="stack">Python · TypeScript · APIs</span></li>
+      <li><b>AI features in the product.</b> LLM-powered features and agents that help compliance and security teams investigate faster.
+        <span class="stack">LLMs · agents · evaluation</span></li>
+    </ol>
+  </section>
+
+  <section id="ai">
+    <h2 class="sec"><span>2</span>AI engineering</h2>
+    <p>
+      At HelpFirst AI I led the development of AI systems for the advice sector.
+      One of them, built for Citizens Advice Scotland, connects callers to their local bureau in under a minute instead of a callback that could take a day.
+      It saves £400k a year and won the 2023 ScotlandIS Tech for Good Award.
+      I improved LLM performance through prompt engineering, systematic evaluation and fine-tuning, built frameworks for assessing models and deploying them responsibly in sensitive settings, and predicted customer vulnerability from text with NLP and LLMs.
+      Part of that work is open source: <a href="https://github.com/HelpFirst/AI-Prompt-Optimiser">AI-Prompt-Optimiser</a>, a framework that refines LLM prompts automatically by iteration.
+    </p>
+  </section>
+
   <section id="experience">
-    <h2 class="sec"><span>1</span>Experience</h2>
-    <p class="tbl-cap"><b>Table 1:</b> Experiments to date, most recent first.</p>
+    <h2 class="sec"><span>3</span>Experience</h2>
+    <p class="tbl-cap"><b>Table 1:</b> Roles, most recent first.</p>
     <table>
-      <thead><tr><th>Period</th><th>Where</th><th>What happened</th></tr></thead>
+      <thead><tr><th>Period</th><th>Where</th><th>What</th></tr></thead>
       <tbody>
-        <tr><td class="yr">2025–</td><td class="org">Range<i>Lead Data Scientist</i></td><td>Stablecoin compliance and cross-chain risk ML. $30B+ in assets monitored across 21 chains.</td></tr>
-        <tr><td class="yr">2025–</td><td class="org">Imperial College London<i>Research Associate</i></td><td>ML for biomarker discovery in allergy and immunology trials.</td></tr>
-        <tr><td class="yr">2022–25</td><td class="org">HelpFirst AI<i>Lead AI Engineer</i></td><td>Award-winning LLM systems. £400k a year saved, 92% accuracy.</td></tr>
-        <tr><td class="yr">2021–24</td><td class="org">Bryant Medical<i>Lead Data Scientist</i></td><td>Patented computer-vision diagnostics; diagnosis 60% faster.</td></tr>
-        <tr><td class="yr">2021</td><td class="org">loveholidays<i>Data Scientist</i></td><td>Recommendation engine. 2.8× bookings, £17M in revenue.</td></tr>
+        <tr><td class="yr">2025–</td><td class="org">Range<i>Lead Data Scientist</i></td><td>ML for blockchain security and stablecoin compliance: data pipelines, risk scoring and AI features; $30B+ monitored across 21 chains.</td></tr>
+        <tr><td class="yr">2025–</td><td class="org">Imperial College London<i>Research Associate</i></td><td>Machine learning for biomarker discovery in allergy and immunology trials (part-time).</td></tr>
+        <tr><td class="yr">2022–25</td><td class="org">HelpFirst AI<i>Lead AI Engineer</i></td><td>AI and LLM systems for the advice sector; £400k a year saved for Citizens Advice Scotland.</td></tr>
+        <tr><td class="yr">2021–24</td><td class="org">Bryant Medical<i>Lead Data Scientist</i></td><td>Patented computer-vision diagnostics, 60% faster diagnosis; biometric measurement from images.</td></tr>
+        <tr><td class="yr">2021</td><td class="org">loveholidays<i>Data Scientist</i></td><td>Recommendation engine: an expected 2.8× bookings, around £17M a year in revenue.</td></tr>
         <tr><td class="yr">2019–21</td><td class="org">London South Bank Univ.<i>Associate Lecturer</i></td><td>Taught computer science and data science.</td></tr>
-        <tr><td class="yr">2017–21</td><td class="org">Imperial College London<i>PhD, Fluid Mechanics</i></td><td>Environmental flows and computational fluid dynamics. Figure 1 is a distant descendant.</td></tr>
       </tbody>
     </table>
   </section>
 
+  <section id="stack">
+    <h2 class="sec"><span>4</span>Stack</h2>
+    <div class="cols">
+      <span class="yr">Languages</span><span>Python, TypeScript, SQL</span>
+      <span class="yr">Data</span><span>ClickHouse, PostgreSQL, Airflow</span>
+      <span class="yr">ML</span><span>NumPy, pandas, scikit-learn, XGBoost, PyTorch, MLflow, Optuna</span>
+      <span class="yr">LLMs</span><span>Prompt engineering, RAG, fine-tuning, evaluation</span>
+      <span class="yr">Services</span><span>FastAPI, Flask, Streamlit, React, Docker, Kubernetes, AWS, GCP, Azure</span>
+    </div>
+  </section>
+
   <section id="training">
-    <h2 class="sec"><span>2</span>Training</h2>
+    <h2 class="sec"><span>5</span>Education</h2>
     <div class="cols">
       <span class="yr">2021</span><span>Fellowship in Data Science, Faculty AI, London</span>
-      <span class="yr">2017–21</span><span>PhD Fluid Mechanics, Imperial College London</span>
+      <span class="yr">2017–21</span><span>PhD, Civil &amp; Environmental Engineering (fluid mechanics), Imperial College London. Thesis: <a href="https://doi.org/10.25560/110687"><i>Improved models for natural displacement ventilation</i></a></span>
       <span class="yr">2014–16</span><span>MSc Energy Engineering, Aalborg University, Denmark</span>
       <span class="yr">2015–16</span><span>MSc Mechanical &amp; Aerospace Engineering, West Virginia University, USA</span>
       <span class="yr">2011–15</span><span>BSc Industrial Engineering, Universidad Carlos III de Madrid</span>
     </div>
-  </section>
-
-  <section id="methods">
-    <h2 class="sec"><span>3</span>Methods</h2>
-    <p>
-      Figure 1 solves the incompressible Navier–Stokes equations on your GPU, every frame, in a few hundred lines of WebGL.
-      The velocity is first carried along by itself (semi-Lagrangian advection), then made divergence-free by solving a Poisson equation for the pressure and subtracting its gradient:
-    </p>
-    <div class="eq" data-tex-display="\nabla^2 p = \nabla\cdot\mathbf{u}^{*}, \qquad \mathbf{u} = \mathbf{u}^{*} - \nabla p. \tag{1}">∇²p = ∇·u*,  u = u* − ∇p.  (1)</div>
-    <p>
-      Equation (1) is relaxed with Jacobi iteration (Listing 1); the letters impose <span data-tex="\partial p/\partial n = 0">∂p/∂n = 0</span> and no through-flow.
-      Vorticity confinement returns some of the swirl the grid smears away. Smoke enters through a rake at the left edge and is advected with a MacCormack scheme, which keeps the streaks sharp far downstream.
-      The viscosity is purely numerical, so the Reynolds number is nominal.
-    </p>
-    <figure class="listing">
-      <figcaption><b>Listing 1:</b> One Jacobi sweep for the pressure, as a fragment shader.</figcaption>
-<pre><code><span class="ln"><span class="c">// one sweep of ∇²p = ∇·u*; obstacle cells mirror the centre (∂p/∂n = 0)</span></span><span class="ln">float C = texture(uP, vUv).x;</span><span class="ln">float L = solid(vL) ? C : texture(uP, vL).x;</span><span class="ln">float R = solid(vR) ? C : texture(uP, vR).x;</span><span class="ln">float T = solid(vT) ? C : texture(uP, vT).x;</span><span class="ln">float B = solid(vB) ? C : texture(uP, vB).x;</span><span class="ln">o = vec4((L + R + T + B - texture(uDiv, vUv).x) * 0.25, 0., 0., 1.);</span></code></pre>
-    </figure>
+    <p class="note-small">Publication: Burridge, Sehmbi, Fiuza Dosil &amp; Hughes, <a href="https://www.aivc.org/sites/default/files/160.pdf"><i>Determining the venting efficiency of simple chimneys for buoyant plumes</i></a>, 38th AIVC Conference, 2017.</p>
   </section>
 
   <section id="contact">
-    <h2 class="sec"><span>4</span>Correspondence</h2>
+    <h2 class="sec"><span>6</span>Correspondence</h2>
     <div class="links">
       <a href="mailto:dafiuzadosil@gmail.com">dafiuzadosil@gmail.com</a>
       <a href="https://www.linkedin.com/in/daniel-fiuza-dosil/">LinkedIn</a>
@@ -274,11 +303,29 @@
       <a href="/cv/CV_Daniel-Fiuza-Dosil.pdf">CV (PDF)</a>
     </div>
   </section>
+
+  <section id="methods" class="appendix">
+    <h2 class="sec"><span>A</span>Appendix: how Figure 1 works</h2>
+    <p>
+      My PhD was in fluid mechanics, so the homepage is a small nod to it: Figure 1 solves the incompressible Navier–Stokes equations on your GPU, every frame, in a few hundred lines of WebGL.
+      The velocity is carried along by itself (semi-Lagrangian advection), then made divergence-free by solving a Poisson equation for the pressure and subtracting its gradient:
+    </p>
+    <div class="eq" data-tex-display="\nabla^2 p = \nabla\cdot\mathbf{u}^{*}, \qquad \mathbf{u} = \mathbf{u}^{*} - \nabla p. \tag{A.1}">∇²p = ∇·u*,  u = u* − ∇p.  (A.1)</div>
+    <p>
+      Equation (A.1) is relaxed with Jacobi iteration (Listing A.1), and the letters are solid obstacles.
+      Smoke enters through a rake at the left edge and is advected with a MacCormack scheme, which keeps the streaks sharp far downstream.
+      Press <kbd>?</kbd> on the figure for the instruments: vorticity, pressure, speed, and glass or flat letters.
+    </p>
+    <figure class="listing">
+      <figcaption><b>Listing A.1:</b> One Jacobi sweep for the pressure, as a fragment shader.</figcaption>
+<pre><code><span class="ln"><span class="c">// one sweep of ∇²p = ∇·u*; obstacle cells mirror the centre (∂p/∂n = 0)</span></span><span class="ln">float C = texture(uP, vUv).x;</span><span class="ln">float L = solid(vL) ? C : texture(uP, vL).x;</span><span class="ln">float R = solid(vR) ? C : texture(uP, vR).x;</span><span class="ln">float T = solid(vT) ? C : texture(uP, vT).x;</span><span class="ln">float B = solid(vB) ? C : texture(uP, vB).x;</span><span class="ln">o = vec4((L + R + T + B - texture(uDiv, vUv).x) * 0.25, 0., 0., 1.);</span></code></pre>
+    </figure>
+  </section>
 </main>
 
 <footer>
   <hr>
-  Versions: <a href="/">A (current site)</a> · <b>B (flow)</b>.
+  Versions: <a href="/">A (current site)</a> · <b>B (flow)</b> · <a href="/c/">C (paper)</a> · <a href="/d/">D (notebook)</a>.
   Version B, a prototype.
 </footer>
 
