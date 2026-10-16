@@ -308,7 +308,7 @@
     <button type="button" id="runall" aria-describedby="kernel-note">
       <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg>Run all
     </button>
-    <span class="hint"><kbd>shift</kbd> + <kbd>enter</kbd> runs a cell</span>
+    <span class="hint"><kbd>↑</kbd> <kbd>↓</kbd> move between cells · <kbd>shift</kbd> + <kbd>enter</kbd> runs one</span>
     <div class="kernel" id="kernel" title="A pretend kernel: every output is precomputed in this page">
       <span class="dot" aria-hidden="true"></span>
       <span>Python 3 · <span id="kstate" role="status" aria-live="polite">idle</span></span>
@@ -568,7 +568,7 @@ df.whoami()</code></pre></div>
 <footer>
   <div class="in">
     <hr>
-    <p>Versions: <a href="/">A (current site)</a> · <a href="/b/">B (flow)</a> · <a href="/c/">C (paper)</a> · <a href="/d/" aria-current="page">D (notebook)</a>.</p>
+    <p>Versions: <a href="/">A (current site)</a> · <a href="/b/">B (flow)</a> · <a href="/c/">C (paper)</a> · <a href="/d/" aria-current="page">D (notebook)</a> · <a href="/e/">E (live notebook)</a>.</p>
     <p id="kernel-note">Version D — a prototype. Nothing here runs on a server: the kernel is theatre and every output is precomputed in the page.</p>
   </div>
 </footer>
@@ -728,6 +728,10 @@ df.whoami()</code></pre></div>
   // ---------- the pretend kernel ----------
   const kernel = $('#kernel'), kstate = $('#kstate');
   const cells = $$('.cell');
+  const goTo = c => {
+    c.focus({ preventScroll: true });
+    c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  };
   const codeCells = $$('.cell.code:not(.live)');
   const live = $('.cell.live'), repl = $('#repl');
   let counter = 0, pending = 0, chain = Promise.resolve();
@@ -789,7 +793,23 @@ df.whoami()</code></pre></div>
   // Shift+Enter: run and select below. Ctrl/Cmd+Enter: run in place.
   document.addEventListener('keydown', e => {
     const cell = e.target.closest && e.target.closest('.cell');
-    if (!cell) return;
+    const isNav = !e.metaKey && !e.ctrlKey && !e.altKey &&
+      (e.key === 'ArrowDown' || e.key === 'j' || e.key === 'ArrowUp' || e.key === 'k');
+    if (!cell) {
+      // nothing selected yet: the first arrow press picks the cell nearest the middle of the screen
+      if (isNav && (e.target === document.body || e.target === document.documentElement)) {
+        e.preventDefault();
+        const mid = innerHeight / 2;
+        let best = cells[0], bestD = Infinity;
+        for (const c of cells) {
+          if (c.hidden) continue;
+          const r = c.getBoundingClientRect(), d = Math.abs((r.top + r.bottom) / 2 - mid);
+          if (d < bestD) { bestD = d; best = c; }
+        }
+        goTo(best);
+      }
+      return;
+    }
     if (e.target === repl) {
       if (e.key === 'Enter' && (e.shiftKey || e.ctrlKey || e.metaKey)) { e.preventDefault(); enqueue(live); }
       else if (e.key === 'Escape') { e.preventDefault(); live.focus(); }
@@ -807,7 +827,7 @@ df.whoami()</code></pre></div>
       e.preventDefault(); repl.focus();
     } else if ((e.key === 'ArrowDown' || e.key === 'j' || e.key === 'ArrowUp' || e.key === 'k')) {
       const i = cells.indexOf(cell) + (e.key === 'ArrowDown' || e.key === 'j' ? 1 : -1);
-      if (cells[i]) { e.preventDefault(); cells[i].focus(); }
+      if (cells[i] && !cells[i].hidden) { e.preventDefault(); goTo(cells[i]); }
     }
   });
 
