@@ -271,6 +271,31 @@
   .pmeta .st.base { color: var(--ink2); }
   .opt .ctl { max-width: 420px; margin-top: 6px; }
 
+  /* ---------- principles: expandable cards ---------- */
+  .pp { max-width: 820px; }
+  .pp-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 11.5px/1.5 var(--mono); color: var(--muted); margin: 0 0 8px; }
+  .pp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 10px; align-items: start; }
+  .pc { border: 1px solid var(--edge); border-radius: 3px; background: var(--bg); transition: border-color .15s; }
+  .pc:hover { border-color: var(--rule); }
+  .pc[open] { border-color: #c9c9c4; }
+  .pc summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 2.4ch minmax(0, 1fr) 12px; gap: 10px; align-items: baseline; padding: 9px 12px 9px 11px; border-radius: 3px; }
+  .pc summary::-webkit-details-marker { display: none; }
+  .pc summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .pc .no { font: 11.5px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .pc .tt { font-size: 16.5px; font-weight: 700; line-height: 1.3; }
+  .pc .pm { position: relative; width: 9px; height: 9px; align-self: center; }
+  .pc .pm::before, .pc .pm::after { content: ""; position: absolute; left: 0; right: 0; top: 4px; height: 1px; background: var(--muted); transition: transform .18s ease; }
+  .pc .pm::after { transform: rotate(90deg); }
+  .pc[open] .pm::after { transform: rotate(0deg); }
+  .pc[open] .no { color: var(--accent); }
+  .pc p { margin: 0; padding: 0 14px 11px calc(11px + 2.4ch + 10px); font-size: 15.5px; line-height: 1.45; color: var(--ink2); }
+
+  /* ---------- questions ---------- */
+  ol.qlist { list-style: none; counter-reset: q; margin: 0; padding: 0; max-width: 760px; border-top: 1.2px solid var(--ink); border-bottom: 1.2px solid var(--ink); }
+  ol.qlist li { counter-increment: q; display: grid; grid-template-columns: 3.4ch minmax(0, 1fr); gap: 0 10px; padding: 8px 0 9px; border-top: 1px solid var(--edge); font-size: 17px; line-height: 1.42; }
+  ol.qlist li:first-child { border-top: 0; }
+  ol.qlist li::before { content: counter(q, decimal-leading-zero); font: 11.5px/1.42 var(--mono); color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
+
   /* ---------- experience timeline ---------- */
   .tl svg .bar { transition: opacity .15s; }
   .tl svg .b { cursor: pointer; outline: none; }
@@ -388,6 +413,8 @@
     .profile .loc { text-align: left; margin-top: 6px; }
     .te-panel { grid-template-columns: minmax(0, 1fr); }
     .te .pr { max-width: none; }
+    .pp-grid { grid-template-columns: minmax(0, 1fr); }
+    ol.qlist li { font-size: 16.5px; }
     .ctl { grid-template-columns: auto minmax(60px, 1fr) 3em; font-size: 15px; gap: 8px; }
     table.df { font-size: 15px; }
     footer .in { margin-left: 0; }
@@ -426,6 +453,7 @@
     </div>
     <nav aria-label="Sections">
       <a href="#now" class="opt">Work</a>
+      <a href="#principles" class="opt">Principles</a>
       <a href="#experience" class="opt">Experience</a>
       <a href="#contact">Contact</a>
       <a href="/cv/CV_Daniel-Fiuza-Dosil.pdf">CV</a>
@@ -454,7 +482,7 @@
         <p>
           Data scientist and AI engineer in London. Lead Data Scientist at <a href="https://www.range.org">Range</a>,
           building data pipelines, machine-learning models and AI features for blockchain security and stablecoin compliance.
-          Before that I was Lead AI Engineer at HelpFirst AI, where I led an award-winning AI solution for Citizens Advice Scotland,
+          Before that I was Lead AI Engineer at HelpFirst AI, where I led the award-winning AI system for Citizens Advice Scotland,
           and Lead Data Scientist at Bryant Medical, with patented computer-vision diagnostics. My PhD, at Imperial College London, was in fluid mechanics.
         </p>
         <p class="lede">This is a live notebook, and it has just run itself. Every output below is a small interactive figure: drag, hover, slide.
@@ -639,15 +667,125 @@ df.optimise(prompt="Classify the message.", task=task, iters=12)</code></pre></d
     </div>
   </section>
 
+  <!-- principles: expandable cards -->
+  <section class="cell code" tabindex="0" data-fn="principles" id="principles" data-ms="240" aria-label="Code cell: principles, how I work">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">5</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.principles()   # how I work; open one to see what it costs</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">5</span>]:</span></div>
+      <div class="output" id="principles-out">
+        <div class="pp">
+          <div class="pp-bar js-only"><span id="pp-count">10 principles · 0 open</span><button type="button" class="btn" id="pp-all" aria-controls="pp-grid">expand all</button></div>
+          <div class="pp-grid" id="pp-grid">
+            <details class="pc"><summary><span class="no">01</span><span class="tt">Problem before model.</span><span class="pm" aria-hidden="true"></span></summary><p>I name who is hurting, how often and what it costs before I pick a method; it slows the first week and saves the next six months.</p></details>
+            <details class="pc"><summary><span class="no">02</span><span class="tt">Show, don't tell.</span><span class="pm" aria-hidden="true"></span></summary><p>A working prototype in front of the person who will use it settles more than any slide; I would rather be corrected in week two than applauded in month six.</p></details>
+            <details class="pc"><summary><span class="no">03</span><span class="tt">Own the whole path.</span><span class="pm" aria-hidden="true"></span></summary><p>From raw data to the interface and the conversation with the customer, because most failures live in the hand-offs, and the fewer hand-offs there are, the fewer places a problem can hide.</p></details>
+            <details class="pc"><summary><span class="no">04</span><span class="tt">Simplest thing first.</span><span class="pm" aria-hidden="true"></span></summary><p>Rules, then classic machine learning, then an LLM; I climb a rung only when the one below has failed on a test set, because each rung buys flexibility with predictability, cost and explainability.</p></details>
+            <details class="pc"><summary><span class="no">05</span><span class="tt">Evaluation is the product.</span><span class="pm" aria-hidden="true"></span></summary><p>If it can't be measured on cases people agree on, nobody knows whether it works; so the labelled set, and the cost of each kind of error, come before the model.</p></details>
+            <details class="pc"><summary><span class="no">06</span><span class="tt">AI amplifies judgement; it doesn't replace it.</span><span class="pm" aria-hidden="true"></span></summary><p>A model makes a good decision faster and a bad one faster too, so taste and responsibility stay with a person, and I design the hand-over to that person as carefully as the model.</p></details>
+            <details class="pc"><summary><span class="no">07</span><span class="tt">Uncertainty is information.</span><span class="pm" aria-hidden="true"></span></summary><p>When the evidence is unclear, the answer is “review”, not “pass”; a system that admits doubt is safer than one that hides it.</p></details>
+            <details class="pc"><summary><span class="no">08</span><span class="tt">Claim only what is true.</span><span class="pm" aria-hidden="true"></span></summary><p>I say what was deliberately left out and label demo data as fictional; scope said out loud beats a surprise later.</p></details>
+            <details class="pc"><summary><span class="no">09</span><span class="tt">Status before anyone asks.</span><span class="pm" aria-hidden="true"></span></summary><p>I work async and in writing: decisions and their reasons live where the next person will look, and risks are flagged early, so nobody has to chase me.</p></details>
+            <details class="pc"><summary><span class="no">10</span><span class="tt">Change my mind with data.</span><span class="pm" aria-hidden="true"></span></summary><p>I teach what I learn, intuition first and maths second, because explaining is the quickest test of understanding; when the data disagree with me, the data win.</p></details>
+          </div>
+          <p class="cap">Ten working rules. Each one names what it costs, so each one could turn out to be wrong. Click or tap a rule for its why.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- markdown: note, product -->
+  <section class="cell md" tabindex="0" id="note-product" aria-label="Markdown cell: note, on product">
+    <div class="row">
+      <div class="body">
+        <h2>On product: from the problem to the person using it</h2>
+        <p>Most models I've seen fail didn't fail on accuracy. They failed somewhere between the notebook and the person who was meant to use them. So I start at the other end. Who is this for? What do they do today, and what does it cost them when it goes wrong? I want one concrete example before any abstraction, and the root cause rather than the symptom.</p>
+        <p>Then I build the smallest thing that works and put it in front of a domain expert, early. Their feedback is rarely about the model. It is about what to fix first, and whether a number comes with its reason. Sentences like these reshape a product more than any hyperparameter. (The hyperparameters are usually fine.)</p>
+        <p>The model is rarely the product. The decision it changes is. At Citizens Advice Scotland, where I led the AI system, the result that mattered was a caller reaching their local bureau in under a minute instead of waiting up to 24 hours for a callback. I try to describe all my work that way: what a person can now do that they couldn't before, and what we chose not to build.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- markdown: note, ai -->
+  <section class="cell md" tabindex="0" id="note-ai" aria-label="Markdown cell: note, on AI and judgement">
+    <div class="row">
+      <div class="body">
+        <h2>On AI and judgement</h2>
+        <p>I use LLMs every day, and I trust them the way I'd trust a bright new colleague: a lot, once I've checked their work. The checking is the job. Before I change a prompt, I want a set of real cases, labelled by people who agree on the answers, and a clear view of which mistakes are expensive. In compliance, a missed risky flow costs far more than one extra alert. In advice services, a wrong referral costs someone time they may not have. Those costs set the threshold, not the model.</p>
+        <p>Then I climb the ladder slowly. A rule, if a rule will do. A classic model, if the rule can't. An LLM when the input is messy language: summarising long text, drafting a first reply, pulling structure out of free-form notes. That is where they earn their keep. An LLM is a superb first draft and a poor last word.</p>
+        <p>The aim is not to automate judgement. It is to give the person who carries the responsibility a better starting point, and more time to think.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- markdown: note, remote -->
+  <section class="cell md" tabindex="0" id="note-remote" aria-label="Markdown cell: note, on working remotely">
+    <div class="row">
+      <div class="body">
+        <h2>On working remotely</h2>
+        <p>In a remote team, writing is the office. The document is the meeting room, the pull request is the whiteboard, and the channel is the corridor. So I write for the reader who wasn't there: the conclusion first, then the evidence, then the one point I'd most like them to push on.</p>
+        <p>Two habits do most of the work. The first is status before anyone asks: what moved, what's stuck, and the risk I can see coming, sent before someone has to chase it. Bad news travels best early and in writing. The second is decisions in the open. When we choose A over B, the reasons go where the next person will look, so that a colleague six months from now can work out why without finding me. Large changes arrive as a short series of small ones, in an order a reviewer can hold in their head.</p>
+        <p>Demos beat meetings. Ten minutes of the real thing running answers questions that an hour of slides would only raise. None of this is about working alone. It is how a team that rarely shares a room still thinks together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- markdown: note, thread -->
+  <section class="cell md" tabindex="0" id="note-thread" aria-label="Markdown cell: note, on the thread through my work">
+    <div class="row">
+      <div class="body">
+        <h2>On the thread through my work</h2>
+        <p>I didn't plan a theme, but looking back there is one. My PhD asked how to clear smoke from homes that burn unclean fuels indoors, where a fan is not an option. I studied it in a lab tank, with salty water sinking through fresh: smoke, upside down. The most useful finding was almost disappointingly simple: line the heat source up with the opening.</p>
+        <p>Then the advice sector, helping people reach a human adviser faster. Then medical imaging, diagnosing and measuring from images. Now financial safety: tracing where money has been, so that it is harder to move it where it shouldn't go.</p>
+        <p>The domains look unrelated. The method is not: measure carefully, fit the simplest model that explains the data, and say plainly what it can't explain. Nor are the people. In each case, someone at the other end of the system had less time, money or information than the system did. That seems to me a good reason to get the details right.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- questions -->
+  <section class="cell code" tabindex="0" data-fn="questions" id="questions" data-ms="200" aria-label="Code cell: questions I'm exploring">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">6</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.questions(as_of="2026-10")   # open, not rhetorical</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">6</span>]:</span></div>
+      <div class="output" id="questions-out">
+        <p class="repr-head">questions I'm exploring beyond the day job · last updated October 2026</p>
+        <ol class="qlist">
+          <li>When is an LLM judge a trustworthy measuring instrument, and how should it be calibrated, like any other sensor?</li>
+          <li>How do you evaluate a system in a high-stakes setting when the experts labelling the test set disagree with each other?</li>
+          <li>If money is programmable, should compliance be too, and who audits that code?</li>
+          <li>How does a small team use AI to go faster without losing the craft that made it good, and how would it notice if it had?</li>
+          <li>What would it take for “I don't know” to be a respected output of a model, rather than a failure?</li>
+          <li>Why do some explanations stick for years while others are gone by Friday, and can you design for the first kind?</li>
+          <li>Which habits from physics (conservation laws, dimensional analysis, simple models fitted to data) still earn their place in machine learning, and which are nostalgia?</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- markdown: outside work -->
+  <section class="cell md" tabindex="0" id="outside" aria-label="Markdown cell: outside work">
+    <div class="row">
+      <div class="body">
+        <h2>Outside work</h2>
+        <p>I'm Galician, and I studied my way from Madrid to Aalborg to West Virginia before settling in London. I've taught at two universities and tutored privately, and I still think explaining something is the best test of whether I understand it. Outside work I build small side projects, from map posters to a crowd-sourced map of bar prices, and I make time for sport, where nothing needs a test set.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- experience -->
   <section class="cell code" tabindex="0" data-fn="experience" id="experience" data-ms="320" aria-label="Code cell: experience">
     <div class="row in">
-      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">5</span>]:</span></div>
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">7</span>]:</span></div>
       <div class="input"><pre><code class="py">xp = df.experience()
 xp.plot.timeline(by="lane");  xp</code></pre></div>
     </div>
     <div class="row out">
-      <div class="prompt"><span>Out[<span class="n">5</span>]:</span></div>
+      <div class="prompt"><span>Out[<span class="n">7</span>]:</span></div>
       <div class="output">
         <div class="tl" id="tl">
           <div class="fig js-only"><svg role="img" aria-label="Timeline of roles from 2017 to now in three lanes: industry, AI and academia. Hover or tap a bar to highlight its row in the table below."></svg></div>
@@ -657,7 +795,7 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
               <tbody>
                 <tr data-k="0"><th>0</th><td class="d">2025-04 – now</td><td class="lane">industry</td><td class="org"><a href="https://www.range.org">Range</a></td><td class="nw">Lead Data Scientist</td><td>Leads ML for blockchain security and stablecoin compliance; $30B+ in monitored assets across 21 integrated chains. Real-time data pipelines (ClickHouse), risk scoring, AI features.</td></tr>
                 <tr data-k="1"><th>1</th><td class="d">2025 – now</td><td class="lane">academia</td><td class="org">Imperial College London</td><td class="nw">Research Associate (part-time)</td><td>Machine learning for biomarker discovery in allergy and immunology trials.</td></tr>
-                <tr data-k="2"><th>2</th><td class="d">2022 – 2025-03</td><td class="lane">AI</td><td class="org">HelpFirst AI</td><td class="nw">Lead AI Engineer</td><td>Led an award-winning AI solution for Citizens Advice Scotland: £400k a year saved and the 2023 ScotlandIS Tech for Good Award; callers reach their local bureau in under a minute instead of waiting up to 24 hours. Prompt engineering, systematic evaluation and fine-tuning; predicting customer vulnerability with NLP and LLMs.</td></tr>
+                <tr data-k="2"><th>2</th><td class="d">2022 – 2025-03</td><td class="lane">AI</td><td class="org">HelpFirst AI</td><td class="nw">Lead AI Engineer</td><td>Led the award-winning AI system for Citizens Advice Scotland: £400k a year saved and the 2023 ScotlandIS Tech for Good Award; callers reach their local bureau in under a minute instead of waiting up to 24 hours. Prompt engineering, systematic evaluation and fine-tuning; predicting customer vulnerability with NLP and LLMs.</td></tr>
                 <tr data-k="3"><th>3</th><td class="d">2021 – 2024</td><td class="lane">industry</td><td class="org">Bryant Medical</td><td class="nw">Lead Data Scientist</td><td>Patented AI for disease diagnosis and biometric measurement, using computer vision: 60% faster diagnosis. Led ML, data engineering and cloud deployment; hiring and training.</td></tr>
                 <tr data-k="4"><th>4</th><td class="d">2021</td><td class="lane">industry</td><td class="org">loveholidays</td><td class="nw">Data Scientist</td><td>Recommendation system (gradient-boosted trees + user clustering): an expected 2.8× in bookings, about £17M a year in revenue and over 10,000 new bookings.</td></tr>
                 <tr data-k="5"><th>5</th><td class="d">2019 – 2021</td><td class="lane">academia</td><td class="org">London South Bank University</td><td class="nw">Associate Lecturer</td><td>Teaching.</td></tr>
@@ -674,11 +812,11 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
   <!-- skills -->
   <section class="cell code" tabindex="0" data-fn="skills" id="skills" data-ms="300" aria-label="Code cell: skills">
     <div class="row in">
-      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">6</span>]:</span></div>
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">8</span>]:</span></div>
       <div class="input"><pre><code class="py">df.skills().plot.embedding(k=3)   # hand-placed, not a real embedding</code></pre></div>
     </div>
     <div class="row out">
-      <div class="prompt"><span>Out[<span class="n">6</span>]:</span></div>
+      <div class="prompt"><span>Out[<span class="n">8</span>]:</span></div>
       <div class="output">
         <div class="sk" id="sk">
           <div class="fig js-only"><svg tabindex="0" role="img" aria-label="Scatter plot of skills in a hand-made two-dimensional space, clustered into data, ML, LLMs, services and infrastructure. Hover, tap, or use the arrow keys to see each skill's three nearest neighbours."></svg></div>
@@ -695,11 +833,11 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
   <!-- education -->
   <section class="cell code" tabindex="0" data-fn="education" id="education" data-ms="220" aria-label="Code cell: education and publications">
     <div class="row in">
-      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">7</span>]:</span></div>
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">9</span>]:</span></div>
       <div class="input"><pre><code class="py">display(df.education(), df.publications())</code></pre></div>
     </div>
     <div class="row out">
-      <div class="prompt"><span>Out[<span class="n">7</span>]:</span></div>
+      <div class="prompt"><span>Out[<span class="n">9</span>]:</span></div>
       <div class="output edu" id="edu">
         <p class="tabcap"><b>Table 1.</b> Education.</p>
         <div class="scroll" role="region" aria-label="Education table" tabindex="0">
@@ -731,11 +869,11 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
   <!-- flow -->
   <section class="cell code" tabindex="0" data-fn="flow" id="flow" data-ms="300" aria-label="Code cell: flow">
     <div class="row in">
-      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">8</span>]:</span></div>
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">10</span>]:</span></div>
       <div class="input"><pre><code class="py">df.flow(past="df")   # a small live Navier–Stokes solve, on your GPU</code></pre></div>
     </div>
     <div class="row out">
-      <div class="prompt"><span>Out[<span class="n">8</span>]:</span></div>
+      <div class="prompt"><span>Out[<span class="n">10</span>]:</span></div>
       <div class="output">
         <div class="flowbox" id="flowbox">
           <canvas aria-label="Live fluid simulation: smoke streaklines flowing past the letters df. Move the pointer over it to stir the flow."></canvas>
@@ -749,11 +887,11 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
   <!-- contact -->
   <section class="cell code" tabindex="0" data-fn="contact" id="contact" data-ms="200" aria-label="Code cell: contact">
     <div class="row in">
-      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">9</span>]:</span></div>
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">11</span>]:</span></div>
       <div class="input"><pre><code class="py">df.contact()</code></pre></div>
     </div>
     <div class="row out">
-      <div class="prompt"><span>Out[<span class="n">9</span>]:</span></div>
+      <div class="prompt"><span>Out[<span class="n">11</span>]:</span></div>
       <div class="output" id="contact-out">
         <div class="card contact">
           <dl>
@@ -2219,6 +2357,34 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
     });
   })();
 
+  // ---------- principles: expandable cards, with an expand-all toggle ----------
+  (() => {
+    const box = $('#principles-out');
+    if (!box) return;
+    const cards = $$('.pc', box), btn = $('#pp-all'), count = $('#pp-count');
+    const sync = () => {
+      const k = cards.filter(c => c.open).length;
+      count.textContent = `${cards.length} principles · ${k} open`;
+      btn.textContent = k === cards.length ? 'collapse all' : 'expand all';
+      btn.setAttribute('aria-expanded', String(k === cards.length));
+    };
+    cards.forEach(c => c.addEventListener('toggle', sync));
+    btn.addEventListener('click', () => {
+      const open = !cards.every(c => c.open);
+      cards.forEach(c => { c.open = open; });
+      sync();
+    });
+    sync();
+    widget('principles', box, {
+      intro() {
+        if (reduce || !cards[0].animate) return;
+        cards.forEach((c, i) => c.animate(
+          [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }],
+          { duration: 320, delay: 40 * i, easing: 'cubic-bezier(.3,.6,.3,1)', fill: 'backwards' }));
+      }
+    });
+  })();
+
   // =====================================================================
   // the pretend kernel
   // =====================================================================
@@ -2332,6 +2498,8 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
     '    threshold_explorer(beta=2, tau=0.5)',
     '                              precision, recall and F-beta, by hand',
     '    optimise(prompt)          an illustrative prompt-optimisation run',
+    '    principles()              how I work, and what each rule costs',
+    '    questions()               open questions, beyond the day job',
     '    experience()              roles, as a timeline and a DataFrame',
     '    skills()                  tools of the trade, hand-placed',
     '    education()               degrees and publications',
@@ -2340,7 +2508,7 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
     '    hire()                    recommended'
   ];
   const FIGS = { now: '#now', threshold_explorer: '#threshold', optimise: '#optimise', experience: '#experience', skills: '#skills', flow: '#flow' };
-  const CARDS = { whoami: '#whoami', contact: '#contact-out', education: '#edu', publications: '#edu' };
+  const CARDS = { whoami: '#whoami', contact: '#contact-out', education: '#edu', publications: '#edu', principles: '#principles-out', questions: '#questions-out' };
 
   function respond(src, n) {
     const out = $('.output', live), prompt = $('.out .prompt', live);
@@ -2433,6 +2601,195 @@ xp.plot.timeline(by="lane");  xp</code></pre></div>
   } else {
     counter = codeCells.length; // reduced motion: the static, already-run notebook is the final state
   }
+})();
+</script>
+<!-- contents: a self-building table of contents. Rail in the margin when there is room, compact bar otherwise -->
+<style>
+  .toc-rail { position: fixed; z-index: 5; width: var(--toc-w, 168px); max-height: calc(100vh - 150px); overflow-y: auto; overscroll-behavior: contain;
+    font: 13.5px/1.35 "CMU Serif", Georgia, serif; color: var(--muted); opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; scrollbar-width: none; }
+  .toc-rail::-webkit-scrollbar { display: none; }
+  .toc-rail.show { opacity: 1; visibility: visible; }
+  .toc-rail .toc-h, .toc-bar .toc-h { font: 500 10px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .toc-rail .toc-h { margin: 0 0 12px 14px; }
+  .toc-list { list-style: none; margin: 0; padding: 0 0 0 14px; position: relative; }
+  .toc-list li a { display: flex; gap: .55em; padding: 3px 0; text-decoration: none; color: inherit; transition: color .15s; }
+  .toc-list li a:hover { color: var(--ink); }
+  .toc-list .n { min-width: 1.6em; font-variant-numeric: tabular-nums; }
+  .toc-list li.sub a { padding-left: .7em; font-size: 12.5px; }
+  .toc-list li.sub .n { min-width: 1.9em; }
+  .toc-list li.code a { font: 11.5px/1.5 "JetBrains Mono", ui-monospace, monospace; padding-left: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  .toc-list li.in a { color: var(--ink); }
+  .toc-list li.active > a { color: var(--ink); }
+  .toc-list li.active .n { color: var(--accent); }
+  .toc-rail .toc-track, .toc-rail .toc-prog { position: absolute; left: 0; width: 1px; }
+  .toc-rail .toc-track { top: 0; bottom: 0; background: var(--rule); }
+  .toc-rail .toc-prog { width: 2px; margin-left: -.5px; background: var(--ink); transition: top .2s ease, height .2s ease; }
+
+  .toc-bar { position: fixed; left: 0; right: 0; top: var(--toc-top, 0px); z-index: 6; background: var(--bg); border-bottom: 1px solid var(--rule);
+    transform: translateY(-120%); transition: transform .25s ease; display: none; }
+  .toc-mode-bar .toc-bar { display: block; }
+  .toc-mode-bar .toc-rail { display: none; }
+  .toc-bar.show { transform: none; }
+  .toc-bar > button { all: unset; box-sizing: border-box; width: 100%; max-width: var(--toc-bar-max, 820px); margin: 0 auto; padding: 9px 16px;
+    display: flex; gap: 12px; align-items: baseline; cursor: pointer; font: 15px/1.3 "CMU Serif", Georgia, serif; color: var(--ink); }
+  .toc-bar > button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .toc-bar .toc-cur { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .toc-bar .toc-cur .n { color: var(--accent); margin-right: .45em; font-variant-numeric: tabular-nums; }
+  .toc-bar .toc-chev { font: 11px "JetBrains Mono", monospace; color: var(--muted); transition: transform .2s; }
+  .toc-bar.open .toc-chev { transform: rotate(180deg); }
+  .toc-bar .toc-read { position: absolute; left: 0; bottom: -1px; height: 2px; background: var(--ink); width: 0; }
+  .toc-bar .toc-list { display: none; max-width: var(--toc-bar-max, 820px); margin: 0 auto; padding: 2px 16px 14px 16px; max-height: 60vh; overflow-y: auto; }
+  .toc-bar.open .toc-list { display: block; }
+  .toc-bar .toc-list li a { padding: 6px 0; font-size: 15.5px; }
+  .toc-bar .toc-list li.sub a, .toc-bar .toc-list li.code a { font-size: 14px; }
+  .toc-bar .toc-list li.code a { font-size: 12.5px; }
+  @media (prefers-reduced-motion: reduce) { .toc-rail, .toc-bar, .toc-rail .toc-prog { transition: none; } }
+  @media print { .toc-rail, .toc-bar { display: none !important; } }
+</style>
+<script data-items="cells" data-content="#nb" data-offset=".toolbar" data-width="160" data-gap="24">
+(() => {
+  // config comes from this script tag's data-* attributes
+  const cfg = document.currentScript.dataset;
+  const content = document.querySelector(cfg.content || 'main');
+  if (!content) return;
+  const after = cfg.after ? document.querySelector(cfg.after) : null;
+  const stick = cfg.offset ? document.querySelector(cfg.offset) : null;
+  const W = +(cfg.width || 168), GAP = +(cfg.gap || 32);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  // ---- collect entries ----
+  const items = [];
+  const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48);
+  if (cfg.items === 'cells') {
+    content.querySelectorAll('.cell').forEach(c => {
+      if (c.hidden || c.classList.contains('live')) return;
+      if (c.classList.contains('code') && c.dataset.fn) {
+        items.push({ el: c, label: 'df.' + c.dataset.fn + '()', kind: 'code' });
+      } else {
+        const h = c.querySelector('h1, h2, h3');
+        const aria = (c.getAttribute('aria-label') || '').replace(/^.*?:\s*/, '');
+        const label = h && h.tagName !== 'H1' ? h.textContent.trim() : aria.charAt(0).toUpperCase() + aria.slice(1);
+        if (label) items.push({ el: c, label, kind: 'top' });
+      }
+    });
+  } else {
+    content.querySelectorAll(cfg.headings || 'h2, h3').forEach(h => {
+      if (!h.id) h.id = slug(h.textContent);
+      const numEl = h.querySelector(':scope > span');
+      const num = numEl ? numEl.textContent.trim() : '';
+      const label = h.textContent.trim().slice(num.length).trim() || h.textContent.trim();
+      items.push({ el: h, label, num, kind: h.tagName === 'H3' ? 'sub' : 'top', id: h.id });
+    });
+  }
+  if (items.length < 3) return;
+
+  // ---- build both views from one list ----
+  const makeList = () => {
+    const ol = document.createElement('ol'); ol.className = 'toc-list';
+    items.forEach((it, i) => {
+      const li = document.createElement('li');
+      if (it.kind !== 'top') li.className = it.kind;
+      const a = document.createElement('a');
+      a.href = it.id ? '#' + it.id : '#';
+      if (it.num) { const n = document.createElement('span'); n.className = 'n'; n.textContent = it.num; a.appendChild(n); }
+      a.appendChild(document.createTextNode(it.label));
+      a.title = it.label;
+      a.addEventListener('click', e => { e.preventDefault(); go(i); bar.classList.remove('open'); barBtn.setAttribute('aria-expanded', 'false'); });
+      li.appendChild(a); ol.appendChild(li);
+    });
+    return ol;
+  };
+  const rail = document.createElement('nav');
+  rail.className = 'toc-rail'; rail.setAttribute('aria-label', 'Contents');
+  rail.innerHTML = '<p class="toc-h">Contents</p>';
+  const railList = makeList(); rail.appendChild(railList);
+  const track = document.createElement('div'); track.className = 'toc-track';
+  const prog = document.createElement('div'); prog.className = 'toc-prog';
+  railList.prepend(track, prog);
+
+  const bar = document.createElement('nav');
+  bar.className = 'toc-bar'; bar.setAttribute('aria-label', 'Contents');
+  bar.innerHTML = '<button type="button" aria-expanded="false"><span class="toc-h">Contents</span><span class="toc-cur"></span><span class="toc-chev" aria-hidden="true">▾</span></button><div class="toc-read"></div>';
+  const barBtn = bar.querySelector('button'), barCur = bar.querySelector('.toc-cur'), barRead = bar.querySelector('.toc-read');
+  const barList = makeList(); bar.appendChild(barList);
+  barBtn.addEventListener('click', () => { const o = bar.classList.toggle('open'); barBtn.setAttribute('aria-expanded', String(o)); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && bar.classList.contains('open')) { bar.classList.remove('open'); barBtn.setAttribute('aria-expanded', 'false'); barBtn.focus(); } });
+  document.body.append(rail, bar);
+
+  const stickBottom = () => stick ? Math.max(0, stick.getBoundingClientRect().bottom) : 0;
+  function go(i) {
+    const it = items[i];
+    const y = it.el.getBoundingClientRect().top + scrollY - stickBottom() - (mode === 'bar' ? 52 : 18);
+    scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+    if (it.id) history.replaceState(null, '', '#' + it.id);
+    if (cfg.items === 'cells') it.el.focus({ preventScroll: true });
+  }
+
+  // ---- layout: rail if the left margin can hold it, else the compact bar ----
+  let mode = 'rail';
+  function layout() {
+    const r = content.getBoundingClientRect();
+    const left = r.left - W - GAP;
+    mode = left >= 8 ? 'rail' : 'bar';
+    root.classList.toggle('toc-mode-bar', mode === 'bar');
+    rail.style.left = Math.max(8, left) + 'px';
+    rail.style.setProperty('--toc-w', W + 'px');
+    update();
+  }
+
+  // ---- scroll spy ----
+  const railLis = [...railList.querySelectorAll('li')], barLis = [...barList.querySelectorAll('li')];
+  let ticking = false, last = -1;
+  function update() {
+    ticking = false;
+    const top0 = stickBottom(), vh = innerHeight;
+    const shown = after ? after.getBoundingClientRect().bottom < vh * 0.4 : scrollY > vh * 0.35;
+    rail.classList.toggle('show', shown); bar.classList.toggle('show', shown);
+    if (!shown) { bar.classList.remove('open'); }
+    root.style.setProperty('--toc-top', top0 + 'px');
+
+    const tops = items.map(it => it.el.getBoundingClientRect().top);
+    const endY = content.getBoundingClientRect().bottom;
+    const line = top0 + vh * 0.3;
+    let active = 0;
+    tops.forEach((t, i) => { if (t <= line) active = i; });
+    let first = -1, lastIn = -1;
+    tops.forEach((t, i) => {
+      const b = i + 1 < tops.length ? tops[i + 1] : endY;
+      const vis = b > top0 + 4 && t < vh - 4;
+      railLis[i].classList.toggle('in', vis); barLis[i].classList.toggle('in', vis);
+      if (vis) { if (first < 0) first = i; lastIn = i; }
+    });
+    if (active !== last) {
+      [railLis, barLis].forEach(L => L.forEach((li, i) => {
+        li.classList.toggle('active', i === active);
+        const a = li.firstChild; if (i === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      }));
+      const it = items[active];
+      barCur.innerHTML = '';
+      if (it.num) { const n = document.createElement('span'); n.className = 'n'; n.textContent = it.num; barCur.appendChild(n); }
+      barCur.appendChild(document.createTextNode(it.label));
+      // keep the active entry visible inside a long rail
+      const a = railLis[active], rr = rail.getBoundingClientRect(), ar = a.getBoundingClientRect();
+      if (ar.top < rr.top + 24 || ar.bottom > rr.bottom - 8) rail.scrollTop += ar.top - rr.top - rr.height / 3;
+      last = active;
+    }
+    if (first >= 0) {
+      const a = railLis[first], b = railLis[lastIn];
+      prog.style.top = a.offsetTop + 'px';
+      prog.style.height = (b.offsetTop + b.offsetHeight - a.offsetTop) + 'px';
+    }
+    const max = document.documentElement.scrollHeight - vh;
+    barRead.style.width = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%';
+    rail.style.top = (top0 + (cfg.items === 'cells' ? 28 : 40)) + 'px';
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', layout);
+  // content can grow as notebook outputs render and fonts load
+  if ('ResizeObserver' in window) new ResizeObserver(() => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }).observe(content);
+  document.fonts && document.fonts.ready.then(layout);
+  layout();
 })();
 </script>
 </body>

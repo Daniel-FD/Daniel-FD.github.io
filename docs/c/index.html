@@ -209,6 +209,11 @@
   ol.items li::before { content: "(" counter(it, lower-roman) ")"; position: absolute; left: 0; width: 1.6em; text-align: right; font-style: normal; }
   .src { font-style: italic; }
   .prose p.after { text-indent: 0; }
+  /* amsthm-style propositions: bold head, upright name, italic body */
+  .props { margin: 14px 0 0; }
+  .prose p.prop { text-indent: 0; font-style: italic; margin: 0 0 11px; }
+  .prop .th { font-style: normal; font-weight: 700; margin-right: .2em; }
+  .prop .tn { font-style: normal; }
   .prose p.stackline { margin-top: 14px; font-size: 15px; text-align: left; hyphens: manual; }
   .stackline .mono { font-size: 12.5px; color: #333; line-height: 1.7; }
   ol.work li a.ref-x { text-decoration: none; }
@@ -310,12 +315,13 @@
     <p>
       I am a data scientist and AI engineer in London. As Lead Data Scientist at Range, I build data pipelines,
       machine-learning models and AI features for blockchain security and stablecoin compliance; Range monitors
-      more than $30B in assets across 21 integrated chains. Before that I was Lead AI Engineer at HelpFirst AI, building award-winning
-      LLM applications, including one that saved Citizens Advice Scotland £400k a year. I have also shipped data
+      more than $30B in assets across 21 integrated chains. Before that I was Lead AI Engineer at HelpFirst AI, where I led an award-winning
+      AI system that saves Citizens Advice Scotland £400k a year. I have also shipped data
       science in healthcare (patented computer-vision diagnostics) and travel (a recommender system), and I work
       part-time as a research associate at Imperial College London, using machine learning for biomarker discovery.
       My training is in engineering, up to a PhD at Imperial. This document covers current work (§1), selected
-      projects (§2), positions (§3), education (§4) and publications (§5).
+      projects (§2), the principles I work by (§3) and a discussion of them (§4), positions (§5), education (§6),
+      publications (§7) and some open problems (§8).
     </p>
     <p class="keywords"><i>Keywords:</i> blockchain analytics · machine learning · LLM applications · stablecoin compliance · data science</p>
   </div>
@@ -358,7 +364,7 @@
         Engineer at HelpFirst AI:
       </p>
       <ol class="items">
-        <li id="w-cas"><b>AI system for Citizens Advice Scotland.</b> An award-winning solution: callers reach their
+        <li id="w-cas"><b>AI system for Citizens Advice Scotland</b>, which I led. Callers reach their
           local bureau in under a minute instead of waiting up to 24 hours for a callback. It saves £400k a year and
           won the 2023 ScotlandIS Tech for Good Award.</li>
         <li><b>Prompt engineering, systematic evaluation and fine-tuning</b> to improve LLM performance, with
@@ -401,16 +407,113 @@
       </ol>
     </section>
 
-    <section id="experience" aria-labelledby="s3">
-      <h2 class="sec" id="s3"><span class="n">3</span>Experience</h2>
+    <section id="principles" class="prose" aria-labelledby="s3">
+      <h2 class="sec" id="s3"><span class="n">3</span>Principles</h2>
+      <p class="after">
+        I state the principles I work by as propositions. Each one names what it costs, so each one could turn out to be
+        wrong.<input type="checkbox" id="sn-2" class="sn-toggle" aria-label="Show note 2"><label for="sn-2" class="sn-ref"><sup>2</sup></label><span class="sidenote"><sup>2</sup>None of these has been proved. All of them have been tested, some of them the hard way.</span>
+        Section&nbsp;4 argues for them at more length.
+      </p>
+      <div class="props">
+      <p class="prop" id="prop-1"><span class="th">Proposition 3.1</span> <span class="tn">(Problem before model).</span> I name who is hurting, how often and what it costs before I pick a method; it slows the first week and saves the next six months.</p>
+      <p class="prop" id="prop-2"><span class="th">Proposition 3.2</span> <span class="tn">(Show, don't tell).</span> A working prototype in front of the person who will use it settles more than any slide; I would rather be corrected in week two than applauded in month six.</p>
+      <p class="prop" id="prop-3"><span class="th">Proposition 3.3</span> <span class="tn">(Own the whole path).</span> From raw data to the interface and the conversation with the customer, because most failures live in the hand-offs, and the fewer hand-offs there are, the fewer places a problem can hide.</p>
+      <p class="prop" id="prop-4"><span class="th">Proposition 3.4</span> <span class="tn">(Simplest thing first).</span> Rules, then classic machine learning, then an LLM; I climb a rung only when the one below has failed on a test set, because each rung buys flexibility with predictability, cost and explainability.</p>
+      <p class="prop" id="prop-5"><span class="th">Proposition 3.5</span> <span class="tn">(Evaluation is the product).</span> If it can't be measured on cases people agree on, nobody knows whether it works; so the labelled set, and the cost of each kind of error, come before the model.</p>
+      <p class="prop" id="prop-6"><span class="th">Proposition 3.6</span> <span class="tn">(AI amplifies judgement; it doesn't replace it).</span> A model makes a good decision faster and a bad one faster too, so taste and responsibility stay with a person, and I design the hand-over to that person as carefully as the model.</p>
+      <p class="prop" id="prop-7"><span class="th">Proposition 3.7</span> <span class="tn">(Uncertainty is information).</span> When the evidence is unclear, the answer is “review”, not “pass”; a system that admits doubt is safer than one that hides it.</p>
+      <p class="prop" id="prop-8"><span class="th">Proposition 3.8</span> <span class="tn">(Claim only what is true).</span> I say what was deliberately left out and label demo data as fictional; scope said out loud beats a surprise later.</p>
+      <p class="prop" id="prop-9"><span class="th">Proposition 3.9</span> <span class="tn">(Status before anyone asks).</span> I work async and in writing: decisions and their reasons live where the next person will look, and risks are flagged early, so nobody has to chase me.</p>
+      <p class="prop" id="prop-10"><span class="th">Proposition 3.10</span> <span class="tn">(Change my mind with data).</span> I teach what I learn, intuition first and maths second, because explaining is the quickest test of understanding; when the data disagree with me, the data win.</p>
+      </div>
+    </section>
+
+    <section id="discussion" class="prose" aria-labelledby="s4">
+      <h2 class="sec" id="s4"><span class="n">4</span>Discussion</h2>
+
+      <h3 class="sub" id="s4-1"><span class="n">4.1</span>On product: from the problem to the person using it</h3>
+      <p>
+        Most models I've seen fail didn't fail on accuracy. They failed somewhere between the notebook and the person who
+        was meant to use them. So I start at the other end. Who is this for? What do they do today, and what does it cost
+        them when it goes wrong? I want one concrete example before any abstraction, and the root cause rather than the symptom.
+      </p>
+      <p>
+        Then I build the smallest thing that works and put it in front of a domain expert, early. Their feedback is rarely
+        about the model. It is about what to fix first, and whether a number comes with its reason. Sentences
+        like these reshape a product more than any hyperparameter. (The hyperparameters are usually fine.)
+      </p>
+      <p>
+        The model is rarely the product. The decision it changes is. At Citizens Advice Scotland, where I led the AI system
+        (§1.2), the result that mattered was a caller reaching their local bureau in under a minute instead of waiting up to
+        24 hours for a callback. I try to describe all my work that way: what a person can now do that they couldn't
+        before, and what we chose not to build.
+      </p>
+
+      <h3 class="sub" id="s4-2"><span class="n">4.2</span>On AI and judgement</h3>
+      <p>
+        I use LLMs every day, and I trust them the way I'd trust a bright new colleague: a lot, once I've checked their
+        work. The checking is the job. Before I change a prompt, I want a set of real cases, labelled by people who agree
+        on the answers, and a clear view of which mistakes are expensive. In compliance, a missed risky flow costs far more
+        than one extra alert. In advice services, a wrong referral costs someone time they may not have. Those costs set
+        the threshold, not the model.
+      </p>
+      <p>
+        Then I climb the ladder slowly. A rule, if a rule will do. A classic model, if the rule can't. An LLM when the
+        input is messy language: summarising long text, drafting a first reply, pulling structure out of free-form notes.
+        That is where they earn their keep. An LLM is a superb first draft and a poor last word.
+      </p>
+      <p>
+        The aim is not to automate judgement. It is to give the person who carries the responsibility a better starting
+        point, and more time to think.
+      </p>
+
+      <h3 class="sub" id="s4-3"><span class="n">4.3</span>On working remotely</h3>
+      <p>
+        In a remote team, writing is the office. The document is the meeting room, the pull request is the whiteboard, and
+        the channel is the corridor. So I write for the reader who wasn't there: the conclusion first, then the evidence,
+        then the one point I'd most like them to push on.
+      </p>
+      <p>
+        Two habits do most of the work. The first is status before anyone asks: what moved, what's stuck, and the risk I
+        can see coming, sent before someone has to chase it. Bad news travels best early and in writing. The second is
+        decisions in the open. When we choose A over B, the reasons go where the next person will look, so that a colleague
+        six months from now can work out why without finding me. Large changes arrive as a short series of small ones, in
+        an order a reviewer can hold in their head.
+      </p>
+      <p>
+        Demos beat meetings. Ten minutes of the real thing running answers questions that an hour of slides would only
+        raise. None of this is about working alone. It is how a team that rarely shares a room still thinks together.
+      </p>
+
+      <h3 class="sub" id="s4-4"><span class="n">4.4</span>On the thread through my work</h3>
+      <p>
+        I didn't plan a theme, but looking back there is one. My PhD asked how to clear smoke from homes that burn unclean
+        fuels indoors, where a fan is not an option [<a class="cite" href="#pub-1">P1</a>]. I studied it in a lab tank, with
+        salty water standing in for the smoke [<a class="cite" href="#pub-2">P2</a>]. The most useful finding was almost
+        disappointingly simple: line the heat source up with the opening.
+      </p>
+      <p>
+        Then the advice sector, helping people reach a human adviser faster. Then medical imaging, diagnosing and measuring
+        from images. Now financial safety: tracing where money has been, so that it is harder to move it where it shouldn't
+        go.
+      </p>
+      <p>
+        The domains look unrelated. The method is not: measure carefully, fit the simplest model that explains the data,
+        and say plainly what it can't explain. Nor are the people. In each case, someone at the other end of the system had
+        less time, money or information than the system did. That seems to me a good reason to get the details right.
+      </p>
+    </section>
+
+    <section id="experience" aria-labelledby="s5">
+      <h2 class="sec" id="s5"><span class="n">5</span>Experience</h2>
 
       <figure class="fig" id="fig-1" aria-labelledby="fig1-cap">
         <div class="plot" id="fig1-plot">
           <svg id="fig1-svg" role="group" aria-labelledby="fig1-title fig1-desc">
             <title id="fig1-title">Figure 1: career trajectory, 2011 to 2026</title>
-            <desc id="fig1-desc">A curve rising through six domains over time: engineering and energy (2011), fluid mechanics (2017), data science, healthcare AI and language models (2021 to 2022), and blockchain and compliance (2025 to now). Each role is a focusable point; the same information is in Table 1 and Section 4.</desc>
+            <desc id="fig1-desc">A curve rising through six domains over time: engineering and energy (2011), fluid mechanics (2017), data science, healthcare AI and language models (2021 to 2022), and blockchain and compliance (2025 to now). Each role is a focusable point; the same information is in Table 1 and Section 6.</desc>
           </svg>
-          <noscript><p>This figure is drawn with JavaScript. Table 1 and §4 contain the same information.</p></noscript>
+          <noscript><p>This figure is drawn with JavaScript. Table 1 and §6 contain the same information.</p></noscript>
         </div>
         <div class="readout" id="fig1-readout">
           <div class="ro-body" id="fig1-ro" aria-live="polite">
@@ -429,18 +532,18 @@
           (<svg class="glyph" viewBox="0 0 10 10" role="img" aria-label="filled circle"><circle cx="5" cy="5" r="3.4" fill="currentColor"/></svg>&nbsp;main role,
           <svg class="glyph" viewBox="0 0 10 10" role="img" aria-label="open circle"><circle cx="5" cy="5" r="3" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>&nbsp;concurrent role,
           <svg class="glyph" viewBox="0 0 10 10" role="img" aria-label="arrowhead"><path d="M8.5 5 1.5 1.4v7.2z" fill="#9a9a9a"/></svg>&nbsp;ongoing).
-          Where only years are known, dates are placed at mid-year.<input type="checkbox" id="sn-2" class="sn-toggle" aria-label="Show note 2"><label for="sn-2" class="sn-ref"><sup>2</sup></label><span class="sidenote"><sup>2</sup>The vertical axis is categorical, so the distances between domains mean nothing. Please do not fit a regression to it. The near-vertical stretch is 2021, which was a busy year.</span>
+          Where only years are known, dates are placed at mid-year.<input type="checkbox" id="sn-3" class="sn-toggle" aria-label="Show note 3"><label for="sn-3" class="sn-ref"><sup>3</sup></label><span class="sidenote"><sup>3</sup>The vertical axis is categorical, so the distances between domains mean nothing. Please do not fit a regression to it. The near-vertical stretch is 2021, which was a busy year.</span>
         </figcaption>
       </figure>
 
       <div class="tbl" id="tab-1">
-        <p class="tbl-cap"><b>Table 1:</b> Positions held, most recent first.<input type="checkbox" id="sn-3" class="sn-toggle" aria-label="Show note 3"><label for="sn-3" class="sn-ref"><sup>3</sup></label><span class="sidenote"><sup>3</sup>Figures are as reported in the CV [<a class="cite" href="#ref-3">3</a>].</span></p>
+        <p class="tbl-cap"><b>Table 1:</b> Positions held, most recent first.<input type="checkbox" id="sn-4" class="sn-toggle" aria-label="Show note 4"><label for="sn-4" class="sn-ref"><sup>4</sup></label><span class="sidenote"><sup>4</sup>Figures are as reported in the CV [<a class="cite" href="#ref-3">3</a>].</span></p>
         <table>
           <thead><tr><th scope="col">Period</th><th scope="col">Organisation &amp; role</th><th scope="col">Result</th></tr></thead>
           <tbody>
             <tr><td class="yr">2025–</td><td class="org">Range<i>Lead Data Scientist</i></td><td>ML for blockchain security and stablecoin compliance: risk scoring, anomaly detection, cross-chain monitoring, real-time ClickHouse pipelines and AI features. $30B+ in monitored assets across 21 integrated chains.</td></tr>
             <tr><td class="yr">2025–</td><td class="org">Imperial College London<i>Research Associate (part-time)</i></td><td>Machine learning for biomarker discovery in allergy and immunology trials.</td></tr>
-            <tr><td class="yr">2022–25</td><td class="org">HelpFirst AI<i>Lead AI Engineer</i></td><td>Award-winning AI system for Citizens Advice Scotland: £400k a year saved (2023 ScotlandIS Tech for Good Award). Prompt engineering, evaluation and fine-tuning.</td></tr>
+            <tr><td class="yr">2022–25</td><td class="org">HelpFirst AI<i>Lead AI Engineer</i></td><td>Led the award-winning AI system for Citizens Advice Scotland: £400k a year saved (2023 ScotlandIS Tech for Good Award). Prompt engineering, evaluation and fine-tuning.</td></tr>
             <tr><td class="yr">2021–24</td><td class="org">Bryant Medical<i>Lead Data Scientist</i></td><td>Patented AI for disease diagnosis and biometric measurement with computer vision; 60% faster diagnosis.</td></tr>
             <tr><td class="yr">2021</td><td class="org">loveholidays<i>Data Scientist</i></td><td>Recommendation engine (gradient-boosted trees and user clustering); an expected 2.8× in bookings, about £17M a year in revenue and over 10,000 new bookings.</td></tr>
             <tr><td class="yr">2019–21</td><td class="org">London South Bank Univ.<i>Associate Lecturer</i></td><td>Taught computer science and data science.</td></tr>
@@ -450,11 +553,11 @@
       </div>
     </section>
 
-    <section id="education" class="prose" aria-labelledby="s4">
-      <h2 class="sec" id="s4"><span class="n">4</span>Education</h2>
+    <section id="education" class="prose" aria-labelledby="s6">
+      <h2 class="sec" id="s6"><span class="n">6</span>Education</h2>
       <p>
         I trained as an engineer in Spain, Denmark and the United States, then moved to London for a PhD and a
-        fellowship in data science.<input type="checkbox" id="sn-4" class="sn-toggle" aria-label="Show note 4"><label for="sn-4" class="sn-ref"><sup>4</sup></label><span class="sidenote"><sup>4</sup>Originally from Galicia, in north-west Spain. Fiuza is a Galician surname.</span>
+        fellowship in data science.<input type="checkbox" id="sn-5" class="sn-toggle" aria-label="Show note 5"><label for="sn-5" class="sn-ref"><sup>5</sup></label><span class="sidenote"><sup>5</sup>Originally from Galicia, in north-west Spain. Fiuza is a Galician surname.</span>
       </p>
       <div class="edu">
         <span class="yr">2021</span><span>Fellowship in Data Science. <i>Faculty AI, London.</i></span>
@@ -465,11 +568,28 @@
       </div>
     </section>
 
-    <section id="publications" aria-labelledby="s5">
-      <h2 class="sec" id="s5"><span class="n">5</span>Publications</h2>
+    <section id="publications" aria-labelledby="s7">
+      <h2 class="sec" id="s7"><span class="n">7</span>Publications</h2>
       <ol class="refs small">
         <li id="pub-1"><span class="lbl">[P1]</span><span>D. Fiuza Dosil. <i>Improved models for natural displacement ventilation</i>. PhD thesis, Department of Civil and Environmental Engineering, Imperial College London, 2021. Supervised by H.&nbsp;C. Burridge and G.&nbsp;O. Hughes. Open access. <a class="url" href="https://doi.org/10.25560/110687">doi:10.25560/110687</a></span></li>
-        <li id="pub-2"><span class="lbl">[P2]</span><span>H. C. Burridge, G. Sehmbi, D. Fiuza Dosil and G. O. Hughes. Determining the venting efficiency of simple chimneys for buoyant plumes. In <i>Proc. 38th AIVC Conference</i>, Nottingham, UK, 13–14 September 2017, 7&nbsp;pp. Presenting author; saline plumes in fresh water as a laboratory analogue of cooking-fire smoke.<input type="checkbox" id="sn-5" class="sn-toggle" aria-label="Show note 5"><label for="sn-5" class="sn-ref"><sup>5</sup></label><span class="sidenote"><sup>5</sup>Salt water is denser than fresh water, so the analogue plume sinks instead of rising: smoke, upside down.</span> <a class="url" href="https://www.aivc.org/sites/default/files/160.pdf">aivc.org/<wbr>sites/<wbr>default/<wbr>files/<wbr>160.pdf</a></span></li>
+        <li id="pub-2"><span class="lbl">[P2]</span><span>H. C. Burridge, G. Sehmbi, D. Fiuza Dosil and G. O. Hughes. Determining the venting efficiency of simple chimneys for buoyant plumes. In <i>Proc. 38th AIVC Conference</i>, Nottingham, UK, 13–14 September 2017, 7&nbsp;pp. Presenting author; saline plumes in fresh water as a laboratory analogue of cooking-fire smoke.<input type="checkbox" id="sn-6" class="sn-toggle" aria-label="Show note 6"><label for="sn-6" class="sn-ref"><sup>6</sup></label><span class="sidenote"><sup>6</sup>Salt water is denser than fresh water, so the analogue plume sinks instead of rising: smoke, upside down.</span> <a class="url" href="https://www.aivc.org/sites/default/files/160.pdf">aivc.org/<wbr>sites/<wbr>default/<wbr>files/<wbr>160.pdf</a></span></li>
+      </ol>
+    </section>
+
+    <section id="open-problems" class="prose" aria-labelledby="s8">
+      <h2 class="sec" id="s8"><span class="n">8</span>Open problems</h2>
+      <p class="after">
+        Questions I am exploring beyond the day job, as of October 2026. None is solved here; partial solutions are
+        welcome.<input type="checkbox" id="sn-7" class="sn-toggle" aria-label="Show note 7"><label for="sn-7" class="sn-ref"><sup>7</sup></label><span class="sidenote"><sup>7</sup>Correspondence to the address on page one. Counter-examples count double.</span>
+      </p>
+      <ol class="work">
+        <li>When is an LLM judge a trustworthy measuring instrument, and how should it be calibrated, like any other sensor?</li>
+        <li>How do you evaluate a system in a high-stakes setting when the experts labelling the test set disagree with each other?</li>
+        <li>If money is programmable, should compliance be too, and who audits that code?</li>
+        <li>How does a small team use AI to go faster without losing the craft that made it good, and how would it notice if it had?</li>
+        <li>What would it take for “I don't know” to be a respected output of a model, rather than a failure?</li>
+        <li>Why do some explanations stick for years while others are gone by Friday, and can you design for the first kind?</li>
+        <li>Which habits from physics (conservation laws, dimensional analysis, simple models fitted to data) still earn their place in machine learning, and which are nostalgia?</li>
       </ol>
     </section>
 
@@ -478,6 +598,16 @@
       <p>
         To the colleagues, students and teachers I have worked with in Madrid, Aalborg, West Virginia and London:
         thank you. Any remaining errors are my own.
+      </p>
+    </section>
+
+    <section id="author" class="prose" aria-labelledby="s-author">
+      <h2 class="sec unnum" id="s-author">About the author</h2>
+      <p>
+        I am Galician, and I studied my way from Madrid to Aalborg to West Virginia before settling in London. I have
+        taught at two universities and tutored privately, and I still think explaining something is the best test of
+        whether I understand it. Outside work I build small side projects, from map posters to a crowd-sourced map of bar
+        prices, and I make time for sport, where nothing needs a test set.
       </p>
     </section>
 
@@ -790,6 +920,195 @@
   render();
   if (document.fonts) document.fonts.ready.then(render);
   new ResizeObserver(() => { if (Math.round(box.clientWidth) !== lastW) render(); }).observe(box);
+})();
+</script>
+<!-- contents: a self-building table of contents. Rail in the margin when there is room, compact bar otherwise -->
+<style>
+  .toc-rail { position: fixed; z-index: 5; width: var(--toc-w, 168px); max-height: calc(100vh - 150px); overflow-y: auto; overscroll-behavior: contain;
+    font: 13.5px/1.35 "CMU Serif", Georgia, serif; color: var(--muted); opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; scrollbar-width: none; }
+  .toc-rail::-webkit-scrollbar { display: none; }
+  .toc-rail.show { opacity: 1; visibility: visible; }
+  .toc-rail .toc-h, .toc-bar .toc-h { font: 500 10px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .toc-rail .toc-h { margin: 0 0 12px 14px; }
+  .toc-list { list-style: none; margin: 0; padding: 0 0 0 14px; position: relative; }
+  .toc-list li a { display: flex; gap: .55em; padding: 3px 0; text-decoration: none; color: inherit; transition: color .15s; }
+  .toc-list li a:hover { color: var(--ink); }
+  .toc-list .n { min-width: 1.6em; font-variant-numeric: tabular-nums; }
+  .toc-list li.sub a { padding-left: .7em; font-size: 12.5px; }
+  .toc-list li.sub .n { min-width: 1.9em; }
+  .toc-list li.code a { font: 11.5px/1.5 "JetBrains Mono", ui-monospace, monospace; padding-left: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  .toc-list li.in a { color: var(--ink); }
+  .toc-list li.active > a { color: var(--ink); }
+  .toc-list li.active .n { color: var(--accent); }
+  .toc-rail .toc-track, .toc-rail .toc-prog { position: absolute; left: 0; width: 1px; }
+  .toc-rail .toc-track { top: 0; bottom: 0; background: var(--rule); }
+  .toc-rail .toc-prog { width: 2px; margin-left: -.5px; background: var(--ink); transition: top .2s ease, height .2s ease; }
+
+  .toc-bar { position: fixed; left: 0; right: 0; top: var(--toc-top, 0px); z-index: 6; background: var(--bg); border-bottom: 1px solid var(--rule);
+    transform: translateY(-120%); transition: transform .25s ease; display: none; }
+  .toc-mode-bar .toc-bar { display: block; }
+  .toc-mode-bar .toc-rail { display: none; }
+  .toc-bar.show { transform: none; }
+  .toc-bar > button { all: unset; box-sizing: border-box; width: 100%; max-width: var(--toc-bar-max, 820px); margin: 0 auto; padding: 9px 16px;
+    display: flex; gap: 12px; align-items: baseline; cursor: pointer; font: 15px/1.3 "CMU Serif", Georgia, serif; color: var(--ink); }
+  .toc-bar > button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .toc-bar .toc-cur { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .toc-bar .toc-cur .n { color: var(--accent); margin-right: .45em; font-variant-numeric: tabular-nums; }
+  .toc-bar .toc-chev { font: 11px "JetBrains Mono", monospace; color: var(--muted); transition: transform .2s; }
+  .toc-bar.open .toc-chev { transform: rotate(180deg); }
+  .toc-bar .toc-read { position: absolute; left: 0; bottom: -1px; height: 2px; background: var(--ink); width: 0; }
+  .toc-bar .toc-list { display: none; max-width: var(--toc-bar-max, 820px); margin: 0 auto; padding: 2px 16px 14px 16px; max-height: 60vh; overflow-y: auto; }
+  .toc-bar.open .toc-list { display: block; }
+  .toc-bar .toc-list li a { padding: 6px 0; font-size: 15.5px; }
+  .toc-bar .toc-list li.sub a, .toc-bar .toc-list li.code a { font-size: 14px; }
+  .toc-bar .toc-list li.code a { font-size: 12.5px; }
+  @media (prefers-reduced-motion: reduce) { .toc-rail, .toc-bar, .toc-rail .toc-prog { transition: none; } }
+  @media print { .toc-rail, .toc-bar { display: none !important; } }
+</style>
+<script data-content=".page" data-headings="h2[id], h3[id]" data-width="182" data-gap="22">
+(() => {
+  // config comes from this script tag's data-* attributes
+  const cfg = document.currentScript.dataset;
+  const content = document.querySelector(cfg.content || 'main');
+  if (!content) return;
+  const after = cfg.after ? document.querySelector(cfg.after) : null;
+  const stick = cfg.offset ? document.querySelector(cfg.offset) : null;
+  const W = +(cfg.width || 168), GAP = +(cfg.gap || 32);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  // ---- collect entries ----
+  const items = [];
+  const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48);
+  if (cfg.items === 'cells') {
+    content.querySelectorAll('.cell').forEach(c => {
+      if (c.hidden || c.classList.contains('live')) return;
+      if (c.classList.contains('code') && c.dataset.fn) {
+        items.push({ el: c, label: 'df.' + c.dataset.fn + '()', kind: 'code' });
+      } else {
+        const h = c.querySelector('h1, h2, h3');
+        const aria = (c.getAttribute('aria-label') || '').replace(/^.*?:\s*/, '');
+        const label = h && h.tagName !== 'H1' ? h.textContent.trim() : aria.charAt(0).toUpperCase() + aria.slice(1);
+        if (label) items.push({ el: c, label, kind: 'top' });
+      }
+    });
+  } else {
+    content.querySelectorAll(cfg.headings || 'h2, h3').forEach(h => {
+      if (!h.id) h.id = slug(h.textContent);
+      const numEl = h.querySelector(':scope > span');
+      const num = numEl ? numEl.textContent.trim() : '';
+      const label = h.textContent.trim().slice(num.length).trim() || h.textContent.trim();
+      items.push({ el: h, label, num, kind: h.tagName === 'H3' ? 'sub' : 'top', id: h.id });
+    });
+  }
+  if (items.length < 3) return;
+
+  // ---- build both views from one list ----
+  const makeList = () => {
+    const ol = document.createElement('ol'); ol.className = 'toc-list';
+    items.forEach((it, i) => {
+      const li = document.createElement('li');
+      if (it.kind !== 'top') li.className = it.kind;
+      const a = document.createElement('a');
+      a.href = it.id ? '#' + it.id : '#';
+      if (it.num) { const n = document.createElement('span'); n.className = 'n'; n.textContent = it.num; a.appendChild(n); }
+      a.appendChild(document.createTextNode(it.label));
+      a.title = it.label;
+      a.addEventListener('click', e => { e.preventDefault(); go(i); bar.classList.remove('open'); barBtn.setAttribute('aria-expanded', 'false'); });
+      li.appendChild(a); ol.appendChild(li);
+    });
+    return ol;
+  };
+  const rail = document.createElement('nav');
+  rail.className = 'toc-rail'; rail.setAttribute('aria-label', 'Contents');
+  rail.innerHTML = '<p class="toc-h">Contents</p>';
+  const railList = makeList(); rail.appendChild(railList);
+  const track = document.createElement('div'); track.className = 'toc-track';
+  const prog = document.createElement('div'); prog.className = 'toc-prog';
+  railList.prepend(track, prog);
+
+  const bar = document.createElement('nav');
+  bar.className = 'toc-bar'; bar.setAttribute('aria-label', 'Contents');
+  bar.innerHTML = '<button type="button" aria-expanded="false"><span class="toc-h">Contents</span><span class="toc-cur"></span><span class="toc-chev" aria-hidden="true">▾</span></button><div class="toc-read"></div>';
+  const barBtn = bar.querySelector('button'), barCur = bar.querySelector('.toc-cur'), barRead = bar.querySelector('.toc-read');
+  const barList = makeList(); bar.appendChild(barList);
+  barBtn.addEventListener('click', () => { const o = bar.classList.toggle('open'); barBtn.setAttribute('aria-expanded', String(o)); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && bar.classList.contains('open')) { bar.classList.remove('open'); barBtn.setAttribute('aria-expanded', 'false'); barBtn.focus(); } });
+  document.body.append(rail, bar);
+
+  const stickBottom = () => stick ? Math.max(0, stick.getBoundingClientRect().bottom) : 0;
+  function go(i) {
+    const it = items[i];
+    const y = it.el.getBoundingClientRect().top + scrollY - stickBottom() - (mode === 'bar' ? 52 : 18);
+    scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+    if (it.id) history.replaceState(null, '', '#' + it.id);
+    if (cfg.items === 'cells') it.el.focus({ preventScroll: true });
+  }
+
+  // ---- layout: rail if the left margin can hold it, else the compact bar ----
+  let mode = 'rail';
+  function layout() {
+    const r = content.getBoundingClientRect();
+    const left = r.left - W - GAP;
+    mode = left >= 8 ? 'rail' : 'bar';
+    root.classList.toggle('toc-mode-bar', mode === 'bar');
+    rail.style.left = Math.max(8, left) + 'px';
+    rail.style.setProperty('--toc-w', W + 'px');
+    update();
+  }
+
+  // ---- scroll spy ----
+  const railLis = [...railList.querySelectorAll('li')], barLis = [...barList.querySelectorAll('li')];
+  let ticking = false, last = -1;
+  function update() {
+    ticking = false;
+    const top0 = stickBottom(), vh = innerHeight;
+    const shown = after ? after.getBoundingClientRect().bottom < vh * 0.4 : scrollY > vh * 0.35;
+    rail.classList.toggle('show', shown); bar.classList.toggle('show', shown);
+    if (!shown) { bar.classList.remove('open'); }
+    root.style.setProperty('--toc-top', top0 + 'px');
+
+    const tops = items.map(it => it.el.getBoundingClientRect().top);
+    const endY = content.getBoundingClientRect().bottom;
+    const line = top0 + vh * 0.3;
+    let active = 0;
+    tops.forEach((t, i) => { if (t <= line) active = i; });
+    let first = -1, lastIn = -1;
+    tops.forEach((t, i) => {
+      const b = i + 1 < tops.length ? tops[i + 1] : endY;
+      const vis = b > top0 + 4 && t < vh - 4;
+      railLis[i].classList.toggle('in', vis); barLis[i].classList.toggle('in', vis);
+      if (vis) { if (first < 0) first = i; lastIn = i; }
+    });
+    if (active !== last) {
+      [railLis, barLis].forEach(L => L.forEach((li, i) => {
+        li.classList.toggle('active', i === active);
+        const a = li.firstChild; if (i === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      }));
+      const it = items[active];
+      barCur.innerHTML = '';
+      if (it.num) { const n = document.createElement('span'); n.className = 'n'; n.textContent = it.num; barCur.appendChild(n); }
+      barCur.appendChild(document.createTextNode(it.label));
+      // keep the active entry visible inside a long rail
+      const a = railLis[active], rr = rail.getBoundingClientRect(), ar = a.getBoundingClientRect();
+      if (ar.top < rr.top + 24 || ar.bottom > rr.bottom - 8) rail.scrollTop += ar.top - rr.top - rr.height / 3;
+      last = active;
+    }
+    if (first >= 0) {
+      const a = railLis[first], b = railLis[lastIn];
+      prog.style.top = a.offsetTop + 'px';
+      prog.style.height = (b.offsetTop + b.offsetHeight - a.offsetTop) + 'px';
+    }
+    const max = document.documentElement.scrollHeight - vh;
+    barRead.style.width = (max > 0 ? Math.min(100, scrollY / max * 100) : 0) + '%';
+    rail.style.top = (top0 + (cfg.items === 'cells' ? 28 : 40)) + 'px';
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', layout);
+  // content can grow as notebook outputs render and fonts load
+  if ('ResizeObserver' in window) new ResizeObserver(() => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }).observe(content);
+  document.fonts && document.fonts.ready.then(layout);
+  layout();
 })();
 </script>
 </body>
