@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniel Fiuza Dosil</title>
+<meta name="description" content="Daniel Fiuza Dosil — data scientist and AI engineer in London, written up as a notebook. Lead Data Scientist at Range: blockchain ML, stablecoin compliance and cross-chain risk.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-500-roman.woff2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script>
+  // progressive enhancement: with JS (and motion allowed) the outputs start cleared and the notebook "runs"
+  (function (r) {
+    r.className = 'js';
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      r.classList.add('pre-run');
+      setTimeout(function () { r.classList.remove('pre-run'); }, 6000); // safety net if the main script never runs
+    }
+  })(document.documentElement);
+</script>
+<style>
+  @font-face { font-family: "CMU Serif"; font-weight: 400; font-style: normal; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-500-roman.woff2) format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-weight: 400; font-style: italic; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-500-italic.woff2) format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-weight: 700; font-style: normal; font-display: swap;
+    src: url(https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-serif-700-roman.woff2) format("woff2"); }
+
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #6b6b6b;
+    --rule: #dcdcdc;
+    --faint: #f7f7f5;
+    --edge: #e3e3df;
+    --accent: #b8322a;
+    --err-bg: #fbf1f0;
+    /* syntax: calm, light */
+    --kw: #2c6b4c;
+    --str: #9b5a14;
+    --num: #2d5a96;
+    --fn: #3a4a85;
+    --com: #8a8a84;
+    --op: #5a5a5a;
+    --gutter: 92px;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "CMU Serif", "Latin Modern Roman", Georgia, serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 18.5px/1.5 var(--serif); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .katex { font-size: 1.04em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- top bar ---------- */
+  .menubar, .toolbar { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
+  .menubar { justify-content: space-between; padding-top: 18px; padding-bottom: 12px; }
+  .file { font: 500 15px var(--mono); letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .file svg { flex: none; color: var(--muted); }
+  .file span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .menubar nav { display: flex; gap: 22px; font-size: 17px; }
+  .menubar nav a { text-decoration: none; }
+  .menubar nav a:hover { text-decoration: underline; }
+  .toolwrap { position: sticky; top: 0; z-index: 5; background: var(--bg); border-top: 1px solid var(--edge); border-bottom: 1px solid var(--edge); }
+  .toolbar { height: 42px; font: 12.5px var(--mono); color: var(--muted); }
+  .toolbar button {
+    font: 500 12.5px var(--mono); color: var(--ink); background: var(--bg); cursor: pointer;
+    border: 1px solid var(--rule); border-radius: 3px; padding: 4px 10px 4px 9px; display: inline-flex; align-items: center; gap: 7px;
+  }
+  .toolbar button:hover { border-color: var(--ink); }
+  .toolbar button:active { background: var(--faint); }
+  .toolbar .hint kbd { font: inherit; border: 1px solid var(--rule); border-radius: 3px; padding: 0 4px; color: var(--ink); }
+  .kernel { margin-left: auto; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .kernel .dot { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--muted); transition: background .15s, border-color .15s; }
+  .kernel.busy .dot { background: var(--accent); border-color: var(--accent); }
+  .kernel.busy #kstate { color: var(--accent); }
+  .no-js .toolbar button, .no-js .toolbar .hint { display: none; }
+
+  /* ---------- notebook ---------- */
+  main.nb { max-width: 960px; margin: 0 auto; padding: 26px 24px 40px; }
+  .cell { position: relative; padding: 7px 0; margin: 0 0 6px; border-radius: 2px; scroll-margin-top: 60px; }
+  .cell:focus { outline: none; }
+  .cell::before { content: ""; position: absolute; left: -12px; top: 6px; bottom: 6px; width: 2px; background: transparent; transition: background .12s; }
+  .cell:focus-within::before { background: var(--accent); }
+  .cell:focus-visible { box-shadow: 0 0 0 1px var(--edge); }
+  .row { display: grid; grid-template-columns: var(--gutter) minmax(0, 1fr); }
+
+  .prompt {
+    font: 12.5px/21.6px var(--mono); color: var(--muted); white-space: pre;
+    display: flex; justify-content: flex-end; align-items: flex-start; gap: 6px;
+    padding: 9px 12px 0 0; user-select: none;
+  }
+  .out .prompt { padding-top: 7px; }
+  .queued .in .prompt, .running .in .prompt { color: var(--accent); }
+  .run {
+    width: 22px; height: 22px; margin-top: -1px; padding: 0; border: 1px solid transparent; border-radius: 50%;
+    background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; opacity: 0;
+    transition: opacity .12s;
+  }
+  .cell:hover .run, .cell:focus-within .run, .run:focus-visible { opacity: 1; }
+  .run:hover { color: var(--accent); border-color: var(--rule); }
+  .no-js .run { display: none; }
+
+  /* code input */
+  .input { position: relative; min-width: 0; background: var(--faint); border: 1px solid var(--edge); border-radius: 3px; }
+  pre { margin: 0; }
+  .input pre { padding: 9px 14px; overflow-x: auto; font: 13.5px/1.6 var(--mono); tab-size: 4; }
+  code { font-family: var(--mono); }
+  .tk-kw { color: var(--kw); font-weight: 500; }
+  .tk-str { color: var(--str); }
+  .tk-num { color: var(--num); }
+  .tk-fn { color: var(--fn); }
+  .tk-com { color: var(--com); font-style: italic; }
+  .tk-op { color: var(--op); }
+
+  /* outputs */
+  .out { transition: opacity .3s ease; }
+  .cleared .out { opacity: 0; pointer-events: none; transition: none; }
+  .pre-run .cell.code .out { opacity: 0; }
+  .pre-run .prompt .n { visibility: hidden; }
+  .output { min-width: 0; padding: 7px 0 4px 15px; }
+  .stream, .repr { margin: 0; font: 13px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+  .repr .l { display: block; padding-left: 2ch; text-indent: -2ch; }
+  .stream .l { display: block; padding-left: 9ch; text-indent: -9ch; }
+  .repr a { text-decoration-color: #c9c9c4; }
+  .repr a:hover { text-decoration-color: var(--accent); }
+  .err { background: var(--err-bg); padding: 8px 12px; border-radius: 3px; }
+  .err .ename { color: var(--accent); font-weight: 500; }
+  .err .hint { color: var(--muted); }
+
+  /* rich (HTML) output */
+  dl.rich { margin: 2px 0 0; max-width: 720px; }
+  dl.rich dt { font-weight: 700; margin: 10px 0 1px; }
+  dl.rich dt:first-child { margin-top: 0; }
+  dl.rich dt span { font: 400 12px var(--mono); color: var(--muted); margin-left: 10px; letter-spacing: -.01em; }
+  dl.rich dd { margin: 0; }
+
+  /* DataFrame-ish tables */
+  .scroll { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+  table.df { border-collapse: collapse; font-size: 15.5px; line-height: 1.38; }
+  table.df thead th { border-top: 1.2px solid var(--ink); border-bottom: .8px solid var(--ink); font-weight: 700; text-align: left; padding: 6px 16px 5px 0; white-space: nowrap; }
+  table.df tbody td, table.df tbody th { padding: 5px 16px 5px 0; vertical-align: top; text-align: left; }
+  table.df tbody tr:first-child > * { padding-top: 8px; }
+  table.df tbody tr:last-child > * { border-bottom: 1.2px solid var(--ink); padding-bottom: 7px; }
+  table.df tbody th { font: 500 12.5px/1.75 var(--mono); color: var(--muted); text-align: right; padding-right: 18px; }
+  table.df thead th:first-child { min-width: 1.5em; }
+  table.df tbody tr:hover { background: var(--faint); }
+  table.df .d { white-space: nowrap; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 12.5px; line-height: 1.75; }
+  table.df .nw { white-space: nowrap; }
+  table.xp { min-width: 760px; }
+  table.xp td:last-child { min-width: 280px; }
+  table.xp td.org { min-width: 130px; }
+  table.ed { min-width: 600px; }
+  table.pub { min-width: 720px; }
+  table.pub td:nth-child(4) { min-width: 220px; }
+  table.pub td:last-child { min-width: 260px; }
+
+  /* markdown cells */
+  .md .body { grid-column: 2; padding: 4px 15px 2px; min-width: 0; }
+  .md h1 { font-size: 44px; line-height: 1.08; margin: 6px 0 14px; font-weight: 700; letter-spacing: -.005em; }
+  .md h2 { font-size: 25px; line-height: 1.2; margin: 6px 0 10px; font-weight: 700; }
+  .md p { margin: 0 0 12px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; max-width: 720px; }
+  .md p:last-child { margin-bottom: 4px; }
+  .md .lede { color: var(--muted); font-style: italic; font-size: 17px; }
+  .md code { font-size: .78em; }
+  .md kbd { font: 13px var(--mono); border: 1px solid var(--rule); border-radius: 3px; padding: 0 4px; }
+  .eq { margin: 14px 0; overflow-x: auto; overflow-y: hidden; max-width: 720px; text-align: center; }
+
+  /* the figure */
+  .fig { position: relative; margin: 10px 0 2px; max-width: 760px; }
+  .fig svg { display: block; overflow: visible; }
+  .fig svg text { font-family: var(--serif); fill: var(--ink); }
+  .fig svg .lab { font-style: italic; }
+  .fig .spine { stroke: var(--ink); stroke-width: 1; }
+  .fig .tick { stroke: var(--ink); stroke-width: 1; }
+  .fig .grid { stroke: #ededea; stroke-width: 1; }
+  .fig .line { fill: none; stroke: var(--ink); stroke-width: 1.7; stroke-linejoin: round; }
+  .fig .line.now { stroke: var(--accent); stroke-width: 2.2; }
+  .fig .pt { cursor: pointer; outline: none; }
+  .fig .pt .dot { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5; transition: r .12s; }
+  .fig .pt.cur .dot { fill: var(--accent); }
+  .fig .pt .hit { fill: transparent; }
+  .fig .pt:hover .dot, .fig .pt:focus .dot, .fig .pt.on .dot { stroke: var(--accent); stroke-width: 2; }
+  .fig .nowlab { fill: var(--accent); font-style: italic; }
+  .tip {
+    position: absolute; left: 0; top: 0; z-index: 2; width: max-content; max-width: min(300px, 90%);
+    background: var(--bg); border: 1px solid var(--ink); padding: 6px 10px 7px; font-size: 14.5px; line-height: 1.35;
+    pointer-events: none; opacity: 0; transition: opacity .12s;
+  }
+  .tip.show { opacity: 1; }
+  .tip b { font-weight: 700; }
+  .tip .k { font: 11.5px var(--mono); color: var(--muted); display: block; margin-bottom: 2px; }
+  .js .traj-table { display: none; }
+  .no-js .fig svg, .no-js .tip { display: none; }
+
+  /* the live cell */
+  .live textarea {
+    display: block; width: 100%; resize: none; overflow: hidden; border: 0; outline: none; background: transparent;
+    font: 13.5px/1.6 var(--mono); color: var(--ink); padding: 9px 14px; min-height: 41px; tab-size: 4;
+  }
+  .live textarea::placeholder { color: var(--com); font-style: italic; opacity: 1; }
+  .live .input:focus-within { border-color: #c9c9c4; background: var(--bg); }
+  .live .input::after {
+    content: ""; position: absolute; left: 13px; top: 11px; width: 1.5px; height: 17px; background: var(--ink);
+    animation: blink 1.1s steps(1) infinite; display: none;
+  }
+  .live .input:has(textarea:placeholder-shown):not(:focus-within)::after { display: block; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .live:not(.has-out) .out { display: none; }
+
+  /* footer */
+  footer { max-width: 960px; margin: 0 auto; padding: 8px 24px 44px; font-size: 14.5px; color: var(--muted); }
+  footer .in { margin-left: calc(var(--gutter) + 15px); }
+  footer hr { width: 30%; margin: 0 0 8px; border: 0; border-top: 1px solid var(--muted); }
+  footer p { margin: 0 0 4px; }
+  footer a[aria-current] { color: var(--ink); font-weight: 700; text-decoration: none; }
+
+  /* no programming ligatures: '->' should read as two characters, as it would in a terminal */
+  .nb code, .nb pre, .nb pre *, .nb textarea, .nb .prompt, .nb .prompt *, .toolbar, .toolbar *, .menubar .file, .nb .tip .k { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+  .repr .l:empty::before, .stream .l:empty::before { content: "\200b"; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+
+  @media (max-width: 700px) {
+    body { font-size: 17.5px; }
+    .menubar, .toolbar, main.nb, footer { padding-left: 16px; padding-right: 16px; }
+    .menubar { padding-top: 14px; padding-bottom: 10px; gap: 12px; }
+    .file { font-size: 13px; gap: 8px; }
+    .menubar nav { gap: 14px; font-size: 16px; }
+    .menubar nav .opt { display: none; }
+    .toolbar .hint { display: none; }
+    main.nb { padding-top: 18px; }
+    .row { grid-template-columns: minmax(0, 1fr); }
+    .prompt { justify-content: flex-start; padding: 2px 0 3px; line-height: 20px; font-size: 12px; }
+    .prompt .run { order: 2; opacity: 1; width: 20px; height: 20px; margin-top: 0; }
+    .out .prompt { padding-top: 6px; }
+    .out .prompt:empty, .out .prompt.blank { display: none; }
+    .cell::before { left: -9px; }
+    .md .body { grid-column: 1; padding: 2px 0; }
+    .md h1 { font-size: 34px; }
+    .md h2 { font-size: 22px; }
+    .md p { text-align: left; }
+    .input pre, .live textarea { font-size: 12.5px; padding: 8px 11px; }
+    .live .input::after { left: 10px; top: 10px; height: 15px; }
+    .output { padding-left: 0; padding-top: 4px; }
+    .stream, .repr { font-size: 12px; }
+    table.df { font-size: 15px; }
+    footer .in { margin-left: 0; }
+    dl.rich dt span { display: block; margin: 0; }
+    /* DataFrames become stacked records on a phone: one row per block, no sideways scrolling */
+    table.df.xp, table.df.ed, table.df.pub { min-width: 0; width: 100%; border-top: 1.2px solid var(--ink); }
+    table.df.xp thead, table.df.ed thead, table.df.pub thead { display: none; }
+    table.df.xp :is(tbody, tr, td), table.df.ed :is(tbody, tr, td), table.df.pub :is(tbody, tr, td) { display: block; }
+    table.df.xp tr, table.df.ed tr, table.df.pub tr { position: relative; padding: 9px 0 9px 2.1em; border-bottom: 1px solid var(--edge); }
+    table.df.xp tr:last-child, table.df.ed tr:last-child, table.df.pub tr:last-child { border-bottom: 1.2px solid var(--ink); }
+    table.df.xp tr > *, table.df.ed tr > *, table.df.pub tr > * { padding: 0 !important; border: 0 !important; min-width: 0 !important; }
+    table.df.xp th, table.df.ed th, table.df.pub th { position: absolute; left: 0; top: 9px; }
+    table.df.xp td.d, table.df.pub td.d { display: inline; color: var(--muted); }
+    table.df.xp td.d + td.d::before { content: " – "; }
+    table.df.ed td.d { color: var(--muted); }
+    table.df.pub td.d + td::before { content: " · "; color: var(--muted); }
+    table.df.pub td.d + td { display: inline; color: var(--muted); font-family: var(--mono); font-size: 12.5px; }
+    table.df.xp td.org { font-weight: 700; margin-top: 1px; }
+    table.df.xp td.nw { font-style: italic; }
+    table.df.ed td:last-child, table.df.pub td:last-child { color: var(--muted); font-size: 15px; }
+    table.df.xp tbody tr:hover, table.df.ed tbody tr:hover, table.df.pub tbody tr:hover { background: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="menubar">
+    <div class="file">
+      <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M2 .5h7l4.5 4.5v10.5h-11.5z" fill="none" stroke="currentColor"/><path d="M9 .5v4.5h4.5" fill="none" stroke="currentColor"/><path d="M4.5 9h5M4.5 11.5h5" stroke="currentColor"/></svg>
+      <span>daniel_fiuza_dosil.ipynb</span>
+    </div>
+    <nav aria-label="Sections">
+      <a href="#experience" class="opt">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="/cv/CV_Daniel-Fiuza-Dosil.pdf">CV</a>
+    </nav>
+  </div>
+</header>
+<div class="toolwrap">
+  <div class="toolbar">
+    <button type="button" id="runall" aria-describedby="kernel-note">
+      <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg>Run all
+    </button>
+    <span class="hint"><kbd>shift</kbd> + <kbd>enter</kbd> runs a cell</span>
+    <div class="kernel" id="kernel" title="A pretend kernel: every output is precomputed in this page">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Python 3 · <span id="kstate" role="status" aria-live="polite">idle</span></span>
+    </div>
+  </div>
+</div>
+
+<main class="nb" id="nb">
+  <!-- markdown: introduction -->
+  <section class="cell md" tabindex="0" aria-label="Markdown cell: introduction">
+    <div class="row">
+      <div class="body">
+        <h1>Daniel Fiuza Dosil</h1>
+        <p>
+          I'm a data scientist and AI engineer in London, working where blockchain analytics meets AI.
+          I lead data science at <a href="https://www.range.org">Range</a>: machine learning for stablecoin compliance and cross-chain risk,
+          with $30B+ in monitored assets across 21 chains. Before that I was Lead AI Engineer at HelpFirst AI, building award-winning
+          LLM systems; one of those projects saves Citizens Advice Scotland £400k a year. Part-time, I'm a research associate at Imperial College London,
+          using machine learning to find biomarkers in allergy and immunology trials. My training is in engineering, with a PhD from Imperial.
+        </p>
+        <p class="lede">This page is a notebook, and it has just run itself. Select any cell and press <kbd>shift</kbd> + <kbd>enter</kbd> (or tap the small triangle by its prompt) to run it again.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- whoami -->
+  <section class="cell code" tabindex="0" data-fn="whoami" data-ms="200" aria-label="Code cell: whoami">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">1</span>]:</span></div>
+      <div class="input"><pre><code class="py">import daniel as df   # yes, df. it was always going to be df.
+df.whoami()</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">1</span>]:</span></div>
+      <div class="output"><pre class="repr"><span class="l">{'name': 'Daniel Fiuza Dosil',</span><span class="l"> 'role': 'Lead Data Scientist, Range',</span><span class="l"> 'focus': ['blockchain analytics', 'AI / LLM systems'],</span><span class="l"> 'also': 'Research Associate (part-time), Imperial College London',</span><span class="l"> 'location': 'London'}</span></pre></div>
+    </div>
+  </section>
+
+  <!-- now -->
+  <section class="cell code" tabindex="0" data-fn="now" data-ms="220" aria-label="Code cell: now">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">2</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.now()   # what the day job looks like</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">2</span>]:</span></div>
+      <div class="output">
+        <dl class="rich">
+          <dt>Range <span>Lead Data Scientist · since Apr 2025</span></dt>
+          <dd>Blockchain ML for stablecoin compliance and cross-chain risk: $30B+ in monitored assets across 21 chains, with real-time pipelines and ClickHouse underneath.</dd>
+          <dt>AI engineering <span>LLM applications, end to end</span></dt>
+          <dd>Fine-tuning, evaluation and prompt optimisation (I wrote a Python library for the last one). At HelpFirst AI: award-winning AI systems, including one that saves Citizens Advice Scotland £400k a year.</dd>
+          <dt>Research <span>Imperial College London · part-time</span></dt>
+          <dd>Machine learning for biomarker discovery in allergy and immunology trials.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- markdown: evaluation -->
+  <section class="cell md" tabindex="0" aria-label="Markdown cell: on scoring things">
+    <div class="row">
+      <div class="body">
+        <h2>On scoring things</h2>
+        <p>
+          A compliance risk score and an LLM classifier have something in common: both are judged on the cases they get wrong, and the two kinds of wrong rarely cost the same.
+          Missing a risky flow is usually worse than sending an analyst one extra alert. So accuracy alone is the wrong headline: precision
+          <span data-tex="P">P</span> (how many flags were right) and recall <span data-tex="R">R</span> (how many real cases were caught) have to be read together, and
+        </p>
+        <div class="eq" data-tex-display="F_\beta = \frac{(1+\beta^2)\,P\,R}{\beta^2 P + R} \tag{1}">F<sub>β</sub> = (1 + β²)·P·R / (β²·P + R)    (1)</div>
+        <p>
+          with <span data-tex="\beta > 1">β &gt; 1</span> says out loud that recall matters more. Choosing <span data-tex="\beta">β</span> is a business decision, not a modelling one,
+          and it is worth making before the model is built, on a labelled evaluation set that everyone agrees on.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- skills -->
+  <section class="cell code" tabindex="0" data-fn="skills" data-ms="160" aria-label="Code cell: skills">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">3</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.skills()</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">3</span>]:</span></div>
+      <div class="output"><pre class="repr"><span class="l">{'languages': ['Python', 'SQL', 'MATLAB', 'Bash', 'C'],</span><span class="l"> 'data': ['ClickHouse', 'real-time pipelines', 'Airflow'],</span><span class="l"> 'ml': ['NumPy', 'Pandas', 'SciPy', 'scikit-learn', 'PyTorch', 'Keras',</span><span class="l">        'TensorFlow', 'MLflow', 'Optuna'],</span><span class="l"> 'llm': ['RAG', 'fine-tuning', 'evaluation', 'prompt optimisation'],</span><span class="l"> 'infra': ['AWS', 'Azure', 'Docker', 'CI/CD']}</span></pre></div>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section class="cell code" data-fn="experience" id="experience" tabindex="0" data-ms="260" aria-label="Code cell: experience">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">4</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.experience().sort_values("start", ascending=False)</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">4</span>]:</span></div>
+      <div class="output">
+        <div class="scroll" role="region" aria-label="Experience table" tabindex="0">
+          <table class="df xp">
+            <thead><tr><th></th><th>start</th><th>end</th><th>organisation</th><th>role</th><th>highlights</th></tr></thead>
+            <tbody>
+              <tr><th>6</th><td class="d">2025-04</td><td class="d">present</td><td class="org"><a href="https://www.range.org">Range</a></td><td class="nw">Lead Data Scientist</td><td>Blockchain ML and stablecoin compliance; $30B+ monitored assets, 21 integrated chains, cross-chain security</td></tr>
+              <tr><th>5</th><td class="d">2025-03</td><td class="d">present</td><td class="org">Imperial College London</td><td class="nw">Research Associate (part-time)</td><td>ML for biomarker discovery in allergy and immunology trials</td></tr>
+              <tr><th>4</th><td class="d">2022</td><td class="d">2025-03</td><td class="org">HelpFirst AI</td><td class="nw">Lead AI Engineer</td><td>Award-winning LLM solutions (2023 ScotlandIS Tech for Good Award); £400k annual savings for Citizens Advice Scotland, 92% accuracy</td></tr>
+              <tr><th>3</th><td class="d">2021</td><td class="d">2024</td><td class="org">Bryant Medical</td><td class="nw">Lead Data Scientist</td><td>Patented AI diagnostics with computer vision; 60% faster diagnosis</td></tr>
+              <tr><th>2</th><td class="d">2021</td><td class="d">2021</td><td class="org">loveholidays</td><td class="nw">Data Scientist</td><td>ML recommendation engine (gradient-boosted trees + user clustering); expected 2.8× bookings and about £17M revenue</td></tr>
+              <tr><th>1</th><td class="d">2019</td><td class="d">2021</td><td class="org">London South Bank University</td><td class="nw">Associate Lecturer</td><td>Computer science and data science teaching</td></tr>
+              <tr><th>0</th><td class="d">2017</td><td class="d">2020</td><td class="org">Imperial College London</td><td class="nw">Graduate Teaching Assistant</td><td>Fluid mechanics teaching</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section class="cell code" data-fn="projects" tabindex="0" data-ms="180" aria-label="Code cell: projects">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">5</span>]:</span></div>
+      <div class="input"><pre><code class="py">for p in df.projects():
+    print(f"{p.years:&lt;9}{p.title} ({p.org})")</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt blank"></div>
+      <div class="output"><pre class="stream"><span class="l">2023     Prompt Optimiser, a Python library (HelpFirst AI)</span><span class="l">2022     Predicting customer vulnerability with NLP and LLMs (HelpFirst AI)</span><span class="l">2022–24  Automated biometric measurements for face and posture (Bryant Dental)</span><span class="l">2021–23  Predicting COVID-19 infection from breath biomarkers (Bryant Medical)</span><span class="l">2020–21  Holiday recommendation system (loveholidays)</span></pre></div>
+    </div>
+  </section>
+
+  <!-- trajectory -->
+  <section class="cell code" data-fn="trajectory" tabindex="0" data-ms="380" data-chart aria-label="Code cell: trajectory plot">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">6</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.trajectory().plot(drawstyle="steps-post")   # one step at a time</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">6</span>]:</span></div>
+      <div class="output">
+        <pre class="repr">&lt;Axes: xlabel='year', ylabel='domain'&gt;</pre>
+        <div class="fig" id="traj">
+          <table class="df traj-table">
+            <caption class="sr-only">Career trajectory by domain</caption>
+            <thead><tr><th></th><th>year</th><th>domain</th><th>what</th></tr></thead>
+            <tbody>
+              <tr><th>0</th><td class="d">2011</td><td>engineering</td><td>BSc Industrial Engineering (Energy Technologies), Universidad Carlos III de Madrid</td></tr>
+              <tr><th>1</th><td class="d">2014</td><td>engineering</td><td>MSc Energy Engineering (Aalborg) and MSc Mechanical &amp; Aerospace Engineering (West Virginia)</td></tr>
+              <tr><th>2</th><td class="d">2017</td><td>fluid mechanics</td><td>PhD on natural displacement ventilation, Imperial College London</td></tr>
+              <tr><th>3</th><td class="d">2021</td><td>applied ML</td><td>Faculty AI fellowship; loveholidays; Bryant Medical</td></tr>
+              <tr><th>4</th><td class="d">2022</td><td>LLMs</td><td>Lead AI Engineer, HelpFirst AI</td></tr>
+              <tr><th>5</th><td class="d">2025</td><td>blockchain + AI</td><td>Lead Data Scientist, Range</td></tr>
+            </tbody>
+          </table>
+          <div class="tip" id="tip" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- education -->
+  <section class="cell code" data-fn="education" tabindex="0" data-ms="160" aria-label="Code cell: education">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">7</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.education()</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">7</span>]:</span></div>
+      <div class="output">
+        <div class="scroll" role="region" aria-label="Education table" tabindex="0">
+          <table class="df ed">
+            <thead><tr><th></th><th>years</th><th>degree</th><th>institution</th></tr></thead>
+            <tbody>
+              <tr><th>0</th><td class="d">2021</td><td>Fellowship in Data Science</td><td>Faculty AI</td></tr>
+              <tr><th>1</th><td class="d">2017–2021</td><td>PhD Fluid Mechanics, Civil &amp; Environmental Engineering</td><td>Imperial College London</td></tr>
+              <tr><th>2</th><td class="d">2015–2016</td><td>MSc Mechanical &amp; Aerospace Engineering</td><td>West Virginia University, USA</td></tr>
+              <tr><th>3</th><td class="d">2014–2016</td><td>MSc Energy Engineering</td><td>Aalborg University, Denmark</td></tr>
+              <tr><th>4</th><td class="d">2011–2015</td><td>BSc Industrial Engineering (Energy Technologies)</td><td>Universidad Carlos III de Madrid</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- publications -->
+  <section class="cell code" data-fn="publications" id="publications" tabindex="0" data-ms="160" aria-label="Code cell: publications">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">8</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.publications()</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">8</span>]:</span></div>
+      <div class="output">
+        <div class="scroll" role="region" aria-label="Publications table" tabindex="0">
+          <table class="df pub">
+            <thead><tr><th></th><th>year</th><th>kind</th><th>title</th><th>venue</th></tr></thead>
+            <tbody>
+              <tr><th>0</th><td class="d">2021</td><td>thesis</td><td><a href="https://doi.org/10.25560/110687">Improved models for natural displacement ventilation</a></td><td>PhD, Civil &amp; Environmental Engineering, Imperial College London; supervisors H.C. Burridge, G.O. Hughes</td></tr>
+              <tr><th>1</th><td class="d">2017</td><td>paper</td><td><a href="https://www.aivc.org/sites/default/files/160.pdf">Determining the venting efficiency of simple chimneys for buoyant plumes</a></td><td>Burridge, Sehmbi, Fiuza Dosil, Hughes. 38th AIVC Conference, Nottingham. Saline plumes in fresh water as a lab analogue of cooking-fire smoke</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class="cell code" data-fn="contact" id="contact" tabindex="0" data-ms="150" aria-label="Code cell: contact">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">9</span>]:</span></div>
+      <div class="input"><pre><code class="py">df.contact()</code></pre></div>
+    </div>
+    <div class="row out">
+      <div class="prompt"><span>Out[<span class="n">9</span>]:</span></div>
+      <div class="output" id="contact-out"><pre class="repr"><span class="l">{'email': '<a href="mailto:dafiuzadosil@gmail.com">dafiuzadosil@gmail.com</a>',</span><span class="l"> 'github': '<a href="https://github.com/Daniel-FD">github.com/Daniel-FD</a>',</span><span class="l"> 'linkedin': '<a href="https://www.linkedin.com/in/daniel-fiuza-dosil/">linkedin.com/in/daniel-fiuza-dosil</a>',</span><span class="l"> 'cv': '<a href="/cv/CV_Daniel-Fiuza-Dosil.pdf">CV_Daniel-Fiuza-Dosil.pdf</a>'}</span></pre></div>
+    </div>
+  </section>
+
+  <!-- your move (JS only) -->
+  <section class="cell code live" tabindex="0" hidden aria-label="Editable code cell: try a command">
+    <div class="row in">
+      <div class="prompt"><button class="run" type="button" tabindex="-1" aria-label="Run cell"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8l6.5-4z" fill="currentColor"/></svg></button><span>In [<span class="n">&nbsp;</span>]:</span></div>
+      <div class="input">
+        <label for="repl" class="sr-only">Type a command, for example help(df), then press shift and enter</label>
+        <textarea id="repl" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="# your move: shift + enter"></textarea>
+      </div>
+    </div>
+    <div class="row out">
+      <div class="prompt"></div>
+      <div class="output" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <hr>
+    <p>Versions: <a href="/">A (current site)</a> · <a href="/b/">B (flow)</a> · <a href="/c/">C (paper)</a> · <a href="/d/" aria-current="page">D (notebook)</a>.</p>
+    <p id="kernel-note">Version D — a prototype. Nothing here runs on a server: the kernel is theatre and every output is precomputed in the page.</p>
+  </div>
+</footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script>
+  // typeset math once KaTeX arrives; the unicode text stays as a fallback
+  addEventListener('load', () => {
+    if (!window.katex) return;
+    document.querySelectorAll('[data-tex]').forEach(el => katex.render(el.dataset.tex, el, { throwOnError: false }));
+    document.querySelectorAll('[data-tex-display]').forEach(el => katex.render(el.dataset.texDisplay, el, { displayMode: true, throwOnError: false }));
+  });
+</script>
+<script>
+(() => {
+  const root = document.documentElement;
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  // ---------- a tiny Python highlighter ----------
+  const KW = new Set('import as from def return for in if elif else while with class lambda not and or is pass yield try except finally raise True False None'.split(' '));
+  const BUILTIN = new Set('print help len range list dict str int float'.split(' '));
+  function highlight(src) {
+    const re = /(#[^\n]*)|([fFrRbB]?(?:"(?:[^"\\\n]|\\.)*"|'(?:[^'\\\n]|\\.)*'))|(\b\d+(?:\.\d+)?\b)|([A-Za-z_]\w*)|([^\w\s]+)|(\s+)/g;
+    let out = '', m;
+    while ((m = re.exec(src))) {
+      const [t, com, str, num, id, op] = m;
+      if (com) out += `<span class="tk-com">${esc(t)}</span>`;
+      else if (str) out += `<span class="tk-str">${esc(t)}</span>`;
+      else if (num) out += `<span class="tk-num">${t}</span>`;
+      else if (id) {
+        const next = src.slice(re.lastIndex).match(/^\s*\(/);
+        if (KW.has(id)) out += `<span class="tk-kw">${id}</span>`;
+        else if (BUILTIN.has(id)) out += `<span class="tk-kw">${id}</span>`;
+        else if (next) out += `<span class="tk-fn">${id}</span>`;
+        else out += id;
+      }
+      else if (op) out += `<span class="tk-op">${esc(t)}</span>`;
+      else out += t;
+    }
+    return out;
+  }
+  $$('code.py').forEach(c => { c.innerHTML = highlight(c.textContent); });
+
+  // ---------- the figure: a matplotlib-ish step plot, drawn as SVG ----------
+  const DOMAINS = ['engineering', 'fluid mechanics', 'applied ML', 'LLMs', 'blockchain + AI'];
+  const today = new Date();
+  const NOW = Math.max(2025.6, today.getFullYear() + today.getMonth() / 12);
+  const TRAJ = [
+    { x: 2011, c: 0, when: '2011–15', what: 'BSc Industrial Engineering (Energy Technologies), Universidad Carlos III de Madrid' },
+    { x: 2014, c: 0, when: '2014–16', what: 'MSc Energy Engineering, Aalborg University; MSc Mechanical & Aerospace Engineering, West Virginia University' },
+    { x: 2017, c: 1, when: '2017–21', what: 'PhD on natural displacement ventilation at Imperial College London, while teaching fluid mechanics' },
+    { x: 2021, c: 2, when: '2021–24', what: 'Faculty AI fellowship; recommendations at loveholidays; AI diagnostics at Bryant Medical' },
+    { x: 2022, c: 3, when: '2022–25', what: 'Lead AI Engineer at HelpFirst AI: LLM solutions, 2023 ScotlandIS Tech for Good Award' },
+    { x: 2025.25, c: 4, when: 'Apr 2025', what: 'joined Range as Lead Data Scientist' },
+    { x: NOW, c: 4, when: 'now', what: 'blockchain ML and stablecoin compliance across 21 chains', cur: true }
+  ];
+  const fig = $('#traj'), tip = $('#tip');
+  const measure = document.createElement('canvas').getContext('2d');
+  let figW = 0, plotG = null;
+
+  function drawChart() {
+    const W = Math.floor(fig.clientWidth);
+    if (!W) return;
+    figW = W;
+    const sm = W < 520;
+    const fs = sm ? 12 : 13.5;
+    measure.font = `${fs}px "CMU Serif", Georgia, serif`;
+    const labW = Math.max(...DOMAINS.map(d => measure.measureText(d).width));
+    const H = sm ? 240 : 290;
+    const m = { l: Math.ceil(labW) + 34, r: sm ? 14 : 30, t: 8, b: 46 };
+    const x0 = 2010.3, x1 = Math.max(2027.4, NOW + 0.6);
+    const X = v => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r);
+    const band = (H - m.t - m.b) / DOMAINS.length;
+    const Y = c => m.t + (DOMAINS.length - c - 0.5) * band;
+    const f = n => n.toFixed(1);
+    let s = '';
+    DOMAINS.forEach((d, c) => {
+      s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${f(Y(c))}" y2="${f(Y(c))}"/>`;
+      s += `<line class="tick" x1="${m.l - 4}" x2="${m.l}" y1="${f(Y(c))}" y2="${f(Y(c))}"/>`;
+      s += `<text x="${m.l - 8}" y="${f(Y(c) + fs * 0.33)}" text-anchor="end" font-size="${fs}">${d}</text>`;
+    });
+    const step = sm ? 4 : 2;
+    for (let yr = 2012; yr <= x1; yr += step) {
+      s += `<line class="tick" x1="${f(X(yr))}" x2="${f(X(yr))}" y1="${H - m.b}" y2="${H - m.b + 4}"/>`;
+      s += `<text x="${f(X(yr))}" y="${H - m.b + 18}" text-anchor="middle" font-size="${fs}">${yr}</text>`;
+    }
+    s += `<line class="spine" x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H - m.b + .5}"/>`;
+    s += `<line class="spine" x1="${m.l - .5}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}"/>`;
+    s += `<text class="lab" x="${f((m.l + W - m.r) / 2)}" y="${H - 6}" text-anchor="middle" font-size="${fs + 1}">year</text>`;
+    s += `<text class="lab" transform="translate(${fs + 2} ${f((m.t + H - m.b) / 2)}) rotate(-90)" text-anchor="middle" font-size="${fs + 1}">domain</text>`;
+
+    // steps-post: hold each value until the next x, then jump
+    const pts = TRAJ.map(p => ({ ...p, px: X(p.x), py: Y(p.c) }));
+    const ri = pts.findIndex(p => p.c === 4);
+    let d = `M${f(pts[0].px)} ${f(pts[0].py)}`;
+    for (let i = 1; i <= ri; i++) d += ` H${f(pts[i].px)} V${f(pts[i].py)}`;
+    const dNow = `M${f(pts[ri].px)} ${f(pts[ri].py)} H${f(pts.at(-1).px)}`;
+    s += `<g class="plot"><path class="line" d="${d}"/><path class="line now" d="${dNow}"/>`;
+    pts.forEach((p, i) => {
+      const label = `${p.when}, ${DOMAINS[p.c]}: ${p.what}`;
+      s += `<g class="pt${p.cur ? ' cur' : ''}" data-i="${i}" tabindex="0" role="img" aria-label="${esc(label)}">` +
+           `<circle class="hit" cx="${f(p.px)}" cy="${f(p.py)}" r="13"/>` +
+           `<circle class="dot" cx="${f(p.px)}" cy="${f(p.py)}" r="${p.cur ? 5 : 3.6}"/></g>`;
+    });
+    const last = pts.at(-1);
+    s += `<text class="nowlab" x="${f(last.px)}" y="${f(last.py - 11)}" text-anchor="middle" font-size="${fs}">now</text></g>`;
+
+    const old = $('svg', fig);
+    if (old) old.remove();
+    fig.insertAdjacentHTML('afterbegin',
+      `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="group" aria-label="Step plot of career domain against year, from engineering in 2011 to blockchain and AI now">${s}</svg>`);
+    plotG = $('.plot', fig);
+    $$('.pt', fig).forEach(g => {
+      const p = pts[+g.dataset.i];
+      const show = () => showTip(g, p, W);
+      g.addEventListener('pointerenter', show);
+      g.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hideTip(); });
+      g.addEventListener('pointerdown', e => { e.stopPropagation(); show(); });
+      g.addEventListener('focus', show);
+      g.addEventListener('blur', hideTip);
+    });
+  }
+  function showTip(g, p, W) {
+    $$('.pt.on', fig).forEach(n => n.classList.remove('on'));
+    g.classList.add('on');
+    tip.innerHTML = `<span class="k">${esc(p.when)} · ${esc(DOMAINS[p.c])}</span>${esc(p.what)}`;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let left = Math.min(Math.max(p.px - tw / 2, 0), W - tw);
+    let top = p.py - th - 14;
+    if (top < -8) top = p.py + 14;
+    tip.style.transform = `translate(${Math.round(left)}px, ${Math.round(top)}px)`;
+    tip.classList.add('show');
+  }
+  function hideTip() {
+    tip.classList.remove('show');
+    $$('.pt.on', fig).forEach(n => n.classList.remove('on'));
+  }
+  document.addEventListener('pointerdown', hideTip);
+  function revealChart() {
+    if (reduce || !plotG || !plotG.animate) return;
+    plotG.animate(
+      [{ clipPath: 'inset(-20px 100% -20px -20px)' }, { clipPath: 'inset(-20px -20px -20px -20px)' }],
+      { duration: 750, easing: 'cubic-bezier(.3,.6,.3,1)' });
+  }
+  drawChart();
+  if (document.fonts) document.fonts.ready.then(drawChart);
+  let rz;
+  addEventListener('resize', () => {
+    clearTimeout(rz);
+    rz = setTimeout(() => { if (Math.floor(fig.clientWidth) !== figW) { hideTip(); drawChart(); } }, 120);
+  });
+
+  // ---------- the pretend kernel ----------
+  const kernel = $('#kernel'), kstate = $('#kstate');
+  const cells = $$('.cell');
+  const codeCells = $$('.cell.code:not(.live)');
+  const live = $('.cell.live'), repl = $('#repl');
+  let counter = 0, pending = 0, chain = Promise.resolve();
+
+  function setBusy(delta) {
+    const was = pending > 0;
+    pending += delta;
+    const is = pending > 0;
+    if (was === is) return;
+    kernel.classList.toggle('busy', is);
+    kstate.textContent = is ? 'busy' : 'idle';
+  }
+  const setIn = (cell, v) => { const n = $('.in .n', cell); if (n) n.textContent = v; };
+  const setOut = (cell, v) => { const n = $('.out .n', cell); if (n) n.textContent = v; };
+
+  function enqueue(cell) {
+    if (cell === live && !repl.value.trim()) return chain;
+    cell.classList.add('queued');
+    setIn(cell, '*');
+    setBusy(+1);
+    chain = chain
+      .then(() => exec(cell))
+      .catch(err => console.error(err))
+      .then(() => { cell.classList.remove('queued', 'running'); setBusy(-1); });
+    return chain;
+  }
+
+  async function exec(cell) {
+    cell.classList.add('running', 'cleared');
+    const src = cell === live ? repl.value : null;
+    await wait(reduce ? 0 : (+cell.dataset.ms || 200));
+    const n = ++counter;
+    setIn(cell, n);
+    setOut(cell, n);
+    if (cell === live) respond(src, n);
+    cell.classList.remove('cleared');
+    if ('chart' in cell.dataset) revealChart();
+    await wait(reduce ? 0 : 50);
+  }
+
+  function runAll() { codeCells.forEach(enqueue); }
+
+  // first load: clear outputs, then execute top to bottom
+  if (root.classList.contains('pre-run')) {
+    codeCells.forEach(c => { c.classList.add('cleared'); setIn(c, ' '); });
+    root.classList.remove('pre-run');
+    setTimeout(runAll, 200);
+  } else {
+    counter = codeCells.length; // reduced motion: the static, already-run notebook is the final state
+  }
+
+  $('#runall').addEventListener('click', runAll);
+  $$('.run').forEach(b => b.addEventListener('click', e => {
+    const cell = b.closest('.cell');
+    enqueue(cell);
+    if (cell === live) repl.focus(); else cell.focus({ preventScroll: true });
+  }));
+
+  // Shift+Enter: run and select below. Ctrl/Cmd+Enter: run in place.
+  document.addEventListener('keydown', e => {
+    const cell = e.target.closest && e.target.closest('.cell');
+    if (!cell) return;
+    if (e.target === repl) {
+      if (e.key === 'Enter' && (e.shiftKey || e.ctrlKey || e.metaKey)) { e.preventDefault(); enqueue(live); }
+      else if (e.key === 'Escape') { e.preventDefault(); live.focus(); }
+      return;
+    }
+    if (e.target !== cell) return;
+    if (e.key === 'Enter' && (e.shiftKey || e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      if (cell.classList.contains('code')) enqueue(cell);
+      if (e.shiftKey) {
+        const next = cells[cells.indexOf(cell) + 1];
+        if (next === live) repl.focus(); else if (next) next.focus();
+      }
+    } else if (e.key === 'Enter' && cell === live) {
+      e.preventDefault(); repl.focus();
+    } else if ((e.key === 'ArrowDown' || e.key === 'j' || e.key === 'ArrowUp' || e.key === 'k')) {
+      const i = cells.indexOf(cell) + (e.key === 'ArrowDown' || e.key === 'j' ? 1 : -1);
+      if (cells[i]) { e.preventDefault(); cells[i].focus(); }
+    }
+  });
+
+  // ---------- the live cell ----------
+  live.hidden = false;
+  const grow = () => { repl.style.height = 'auto'; repl.style.height = repl.scrollHeight + 'px'; };
+  repl.addEventListener('input', grow);
+
+  const HELP = [
+    'Help on module daniel:', '',
+    'NAME', '    daniel - data scientist and AI engineer in London; blockchain analytics + AI', '',
+    'FUNCTIONS',
+    '    whoami()       who, where, what',
+    '    now()          what the day job looks like',
+    '    skills()       tools of the trade',
+    '    experience()   roles, as a DataFrame',
+    '    projects()     selected projects',
+    '    trajectory()   career by domain; try .plot()',
+    '    education()    degrees',
+    '    publications() thesis and papers',
+    '    contact()      how to reach me',
+    '    hire()         recommended'
+  ];
+  const outputOf = fn => $(`.cell[data-fn="${fn}"] .output`);
+  const KNOWN = {
+    'df.whoami()': 'whoami', 'df.now()': 'now', 'df.skills()': 'skills',
+    'df.experience()': 'experience', 'df.experience().sort_values("start",ascending=False)': 'experience',
+    "df.experience().sort_values('start',ascending=False)": 'experience',
+    'df.trajectory().plot()': 'trajectory', 'df.trajectory().plot(drawstyle="steps-post")': 'trajectory',
+    'df.education()': 'education', 'df.publications()': 'publications', 'df.contact()': 'contact'
+  };
+
+  function respond(src, n) {
+    const out = $('.output', live), prompt = $('.out .prompt', live);
+    out.replaceChildren();
+    prompt.textContent = '';
+    live.classList.add('has-out');
+    const code = src.trim().replace(/;+$/, '');
+    const key = code.replace(/\s+/g, '');
+    const value = node => { prompt.textContent = `Out[${n}]:`; out.append(node); };
+    const pre = (cls, lines) => {
+      const p = document.createElement('pre'); p.className = cls;
+      lines.forEach(t => { const s = document.createElement('span'); s.className = 'l'; s.textContent = t; p.append(s); });
+      return p;
+    };
+
+    if (key === 'help(df)' || key === 'help(daniel)' || key === 'df?' || key === '?df') {
+      return out.append(pre('stream', HELP));
+    }
+    if (key === 'df.projects()' || /^forpindf\.projects\(\):/.test(key)) {
+      return out.append(outputOf('projects').firstElementChild.cloneNode(true));
+    }
+    if (key in KNOWN) {
+      const idx = KNOWN[key];
+      if (idx === 'trajectory') {
+        // the figure already lives above; point at it rather than drawing a second one
+        value(pre('repr', [`<Axes: xlabel='year', ylabel='domain'>`]));
+        const note = pre('stream', ['# the figure is Out[] of the plot cell above; hover its points']);
+        note.style.color = 'var(--com)';
+        return out.append(note);
+      }
+      const clone = outputOf(idx).cloneNode(true);
+      clone.removeAttribute('id');
+      const frag = document.createDocumentFragment();
+      [...clone.children].forEach(c => frag.append(c));
+      return value(frag);
+    }
+    if (key === 'df.hire()') {
+      const p = document.createElement('pre'); p.className = 'repr';
+      p.append('"excellent choice. the kernel can\'t sign contracts, but ');
+      const a = document.createElement('a'); a.href = 'mailto:dafiuzadosil@gmail.com?subject=Hello%20Daniel'; a.textContent = 'dafiuzadosil@gmail.com';
+      p.append(a, ' can."');
+      return value(p);
+    }
+    if (key === 'df' || key === 'daniel') {
+      return value(pre('repr', [`<module 'daniel' (a data scientist in London)>`]));
+    }
+    if (key === 'importdanielasdf' || key === 'importdaniel') return; // already imported; nothing to show
+    let mm;
+    if ((mm = code.match(/^print\(\s*(["'])(.*)\1\s*\)$/))) return out.append(pre('stream', [mm[2]]));
+    if ((mm = code.match(/^(["'])(.*)\1$/))) return value(pre('repr', [`'${mm[2].replace(/'/g, "\\'")}'`]));
+    if (/^[\d\s+\-*/().%]+$/.test(code) && /\d/.test(code) && !code.includes('//')) {
+      try {
+        const v = Function(`"use strict"; return (${code})`)();
+        if (typeof v === 'number' && isFinite(v)) {
+          const txt = code.includes('/') && Number.isInteger(v) ? v.toFixed(1) : String(+v.toPrecision(15));
+          return value(pre('repr', [txt]));
+        }
+      } catch (_) { /* fall through to a SyntaxError */ }
+    }
+
+    // anything else: a friendly traceback
+    const first = code.split('\n')[0];
+    let ename, msg;
+    if ((mm = key.match(/^df\.([A-Za-z_]\w*)/))) { ename = 'AttributeError'; msg = `module 'daniel' has no attribute '${mm[1]}'`; }
+    else if ((mm = code.match(/^[A-Za-z_]\w*/)) && !KW.has(mm[0])) { ename = 'NameError'; msg = `name '${mm[0]}' is not defined`; }
+    else { ename = 'SyntaxError'; msg = 'invalid syntax (this kernel only knows a few tricks)'; }
+    const p = pre('stream err', [
+      `${ename.padEnd(42)}Traceback (most recent call last)`,
+      `Cell In[${n}], line 1`,
+      `----> 1 ${first.length > 60 ? first.slice(0, 57) + '...' : first}`,
+      '',
+      `${ename}: ${msg}`
+    ]);
+    p.firstChild.innerHTML = `<span class="ename">${ename}</span>${' '.repeat(Math.max(1, 42 - ename.length))}Traceback (most recent call last)`;
+    const last = p.children[4];
+    last.innerHTML = `<span class="ename">${ename}</span>: ${esc(msg)}`;
+    const hint = document.createElement('span'); hint.className = 'l hint';
+    hint.textContent = '# hint: try help(df), df.contact() or df.hire()';
+    p.append(hint);
+    out.append(p);
+  }
+})();
+</script>
+</body>
+</html>
