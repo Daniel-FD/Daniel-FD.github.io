@@ -319,7 +319,7 @@
     inter:      { font: '600 100px "Inter Tight"', track: -0.035, css: 'Inter+Tight:wght@600' },
     geist:      { font: '500 100px "Geist"', track: -0.04, css: 'Geist:wght@500' },
   };
-  const pick = NAME_FONTS[new URLSearchParams(location.search).get('font')] || NAME_FONTS.geist;
+  const pick = NAME_FONTS[new URLSearchParams(location.search).get('font')] || NAME_FONTS.source;
   const NAME_FONT = pick.font;
   if (pick.css) {
     const l = document.createElement('link'); l.rel = 'stylesheet';
