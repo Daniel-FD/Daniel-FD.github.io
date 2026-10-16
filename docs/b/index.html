@@ -277,7 +277,8 @@
 
 <footer>
   <hr>
-  Version B, a prototype. The current site lives at <a href="/">danielfiuza.com</a>.
+  Versions: <a href="/">A (current site)</a> · <b>B (flow)</b>.
+  Version B, a prototype.
 </footer>
 
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
@@ -309,7 +310,23 @@
   const VORTICITY = 2.2;
   const STREAK_PX = 18;                    // CSS px between smoke streaks
   const STREAK_W = 1.4;                    // CSS px streak half-width at the rake
-  const NAME_FONT = '700 100px "CMU Serif"';
+  // display face for the name; ?font= lets us compare candidates in place
+  const NAME_FONTS = {
+    cm:         { font: '700 100px "CMU Serif"', track: 0 },
+    source:     { font: '600 100px "Source Serif 4"', track: -0.01, css: 'Source+Serif+4:opsz,wght@60,600' },
+    newsreader: { font: '500 100px "Newsreader"', track: -0.015, css: 'Newsreader:opsz,wght@72,500' },
+    garamond:   { font: '500 100px "EB Garamond"', track: -0.01, css: 'EB+Garamond:wght@500' },
+    inter:      { font: '600 100px "Inter Tight"', track: -0.035, css: 'Inter+Tight:wght@600' },
+    geist:      { font: '500 100px "Geist"', track: -0.04, css: 'Geist:wght@500' },
+  };
+  const pick = NAME_FONTS[new URLSearchParams(location.search).get('font')] || NAME_FONTS.geist;
+  const NAME_FONT = pick.font;
+  if (pick.css) {
+    const l = document.createElement('link'); l.rel = 'stylesheet';
+    l.href = `https://fonts.googleapis.com/css2?family=${pick.css}&display=swap`;
+    var nameCss = new Promise(r => { l.onload = l.onerror = r; });
+    document.head.appendChild(l);
+  }
 
   // ---------- shaders ----------
   const VS = `#version 300 es
@@ -577,9 +594,11 @@
     const { lines, maxW, cx, cy, lh } = nameLayout(c.width, c.height);
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.font = NAME_FONT;
+    ctx.letterSpacing = '0px';
     const widest = Math.max(...lines.map(l => ctx.measureText(l).width));
     const fs = Math.min(100 * maxW / widest, c.height * (lines.length > 1 ? 0.2 : 0.3));
     ctx.font = NAME_FONT.replace('100px', fs + 'px');
+    ctx.letterSpacing = (pick.track * fs) + 'px';
     ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#fff';
     const D = ctx.measureText('D').actualBoundingBoxAscent;
@@ -809,7 +828,10 @@
     }
   }
 
-  const fontReady = Promise.race([document.fonts.load(NAME_FONT), new Promise(r => setTimeout(r, 2500))]);
+  const fontReady = Promise.race([
+    Promise.resolve(nameCss).then(() => document.fonts.load(NAME_FONT)),
+    new Promise(r => setTimeout(r, 2500))
+  ]);
   fontReady.then(() => {
     build();
     if (reduceMotion) {
